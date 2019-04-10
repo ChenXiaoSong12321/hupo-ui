@@ -1,3 +1,14 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [cml-ui](#cml-ui)
+    - [1 如何开发](#1-%E5%A6%82%E4%BD%95%E5%BC%80%E5%8F%91)
+    - [2 目录概述](#2-%E7%9B%AE%E5%BD%95%E6%A6%82%E8%BF%B0)
+    - [4 多端预览效果](#4-%E5%A4%9A%E7%AB%AF%E9%A2%84%E8%A7%88%E6%95%88%E6%9E%9C)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # cml-ui
 本仓库为 `cml` 框架的扩展组件库，提供丰富的组件能力
 
