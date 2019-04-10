@@ -116,7 +116,7 @@ class CDialog   {
 
   methods = {
     cancelTap() {
-      console.log(111)
+      console.log(222)
       this.$cmlEmit("show", { value: false });
       this.$cmlEmit("cancel");
     },
