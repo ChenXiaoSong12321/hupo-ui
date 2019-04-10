@@ -1,6 +1,6 @@
 {
   "name": "hupo-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "hupo ui基础组件库&接口能力",
   "scripts": {
     "build": "cml wx build && cml web build && cml weex build",
