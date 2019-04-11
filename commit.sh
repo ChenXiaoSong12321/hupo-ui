@@ -14,6 +14,5 @@ git commit -m "提交 $ls_date $1"
 git config --global credential.helper store
 git pull origin $branch
 git push origin $branch
-git push gitlab $branch
 
 echo "提交完成";

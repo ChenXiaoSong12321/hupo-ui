@@ -12,8 +12,7 @@ cml.config.merge({
   ],
   buildInfo: {
     wxAppId: '123456',
-    wxEntryPage: '',
-    webPath: 'https://api.chameleon.com/h5/commentinfo'
+    wxEntryPage: ''
   },
   wx: {
     dev: {

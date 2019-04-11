@@ -2,14 +2,14 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [cml-ui](#cml-ui)
+- [hupo-ui](#hupo-ui)
     - [1 如何开发](#1-%E5%A6%82%E4%BD%95%E5%BC%80%E5%8F%91)
     - [2 目录概述](#2-%E7%9B%AE%E5%BD%95%E6%A6%82%E8%BF%B0)
     - [4 多端预览效果](#4-%E5%A4%9A%E7%AB%AF%E9%A2%84%E8%A7%88%E6%95%88%E6%9E%9C)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# cml-ui
+# hupo-ui
 本仓库为 `cml` 框架的扩展组件库，提供丰富的组件能力
 
 详细见[cml扩展组件文档](https://cmljs.org/doc/component/expand/expand.html)
@@ -20,13 +20,15 @@
 {
   "base": {
       "usingComponents": {
-        "c-dialog": "cml-ui/components/c-dialog/c-dialog"
+        "h-dialog": "hupo-ui/components/h-dialog/h-dialog"
       }
   }
 }
 </script>
 ```
+
 ### 1 如何开发
+
 ```javascript
 npm install
 cml dev  //开始开发
@@ -84,18 +86,11 @@ cml dev  //开始开发
     │
     ├── router.js
     ├── router.config.json //路由配置
-    └── store
-        ├── action-types.js
-        ├── actions.js
-        ├── getter-types.js
-        ├── getters.js
-        ├── index.js
-        ├── mutation-types.js
-        ├── mutations.js
-        └── state.js
 
 ```
+
 开发步骤
+
 1. 查看index.cml文件，大概了解主页的配置和生效路径；
 2. 配置：
     只需要在 router.config.json 中配置对应路由页面
