@@ -15,6 +15,12 @@
       "mock": "index.php"
     },
     {
+      "name": "h-popup",
+      "url": "/pages/COMP/h-popup/h-popup",
+      "path": "/pages/COMP/h-popup/h-popup",
+      "mock": "index.php"
+    },
+    {
       "name": "cml.modal",
       "url": "/pages/API/modal/modal",
       "path": "/pages/API/modal/modal",
