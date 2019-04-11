@@ -1,14 +1,14 @@
 <template>
 <page title="c-toast演示">
   <view class="container">
-    <c-header title="c-toast"></c-header>
-    <c-toast duration="{{duration}}"
+    <h-header title="c-toast"></h-header>
+    <h-toast duration="{{duration}}"
             show="{{show}}"
             c-bind:show="changeShow"
             message="{{message}}"
             type="{{type}}"
             need-icon="{{needIcon}}"
-            mask="{{mask}}"></c-toast>
+            mask="{{mask}}"></h-toast>
     <button class="btn" c-bind:onclick="showLoading" text="loading toast"></button>
     <button class="btn" c-bind:onclick="showMask" text="loading toast with mask"></button>
     <button class="btn" c-bind:onclick="showSuccess" text="success toast"></button>
@@ -117,10 +117,10 @@ export default new CToast();
 {
     "base": {
         "usingComponents": {
-          "c-header": "../../components/c-header/c-header",
-          "c-toast": "/components/c-toast/c-toast"
+          "h-header": "../../components/h-header/h-header",
+          "h-toast": "/components/h-toast/h-toast"
         },
-        "navigationBarTitleText": "c-toast",
+        "navigationBarTitleText": "h-toast",
         "backgroundTextStyle": "dark",
         "backgroundColor": "#E2E2E2"
     }

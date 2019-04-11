@@ -1,10 +1,10 @@
 <template>
-<c-popup show="{{show}}" mask="{{mask}}">
+<h-popup show="{{show}}" mask="{{mask}}">
   <view class="toast-content">
     <image c-if="{{needIcon}}" src="{{typeImg}}" class="toast-icon" />
     <text class="toast-text">{{message}}</text>
   </view>
-</c-popup>
+</h-popup>
 </template>
 <script>
 class CToast   {
@@ -117,7 +117,7 @@ export default new CToast();
 {
     "base": {
         "usingComponents": {
-          "c-popup": "../c-popup/c-popup"
+          "h-popup": "../h-popup/h-popup"
         },
         "component": true
     }

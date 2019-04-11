@@ -1,8 +1,8 @@
 <template>
-<view c-if="{{show}}" class="c-popup" style="{{containerStyle}}">
+<view c-if="{{show}}" class="h-popup" style="{{containerStyle}}">
   <view  class="{{maskClass}}" c-bind:tap="closeevent"></view>
   <!-- c-catch禁止事件冒泡 -->
-  <view class="c-popup-content" style="{{contentStyle}}" c-catch:tap="contentTap">
+  <view class="h-popup-content" style="{{contentStyle}}" c-catch:tap="contentTap">
     <slot></slot>
   </view>
 </view>
@@ -72,13 +72,7 @@ class CPopup   {
   }
 
   watch = {
-    // show(newV, oldV) {
-    //   if (newV) {
-    //     this.showMask()
-    //   } else {
-    //     this.hideMask()
-    //   }
-    // }
+
   }
 
   methods = {
@@ -113,7 +107,7 @@ class CPopup   {
 export default new CPopup();
 </script>
 <style scoped>
-.c-popup {
+.h-popup {
   position: fixed;
   z-index: 10000;
   top: 0;

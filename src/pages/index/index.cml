@@ -50,44 +50,11 @@
                 <text>以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。</text>
               </view>
             </view>
-            <!-- <view class="index-bd">
-              <view class="kind-list">
-
-                <view c-for="{{apiList}}" c-for-item="item" c-for-index="i">
-                  <view class="kind-list-item">
-                    <view id="{{item.cid}}" class="{{item.open ? 'kind-list-item-hd-show' : 'kind-list-item-hd'}}" c-bind:tap="kindToggle">
-                      <view class="kind-list-text">
-                        <text>{{item.name}}</text>
-                      </view>
-                      <image class="kind-list-img" src="{{item.src}}"></image>
-                    </view>
-                    <view class="{{item.open ? 'kind-list-item-bd-show' : 'kind-list-item-bd'}}">
-                      <view class="{{item.open ? 'navigator-box-show' : 'navigator-box'}}">
-                        <view c-for="{{item.pages}}" c-for-item="page" c-for-index="j">
-                          <view data-routepath="{{page.url}}" class="navigator" c-bind:tap="routeTo">
-                            <view class="navigator-text">
-                              <text>{{page.name}}</text>
-                            </view>
-                            <image class="navigator-arrow" src="{{arrowIcon}}"></image>
-                          </view>
-                        </view>
-                      </view>
-                    </view>
-                  </view>
-                </view>
-
-              </view>
-            </view> -->
           </view>
         </view>
       </scroller>
     </view>
-    <!-- <view class="index-tab">
-      <view class="tab-item" c-for="{{tabList}}" c-for-item="item" c-bind:tap="tabItemClick" c-for-index="i" data-index="{{i}}">
-        <image class="tab-item-icon" src="{{item.selected ? item.selectedIconPath : item.iconPath}}"></image>
-        <text>{{item.title}}</text>
-      </view>
-    </view> -->
+
   </view>
 </page>
 </template>
@@ -105,27 +72,12 @@ routes.forEach(route => {
 class Demo {
   data = {
     comList: [
-      // {
-      //   id: "view",
-      //   name: "布局容器",
-      //   open: false,
-      //   pages: [
-      //   ],
-      //   src: require(`../../assets/images/component/kind/view.png`)
-      // },
       {
         cid: "content",
         name: "基础内容",
         open: false,
         pages: [
-          routeObj["c-toast"],
-          routeObj["c-dialog"],
-          routeObj["c-popup"],
-          routeObj["c-tip"],
-          routeObj["c-actionsheet"],
-          // routeObj['c-tab'],
-          routeObj["c-refresh"],
-          routeObj["c-loading"],
+          routeObj["h-toast"],
         ],
         src: require(`../../assets/images/component/kind/content.png`)
       },
@@ -134,11 +86,6 @@ class Demo {
         name: "表单组件",
         open: false,
         pages: [
-          routeObj["c-picker"],
-          routeObj["c-picker-panel"],
-          routeObj["c-picker-item"],
-          routeObj["c-checkbox-group"],
-          routeObj["c-radio-group"]
         ],
         src: require(`../../assets/images/component/kind/form.png`)
       },
@@ -147,8 +94,6 @@ class Demo {
         name: "导航",
         open: false,
         pages: [
-          routeObj["c-tab"],
-          routeObj["c-tabbar"]
         ],
         src: require(`../../assets/images/component/kind/nav.png`)
       }
@@ -161,27 +106,6 @@ class Demo {
         pages: [routeObj["cml.modal"], routeObj["cml.toast"]],
         src: require(`../../assets/images/api/kind/page.png`)
       },
-      // {
-      //   id: "network",
-      //   name: "网络",
-      //   open: false,
-      //   pages: [routeObj["cml.post"], routeObj["cml.get"]],
-      //   src: require(`../../assets/images/api/kind/network.png`)
-      // },
-      // {
-      //   id: "storage",
-      //   name: "数据",
-      //   open: false,
-      //   pages: [routeObj["cml.storage"]],
-      //   src: require(`../../assets/images/api/kind/storage.png`)
-      // },
-      // {
-      //   id: "weex",
-      //   name: "weex端扩展能力",
-      //   open: false,
-      //   pages: [routeObj["cml.weex"]],
-      //   src: require(`../../assets/images/api/kind/device.png`)
-      // }
     ],
     comLogoSrc: require(`../../assets/images/component/kind/logo.png`),
     apiLogoSrc: require(`../../assets/images/api/kind/logo.png`),
@@ -215,10 +139,6 @@ class Demo {
     },
     bodyComputedStyl() {
       let styl = "";
-
-      // if (isWeex()) {
-      //   styl = "top: 88cpx;";
-      // }
 
       return styl;
     }
