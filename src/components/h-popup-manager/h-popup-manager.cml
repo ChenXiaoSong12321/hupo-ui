@@ -1,5 +1,5 @@
 <template>
-<view c-if="{{show}}" class="h-popup" style="{{containerStyle}}">
+<view c-if="{{show}}" class="h-popup {{ show ? 'van-popup-wrap--show' : '' }}" style="{{containerStyle}}">
   <view  class="{{maskClass}} {{ transitionIn ? 'van-popup--in' : 'van-popup--leave' }}" c-bind:tap="closeevent"></view>
   <!-- c-catch禁止事件冒泡 -->
   <view class="h-popup-content {{ transitionIn ? 'van-popup--in' : 'van-popup--leave' }}" style="{{contentStyle}}" c-catch:tap="contentTap">
@@ -8,8 +8,6 @@
 </view>
 </template>
 <script>
-import cml from 'chameleon-api';
-const createAnimation = cml.createAnimation;
 
 class CPopup {
   props = {
@@ -32,7 +30,7 @@ class CPopup {
   }
 
   data = {
-    animationData: createAnimation()
+    transitionIn:false
   }
 
   computed = {
@@ -48,9 +46,6 @@ class CPopup {
 
       return s
     },
-    // show(value){
-    //   value?
-    // },
     contentStyle() {
       let style = "position: absolute;left:0;right:0;top:0;bottom:0;"
       switch (this.position) {
@@ -75,46 +70,29 @@ class CPopup {
   }
 
   watch = {
-
+    show(value){
+      value ? this.show() : this.hide()
+    },  
   }
 
   methods = {
     closeevent(){
       this.$cmlEmit("close");
     },
-    contentTap(){},
-    showMask() {
-      this.animationData = createAnimation()
-        .opacity(0.4)
-        .backgroundColor('#25262d')
-        .step({
-          duration: 300,
-          timingFunction: 'linear',
-          delay: 0
-        })
-        .export()
+    show(){
+
     },
-    hideMask() {
-      this.animationData = createAnimation()
-        .opacity(0)
-        .step({
-          duration: 300,
-          timingFunction: 'linear',
-          delay: 0
-        })
-        .export()
-    }
+    hide(){
+
+    },
+    contentTap(){}
   }
 }
 
 export default new CPopup();
 </script>
-<style scoped lang="scss">
-@import '../../assets/scss/_output.scss';
 
-@include b(popup){
-
-}
+<style>
 .h-popup {
   position: fixed;
   z-index: 10000;
@@ -143,8 +121,8 @@ export default new CPopup();
 </style>
 <script cml-type="json">
 {
-    "base": {
-        "component": true
-    }
+  "base": {
+    "component": true
+  }
 }
 </script>

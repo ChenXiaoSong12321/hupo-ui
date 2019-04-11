@@ -1,6 +1,6 @@
 <template>
   <view class="picker-panel" c-if="{{show}}">
-    <c-popup mask="{{true}}" show="{{show}}" >
+    <h-popup mask="{{true}}" show="{{show}}" >
       <view class="panel-wrap" style="{{wraperStyle}}">
         <view class="panel-header" style="{{headerStyle}}">
             <view class="left-wrap" c-bind:tap="cancelclick">
@@ -13,7 +13,7 @@
         </view>
         <slot></slot>
       </view>
-    </c-popup>
+    </h-popup>
 </view>
 </template>
 <script>
@@ -137,7 +137,7 @@
 {
   "base": {
     "usingComponents": {
-      "c-popup": "../c-popup/c-popup"
+      "h-popup": "../h-popup/h-popup"
     },
     "component": true
   }

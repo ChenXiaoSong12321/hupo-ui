@@ -1,5 +1,5 @@
 <template>
-<c-popup show="{{show}}" mask="{{mask}}">
+<h-popup show="{{show}}" mask="{{mask}}">
   <view class="dialog-content">
     <!-- <slot name="header"></slot> -->
     <view class="dialog-close" c-if="{{showClose}}" c-bind:tap="closeTap">
@@ -24,7 +24,7 @@
       </view>     
     <!-- </slot> -->
   </view>
-</c-popup>
+</h-popup>
 </template>
 <script>
 import { obj2str } from '../../assets/js/style'
@@ -242,7 +242,7 @@ export default new CDialog();
 {
     "base": {
         "usingComponents": {
-          "c-popup": "../c-popup/c-popup"
+          "h-popup": "../h-popup/h-popup"
         },
         "component": true
     }
