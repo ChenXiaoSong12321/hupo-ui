@@ -1,14 +1,24 @@
 <template>
-<view c-if="{{show}}" class="h-popup {{ show ? 'van-popup-wrap--show' : '' }}" style="{{containerStyle}}">
-  <view  class="{{maskClass}} {{ transitionIn ? 'van-popup--in' : 'van-popup--leave' }}" c-bind:tap="closeevent"></view>
-  <!-- c-catch禁止事件冒泡 -->
-  <view class="h-popup-content {{ transitionIn ? 'van-popup--in' : 'van-popup--leave' }}" style="{{contentStyle}}" c-catch:tap="contentTap">
-    <slot></slot>
+  <view
+    c-if="{{show}}"
+    class="h-popup {{ show ? 'h-popup-wrap--show' : '' }}"
+    style="{{containerStyle}}"
+  >
+    <view
+      class="h-popup--mask {{mask?'h-popup--has-mask':''}} {{ transitionIn ? 'h-popup--in' : 'h-popup--leave' }}"
+      c-bind:tap="closeevent"
+    ></view>
+    <!-- c-catch禁止事件冒泡 -->
+    <view
+      class="h-popup--content {{ transitionIn ? 'h-popup--in' : 'h-popup--leave' }} {{ position ? 'h-popup--' + position : 'h-popup--center' }}"
+      style="{{contentStyle}}"
+      c-catch:tap="contentTap"
+    >
+      <slot></slot>
+    </view>
   </view>
-</view>
 </template>
 <script>
-
 class CPopup {
   props = {
     mask: {
@@ -25,99 +35,78 @@ class CPopup {
     },
     position: {
       type: String,
-      default: ''
+      default: ""
     }
-  }
+  };
 
   data = {
-    transitionIn:false
-  }
+    transitionIn: false
+  };
 
   computed = {
-    maskClass() {
-      return this.mask ? "has-mask" : "no-mask";
-    },
     containerStyle() {
-      let s = ''
+      let s = "";
 
       if (this.center) {
-         s += 'align-items:center;justify-content:center;'
+        s += "align-items:center;justify-content:center;";
       }
 
-      return s
+      return s;
     },
     contentStyle() {
-      let style = "position: absolute;left:0;right:0;top:0;bottom:0;"
+      let style = "position: absolute;left:0;right:0;top:0;bottom:0;";
       switch (this.position) {
-        case 'top':
-          style = style.replace('bottom:0;', 'display:flex;flex-direction:column;');
+        case "top":
+          style = style.replace("bottom:0;","display:flex;flex-direction:column;");
           break;
-        case 'right':
-          style = style.replace('left:0;', 'display:flex;flex-direction:row;');
+        case "right":
+          style = style.replace("left:0;", "display:flex;flex-direction:row;");
           break;
-        case 'bottom':
-          style = style.replace('top:0;', 'display:flex;flex-direction:column;');
+        case "bottom":
+          style = style.replace("top:0;","display:flex;flex-direction:column;");
           break;
-        case 'left':
-          style = style.replace('right:0;', 'display:flex;flex-direction:row;');
+        case "left":
+          style = style.replace("right:0;", "display:flex;flex-direction:row;");
           break;
-        default: 
-          style="position:relative;";
+        default:
+          style = "position:relative;";
           break;
       }
       return style;
     }
-  }
+  };
 
   watch = {
-    show(value){
-      value ? this.show() : this.hide()
-    },  
-  }
+    show(value) {
+      value ? this.showMask() : this.hideMask();
+    }
+  };
 
   methods = {
-    closeevent(){
+    closeevent() {
       this.$cmlEmit("close");
     },
-    show(){
-
+    showMask() {
+      this.show = true;
+      setTimeout(() => {
+        this.transitionIn = true;
+      }, 50);
     },
-    hide(){
-
+    hideMask() {
+      this.transitionIn = false;
+      setTimeout(() => {
+        this.show = false;
+      }, 300);
     },
-    contentTap(){}
-  }
+    contentTap() {}
+  };
 }
 
 export default new CPopup();
 </script>
 
-<style>
-.h-popup {
-  position: fixed;
-  z-index: 10000;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-}
-.has-mask {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(37, 38, 45, .4);
-}
-.no-mask {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
+<style lang="less">
+@import "./h-popup-manager.less";
 </style>
 <script cml-type="json">
 {

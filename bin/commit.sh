@@ -3,6 +3,8 @@
 function git-branch-name {
   git symbolic-ref --short -q HEAD
 }
+
+cd ../
 branch=`git-branch-name`
 echo "执行提交"
 git config --global user.email "448216252@qq.com"
@@ -15,4 +17,4 @@ git pull origin $branch
 git push origin $branch
 git push github $branch
 
-echo "提交完成";
+echo "提交完成"

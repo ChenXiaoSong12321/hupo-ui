@@ -78,6 +78,7 @@ class Demo {
         open: false,
         pages: [
           routeObj["h-toast"],
+          routeObj["h-popup"],
         ],
         src: require(`../../assets/images/component/kind/content.png`)
       },
