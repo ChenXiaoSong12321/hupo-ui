@@ -78,6 +78,7 @@ class CPopup {
 
   watch = {
     show(value) {
+      console.log(this,'h-popup-manager');
       value ? this.showMask() : this.hideMask();
     }
   };

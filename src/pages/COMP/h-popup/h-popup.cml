@@ -1,7 +1,9 @@
 <template>
 <page title="h-popup演示">
   <h-header title="h-popup"></h-header>
-  <h-popup-manager show="{{show}}" mask="{{mask}}" c-bind:close="closePopup"></h-popup-manager>
+  <h-popup-manager show="{{show}}" mask="{{mask}}" c-bind:close="closePopup">
+    aaa
+  </h-popup-manager>
   <h-popup-manager show="{{show2}}" mask="{{mask}}" c-bind:close="closePopup" position="{{position}}">
     <view style="{{contentStyle}}"><text style="font-size: 28cpx;">content</text></view>
   </h-popup-manager>
@@ -50,6 +52,7 @@ class CPopup {
 
   methods = {
     showPopup() {
+      console.log(this,'h-popup')
       this.show = true;
     },
     showPopup2() {
@@ -101,7 +104,6 @@ export default new CPopup();
     "base": {
         "usingComponents": {
           "h-header": "../../components/h-header/h-header",
-          "h-popup": "/components/h-popup/h-popup",
           "h-popup-manager": "/components/h-popup-manager/h-popup-manager",
         },
         "navigationBarTitleText": "h-popup",

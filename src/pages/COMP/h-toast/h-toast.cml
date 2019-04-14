@@ -115,14 +115,14 @@ export default new CToast();
 </style>
 <script cml-type="json">
 {
-    "base": {
-        "usingComponents": {
-          "h-header": "../../components/h-header/h-header",
-          "h-toast": "/components/h-toast/h-toast"
-        },
-        "navigationBarTitleText": "h-toast",
-        "backgroundTextStyle": "dark",
-        "backgroundColor": "#E2E2E2"
-    }
+  "base": {
+    "usingComponents": {
+      "h-header": "../../components/h-header/h-header",
+      "h-toast": "/components/h-toast/h-toast"
+    },
+    "navigationBarTitleText": "h-toast",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#E2E2E2"
+  }
 }
 </script>
