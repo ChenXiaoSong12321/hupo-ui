@@ -1,4 +1,4 @@
-class HButtonBaseMixins {
+class HButtonMixins {
   props = {
     customClass: String,
     customStyle: String,
@@ -52,15 +52,10 @@ class HButtonBaseMixins {
         await this.$throttle(this.throttle)
       }
       this.$cmlEmit(type, data)
-    },
-    onclick(e) {
-      const { disabled,openType } = this
-      if (disabled || openType) return;
-      console.log('click')
-      this.__emit__('onclick',e);
     }
+    
   }
 
 }
 
-export default HButtonBaseMixins
+export default HButtonMixins

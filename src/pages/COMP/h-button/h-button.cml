@@ -1,9 +1,9 @@
 <template>
-<page title="h-toast演示">
+<page title="h-button演示">
   <view class="container">
-    <h-header title="h-button"></h-header>
+    <!-- <h-header title="h-button"></h-header> -->
 
-    <h-button class="btn" c-bind:onclick="showLoading" size="max">max</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" size="max" type="primary" radius>max</h-button>
     <h-button class="btn" c-bind:onclick="showLoading" size="large">large</h-button>
     <h-button class="btn" c-bind:onclick="showLoading" size="medium">medium</h-button>
     <h-button class="btn" c-bind:onclick="showLoading" size="small">small</h-button>
@@ -11,6 +11,7 @@
 
     <h-button class="btn" c-bind:onclick="showLoading" type="primary" plain>plain</h-button>
     <h-button class="btn" c-bind:onclick="showLoading" type="primary" disabled>disabled</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" type="primary" radius="{{false}}">no radius</h-button>
 
     <h-button class="btn" c-bind:onclick="showLoading" type="primary" >primary</h-button>
     <h-button class="btn" c-bind:onclick="showLoading" type="preheat" >preheat</h-button>
@@ -22,12 +23,16 @@
 </page>
 </template>
 <script>
-class CToast {
-
+class HButton {
+  methods= {
+    showLoading() {
+      console.log('click button')
+    }
+  }
 
 }
 
-export default new CToast();
+export default new HButton();
 </script>
 <style scoped>
 .container {
