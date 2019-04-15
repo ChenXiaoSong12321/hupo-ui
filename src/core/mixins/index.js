@@ -1,3 +1,4 @@
+import difference from './difference.interface'
 function copyProperties(target, source) {
   for (const key of Reflect.ownKeys(source)) {
     if (key !== 'constructor' &&
@@ -28,7 +29,10 @@ export default function mix(...mixins) {
         const mixin = new Mixin()
         this.composeLifetimes(mixin) // 合并生命周期
         properties.forEach(propertie => {
-          copyProperties(this[propertie], mixin[propertie] || {})
+          if(mixin[propertie]){
+            if(!this[propertie])this[propertie] = {}
+            copyProperties(this[propertie], mixin[propertie])
+          }
         })
       }
     }
@@ -62,7 +66,6 @@ export default function mix(...mixins) {
     destroyed() {
       this._lifetimes('destroyed').apply(this, arguments)
     }
-    data = {}
     methods = {
       _lifetimes(key) {
         // 执行缓存生命周期
@@ -70,10 +73,22 @@ export default function mix(...mixins) {
           const methodsList = lifetimes[key]
           if (methodsList && methodsList.length > 0)compose(...methodsList.reverse().map(f => f.bind(this)))(...args)
         }
+      },
+      $viewportCommonGetCurrentPage() {
+        difference.viewportCommonGetCurrentPage()
+      },
+      $throttle(gapTime = 500) {
+        return new Promise((resolve, reject) => {
+          const nowTime = +new Date()
+          if (!this.__lastTapTime__ || nowTime - this.__lastTapTime__ > gapTime) {
+            this.__lastTapTime__ = nowTime
+            resolve()
+          } else {
+            reject('throttle')
+          }
+        })
       }
     }
-    computed = {}
-    watch = {}
   }
 
   return Mix

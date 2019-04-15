@@ -1,0 +1,91 @@
+<template>
+  <h-button-base form-type="{{openType ? '' : 'submit'}}" 
+    customClass="customClass"
+    customStyle="customStyle"
+    radius="radius"
+    size="size"
+    plain="plain"
+    throttle="throttle"
+    disabled="disabled"
+    type="type"
+    openType="openType"
+    opacity="opacity">
+    <block wx:if="{{type == 'none'}}">
+      <slot></slot>
+    </block>
+    <block wx:else>
+      <slot></slot>
+    </block>
+  </h-button-base>
+</template>
+
+<script>
+
+class Button {
+  props = {
+    customClass: String,
+    customStyle: String,
+    radius: {
+      type: Boolean,
+      value: true
+    },
+    size: {
+      type: String,
+      value: 'large'
+    },
+    plain: {
+      type: Boolean,
+      value: false
+    },
+    throttle: {
+      type: Number,
+      value: 500 // 当throttle <= 0，无防暴力点击
+    },
+    disabled: {
+      type: Boolean,
+      value: false
+    },
+    type: {
+      type: String,
+      value: 'primary'
+    },
+    openType: String,
+    opacity: {
+      type: Boolean,
+      value: false
+    }
+  }
+  data = {
+    
+  }
+
+  computed = {
+   
+   
+  }
+  watch  = {
+    
+  }
+
+  methods = {
+    
+  }
+  mounted() {
+  }
+}
+
+export default new Button();
+</script>
+<style lang="less">
+@import './h-button.less';
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "component": true,
+    "usingComponents": {
+      "h-button-base": "../components/h-button-base/h-button-base"
+    }
+  }
+}
+</script>

@@ -1,0 +1,54 @@
+<template>
+<page title="h-toast演示">
+  <view class="container">
+    <h-header title="h-button"></h-header>
+
+    <h-button class="btn" c-bind:onclick="showLoading" size="max">max</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" size="large">large</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" size="medium">medium</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" size="small">small</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" size="mini">mini</h-button>
+
+    <h-button class="btn" c-bind:onclick="showLoading" type="primary" plain>plain</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" type="primary" disabled>disabled</h-button>
+
+    <h-button class="btn" c-bind:onclick="showLoading" type="primary" >primary</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" type="preheat" >preheat</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" type="muted" >muted</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" type="forbidden" >forbidden</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" type="member" >member</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" type="specialmember" >specialmember</h-button>
+  </view>
+</page>
+</template>
+<script>
+class CToast {
+
+
+}
+
+export default new CToast();
+</script>
+<style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: #f8f8f8;
+}
+.btn {
+  margin-top: 20cpx;
+}
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-button": "/components/h-button/h-button"
+    },
+    "navigationBarTitleText": "h-button",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#E2E2E2"
+  }
+}
+</script>

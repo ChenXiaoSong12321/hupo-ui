@@ -1,0 +1,11 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+<form bindsubmit="handleFormSubmit" report-submit>
+  <button type="keng" form-type="{{openType ? '' : 'submit'}}" class="hupo-button {{ type == 'none' ? 'hupo-button--none' : utils.bem('button', [type,size]) }} {{stateClass}} {{radius?'is-radius':''}} {{customClass}}" disabled="{{disabled}}" open-type="{{openType}}" style="{{_customStyle||''}}" bindtap="handleTap" bindcontact="handleContact" bindgetuserinfo="handleGetuserinfo" bindgetphonenumber="handleGetphonenumber" binderror="handleError" bindopensetting="handleOpensetting">
+    <block wx:if="{{type == 'none'}}">
+      <slot></slot>
+    </block>
+    <block wx:else>
+      <slot></slot>
+    </block>
+  </button>
+</form>

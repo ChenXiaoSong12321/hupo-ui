@@ -21,6 +21,12 @@
       "mock": "index.php"
     },
     {
+      "name": "h-button",
+      "url": "/pages/COMP/h-button/h-button",
+      "path": "/pages/COMP/h-button/h-button",
+      "mock": "index.php"
+    },
+    {
       "name": "cml.modal",
       "url": "/pages/API/modal/modal",
       "path": "/pages/API/modal/modal",
