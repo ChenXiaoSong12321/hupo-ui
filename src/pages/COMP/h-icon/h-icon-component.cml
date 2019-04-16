@@ -1,0 +1,34 @@
+<template>
+  <view style="{{customStyle}}" class="hp-icon {{className}}"></view>
+</template>
+
+<script>
+class HIcon {
+ props = {
+    className: {
+      type: String,
+      default: ''
+    },
+    customStyle: {
+      type: String,
+      default: ''
+    }
+  }
+}
+
+export default new HIcon();
+</script>
+<style lang="less">
+@import './_iconfont.less';
+.hp-icon {
+  .icon()
+}
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {},
+    "component": true
+  }
+}
+</script>

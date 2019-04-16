@@ -2,7 +2,7 @@
 <page title="h-icon演示">
   <view class="container">
     <h-header title="h-icon"></h-header>
-    
+    <h-icon className="el-icon-hp-tuikuan2"></h-icon>
   </view>
 </page>
 </template>
@@ -34,7 +34,7 @@ export default new HButton();
   "base": {
     "usingComponents": {
       "h-header": "../../components/h-header/h-header",
-      "h-icon": "/components/h-icon/h-icon"
+      "h-icon": "./h-icon-component"
     },
     "navigationBarTitleText": "h-icon",
     "backgroundTextStyle": "dark",
