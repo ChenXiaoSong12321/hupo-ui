@@ -1,8 +1,8 @@
 <template>
 <h-popup-manager show="{{show}}" mask="{{mask}}">
-  <view class="toast-content">
-    <image c-if="{{needIcon}}" src="{{typeImg}}" class="toast-icon" />
-    <text class="toast-text">{{message}}</text>
+  <view class="h-toast-content">
+    <image c-if="{{needIcon}}" src="{{typeImg}}" class="h-toast-icon" />
+    <text class="h-toast-text">{{message}}</text>
   </view>
 </h-popup-manager>
 </template>
@@ -19,7 +19,7 @@ class HToast   {
     },
     duration: {
       type: Number,
-      default: 30000
+      default: 3000
     },
     show: {
       type: Boolean,
@@ -61,56 +61,36 @@ class HToast   {
       }
     }
   }
-
-  methods = {
-  }
-
-  beforeCreate() {
-  }
-
-  created() {
-  }
-
-  beforeMount() {
-  }
-
-  mounted() {
-  }
-
-  beforeDestroy() {
-  }
-
-  destroyed() {
-  }
 }
 
 export default new HToast();
 </script>
-<style scoped>
-.toast-content {
-  background: rgba(37, 38, 45, 0.9);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 26cpx 32cpx;
-  color: #ccc;
-  background-color: rgba(37, 38, 45, 0.9);
-  border-radius: 4cpx;
-}
-.toast-icon {
-  width: 48cpx;
-  height: 48cpx;
-  margin-right: 16cpx;
-}
-.toast-text {
-  font-size: 32cpx;
-  color: #fff;
-  flex: 1;
-  line-height: 40cpx;
-  font-size: 28cpx;
-  max-width: 600cpx;
-  max-height: 80cpx;
-  overflow: hidden;
+<style lang="less">
+.h-toast{
+  &-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 26cpx 32cpx;
+    color: #ccc;
+    background-color: rgba(37, 38, 45, 1);
+    border-radius: 4cpx;
+  }
+  &-icon {
+    width: 48cpx;
+    height: 48cpx;
+    margin-right: 16cpx;
+  }
+  &-text {
+    font-size: 32cpx;
+    color: #fff;
+    flex: 1;
+    line-height: 40cpx;
+    font-size: 28cpx;
+    max-width: 600cpx;
+    max-height: 80cpx;
+    overflow: hidden;
+  }
 }
 </style>
 <script cml-type="json">
