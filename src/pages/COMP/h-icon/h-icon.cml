@@ -1,0 +1,44 @@
+<template>
+<page title="h-icon演示">
+  <view class="container">
+    <h-header title="h-icon"></h-header>
+    
+  </view>
+</page>
+</template>
+<script>
+class HButton {
+  methods= {
+    showLoading() {
+      console.log('click button')
+    }
+  }
+
+}
+
+export default new HButton();
+</script>
+<style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+.btn {
+  margin-top: 20cpx;
+}
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-header": "../../components/h-header/h-header",
+      "h-icon": "/components/h-icon/h-icon"
+    },
+    "navigationBarTitleText": "h-icon",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#E2E2E2"
+  }
+}
+</script>

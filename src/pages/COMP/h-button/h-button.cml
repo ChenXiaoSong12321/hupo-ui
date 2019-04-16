@@ -1,7 +1,7 @@
 <template>
 <page title="h-button演示">
   <view class="container">
-    <!-- <h-header title="h-button"></h-header> -->
+    <h-header title="h-button"></h-header>
 
     <h-button class="btn" c-bind:onclick="showLoading" size="max" type="primary" radius>max</h-button>
     <h-button class="btn" c-bind:onclick="showLoading" size="large">large</h-button>
@@ -17,6 +17,8 @@
     <h-button class="btn" c-bind:onclick="showLoading" type="forbidden" >forbidden</h-button>
     <h-button class="btn" c-bind:onclick="showLoading" type="member" >member</h-button>
     <h-button class="btn" c-bind:onclick="showLoading" type="specialmember" >specialmember</h-button>
+
+    <h-button class="btn" c-bind:onclick="showLoading" openType="getUserInfo">getUserInfo</h-button>
   </view>
 </page>
 </template>
@@ -37,7 +39,7 @@ export default new HButton();
   display: flex;
   flex-direction: column;
   flex: 1;
-  background: #f8f8f8;
+  align-items: center;
 }
 .btn {
   margin-top: 20cpx;
@@ -47,6 +49,7 @@ export default new HButton();
 {
   "base": {
     "usingComponents": {
+      "h-header": "../../components/h-header/h-header",
       "h-button": "/components/h-button/h-button"
     },
     "navigationBarTitleText": "h-button",

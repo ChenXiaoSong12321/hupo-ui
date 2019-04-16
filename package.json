@@ -3,7 +3,8 @@
   "version": "0.0.2",
   "description": "hupo ui基础组件库&接口能力",
   "scripts": {
-    "build": "cml wx build && cml web build && cml weex build",
+    "build": "cml wx build && cml web build",
+    "build-web": "cml web build",
     "publish": "sh ./bin/build.sh && cd package && npm publish"
   },
   "author": "Hupo-Team",

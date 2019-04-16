@@ -26,6 +26,7 @@ import mix from '../../core/mixins/index';
 class HButton implements ButtonInterface{
   methods = {
     getuserinfo(e){
+      console.log(e,'getuserinfo')
       this.__emit__('getuserinfo',e.detail);
     },
     contact(e){
@@ -41,13 +42,13 @@ class HButton implements ButtonInterface{
       this.__emit__('opensetting',e.detail);
     },
     onclick(e) {
+      console.log('click')
       const { disabled,openType } = this
       if (disabled || openType) return;
-      console.log('click')
       this.__emit__('onclick',e);
     },
     async handleFormSubmit(event) {
-      console.log(event,'handleFormSubmit')
+      // console.log(event,'handleFormSubmit')
       // event.currentTarget.dataset = Object.assign({}, event.detail.target.dataset)
       // const tap = event.detail.target.dataset.tap
       // if (tap) {

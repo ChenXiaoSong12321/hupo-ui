@@ -1,0 +1,4 @@
+@import '../../scss/common/iconfont';
+.hp-icon {
+  @include icon();
+}

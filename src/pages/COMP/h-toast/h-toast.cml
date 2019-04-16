@@ -79,25 +79,7 @@ class CToast {
       this.show = true;
     }
   }
-  
 
-  beforeCreate() {
-  }
-
-  created() {
-  }
-
-  beforeMount() {
-  }
-
-  mounted() {
-  }
-
-  beforeDestroy() {
-  }
-
-  destroyed() {
-  }
 }
 
 export default new CToast();
@@ -107,7 +89,6 @@ export default new CToast();
   display: flex;
   flex-direction: column;
   flex: 1;
-  background: #f8f8f8;
 }
 .btn {
   margin-top: 20cpx;

@@ -1,0 +1,94 @@
+<template>
+<page title="h-popup-manager演示">
+  <view class="container">
+    <h-header title="h-popup-manager"></h-header>
+    
+    <h-popup-manager show="{{show}}" mask="{{mask}}" c-bind:close="closePopup">hhhhh</h-popup-manager>
+    <h-popup-manager show="{{show2}}" mask="{{mask}}" c-bind:close="closePopup" position="{{position}}">
+      <view style="{{contentStyle}}"><text style="font-size: 28cpx;">content</text></view>
+    </h-popup-manager>
+    <button c-bind:onclick="showPopup" class="btn" text="show popup"></button>
+    <button c-bind:onclick="showPopup2('left')" class="btn" text="left"></button>
+    <button c-bind:onclick="showPopup2('top')" class="btn" text="top"></button>
+    <button c-bind:onclick="showPopup2('right')" class="btn" text="right"></button>
+    <button c-bind:onclick="showPopup2('bottom')" class="btn" text="bottom"></button>
+    <button c-bind:onclick="showPopup2('center')" class="btn" text="center"></button>
+    </view>
+</page>
+</template>
+<script>
+class PopupManager {
+   data = {
+    mask: true,
+    show: false,
+    show2: false,
+    position: '',
+    pos: ['left', 'top', 'right', 'bottom', ''],
+    posi: 0
+  }  
+  computed = {
+    contentStyle() {
+      let style;
+      switch (this.position) {
+        case 'left':
+          style = 'width:200cpx;background:#fff;'
+          break;
+        case 'top':
+          style = 'height:200cpx;background:#fff;'
+          break;
+        case 'right':
+          style = 'width:200cpx;background:#fff;'
+          break;
+        case 'bottom':
+          style = 'height:200cpx;background:#fff;'
+          break;
+        default: 
+          style="display:block;width: 500cpx;height: 200cpx;background: #fff;";
+          break;
+      }
+      return style;
+    }
+  }
+  methods = {
+      showPopup() {
+        this.show = true;
+      },
+      showPopup2(e) {
+        this.position = e
+        console.log(e)
+        this.show2 = true;
+      },
+      closePopup() {
+        this.show = false;
+        this.show2 = false;
+      }
+    }
+}
+
+export default new PopupManager();
+</script>
+<style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+.btn {
+  margin-top: 20cpx;
+}
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-header": "../../components/h-header/h-header",
+      "h-popup-manager": "/components/h-popup-manager/h-popup-manager",
+      "h-button": "/components/h-button/h-button"
+    },
+    "navigationBarTitleText": "h-button",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#E2E2E2"
+  }
+}
+</script>

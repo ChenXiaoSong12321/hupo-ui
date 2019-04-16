@@ -1,17 +1,17 @@
 <template>
   <view
-    c-if="{{show}}"
-    class="h-popup {{ show ? 'h-popup-wrap--show' : '' }}"
-    style="{{containerStyle}}"
+    c-if="{{visible}}"
+    class="h-popup {{ visible ? 'h-popup-wrap--show' : '' }}"
   >
     <view
-      class="h-popup--mask {{mask?'h-popup--has-mask':''}} {{ transitionIn ? 'h-popup--in' : 'h-popup--leave' }}"
+      class="h-popup-mask h-popup-transition {{mask?'is-has-mask':''}} {{ transitionIn ? 'is-in' : 'is-leave' }}"
+      style="z-index:{{zIndex}}"
       c-bind:tap="closeevent"
     ></view>
     <!-- c-catch禁止事件冒泡 -->
     <view
-      class="h-popup--content {{ transitionIn ? 'h-popup--in' : 'h-popup--leave' }} {{ position ? 'h-popup--' + position : 'h-popup--center' }}"
-      style="{{contentStyle}}"
+      class="h-popup-content h-popup-transition {{ transitionIn ? 'is-in' : 'is-leave' }} {{ position ? 'h-popup-content--' + position : 'h-popup-content--center' }}"
+      style="z-index:{{zIndex+1}}"
       c-catch:tap="contentTap"
     >
       <slot></slot>
@@ -19,7 +19,8 @@
   </view>
 </template>
 <script>
-class CPopup {
+let zindexManager = 1000
+class HPopupManager {
   props = {
     mask: {
       type: Boolean,
@@ -29,10 +30,6 @@ class CPopup {
       type: Boolean,
       default: false
     },
-    center: {
-      type: Boolean,
-      default: true
-    },
     position: {
       type: String,
       default: ""
@@ -40,45 +37,13 @@ class CPopup {
   };
 
   data = {
-    transitionIn: false
-  };
-
-  computed = {
-    containerStyle() {
-      let s = "";
-
-      if (this.center) {
-        s += "align-items:center;justify-content:center;";
-      }
-
-      return s;
-    },
-    contentStyle() {
-      let style = "position: absolute;left:0;right:0;top:0;bottom:0;";
-      switch (this.position) {
-        case "top":
-          style = style.replace("bottom:0;","display:flex;flex-direction:column;");
-          break;
-        case "right":
-          style = style.replace("left:0;", "display:flex;flex-direction:row;");
-          break;
-        case "bottom":
-          style = style.replace("top:0;","display:flex;flex-direction:column;");
-          break;
-        case "left":
-          style = style.replace("right:0;", "display:flex;flex-direction:row;");
-          break;
-        default:
-          style = "position:relative;";
-          break;
-      }
-      return style;
-    }
+    transitionIn: false,
+    visible:false,
+    zIndex:1000
   };
 
   watch = {
     show(value) {
-      console.log(this,'h-popup-manager');
       value ? this.showMask() : this.hideMask();
     }
   };
@@ -88,7 +53,9 @@ class CPopup {
       this.$cmlEmit("close");
     },
     showMask() {
-      this.show = true;
+      zindexManager=zindexManager+2
+      this.zIndex = zindexManager
+      this.visible = true;
       setTimeout(() => {
         this.transitionIn = true;
       }, 50);
@@ -96,14 +63,14 @@ class CPopup {
     hideMask() {
       this.transitionIn = false;
       setTimeout(() => {
-        this.show = false;
+        this.visible = false;
       }, 300);
     },
     contentTap() {}
   };
 }
 
-export default new CPopup();
+export default new HPopupManager();
 </script>
 
 <style lang="less">

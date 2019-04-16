@@ -15,15 +15,21 @@
       "mock": "index.php"
     },
     {
-      "name": "h-popup",
-      "url": "/pages/COMP/h-popup/h-popup",
-      "path": "/pages/COMP/h-popup/h-popup",
+      "name": "h-popup-manager",
+      "url": "/pages/COMP/h-popup-manager/h-popup-manager",
+      "path": "/pages/COMP/h-popup-manager/h-popup-manager",
       "mock": "index.php"
     },
     {
       "name": "h-button",
       "url": "/pages/COMP/h-button/h-button",
       "path": "/pages/COMP/h-button/h-button",
+      "mock": "index.php"
+    },
+    {
+      "name": "h-icon",
+      "url": "/pages/COMP/h-icon/h-icon",
+      "path": "/pages/COMP/h-icon/h-icon",
       "mock": "index.php"
     },
     {

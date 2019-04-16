@@ -4,38 +4,38 @@ class HButtonMixins {
     customStyle: String,
     radius: {
       type: Boolean,
-      value: true
+      default: true
     },
     size: {
       type: String,
-      value: 'large'
+      default: 'large'
     },
     plain: {
       type: Boolean,
-      value: false
+      default: false
     },
     throttle: {
       type: Number,
-      value: 500 // 当throttle <= 0，无防暴力点击
+      default: 500 // 当throttle <= 0，无防暴力点击
     },
     disabled: {
       type: Boolean,
-      value: false
+      default: false
     },
     type: {
       type: String,
-      value: 'primary'
+      default: 'primary'
     },
     openType: String,
     opacity: {
       type: Boolean,
-      value: false
+      default: false
     }
   }
 
   computed = {
     stateClass() {
-      const classes = ['group', 'radius', 'plain', 'disabled', 'opacity']
+      const classes = ['group', 'plain', 'disabled', 'opacity']
       let stateClass = ''
       classes.forEach(item => {
         if (this[item] && (item != 'radius' || !this.group)) {
@@ -48,6 +48,7 @@ class HButtonMixins {
   
   methods = {
     async  __emit__(type, data = {}) {
+      console.log(data)
       if (this.throttle > 0) {
         await this.$throttle(this.throttle)
       }

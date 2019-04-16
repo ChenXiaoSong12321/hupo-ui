@@ -1,0 +1,52 @@
+<template>
+  <view><text>Hello Chameleon!</text></view>
+</template>
+
+<script>
+
+class HIcon {
+
+  data = {
+  }
+
+  computed = {
+  }
+
+  watch  = {
+  }
+
+  methods = {
+  }
+
+  beforeCreate() {
+  }
+
+  created() {
+  }
+
+  beforeMount() {
+  }
+
+  mounted() {
+  }
+
+  beforeDestroy() {
+  }
+
+  destroyed() {
+  }
+}
+
+export default new HIcon();
+</script>
+<style>
+
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {},
+    "component": true
+  }
+}
+</script>

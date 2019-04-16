@@ -1,0 +1,1 @@
+<view style="{{customStyle}}" class="hp-icon {{className}}"></view>

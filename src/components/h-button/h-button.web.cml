@@ -18,25 +18,25 @@ import mix from '../../core/mixins/index';
 class HButton implements ButtonInterface{
   methods = {
     getuserinfo(e){
-     
+     console.log('todo getuserinfo')
     },
     contact(e){
-      
+      console.log('todo contact')
     },
     getphonenumber(e){
-      
+      console.log('todo getphonenumber')
     },
     error(e){
-      
+      console.log('todo error')
     },
     opensetting(e){
-     
+     console.log('todo opensetting')
     },
     onclick(e) {
       const { disabled,openType } = this
       if (disabled) return;
       if(openType){
-        this[openType]()
+        this[openType.toLowerCase()](e)
         return
       }
       console.log('click')

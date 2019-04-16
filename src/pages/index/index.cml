@@ -78,8 +78,9 @@ class Demo {
         open: false,
         pages: [
           routeObj["h-toast"],
-          routeObj["h-popup"],
+          routeObj["h-popup-manager"],
           routeObj["h-button"],
+          routeObj["h-icon"],
         ],
         src: require(`../../assets/images/component/kind/content.png`)
       },
