@@ -32,24 +32,16 @@ class HButton implements ButtonInterface{
       this.__emit__('contact');
     },
     getphonenumber(e){
-      this.__emit__('getphonenumber',{
-        errMsg: e.detail.errMsg,
-        encryptedData: e.detail.encryptedData || '',
-        //包括敏感数据在内的完整用户信息的加密数据
-        iv: e.detail.iv || ''
-        //加密算法的初始向量
-      });
+      this.__emit__('getphonenumber',e.detail);
     },
     error(e){
-      this.__emit__('error',{
-        errMsg: e.detail.errMsg
-      });
+      this.__emit__('error',e.detail);
     },
     opensetting(e){
-      this.__emit__('opensetting');
+      this.__emit__('opensetting',e.detail);
     },
     async handleFormSubmit(event) {
-      console.log(event)
+      console.log(event,'handleFormSubmit')
       // event.currentTarget.dataset = Object.assign({}, event.detail.target.dataset)
       // const tap = event.detail.target.dataset.tap
       // if (tap) {
