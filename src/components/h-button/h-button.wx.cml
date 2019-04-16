@@ -1,6 +1,6 @@
 <template>
   <form bindsubmit="handleFormSubmit" report-submit>
-     <origin-button 
+    <origin-button 
       type="keng" 
       form-type="{{openType ? '' : 'submit'}}" 
       class="h-button {{ type == 'none' ? 'h-button--none' : 'h-button--'+size }} {{ type == 'none' ? 'h-button--none' : 'h-button--'+type }} {{stateClass}} {{radius?'is-radius':''}} {{customClass}}" 
@@ -39,6 +39,12 @@ class HButton implements ButtonInterface{
     },
     opensetting(e){
       this.__emit__('opensetting',e.detail);
+    },
+    onclick(e) {
+      const { disabled,openType } = this
+      if (disabled || openType) return;
+      console.log('click')
+      this.__emit__('onclick',e);
     },
     async handleFormSubmit(event) {
       console.log(event,'handleFormSubmit')
