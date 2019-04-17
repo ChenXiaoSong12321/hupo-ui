@@ -26,17 +26,17 @@
        <!-- 案例2 -->
        <h-tab-pane-item>
          <view class="one"><text>
-           1
+           one
            </text></view>
        </h-tab-pane-item>
        <h-tab-pane-item>
          <view class="two"><text>
-           2
+           two
            </text></view>
        </h-tab-pane-item>
        <h-tab-pane-item>
          <view class="three"><text>
-           3
+           perfect
            </text></view>
        </h-tab-pane-item>
        <h-tab-pane-item>
