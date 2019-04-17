@@ -1,0 +1,28 @@
+<van-overlay
+  show="{{ show && (mask || forbidClick) }}"
+  mask="{{ mask }}"
+  z-index="3000"
+></van-overlay>
+<van-transition
+  show="{{ show }}"
+  custom-class="van-toast__container"
+>
+  <view class="van-toast van-toast__middle">
+    <view class="van-toast--{{ type === 'text' ? 'text' : 'icon' }} van-toast--{{ position }} van-toast__container">
+      <!-- text only -->
+      <block wx:if="{{ type === 'text' }}"><text>{{ message }}</text></block>
+
+      <!-- with icon -->
+      <block wx:else>
+        <van-loading
+          wx:if="{{ type === 'loading' }}"
+          color="white"
+          type="{{ loadingType }}"
+          custom-class="van-toast__loading"
+        ></van-loading>
+        <van-icon wx:else class="van-toast__icon" name="{{ type }}"></van-icon>
+        <view wx:if="{{ message }}" class="van-toast__text">{{ message }}</view>
+      </block>
+    </view>
+  </view>
+</van-transition>
