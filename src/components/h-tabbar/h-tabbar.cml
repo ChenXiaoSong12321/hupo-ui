@@ -98,9 +98,9 @@ class Tabbar {
       this.tapedIndex = index;
       let compName = this.tabbar.list[index].compName
       this.$cmlEmit('tabbarclick',{index});
-      /*这里是为了方便和使用c-tabbar的组件进行关联，如果是通过 
+      /*这里是为了方便和使用h-tabbar的组件进行关联，如果是通过 
       <component is="{{currentComp}}"></component>
-      <c-tabbar c-model="{{currentComp}}"></c-tabbar>
+      <h-tabbar c-model="{{currentComp}}"></h-tabbar>
       这里方式使用，可以关联currentComp的值*/
       this.$cmlEmit('input', {
         value:compName

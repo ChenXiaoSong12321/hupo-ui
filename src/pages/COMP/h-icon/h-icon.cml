@@ -3,20 +3,19 @@
   <view class="container">
     <h-header title="h-icon"></h-header>
     <h-icon className="el-icon-hp-tuikuan2"></h-icon>
+    <h-icon className="el-icon-hp-iconfontpinglun"></h-icon>
+    <h-icon className="el-icon-hp-search"></h-icon>
+    <h-icon className="el-icon-hp-home"></h-icon>
+    <h-icon className="el-icon-hp-shanchu"></h-icon>
   </view>
 </page>
 </template>
 <script>
-class HButton {
-  methods= {
-    showLoading() {
-      console.log('click button')
-    }
-  }
+class HIcon {
 
 }
 
-export default new HButton();
+export default new HIcon();
 </script>
 <style scoped>
 .container {
@@ -34,7 +33,7 @@ export default new HButton();
   "base": {
     "usingComponents": {
       "h-header": "../../components/h-header/h-header",
-      "h-icon": "./h-icon-component"
+      "h-icon": "/components/h-icon/h-icon-base"
     },
     "navigationBarTitleText": "h-icon",
     "backgroundTextStyle": "dark",

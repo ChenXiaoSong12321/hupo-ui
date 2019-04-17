@@ -1,5 +1,5 @@
 <template>
-  <view style="{{customStyle}}" class="hp-icon {{className}}"></view>
+  <view style="{{customStyle}}" class="h-icon {{className}}"></view>
 </template>
 
 <script>
@@ -19,9 +19,18 @@ class HIcon {
 export default new HIcon();
 </script>
 <style lang="less">
-@import './_iconfont.less';
-.hp-icon {
-  .icon()
+@import './iiconfont.css';
+.h-icon {
+  font-family: "hp-icon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  vertical-align: baseline;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 </style>
 <script cml-type="json">

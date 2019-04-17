@@ -49,7 +49,7 @@ class CTabsItem {
   }
   computed = {
     cTabsItem(){
-      return this.inline ? "c-tabs-item-row" : "c-tabs-item-column";
+      return this.inline ? "h-tabs-item-row" : "h-tabs-item-column";
     },
     finalPrefix(){
       let activeIconStyle = this.isActive ? this.activeIconStyle : ';';
@@ -86,7 +86,7 @@ export default new CTabsItem();
 }
 </script>
 <style scoped>
-.c-tabs-item-row{
+.h-tabs-item-row{
   flex:1;
 
   display:flex;
@@ -96,7 +96,7 @@ export default new CTabsItem();
   
   align-items:center;
 }
-.c-tabs-item-column{
+.h-tabs-item-column{
   flex:1;
 
   display:flex;
@@ -106,7 +106,7 @@ export default new CTabsItem();
   align-items:center;
   
 }
-.c-tabs-item-row{
+.h-tabs-item-row{
   flex:1;
 
   display:flex;
@@ -116,7 +116,7 @@ export default new CTabsItem();
   
   align-items:center;
 }
-.c-tabs-item-column{
+.h-tabs-item-column{
   flex:1;
 
   display:flex;
@@ -126,18 +126,18 @@ export default new CTabsItem();
   align-items:center;
   
 }
-.c-tabs-icon{
+.h-tabs-icon{
   width:20cpx;
   height:20cpx;
 }
-/* .c-tabs-label{
+/* .h-tabs-label{
   line-height: 88cpx;
   font-size: 28cpx;
   text-align: center;
   height: 88cpx;
   color: #999;
 }
-.c-tabs-label-active{
+.h-tabs-label-active{
   line-height: 88cpx;
   font-size: 28cpx;
   text-align: center;

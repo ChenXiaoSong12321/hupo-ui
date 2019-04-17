@@ -1,0 +1,130 @@
+<template>
+  <view
+    class="h-tag {{type?'h-tag--'+type:''}} {{size?'h-tag--'+size:''}} {{radius?'is-radius':''}} {{plain?'is-plain':''}} {{customClass}}"
+    style="{{radiusValue?'border-radius:'+radiusValue+'cpx;':''}} {{width?'width:'+width+'cpx;':''}}
+    {{color?'color:'+color+';border:1cpx solid '+_color+';':''}} {{customStyle}}"
+  >
+    <slot></slot>
+  </view>
+</template>
+
+<script>
+class HTag {
+  props = {
+    customClass: String,
+    customStyle: String,
+    // blue,primary
+    type: {
+      type: String,
+      default: "primary"
+    },
+    radius: Boolean,
+    radiusValue: {
+      type: [Number, String],
+      default: ""
+    },
+    size: {
+      type: String,
+      default: "large"
+    },
+    color: {
+      type: String,
+      default: ""
+    },
+    width: {
+      type: [Number, String],
+      default: ""
+    },
+    plain: {
+      type: Boolean,
+      default: true
+    }
+  };
+  watch = {
+    color(n, o) {
+      this._color = this.hex2rgba(n);
+    }
+  };
+  data = {
+    _color: ""
+  };
+  methods = {
+    /**
+     * 16进制颜色转换成rgba
+     */
+    hex2rgba(hex, opacity = ".3") {
+      const rgb = [];
+      hex = hex.substr(1); // 去除 # 号
+      hex.length === 3 && (hex = hex.replace(/(.)/g, "$1$1")); // 处理 "#abc" 成 "#aabbcc"
+
+      hex.replace(/../g, v => rgb.push(parseInt(v, 0x10)));
+
+      return `rgb${opacity ? "a" : ""}(${rgb.join(",")}${
+        opacity ? "," + opacity : ""
+      })`;
+    }
+  };
+}
+
+export default new HTag();
+</script>
+<style lang="less">
+@import "../../assets/less/_output.less";
+
+.h-tag {
+  text-align: center;
+  color: @--font-color-c1;
+  display: inline-flex;
+  height: 40cpx;
+  align-items: center;
+  line-height: 1;
+  padding-left: 10cpx;
+  padding-right: 10cpx;
+  border-radius: 5cpx;
+  &.is-radius {
+    border-radius: 80cpx;
+  }
+  &.is-plain {
+    background-color: transparent;
+    box-sizing: border-box;
+  }
+  &--primary {
+    background-color: transparent;
+    box-sizing: border-box;
+    color: @--primary-color-a1;
+
+    &.is-plain {
+      border: 1px solid rgba(@--primary-color-a1, 0.3);
+    }
+  }
+  &--blue {
+    background-color: transparent;
+    box-sizing: border-box;
+    color: @--primary-color-a1;
+
+    &.is-plain {
+      border: 1px solid rgba(@--primary-color-a1, 0.3);
+    }
+  }
+  &--large {
+    height: 40cpx;
+    padding-left: 11cpx;
+    font-size: @--font-size-weak-large-fwl;
+    padding-right: 11cpx;
+  }
+  &--small {
+    height: 30cpx;
+    padding-left: 8cpx;
+    font-size: 22cpx;
+    padding-right: 8cpx;
+  }
+}
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {},
+    "component": true
+  }
+}
+</script>

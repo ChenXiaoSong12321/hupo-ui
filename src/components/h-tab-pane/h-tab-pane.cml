@@ -1,7 +1,7 @@
 <template>
 <view class="pane-root">
   <view class="pane-wrap" style="{{paneWrap}}">
-    <slot>  </slot>
+    <slot></slot>
   </view>
 </view>
 </template>
@@ -61,7 +61,7 @@ export default new CTabPane();
 {
     "base": {
         "usingComponents": {
-            "c-tab-item": "../c-tab-pane-item/c-tab-pane-item"
+            "h-tab-item": "../h-tab-pane-item/h-tab-pane-item"
         },
         "component": true
     }

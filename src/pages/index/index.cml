@@ -81,6 +81,8 @@ class Demo {
           routeObj["h-popup-manager"],
           routeObj["h-button"],
           routeObj["h-icon"],
+          routeObj["h-tab"],
+          routeObj["h-tabbar"],
         ],
         src: require(`../../assets/images/component/kind/content.png`)
       },

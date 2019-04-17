@@ -33,6 +33,18 @@
       "mock": "index.php"
     },
     {
+      "name": "h-tab",
+      "url": "/pages/COMP/h-tab/h-tab",
+      "path": "/pages/COMP/h-tab/h-tab",
+      "mock": "index.php"
+    },
+    {
+      "name": "h-tabbar",
+      "url": "/pages/COMP/h-tabbar/h-tabbar",
+      "path": "/pages/COMP/h-tabbar/h-tabbar",
+      "mock": "index.php"
+    },
+    {
       "name": "cml.modal",
       "url": "/pages/API/modal/modal",
       "path": "/pages/API/modal/modal",

@@ -1,5 +1,5 @@
 <template>
-  <form bindsubmit="handleFormSubmit" report-submit>
+  <origin-form bindsubmit="handleFormSubmit" report-submit>
     <origin-button 
       type="keng" 
       form-type="{{openType ? '' : 'submit'}}" 
@@ -16,7 +16,7 @@
     >
     <slot></slot>
   </origin-button>
-  </form>
+  </origin-form>
 </template>
 
 <script>
