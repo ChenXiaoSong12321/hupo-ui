@@ -14,6 +14,7 @@ ls_date=`date +%Y.%m.%d`
 git commit -m "$1 push in $ls_date"
 git config --global credential.helper store
 git pull origin $branch
+git pull github $branch
 git push origin $branch
 git push github $branch
 
