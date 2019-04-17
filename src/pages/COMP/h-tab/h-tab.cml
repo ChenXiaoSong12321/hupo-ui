@@ -1,14 +1,13 @@
 <template>
 <page title="h-tab演示">
   <view>
-     <h-header title="{{headerTitle}}" desc="{{headerDesc}}"></h-header>
+     <h-header title="{{headerTitle}}"></h-header>
      <!-- 单tab测试 -->
      <view class="title"><text >单tab案例</text></view>
      <h-tab tabs="{{tabsAlone}}"
      c-bind:tabclick="handleTabTapAlone"
      active-label="{{activeLabelAlone}}"
-     has-underline="{{false}}"
-     inline="{{false}}"
+     hasUnderline
      >
      </h-tab>
 
@@ -16,7 +15,7 @@
      <h-tab tabs="{{tabs}}"
      c-bind:tabclick="handleTabTap"
      active-label="{{activeLabel}}"
-     inline="{{false}}"
+     inline="{{true}}"
      >
      </h-tab>
      <h-tab-pane tabs="{{tabs}}"  active-label="{{activeLabel}}">
@@ -58,27 +57,20 @@
 class CTab {
   data = {
     headerTitle: 'h-tabs',
-    headerDesc: 'h-tabs',
     tabsAlone:[{
       label:'label11',
-      // prefixStyle:"width:50cpx;height:20cpx;background-color:red;",
     },{
       label:"label22",
-      // suffixStyle:"width:50cpx;height:20cpx;background-color:red;"
     },{
       label:'label33',
     }],
     activeLabelAlone:'label33',
     tabs:[{
       label:'label1',
-      // prefixStyle:"width:50cpx;height:20cpx;background-color:red"
     },{
       label:"label2",
-      // suffixStyle:"width:50cpx;height:20cpx;background-color:red"
     },{
       label:'label3',
-      // labelStyle:"color:green"
-
     }],
     activeLabel:'label3',
   }
@@ -87,6 +79,7 @@ class CTab {
       this.activeLabel = e.detail.label;
     },
     handleTabTapAlone(e){
+      console.log(this.tabsAlone,this.activeLabelAlone,e)
       this.activeLabelAlone = e.detail.label;
     }
   }

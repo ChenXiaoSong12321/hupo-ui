@@ -19,7 +19,7 @@ class HIcon {
 export default new HIcon();
 </script>
 <style lang="less">
-@import './iiconfont.css';
+@import './_iconfont.less';
 .h-icon {
   font-family: "hp-icon" !important;
   speak: none;

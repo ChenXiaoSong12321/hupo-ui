@@ -1,11 +1,10 @@
 <template>
-<view class="{{cTabsItem}}" c-bind:tap="handleTabTap">
-  <view c-if="{{tab.prefixStyle}}" style="{{finalPrefix}}"></view>
-  <text style="{{finalLabel}}" >{{tab.label}}</text>
-  <view c-if="{{tab.suffixStyle}}" style="{{finalSuffix}}"></view>
+<view class="h-tabs-item h-tabs-item--row" c-bind:tap="handleTabTap">
+  <text class="h-tabs-item-text" style="{{finalLabel}}">{{tab.label}}</text>
 </view>
 </template>
 <script>
+import { primaryColor } from "../../assets/config/style.var.js";
 class CTabsItem {
 
   props = {
@@ -22,46 +21,20 @@ class CTabsItem {
     activeLabel:{
       type:String,
     },
+    hasUnderline:{
+      type:Boolean,
+      default:true,
+    },
     activeLabelStyle:{
       // 这个在微信中可以
       type:String,
-      default:"color:#FC9153"
+      default:`color:${primaryColor};border-bottom:4cpx solid ${primaryColor}`
     },
-    activeIconStyle:{
-      // 这个在微信中可以
-      type:String,
-      default:""
-    }
-  }
-  data = {
-    defaultPrefixStyle:`font-size: 28cpx;
-        text-align: center;`,
-    defaultLabelStyle:`line-height: 88cpx;
-        font-size: 28cpx;
-        text-align: center;
-        height: 88cpx;
-        padding-left:5cpx;
-        padding-right:5cpx;
-        padding-top:5cpx;
-        padding-bottom:5cpx;`,
-    defaultSuffixStyle:`font-size: 28cpx;
-        text-align: center;`,
   }
   computed = {
-    cTabsItem(){
-      return this.inline ? "h-tabs-item-row" : "h-tabs-item-column";
-    },
-    finalPrefix(){
-      let activeIconStyle = this.isActive ? this.activeIconStyle : ';';
-      return this.defaultPrefixStyle + (this.tab.prefixStyle || ';') + (activeIconStyle || ';');
-    },
     finalLabel(){
-       let activeLabelStyle = this.isActive ? this.activeLabelStyle : ';';
-       return this.defaultLabelStyle + (this.tab.labelStyle || ';') + activeLabelStyle;
-    },
-    finalSuffix(){
-      let activeIconStyle = this.isActive ? this.activeIconStyle : ';';
-      return this.defaultSuffixStyle + (this.tab.suffixStyle || ';') + (activeIconStyle || ';')
+      let activeLabelStyle = this.isActive ? this.activeLabelStyle : ';';
+      return (this.tab.labelStyle || ';') + activeLabelStyle;
     },
     isActive(){
       return this.activeLabel === this.tab.label;
@@ -85,64 +58,26 @@ export default new CTabsItem();
   }
 }
 </script>
-<style scoped>
-.h-tabs-item-row{
-  flex:1;
-
-  display:flex;
-  flex-direction:row;
-
-  justify-content: center;
-  
-  align-items:center;
+<style lang="less">
+@import '../../assets/less/_output.less';
+.h-tabs-item{
+  &--row{
+    flex:1;
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items:center;
+  }
+  &-text{
+    line-height: 90cpx;
+    font-size: 24cpx;
+    text-align: center;
+    height: 90cpx;
+    padding-left:5cpx;
+    color:@--font-color-c2;
+    padding-right:5cpx;
+    padding-top:5cpx;
+    padding-bottom:5cpx;
+  }
 }
-.h-tabs-item-column{
-  flex:1;
-
-  display:flex;
-  flex-direction:column;
-
-  justify-content: center;
-  align-items:center;
-  
-}
-.h-tabs-item-row{
-  flex:1;
-
-  display:flex;
-  flex-direction:row;
-
-  justify-content: center;
-  
-  align-items:center;
-}
-.h-tabs-item-column{
-  flex:1;
-
-  display:flex;
-  flex-direction:column;
-
-  justify-content: center;
-  align-items:center;
-  
-}
-.h-tabs-icon{
-  width:20cpx;
-  height:20cpx;
-}
-/* .h-tabs-label{
-  line-height: 88cpx;
-  font-size: 28cpx;
-  text-align: center;
-  height: 88cpx;
-  color: #999;
-}
-.h-tabs-label-active{
-  line-height: 88cpx;
-  font-size: 28cpx;
-  text-align: center;
-  height: 88cpx;
-  color: #FC9153;
-} */
-
 </style>

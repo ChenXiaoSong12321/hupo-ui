@@ -1,25 +1,26 @@
 <template>
-<view class="h-tabs-root">
+<view class="h-tabs">
   <view class="h-tabs-wrap">
     <h-tab-item 
       class="h-tabs-item"
       c-for="{{tabs}}" 
-      tab="{{item}}" inline="{{inline}}"
+      tab="{{item}}"
       c-bind:tabclick="handleTabTap" 
-      active-label="{{activeLabel}}"
-      active-label-style="{{activeLabelStyle}}"
-      active-icon-style="{{activeIconStyle}}"
+      activeLabel="{{activeLabel}}"
+      hasUnderline="{{hasUnderline}}"
+      activeLabelStyle="{{activeLabelStyle}}"
     ></h-tab-item>
   </view>
-  <view c-if="{{hasUnderline}}" class="h-tabs-line-wrap" style="{{tabLineStyle}}">
-  </view>
+  <view class="h-tabs-bottom"></view>
+  <!-- <view c-if="{{hasUnderline}}" class="h-tabs-line-wrap" style="{{tabLineStyle}}"></view> -->
 </view>
 </template>
 <script>
+import { primaryColor } from "../../assets/config/style.var.js";
 class CTabs {
 
   props = {
-    tabs:{ //label labelStyle prefixIcon  suffixIcon
+    tabs:{
       type:Array,
       default(){
         return [];
@@ -28,54 +29,19 @@ class CTabs {
     activeLabel:{
       type:String,
     },
-    //标识item子项的排列方向,默认横向排列
-    inline:{
-      type:Boolean,
-      default:true
-    },
-    lineStyle:{
-      type:String,
-      default:'',
-    },
     hasUnderline:{
       type:Boolean,
       default:true,
     },
     activeLabelStyle:{
-      // 这个在微信中可以
       type:String,
-      default:"color:#FC9153;"
-    },
-    activeIconStyle:{
-      // 这个在微信中可以
-      type:String,
-      default:""
+      default:`color:${primaryColor};border-bottom:4cpx solid ${primaryColor}`
     }
-
-  }
-  data = {
-  }
-  computed = {
-    tabLineStyle(){
-      if(!this.tabs.length){
-        return '';
-      }
-      let width = 750 / this.tabs.length ;//line的总宽度；
-      let foundIndex = this.tabs.findIndex((item,index,arr) => {
-        return this.activeLabel === item.label;
-      });
-      let leftIndex = foundIndex == -1 ? 0 : foundIndex;
-
-      let leftOffset = leftIndex * width;
-      let style = `;width:${width}cpx;transform: translateX(${leftOffset}cpx);`;
-      return this.lineStyle + style;
-    }
-    
   }
   methods = {
     handleTabTap(e){
       let label = e.detail.label;
-      let activeIndex = this.tabs.findIndex((item) => item.label === label);
+      let activeIndex = this.tabs.findIndex(item => item.label === label);
 
       this.$cmlEmit('tabclick',{label,activeIndex})
     }
@@ -94,29 +60,25 @@ export default new CTabs();
   }
 }
 </script>
-<style scoped>
-.h-tabs-root{
+<style lang="less">
+@import '../../assets/less/_output.less';
+.h-tabs{
   position:relative;
+  &-item{
+    flex:1;
+    text-align:center;
+  }
+  &-wrap{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    // border-bottom: 1cpx solid @--border-color-d1;
+  }
+  &-bottom{
+    width: 100%;
+    height: 1cpx;
+    background-color: @--border-color-d1;
+  }
 }
-.h-tabs-line-wrap{
-  transition-duration: 0.3s;
-  transition-timing-function:ease-in-out;
-  transition-property:transform;
-  height:3cpx;
-  background-color:#FC9153;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.h-tabs-item{
-  flex:1;
-  text-align:center;
-}
-.h-tabs-wrap{
-  display:flex;
-  flex-direction:row;
-  justify-content:space-around;
-}
-
 </style>
 
