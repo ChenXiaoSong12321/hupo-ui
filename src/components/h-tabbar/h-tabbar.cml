@@ -150,6 +150,7 @@ export default new Tabbar();
   flex-direction: column;
   align-items:center;
   justify-content: center;
+  border-top: 1cpx solid #d7d7d7;
 }
 
 .tab-content {
@@ -168,8 +169,8 @@ export default new Tabbar();
   padding-bottom:4cpx;
 }
 .tab-icon{
-  width:40cpx;
-  height:40cpx;
+  width:44cpx;
+  height:44cpx;
 }
 .tab-title {
   display:flex;

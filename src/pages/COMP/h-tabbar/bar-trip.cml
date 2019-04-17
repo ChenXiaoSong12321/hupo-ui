@@ -1,6 +1,6 @@
 <template>
   <view class="demo-com">
-    <text>comp-home</text>
+    <text>comp-trip</text>
   </view>
 </template>
 
