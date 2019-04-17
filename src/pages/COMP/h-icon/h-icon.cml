@@ -2,11 +2,20 @@
 <page title="h-icon演示">
   <view class="container">
     <h-header title="h-icon"></h-header>
-    <h-icon className="el-icon-hp-tuikuan2"></h-icon>
-    <h-icon className="el-icon-hp-iconfontpinglun"></h-icon>
-    <h-icon className="el-icon-hp-search"></h-icon>
-    <h-icon className="el-icon-hp-home"></h-icon>
-    <h-icon className="el-icon-hp-shanchu"></h-icon>
+    <view class="icon-wrap">
+      <h-icon className="el-icon-hp-tuikuan2" customStyle="color:red;"></h-icon>
+      <h-icon className="el-icon-hp-iconfontpinglun"></h-icon>
+      <h-icon className="el-icon-hp-search"></h-icon>
+      <h-icon className="el-icon-hp-home" ></h-icon>
+      <h-icon className="el-icon-hp-shanchu"></h-icon>
+    </view>
+    <view class="icon-wrap">
+      <h-icon className="el-icon-hp-tuikuan2" customStyle="color:red;"></h-icon>
+      <h-icon className="el-icon-hp-iconfontpinglun"></h-icon>
+      <h-icon className="el-icon-hp-search"></h-icon>
+      <h-icon className="el-icon-hp-home" ></h-icon>
+      <h-icon className="el-icon-hp-shanchu"></h-icon>
+    </view>
   </view>
 </page>
 </template>
@@ -25,6 +34,14 @@ export default new HIcon();
   align-items: center;
 }
 .btn {
+  margin-top: 20cpx;
+}
+.icon-wrap{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
   margin-top: 20cpx;
 }
 </style>
