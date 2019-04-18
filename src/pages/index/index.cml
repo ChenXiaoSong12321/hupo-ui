@@ -108,7 +108,8 @@ class Demo {
         cid: "page",
         name: "界面",
         open: false,
-        pages: [routeObj["cml.modal"], routeObj["cml.toast"]],
+        pages: [
+        ],
         src: require(`../../assets/images/api/kind/page.png`)
       },
     ],
