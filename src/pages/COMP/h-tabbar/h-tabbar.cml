@@ -1,11 +1,14 @@
 <template>
 <page title="h-tabbar演示">
-  <component is="{{currentComp}}" ></component>
+  <!-- <component is="{{currentComp}}" ></component> -->
+  <bar-index c-show="{{currentComp === 'bar-index'}}"></bar-index>
+  <bar-trip c-show="{{currentComp === 'bar-trip'}}"></bar-trip>
+  <bar-my c-show="{{currentComp === 'bar-my'}}"></bar-my>
   <h-tabbar 
     c-bind:onclick='handleTabbarClick' 
     c-model="{{currentComp}}"
     tabbar="{{tabbar}}"
-    ></h-tabbar>
+  ></h-tabbar>
 </page>
 </template>
 
@@ -15,7 +18,7 @@ let preIndex = 0;
 class Index  {
   data = {
     viewportHeight:0,
-    currentComp:'bar-home',
+    currentComp:'bar-index',
     tabbar:{
       // "tabbarStyle":"height:120cpx;background-color:#BAF6E8",//tabbar最外层的样式支持自定义
       // "tabLineStyle":"background-color:#069ADC;height:2cpx;",//自定义tabline的高度和背景色
@@ -64,7 +67,6 @@ class Index  {
   mounted(){
     this.getViewportHeight();
   }
-  
 }
 
 export default new Index();

@@ -114,20 +114,7 @@ class Demo {
     ],
     comLogoSrc: require(`../../assets/images/component/kind/logo.png`),
     apiLogoSrc: require(`../../assets/images/api/kind/logo.png`),
-    tabList: [
-      {
-        title: "组件",
-        selected: true,
-        iconPath: require(`../../assets/images/index/icon_component.png`),
-        selectedIconPath: require(`../../assets/images/index/icon_component_HL.png`)
-      },
-      {
-        title: "接口",
-        selected: false,
-        iconPath: require(`../../assets/images/index/icon_API.png`),
-        selectedIconPath: require(`../../assets/images/index/icon_API_HL.png`)
-      }
-    ],
+    tabList: [],
     activeTab: "component",
     arrowIcon: "https://gw.alicdn.com/tfs/TB11zBUpwMPMeJjy1XbXXcwxVXa-22-22.png"
   }

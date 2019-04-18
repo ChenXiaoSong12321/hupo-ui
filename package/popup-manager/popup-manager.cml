@@ -1,0 +1,85 @@
+<template>
+  <view
+    c-if="{{visible}}"
+    class="h-popup {{ visible ? 'h-popup-wrap--show' : '' }}"
+  >
+    <view
+      class="h-popup-mask h-popup-transition {{mask?'is-has-mask':''}} {{ transitionIn ? 'is-in' : 'is-leave' }}"
+      style="z-index:{{zIndex}}"
+      c-bind:tap="closeevent"
+    ></view>
+    <!-- c-catch禁止事件冒泡 -->
+    <view
+      class="h-popup-content h-popup-transition {{ transitionIn ? 'is-in' : 'is-leave' }} {{ position ? 'h-popup-content--' + position : 'h-popup-content--center' }}"
+      style="z-index:{{zIndex+1}}"
+      c-catch:tap="contentTap"
+    >
+      <slot></slot>
+    </view>
+  </view>
+</template>
+<script>
+let zindexManager = 1000
+class HPopupManager {
+  props = {
+    mask: {
+      type: Boolean,
+      default: true
+    },
+    show: {
+      type: Boolean,
+      default: false
+    },
+    position: {
+      type: String,
+      default: ""
+    }
+  };
+
+  data = {
+    transitionIn: false,
+    visible:false,
+    zIndex:1000
+  };
+
+  watch = {
+    show(value) {
+      value ? this.showMask() : this.hideMask();
+    }
+  };
+
+  methods = {
+    closeevent() {
+      this.$cmlEmit("close");
+    },
+    showMask() {
+      zindexManager=zindexManager+2
+      this.zIndex = zindexManager
+      this.visible = true;
+      setTimeout(() => {
+        this.transitionIn = true;
+      }, 50);
+    },
+    hideMask() {
+      this.transitionIn = false;
+      setTimeout(() => {
+        this.visible = false;
+      }, 300);
+    },
+    contentTap() {}
+  };
+}
+
+export default new HPopupManager();
+</script>
+
+<style lang="less">
+@import "./popup-manager.less";
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "component": true
+  }
+}
+</script>

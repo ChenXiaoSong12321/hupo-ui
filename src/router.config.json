@@ -43,18 +43,6 @@
       "url": "/pages/COMP/h-tabbar/h-tabbar",
       "path": "/pages/COMP/h-tabbar/h-tabbar",
       "mock": "index.php"
-    },
-    {
-      "name": "cml.modal",
-      "url": "/pages/API/modal/modal",
-      "path": "/pages/API/modal/modal",
-      "mock": "index.php"
-    },
-    {
-      "name": "cml.toast",
-      "url": "/pages/API/toast/toast",
-      "path": "/pages/API/toast/toast",
-      "mock": "index.php"
     }
   ]
 }

@@ -1,10 +1,10 @@
 <template>
-  <h-popup-manager show="{{show}}" mask="{{mask}}">
+  <popup-manager show="{{show}}" mask="{{mask}}">
     <view class="h-toast-content">
-      <image c-if="{{needIcon}}" src="{{typeImg}}" class="h-toast-icon"></image>
+      <image c-if="{{needIcon}}" src="{{typeImg}}" class="h-toast-icon">
       <text class="h-toast-text">{{message}}</text>
     </view>
-  </h-popup-manager>
+  </popup-manager>
 </template>
 <script>
 class HToast {
@@ -97,7 +97,7 @@ export default new HToast();
 {
     "base": {
         "usingComponents": {
-          "h-popup-manager": "../h-popup-manager/h-popup-manager"
+          "popup-manager": "../popup-manager/popup-manager"
         },
         "component": true
     }

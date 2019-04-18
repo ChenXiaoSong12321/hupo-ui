@@ -1,0 +1,85 @@
+<template>
+  <origin-form bindsubmit="handleFormSubmit" report-submit>
+    <origin-button 
+      type="keng" 
+      form-type="{{openType ? '' : 'submit'}}" 
+      class="h-button {{ type == 'none' ? 'h-button--none' : 'h-button--'+size }} {{ type == 'none' ? 'h-button--none' : 'h-button--'+type }} {{stateClass}} {{radius?'is-radius':''}} {{customClass}}" 
+      disabled="{{disabled}}" 
+      open-type="{{openType}}" 
+      style="{{customStyle||''}}" 
+      bindtap="onclick" 
+      bindcontact="contact" 
+      bindgetuserinfo="getuserinfo" 
+      bindgetphonenumber="getphonenumber" 
+      binderror="error" 
+      bindopensetting="opensetting"
+    >
+    <slot></slot>
+  </origin-button>
+  </origin-form>
+</template>
+
+<script>
+import HButtonMixins from './button.mixins.js';
+import mix from '../../core/mixins/index';
+
+class HButton implements ButtonInterface{
+  methods = {
+    getuserinfo(e){
+      console.log(e,'getuserinfo')
+      this.__emit__('getuserinfo',e.detail);
+    },
+    contact(e){
+      this.__emit__('contact');
+    },
+    getphonenumber(e){
+      this.__emit__('getphonenumber',e.detail);
+    },
+    error(e){
+      this.__emit__('error',e.detail);
+    },
+    opensetting(e){
+      this.__emit__('opensetting',e.detail);
+    },
+    onclick(e) {
+      console.log('click')
+      const { disabled,openType } = this
+      if (disabled || openType) return;
+      this.__emit__('onclick',e);
+    },
+    async handleFormSubmit(event) {
+      // console.log(event,'handleFormSubmit')
+      // event.currentTarget.dataset = Object.assign({}, event.detail.target.dataset)
+      // const tap = event.detail.target.dataset.tap
+      // if (tap) {
+      //   this[tap](event)
+      // }
+      // const res = await wxTools.getSystemInfo()
+      // if (res.platform != 'devtools') {
+      //   const formId = [event.detail.formId] || []
+      //   const ctx = this.$viewportCommonGetCurrentPage()
+      //   const token = await ctx.$getToken()
+      //   await ctx.$api(api.user.apiPostFormId, {
+      //     token,
+      //     formId: JSON.stringify(formId)
+      //   })
+      // }
+    }
+  }
+}
+const HButtonCom = mix(HButton, HButtonMixins)
+export default new HButtonCom();
+</script>
+
+<style>
+@import './button.less';
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {},
+    "component": true
+  }
+}
+</script>

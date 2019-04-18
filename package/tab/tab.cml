@@ -1,7 +1,7 @@
 <template>
 <view class="h-tabs">
   <view class="h-tabs-wrap">
-    <h-tab-item 
+    <tab-item 
       class="h-tabs-item"
       c-for="{{tabs}}" 
       tab="{{item}}"
@@ -9,7 +9,7 @@
       activeLabel="{{activeLabel}}"
       hasUnderline="{{hasUnderline}}"
       activeLabelStyle="{{activeLabelStyle}}"
-    ></h-tab-item>
+    ></tab-item>
   </view>
   <view class="h-tabs-bottom"></view>
   <!-- <view c-if="{{hasUnderline}}" class="h-tabs-line-wrap" style="{{tabLineStyle}}"></view> -->
@@ -54,7 +54,7 @@ export default new HTabs();
 {
   "base": {
     "usingComponents": {
-      "h-tab-item": "../h-tab-item/h-tab-item"
+      "tab-item": "../tab-item/tab-item"
     },
     "component": true
   }

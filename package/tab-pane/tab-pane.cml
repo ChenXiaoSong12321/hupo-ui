@@ -57,7 +57,7 @@ export default new HTabPane();
 {
     "base": {
         "usingComponents": {
-            "h-tab-item": "../h-tab-pane-item/h-tab-pane-item"
+            "tab-item": "../tab-pane-item/tab-pane-item"
         },
         "component": true
     }

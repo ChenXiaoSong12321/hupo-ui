@@ -106,7 +106,7 @@ tabbar:{
         });
         /*这里是为了方便和使用h-tabbar的组件进行关联，如果是通过 
         <component is="{{currentComp}}"></component>
-        <h-tabbar c-model="{{currentComp}}"></h-tabbar>
+        <tabbar c-model="{{currentComp}}"></tabbar>
         这里方式使用，可以关联currentComp的值*/
         this.$cmlEmit('input', {
           value: compName
