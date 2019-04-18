@@ -49,7 +49,6 @@ cml.utils.plugin('webpackConfig', function({ type, media, webpackConfig }, cb) {
 
   // 支持scss
   const cmlFile = findRule('.cml')
-  console.log(cmlFile)
   cmlFile.rule.use = cmlFile.rule.use.map(use => {
     use.options.loaders.scss = JSON.parse(JSON.stringify(use.options.loaders.less)).map(item => {
       if (item.loader === 'less-loader') item.loader = 'sass-loader'
