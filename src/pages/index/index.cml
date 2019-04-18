@@ -11,7 +11,7 @@
             <view class="index-hd">
               <image class="index-logo" src="{{comLogoSrc}}"></image>
               <view class="index-desc">
-                <text class="index-desc-text">以下将展示chameleon自定义组件能力，组件样式仅供参考，开发者可根据自身需求自定义组件样式，具体属性参数详见chameleon开发文档。</text>
+                <text class="index-desc-text">以下将展示 hupo-ui 自定义组件能力，组件样式仅供参考，开发者可根据自身需求自定义组件样式，具体属性参数详见 hupo-ui 源码。</text>
               </view>
             </view>
             <view class="index-bd">
