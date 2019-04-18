@@ -15,7 +15,6 @@
      <h-tab tabs="{{tabs}}"
      c-bind:tabclick="handleTabTap"
      active-label="{{activeLabel}}"
-     inline="{{true}}"
      >
      </h-tab>
      <h-tab-pane tabs="{{tabs}}"  active-label="{{activeLabel}}">

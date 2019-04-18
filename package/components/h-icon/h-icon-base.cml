@@ -1,0 +1,43 @@
+<template>
+  <view style="{{customStyle}}" class="h-icon {{className}}"></view>
+</template>
+
+<script>
+class HIcon {
+ props = {
+    className: {
+      type: String,
+      default: ''
+    },
+    customStyle: {
+      type: String,
+      default: ''
+    }
+  }
+}
+
+export default new HIcon();
+</script>
+<style lang="less">
+@import './_iconfont.less';
+.h-icon {
+  font-family: "hp-icon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  vertical-align: baseline;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {},
+    "component": true
+  }
+}
+</script>

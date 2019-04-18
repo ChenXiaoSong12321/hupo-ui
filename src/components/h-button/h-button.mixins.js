@@ -1,3 +1,4 @@
+import difference from '../../core/mixins/difference.interface'
 class HButtonMixins {
   props = {
     customClass: String,
@@ -35,6 +36,7 @@ class HButtonMixins {
 
   computed = {
     stateClass() {
+      console.log(difference)
       const classes = ['group', 'plain', 'disabled', 'opacity']
       let stateClass = ''
       classes.forEach(item => {

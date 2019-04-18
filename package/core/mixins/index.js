@@ -1,4 +1,4 @@
-// import difference from './difference.interface'
+import difference from './difference.interface'
 function copyProperties(target, source) {
   for (const key of Reflect.ownKeys(source)) {
     if (key !== 'constructor' &&
@@ -22,7 +22,7 @@ const LIFE_TIMES = ['beforeCreate', 'created', 'beforeMount', 'mounted', 'before
 
 export default function mix(...mixins) {
   const lifetimes = {}
-  class Mix {
+  class Mix implements DifferenceInterface {
     constructor() {
       const properties = ['data', 'methods', 'computed', 'watch', 'props']
       for (const Mixin of mixins) {
@@ -75,7 +75,7 @@ export default function mix(...mixins) {
         }
       },
       $viewportCommonGetCurrentPage() {
-        // difference.viewportCommonGetCurrentPage()
+        difference.viewportCommonGetCurrentPage()
       },
       $throttle(gapTime = 500) {
         return new Promise((resolve, reject) => {

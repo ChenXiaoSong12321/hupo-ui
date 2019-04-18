@@ -13,7 +13,7 @@ git pull github $branch
 git pull origin $branch
 git add .
 ls_date=`date +%Y.%m.%d`
-git commit -m "$1 push in $ls_date by jerry"
+git commit -m "$1 push at $ls_date by jerry"
 git config --global credential.helper store
 git push github $branch
 git push origin $branch

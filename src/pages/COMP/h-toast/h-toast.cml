@@ -73,7 +73,7 @@ class CToast {
       this.mask = false;
       this.needIcon = false;
       this.show = true;
-    }
+    },
     showWith10() {
       this.message = "toast duration 10s";
       this.duration = 10000;
