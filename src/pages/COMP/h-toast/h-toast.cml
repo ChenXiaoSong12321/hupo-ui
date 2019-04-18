@@ -14,6 +14,7 @@
     <h-button class="btn" c-bind:onclick="showSuccess">success toast</h-button>
     <h-button class="btn" c-bind:onclick="showWarn">warn toast</h-button>
     <h-button class="btn" c-bind:onclick="showWithout">toast without icon</h-button>
+    <h-button class="btn" c-bind:onclick="showWith10">toast duration 10s</h-button>
   </view>
 </page>
 </template>
@@ -43,7 +44,6 @@ class CToast {
       this.message = "loading";
       this.type = "loading";
       this.mask = false;
-      this.duration = 1000;
       this.needIcon = true;
       this.show = true;
     },
@@ -51,7 +51,6 @@ class CToast {
       this.message = "mask toast";
       this.type = "loading";
       this.mask = true;
-      this.duration = 1000;
       this.needIcon = true;
       this.show = true;
     },
@@ -59,21 +58,25 @@ class CToast {
       this.message = "success toast";
       this.type = "success";
       this.mask = true;
-      this.duration = 1000;
       this.needIcon = true;
       this.show = true;
     },
     showWarn() {
       this.message = "warn toast";
       this.type = "warn";
-      this.duration = 1000;
       this.mask = true;
       this.needIcon = true;
       this.show = true;
     },
     showWithout() {
       this.message = "toast without icon";
-      this.duration = 1000;
+      this.mask = false;
+      this.needIcon = false;
+      this.show = true;
+    }
+    showWith10() {
+      this.message = "toast duration 10s";
+      this.duration = 10000;
       this.mask = false;
       this.needIcon = false;
       this.show = true;
