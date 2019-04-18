@@ -38,8 +38,11 @@ cml.config.merge({
 cml.utils.plugin('webpackConfig', function({ type, media, webpackConfig }, cb) {
   const findRule = test => {
     let rules = {}
-    webpackConfig.module.rules.forEach((item, index) => {
-      if (new RegExp(item.test).test(test)) rules = {rule:item, index}
+    webpackConfig.module.rules.some((item, index) => {
+      if (new RegExp(item.test).test(test)){
+        rules = {rule:item, index}
+        return true
+      } 
     })
     return rules
   }

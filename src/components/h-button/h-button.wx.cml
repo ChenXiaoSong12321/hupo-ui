@@ -1,51 +1,51 @@
 <template>
   <origin-form bindsubmit="handleFormSubmit" report-submit>
-    <origin-button 
-      type="keng" 
-      form-type="{{openType ? '' : 'submit'}}" 
-      class="h-button {{ type == 'none' ? 'h-button--none' : 'h-button--'+size }} {{ type == 'none' ? 'h-button--none' : 'h-button--'+type }} {{stateClass}} {{radius?'is-radius':''}} {{customClass}}" 
-      disabled="{{disabled}}" 
-      open-type="{{openType}}" 
-      style="{{customStyle||''}}" 
-      bindtap="onclick" 
-      bindcontact="contact" 
-      bindgetuserinfo="getuserinfo" 
-      bindgetphonenumber="getphonenumber" 
-      binderror="error" 
+    <origin-button
+      type="keng"
+      form-type="{{openType ? '' : 'submit'}}"
+      class="h-button {{ type == 'none' ? 'h-button--none' : 'h-button--'+size }} {{ type == 'none' ? 'h-button--none' : 'h-button--'+type }} {{stateClass}} {{radius?'is-radius':''}} {{customClass}}"
+      disabled="{{disabled}}"
+      open-type="{{openType}}"
+      style="{{customStyle||''}}"
+      bindtap="onclick"
+      bindcontact="contact"
+      bindgetuserinfo="getuserinfo"
+      bindgetphonenumber="getphonenumber"
+      binderror="error"
       bindopensetting="opensetting"
     >
-    <slot></slot>
-  </origin-button>
+      <slot></slot>
+    </origin-button>
   </origin-form>
 </template>
 
 <script>
-import HButtonMixins from './h-button.mixins.js';
-import mix from '../../core/mixins/index';
+import HButtonMixins from "./h-button.mixins.js";
+import mix from "../../core/mixins/index";
 
-class HButton implements ButtonInterface{
+class HButton implements ButtonInterface {
   methods = {
-    getuserinfo(e){
-      console.log(e,'getuserinfo')
-      this.__emit__('getuserinfo',e.detail);
+    getuserinfo(e) {
+      console.log(e, "getuserinfo");
+      this.__emit__("getuserinfo", e.detail);
     },
-    contact(e){
-      this.__emit__('contact');
+    contact(e) {
+      this.__emit__("contact");
     },
-    getphonenumber(e){
-      this.__emit__('getphonenumber',e.detail);
+    getphonenumber(e) {
+      this.__emit__("getphonenumber", e.detail);
     },
-    error(e){
-      this.__emit__('error',e.detail);
+    error(e) {
+      this.__emit__("error", e.detail);
     },
-    opensetting(e){
-      this.__emit__('opensetting',e.detail);
+    opensetting(e) {
+      this.__emit__("opensetting", e.detail);
     },
     onclick(e) {
-      console.log('click')
-      const { disabled,openType } = this
+      console.log("click");
+      const { disabled, openType } = this;
       if (disabled || openType) return;
-      this.__emit__('onclick',e);
+      this.__emit__("onclick", e);
     },
     async handleFormSubmit(event) {
       // console.log(event,'handleFormSubmit')
@@ -65,14 +65,15 @@ class HButton implements ButtonInterface{
       //   })
       // }
     }
-  }
+  };
 }
-const HButtonCom = mix(HButton, HButtonMixins)
+const HButtonCom = mix(HButton, HButtonMixins);
+console.log(new HButtonCom());
 export default new HButtonCom();
 </script>
 
 <style>
-@import './h-button.less';
+@import "./h-button.less";
 </style>
 
 <script cml-type="json">
