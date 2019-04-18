@@ -14,11 +14,11 @@ git add .
 ls_date=`date +%Y.%m.%d`
 git commit -m "$1 push at $ls_date by jerry"
 
-git pull github $branch
+git pull github master
 git pull origin $branch
 
 git config --global credential.helper store
-git push github $branch
+git push github master
 git push origin $branch
 
 echo "提交完成"
