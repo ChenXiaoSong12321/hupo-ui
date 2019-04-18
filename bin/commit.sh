@@ -21,5 +21,6 @@ git push origin $branch
 git checkout master
 git pull github master
 git push github master
+git checkout $branch
 
 echo "提交完成"
