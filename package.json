@@ -5,6 +5,7 @@
   "scripts": {
     "build": "cml wx build && cml web build",
     "build-web": "cml web build",
+    "commit": "cd bin && ./commit.sh",
     "publish": "sh ./bin/build.sh && cd package && npm publish"
   },
   "author": "Hupo-Team",
@@ -14,6 +15,8 @@
     "chameleon-runtime": "^0.1.0",
     "chameleon-store": "~0.0.3",
     "chameleon-ui-builtin": "0.0.7-alpha.3",
-    "classnames": "2.2.6"
+    "classnames": "2.2.6",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0"
   }
 }

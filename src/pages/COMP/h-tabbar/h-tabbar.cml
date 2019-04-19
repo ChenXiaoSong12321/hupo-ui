@@ -1,9 +1,9 @@
 <template>
 <page title="h-tabbar演示">
-  <!-- <component is="{{currentComp}}" ></component> -->
-  <bar-index c-show="{{currentComp === 'bar-index'}}"></bar-index>
+  <component is="{{currentComp}}" ></component>
+  <!-- <bar-index c-show="{{currentComp === 'bar-index'}}"></bar-index>
   <bar-trip c-show="{{currentComp === 'bar-trip'}}"></bar-trip>
-  <bar-my c-show="{{currentComp === 'bar-my'}}"></bar-my>
+  <bar-my c-show="{{currentComp === 'bar-my'}}"></bar-my> -->
   <h-tabbar 
     c-bind:onclick='handleTabbarClick' 
     c-model="{{currentComp}}"

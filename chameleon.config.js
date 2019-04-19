@@ -37,7 +37,7 @@ cml.config.merge({
 
 cml.utils.plugin('webpackConfig', function({ type, media, webpackConfig }, cb) {
   const findRule = test => {
-    let rules = {}
+    let rules
     webpackConfig.module.rules.some((item, index) => {
       if (new RegExp(item.test).test(test)){
         rules = {rule:item, index}
@@ -49,14 +49,16 @@ cml.utils.plugin('webpackConfig', function({ type, media, webpackConfig }, cb) {
 
   // 支持scss
   const cmlFile = findRule('.cml')
-  cmlFile.rule.use = cmlFile.rule.use.map(use => {
-    use.options.loaders.scss = JSON.parse(JSON.stringify(use.options.loaders.less)).map(item => {
-      if (item.loader === 'less-loader') item.loader = 'sass-loader'
-      return item
+  if(cmlFile){
+    cmlFile.rule.use = cmlFile.rule.use.map(use => {
+      use.options.loaders.scss = JSON.parse(JSON.stringify(use.options.loaders.less)).map(item => {
+        if (item.loader === 'less-loader') item.loader = 'sass-loader'
+        return item
+      })
+      return use
     })
-    return use
-  })
-  webpackConfig.module.rules[cmlFile.index] = cmlFile.rule
+    webpackConfig.module.rules[cmlFile.index] = cmlFile.rule
+  }
 
   cb({
     type,
