@@ -69,7 +69,7 @@ HupoComponent({
     },
     handleTap() {
       if (!this.data.openType) {
-        this.__emit__('click')
+        this.__emit__('onclick')
       }
     },
     async  __emit__(type, data = {}) {

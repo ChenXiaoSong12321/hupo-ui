@@ -1,40 +1,43 @@
 <template>
-<page title="h-popup演示">
-  <view class="container">
-    <h-header title="h-popup" ></h-header>
-    <h-button class="btn" c-bind:click="showPopup">open popup</h-button>
-    <h-popup show="{{show}}" c-bind:close="closePopup">
-      <view class="h-popup">hhhh</view>
-    </h-popup>
-  </view>
-</page>
+  <page title="h-popup演示">
+    <view class="container">
+      <h-header title="h-popup"></h-header>
+      <h-button class="btn" c-bind:onclick="showPopup">open popup</h-button>
+      <text>sss</text>
+      <h-popup show="{{show}}" c-bind:onclose="closePopup">
+        <view class="h-popup">hhhh</view>
+      </h-popup>
+      <text>d</text>
+    </view>
+  </page>
 </template>
 <script>
 class Popup {
-   data = {
-    show: false,
-  }  
+  data = {
+    show: false
+  };
   methods = {
-      showPopup() {
-        this.show = true;
-      },
-      closePopup(){
-        this.show = false
-      }
+    showPopup() {
+      console.log(this.show,'page')
+      this.show = true;
+    },
+    closePopup() {
+      this.show = false;
     }
+  };
 }
 
 export default new Popup();
 </script>
 <style scoped lang="scss">
-@import '../../../assets/scss/_output.scss';
+@import "../../../assets/scss/_output.scss";
 .container {
   display: flex;
   flex-direction: column;
   flex: 1;
   align-items: center;
 }
-.h-popup{
+.h-popup {
   background-color: #fff;
   @include flexCenter;
 }

@@ -5,7 +5,7 @@
   <bar-trip c-show="{{currentComp === 'bar-trip'}}"></bar-trip>
   <bar-my c-show="{{currentComp === 'bar-my'}}"></bar-my> -->
   <h-tabbar 
-    c-bind:click='handleTabbarClick' 
+    c-bind:onclick='handleTabbarClick' 
     c-model="{{currentComp}}"
     tabbar="{{tabbar}}"
   ></h-tabbar>

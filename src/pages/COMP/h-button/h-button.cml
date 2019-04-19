@@ -3,23 +3,23 @@
   <view class="container">
     <h-header title="h-button"></h-header>
 
-    <h-button class="btn" c-bind:click="showLoading" size="max" type="primary" radius>max</h-button>
-    <h-button class="btn" c-bind:click="showLoading" size="large">large</h-button>
-    <h-button class="btn" c-bind:click="showLoading" size="medium">medium</h-button>
-    <h-button class="btn" c-bind:click="showLoading" size="small">small</h-button>
-    <h-button class="btn" c-bind:click="showLoading" size="mini">mini</h-button>
-    <h-button class="btn" c-bind:click="showLoading" type="primary" plain>plain</h-button>
-    <h-button class="btn" c-bind:click="showLoading" type="primary" radius="{{false}}">no-radius</h-button>
-    <h-button class="btn" c-bind:click="showLoading" type="primary" disabled>disabled</h-button>
-    <h-button class="btn" c-bind:click="showLoading" type="primary" >primary</h-button>
-    <h-button class="btn" c-bind:click="showLoading" type="preheat" >preheat</h-button>
-    <h-button class="btn" c-bind:click="showLoading" type="muted" >muted</h-button>
-    <h-button class="btn" c-bind:click="showLoading" type="forbidden" >forbidden</h-button>
-    <h-button class="btn" c-bind:click="showLoading" type="member" >member</h-button>
-    <h-button class="btn" c-bind:click="showLoading" type="specialmember" >specialmember</h-button>
-    <h-button class="btn" c-bind:click="showLoading" type="none" >type none</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" size="max" type="primary" radius>max</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" size="large">large</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" size="medium">medium</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" size="small">small</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" size="mini">mini</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" type="primary" plain>plain</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" type="primary" radius="{{false}}">no-radius</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" type="primary" disabled>disabled</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" type="primary" >primary</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" type="preheat" >preheat</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" type="muted" >muted</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" type="forbidden" >forbidden</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" type="member" >member</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" type="specialmember" >specialmember</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" type="none" >type none</h-button>
 
-    <h-button class="btn" c-bind:click="showLoading" openType="getUserInfo">getUserInfo</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading" openType="getUserInfo">getUserInfo</h-button>
   </view>
 </page>
 </template>
@@ -27,7 +27,7 @@
 class HButton {
   methods= {
     showLoading() {
-      console.log('click button')
+      console.log('onclick button')
     }
   }
 

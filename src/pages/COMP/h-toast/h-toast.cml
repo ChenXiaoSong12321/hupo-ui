@@ -9,12 +9,12 @@
             type="{{type}}"
             need-icon="{{needIcon}}"
             mask="{{mask}}"></h-toast>
-    <h-button class="btn" c-bind:click="showLoading">loading toast</h-button>
-    <h-button class="btn" c-bind:click="showMask" >loading toast with mask</h-button>
-    <h-button class="btn" c-bind:click="showSuccess">success toast</h-button>
-    <h-button class="btn" c-bind:click="showWarn">warn toast</h-button>
-    <h-button class="btn" c-bind:click="showWithout">toast without icon</h-button>
-    <h-button class="btn" c-bind:click="showWith10">toast duration 10s</h-button>
+    <h-button class="btn" c-bind:onclick="showLoading">loading toast</h-button>
+    <h-button class="btn" c-bind:onclick="showMask" >loading toast with mask</h-button>
+    <h-button class="btn" c-bind:onclick="showSuccess">success toast</h-button>
+    <h-button class="btn" c-bind:onclick="showWarn">warn toast</h-button>
+    <h-button class="btn" c-bind:onclick="showWithout">toast without icon</h-button>
+    <h-button class="btn" c-bind:onclick="showWith10">toast duration 10s</h-button>
   </view>
 </page>
 </template>

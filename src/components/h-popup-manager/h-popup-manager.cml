@@ -43,14 +43,17 @@ class HPopupManager {
   };
 
   watch = {
-    show(value) {
-      value ? this.showMask() : this.hideMask();
+    show(n) {
+      console.log(n,'popup-comp')
+      n ? this.showMask() : this.hideMask();
     }
   };
 
   methods = {
     closeevent() {
-      this.$cmlEmit("close");
+      console.log(this.$cmlEmit)
+      debugger
+      this.$cmlEmit("onclose");
     },
     showMask() {
       zindexManager=zindexManager+2
@@ -66,7 +69,8 @@ class HPopupManager {
         this.visible = false;
       }, 300);
     },
-    contentTap() {}
+    contentTap() {
+    }
   };
 }
 

@@ -2,7 +2,7 @@
 <popup-wrap top="{{top}}" show="{{ _show }}" bind:close="close">
   <view class="hupo-popup-frame" catchtouchmove>
     <view class="hupo-popup-frame-close">
-      <hupo-button type="none" bind:click="close">
+      <hupo-button type="none" bind:onclick="close">
         <hp-icon class-name="el-icon-hp-shanchu" class="hupo-popup-frame-close-icon"></hp-icon>
       </hupo-button>
     </view>

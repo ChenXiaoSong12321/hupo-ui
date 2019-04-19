@@ -53,11 +53,11 @@ class HButtonMixins {
   }
   
   methods = {
-    async  __emit__(type, data = {}) {
-      console.log(data)
+    async btnEmit(type, data = {}) {
       if (this.throttle > 0) {
         await this.$throttle(this.throttle)
       }
+      console.log(type, data)
       this.$cmlEmit(type, data)
     }
     

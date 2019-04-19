@@ -36,7 +36,7 @@ const currentComponent = createComponent({
   methods: {
     handleTap() {
       if (!this.data.authorize.isAuth && this.data.authorize.lastMobileBindTime) {
-        this.triggerEvent('click')
+        this.triggerEvent('onclick')
       }
     },
     handleSuccess() {

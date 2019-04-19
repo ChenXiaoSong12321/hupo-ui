@@ -28,7 +28,7 @@ Component({
   },
   methods: {
     clickOverlay() {
-      this.triggerEvent('click-overlay')
+      this.triggerEvent('onclick-overlay')
 
       if (this.data.closeclickOverlay) {
         this.triggerEvent('close')
