@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "hupo-pop-manager": "../common/pop-manager/index",
+    "hupo-button": "../button/index",
+    "hp-icon": "/components/hpIcon/index",
+    "hupo-rich-text": "/hupo/richText/main/index"
+  }
+}

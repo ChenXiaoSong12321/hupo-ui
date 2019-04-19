@@ -1,0 +1,35 @@
+<hupo-pop-manager show="{{ show }}" type="center">
+  <view class="hupo-dialog--container">
+    <view wx:if="{{ title }}" class="hupo-dialog-header">
+      <block wx:if="{{icon}}">
+        <view class="hupo-dialog-header--icon" style="color: {{ iconColor || '#333' }}">
+          <hp-icon className="{{icon}}"></hp-icon>
+        </view>
+      </block>
+      <view class="hupo-dialog-header--title">
+        <block wx:if="{{htmlTitle}}">
+          <hupo-rich-text document="{{htmlTitle}}"></hupo-rich-text>
+        </block>
+        <block wx:else>{{ title }}</block>
+      </view>
+    </view>
+    <view class="hupo-dialog-content {{ title ? 'is-has-title' : '' }}">
+      <view wx:if="{{html}}" class="hupo-dialog-content--html">
+        <hupo-rich-text document="{{html}}"></hupo-rich-text>
+      </view>
+      <view wx:else class="hupo-dialog-content--message">{{ message }}</view>
+    </view>
+    <view class="hupo-dialog-footer {{title?'is-unradius-button':'is-radius-button'}}" style="{{title&&buttons.length!==2?'':'padding:10rpx 0'}}">
+      <block wx:for="{{ buttons }}" wx:key="{{ item.text }}-{{ item.type }}">
+        <hupo-button size="medium" type="{{title?'none':'primary'}}" plain="{{item.type!=='confirm'}}" class="hupo-dialog-footer-button {{!title&&item.type!=='confirm'?'is-cancel':''}} {{title?'hupo-dialog-footer-button-no-type':''}}" customStyle="{{!title&&buttons.length!==2?'width:480rpx':''}}" data-open-type="{{ item.openType }}" data-type="{{ item.type }}" open-type="{{ item.openType }}" bindtap="handleButtonClick" bind:getuserinfo="handleUserInfoResponse" bind:getphonenumber="handlePhoneResponse" bind:opensetting="handleOpenSettingResponse">
+          <block wx:if="{{!title}}">{{ item.text }}</block>
+          <block wx:else>
+            <view class="button-text {{item.type==='confirm'?'is-confirm':'is-cancel'}}" style="{{title&&buttons.length!==2?'height:90rpx':''}}">
+              {{ item.text }}
+            </view>
+          </block>
+        </hupo-button>
+      </block>
+    </view>
+  </view>
+</hupo-pop-manager>

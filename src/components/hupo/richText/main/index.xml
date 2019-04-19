@@ -1,0 +1,7 @@
+<view class="wxParse">
+  <block wx:for="{{_nodes}}" wx:key="{{index}}">
+    <block wx:for="{{item}}" wx:for-item="node" wx:for-index="y" wx:key="{{node.index}}">
+      <parse-base nodes="{{node}}"></parse-base>
+    </block>
+  </block>
+</view>

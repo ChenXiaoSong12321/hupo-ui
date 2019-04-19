@@ -1,0 +1,108 @@
+@import '../../style/mixins/common';
+
+@include b(pop) {
+  visibility: hidden;
+
+  @include e(mask) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, .7);
+    display: none;
+
+    @include m(hide) {
+      background: 0 0
+    }
+  }
+
+  @include e(container) {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+    z-index: 11;
+    opacity: 0;
+
+    @include m(hide) {
+      background: 0 0
+    }
+  }
+
+  @include m(left) {
+    .hupo-pop-container {
+      left: 0;
+      top: 50%;
+      -webkit-transform: translate3d(-100%, -50%, 0);
+      transform: translate3d(-100%, -50%, 0);
+    }
+  }
+
+  @include m(right) {
+    .hupo-pop-container {
+      right: 0;
+      top: 50%;
+      left: auto;
+      -webkit-transform: translate3d(100%, -50%, 0);
+      transform: translate3d(100%, -50%, 0);
+    }
+  }
+
+  @include m(bottom) {
+    .hupo-pop-container {
+      top: auto;
+      left: 50%;
+      bottom: 0;
+      -webkit-transform: translate3d(-50%, 100%, 0);
+      transform: translate3d(-50%, 100%, 0)
+    }
+  }
+
+  @include m(top) {
+    .hupo-pop-container {
+      top: 0;
+      left: 50%;
+      -webkit-transform: translate3d(-50%, -100%, 0);
+      transform: translate3d(-50%, -100%, 0);
+    }
+  }
+  @include m(show) {
+    visibility: visible;
+
+    .hupo-pop-container {
+      opacity: 1;
+    }
+
+    .hupo-pop-mask {
+      display: block;
+    }
+
+    &.hupo-pop--left .hupo-pop-container {
+      -webkit-transform: translate3d(0, -50%, 0);
+      transform: translate3d(0, -50%, 0);
+    }
+
+    &.hupo-pop--right .hupo-pop-container {
+      -webkit-transform: translate3d(0, -50%, 0);
+      transform: translate3d(0, -50%, 0)
+    }
+
+    &.hupo-pop--bottom .hupo-pop-container {
+      -webkit-transform: translate3d(-50%, 0, 0);
+      transform: translate3d(-50%, 0, 0)
+    }
+
+    &.hupo-pop--top .hupo-pop-container {
+      -webkit-transform: translate3d(-50%, 0, 0);
+      transform: translate3d(-50%, 0, 0)
+    }
+  }
+}
+

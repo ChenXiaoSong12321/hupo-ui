@@ -72,8 +72,8 @@ console.log(new HButtonCom());
 export default new HButtonCom();
 </script>
 
-<style>
-@import "./h-button.less";
+<style lang="scss">
+@import "./h-button.scss";
 </style>
 
 <script cml-type="json">

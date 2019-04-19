@@ -1,0 +1,58 @@
+@mixin css-triangle ($direction: "down", $size: 20px, $color: #000, $fillColor:#fff) {
+  width: 0;
+  height: 0;
+  position: relative;
+  z-index: 0;
+  border-left: #{setTriangleSize($direction, "left", $size)} solid #{setTriangleColor($direction, "left", $color)};
+  border-right: #{setTriangleSize($direction, "right", $size)} solid #{setTriangleColor($direction, "right", $color)};
+  border-bottom: #{setTriangleSize($direction, "bottom", $size)} solid #{setTriangleColor($direction, "bottom", $color)};
+  border-top: #{setTriangleSize($direction, "top", $size)} solid #{setTriangleColor($direction, "top", $color)};
+
+  .#{$namespace}triangle-fill {
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: -($size/2-1);
+    top: -($size);
+    z-index: 1;
+    border-left: #{setTriangleSize($direction, "left", $size)} solid #{setTriangleColor($direction, "left", $fillColor)};
+    border-right: #{setTriangleSize($direction, "right", $size)} solid #{setTriangleColor($direction, "right", $fillColor)};
+    border-bottom: #{setTriangleSize($direction, "bottom", $size)} solid #{setTriangleColor($direction, "bottom", $fillColor)};
+    border-top: #{setTriangleSize($direction, "top", $size)} solid #{setTriangleColor($direction, "top", $fillColor)};
+  }
+}
+
+@function setTriangleColor($direction, $side, $color) {
+
+  @if $direction=="left"and $side=="right"
+  or $direction=="right"and $side=="left"
+  or $direction=="down"and $side=="top"
+
+  or $direction=="up"and $side=="bottom" {
+    @return $color
+  }
+
+  @else {
+    @return "transparent";
+  }
+}
+
+@function setTriangleSize($direction, $side, $size) {
+  @if (($direction=="left"or $direction=="right") and ($side=="left"or $side=="right")) or (($direction=="up"or $direction=="down") and ($side=="top"or $side=="bottom")) {
+    @return $size/2;
+  }
+
+  @else {
+    @return $size;
+  }
+}
+
+@function setTriangleOffset($direction, $side, $size) {
+  @if (($direction=="left"or $direction=="right") and ($side=="left"or $side=="right")) or (($direction=="up"or $direction=="down") and ($side=="top"or $side=="bottom")) {
+    @return $size/2;
+  }
+
+  @else {
+    @return $size;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "parse-base": "../components/base/index"
+  }
+}

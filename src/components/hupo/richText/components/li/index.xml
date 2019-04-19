@@ -1,0 +1,12 @@
+<view class="{{nodes.classStr}} wxParse-{{nodes.tag}}" style="{{nodes.styleStr || ''}}">
+  <view class="wxParse-li-inner">
+    <view class="wxParse-li-text">
+      <view class="wxParse-li-circle"></view>
+    </view>
+    <view class="wxParse-li-text">
+      <block wx:for="{{nodes.nodes}}" wx:key="">
+        <parse-base nodes="{{item}}"></parse-base>
+      </block>
+    </view>
+  </view>
+</view>

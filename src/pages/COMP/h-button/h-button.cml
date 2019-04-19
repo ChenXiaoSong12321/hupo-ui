@@ -45,7 +45,6 @@ export default new HButton();
   margin-top: 20cpx;
 }
 </style>
-
 <script cml-type="json">
 {
   "base": {
