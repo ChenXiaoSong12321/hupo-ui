@@ -1,68 +1,25 @@
 <template>
-  <view
-    class="custom-class {{ classPrefix }} {{ classPrefix }}-{{ name }}"
-    style="{{ color ? 'color: ' + color : '' }}; {{ size ? 'font-size: ' + size : '' }}"
-    bind:tap="onClick"
-  >
-    <view wx:if="{{ info !== null }}" class="h-icon-info">{{ info }}</view>
-  </view>
+  <view style="{{customStyle}}" class="h-icon {{className}}"></view>
 </template>
 
 <script>
 class HIcon {
-  props = {
-    info: null,
-    name: String,
-    size: String,
-    color: String,
-    classPrefix: {
+ props = {
+    className: {
       type: String,
-      default: "h-icon"
+      default: ''
+    },
+    customStyle: {
+      type: String,
+      default: ''
     }
-  };
-
-  methods = {
-    onClick() {
-      this.triggerEvent("click");
-    }
-  };
+  }
 }
 
 export default new HIcon();
 </script>
-<style>
-@font-face {
-  font-style: normal;
-  font-weight: 400;
-  font-family: vant-icon;
-  src: url(https://img.yzcdn.cn/vant/vant-icon-76f274.ttf) format("truetype");
-}
-
-.h-icon {
-  position: relative;
-  display: inline-block;
-  font: normal normal normal 14px/1 vant-icon;
-  font-size: inherit;
-  text-rendering: auto;
-}
-
-.h-icon-info {
-  color: #fff;
-  left: 100%;
-  top: -0.5em;
-  font-size: 0.5em;
-  padding: 0 0.3em;
-  text-align: center;
-  min-width: 1.2em;
-  line-height: 1.2;
-  position: absolute;
-  border-radius: 0.6em;
-  box-sizing: border-box;
-  background-color: #f44;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  font-family: PingFang SC, Helvetica Neue, Arial, sans-serif;
-}
+<style lang="scss">
+@import '../../assets/scss/common/_iconfont.scss';
 </style>
 <script cml-type="json">
 {

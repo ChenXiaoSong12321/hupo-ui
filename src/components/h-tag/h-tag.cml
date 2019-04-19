@@ -68,57 +68,8 @@ class HTag {
 
 export default new HTag();
 </script>
-<style lang="less">
-@import "../../assets/less/_output.less";
-
-.h-tag {
-  text-align: center;
-  color: @--font-color-c1;
-  display: inline-flex;
-  height: 40cpx;
-  align-items: center;
-  line-height: 1;
-  padding-left: 10cpx;
-  padding-right: 10cpx;
-  border-radius: 5cpx;
-  &.is-radius {
-    border-radius: 80cpx;
-  }
-  &.is-plain {
-    background-color: transparent;
-    box-sizing: border-box;
-  }
-  &--primary {
-    background-color: transparent;
-    box-sizing: border-box;
-    color: @--primary-color-a1;
-
-    &.is-plain {
-      border: 1px solid rgba(@--primary-color-a1, 0.3);
-    }
-  }
-  &--blue {
-    background-color: transparent;
-    box-sizing: border-box;
-    color: @--primary-color-a1;
-
-    &.is-plain {
-      border: 1px solid rgba(@--primary-color-a1, 0.3);
-    }
-  }
-  &--large {
-    height: 40cpx;
-    padding-left: 11cpx;
-    font-size: @--font-size-weak-large-fwl;
-    padding-right: 11cpx;
-  }
-  &--small {
-    height: 30cpx;
-    padding-left: 8cpx;
-    font-size: 22cpx;
-    padding-right: 8cpx;
-  }
-}
+<style lang="scss">
+@import './h-tag.scss';
 </style>
 <script cml-type="json">
 {

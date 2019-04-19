@@ -50,7 +50,7 @@ export default new HIcon();
   "base": {
     "usingComponents": {
       "h-header": "../../components/h-header/h-header",
-      "h-icon": "/components/h-icon/h-icon-base"
+      "h-icon": "/components/h-icon/h-icon"
     },
     "navigationBarTitleText": "h-icon",
     "backgroundTextStyle": "dark",

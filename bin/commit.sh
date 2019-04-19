@@ -12,7 +12,8 @@ git config --global user.name "ChenXiaoSong12321"
 
 git add .
 ls_date=`date +%Y.%m.%d`
-git commit -m "$1 push at $ls_date by jerry"
+user-name=`git config user.name`
+git commit -m "$1 push at $ls_date by ${user-name}"
 
 git pull origin $branch
 git pull github $branch
