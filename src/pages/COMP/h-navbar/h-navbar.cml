@@ -1,0 +1,93 @@
+<template>
+  <h-page type="{{type}}" loading="{{loading}}" title="{{title}}" showHomeIcon="{{showHomeIcon}}">
+    <h-fixed left="50" right="50">
+      <view>123</view>
+    </h-fixed>
+    <view class="container">
+      <h-button
+        class="btn"
+        c-bind:onclick="toggleLoading"
+        size="max"
+        type="primary"
+        radius
+      >toggleLoading</h-button>
+      <h-button
+        class="btn"
+        c-bind:onclick="toggleTitle"
+        size="max"
+        type="primary"
+        radius
+      >toggleTitle</h-button>
+      <h-button class="btn" c-bind:onclick="toggleType" size="max" type="primary" radius>toggleType</h-button>
+      <h-button
+        class="btn"
+        c-bind:onclick="toggleHomeIcon"
+        size="max"
+        type="primary"
+        radius
+      >toggleHomeIcon</h-button>
+    </view>
+  </h-page>
+</template>
+<script>
+import promise from '../../../core/utils/promise'
+class HPageNavbar {
+  data = {
+    type: 'default',
+    loading: false,
+    title: 'h-navabr 演示',
+    showHomeIcon: false
+  }
+  methods = {
+    async toggleLoading() {
+      this.loading = true
+      await promise.delay(5000)
+      this.loading = false
+    },
+    async toggleTitle() {
+      this.title = '琥珀亲子'
+      await promise.delay(5000)
+      this.title = 'h-navabr 演示'
+    },
+    async toggleType() {
+      this.type = 'primary'
+      await promise.delay(5000)
+      this.type = 'default'
+    },
+    async toggleHomeIcon() {
+      this.showHomeIcon = true
+      await promise.delay(5000)
+      this.showHomeIcon = false
+    }
+  }
+
+}
+
+export default new HPageNavbar();
+</script>
+<style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+.btn {
+  margin-top: 20cpx;
+}
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-page": "/components/h-page/h-page",
+      "h-fixed": "/components/h-fixed/h-fixed",
+      "h-navbar": "/components/h-navbar/h-navbar",
+      "h-button": "/components/h-button/h-button"
+    },
+    "navigationBarTitleText": "h-navbar",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#E2E2E2"
+  }
+}
+</script>

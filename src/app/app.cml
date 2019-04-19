@@ -17,17 +17,33 @@ export default new App();
 </script>
 
 <style scoped>
-
 </style>
 
 <script cml-type="json">
 {
   "base": {
     "window": {
-      "backgroundTextStyle": "dark",
-      "navigationBarBackgroundColor": "#343434",
-      "navigationBarTitleText": "CNODE",
-      "navigationBarTextStyle": "white"
+      "navigationBarTitleText": "琥珀亲子UI组件库"
+    },
+    "permission": {
+      "scope.userLocation": {
+        "desc": "琥珀将根据您的位置为您展示对应城市的亲子服务"
+      }
+    },
+    "usingComponents": {
+    }
+  },
+  "wx": {
+    "window": {
+      "navigationBarBackgroundColor": "#FAFAFA",
+      "navigationBarTextStyle": "black",
+      "backgroundColor": "#FAFAFA",
+      "onReachBottomDistance": 1000,
+      "navigationStyle": "custom"
+    },
+    "networkTimeout": {
+      "request": 15000,
+      "downloadFile": 15000
     }
   }
 }

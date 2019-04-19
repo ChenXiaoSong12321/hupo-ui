@@ -1,0 +1,39 @@
+@import '../../assets/scss/output';
+@include b(navbar){
+  @include e(place){
+    display: flex;
+    align-items: flex-end;
+    background: #fafafa;
+  }
+  @include e(place-full){
+    width: 100%;
+  }
+  @include e(box){
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 999;
+
+    @include m(default){
+      background: $--primary-background-write-1;
+    }
+    @include m(primary){
+      background: $--primary-color-a1;
+    }
+  }
+  @include e(box-side){
+    flex: 6;
+    height: 100%;
+  }
+  @include e(box-side-full){
+    height: 100%;
+  }
+  @include e(box-middle){
+    flex: 13;
+    @include ellipsis();
+  }
+}

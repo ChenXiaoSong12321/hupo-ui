@@ -1,0 +1,11 @@
+@import '../../assets/scss/output';
+@include b(fixed){
+  @include e(wrap){
+    position: fixed;
+    z-index: 12;
+  }
+  @include e(content){
+    position: absolute;
+  }
+}
+

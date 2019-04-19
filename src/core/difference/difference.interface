@@ -1,0 +1,50 @@
+<script cml-type="interface">
+/*
+ 不同平台，接口差异化实现
+*/
+interface DifferenceInterface {
+  // getApp: void,
+  getUrl: void,
+  getCurrentPages: void,
+  getCurrentPage: void
+}
+</script>
+
+<script cml-type="web">
+  class Method implements DifferenceInterface {
+    getApp() {
+      if(!window.__HUMALL__)window.__HUMALL__ = {}
+      return window.__HUMALL__
+    }
+    getUrl(){
+      return window.location.href
+    }
+    getCurrentPages() {
+      console.log('web')
+      return this
+    }
+    getCurrentPage() {
+      console.log('web')
+      return this
+    }
+  }
+  export default new Method();
+</script>
+<script cml-type="wx">
+  class Method implements DifferenceInterface {
+    getApp() {
+      return getApp()
+    }
+    getUrl(){
+      return ''
+    }
+    getCurrentPages(){
+      return getCurrentPages()
+    }
+    getCurrentPage() {
+      const pages = getCurrentPages()
+      return pages[pages.length - 1]
+    }
+  }
+  export default new Method();
+</script>
