@@ -5,7 +5,7 @@
       disabled="{{disabled}}" 
       open-type="{{openType}}"  
       style="{{customStyle||''}}" 
-      c-bind:tap="onclick"
+      c-bind:tap="click"
     >
     <slot></slot>
   </view>
@@ -32,7 +32,7 @@ class HButton implements ButtonInterface{
     opensetting(e){
      console.log('todo opensetting')
     },
-    onclick(e) {
+    click(e) {
       const { disabled,openType } = this
       if (disabled) return;
       if(openType){
@@ -40,7 +40,7 @@ class HButton implements ButtonInterface{
         return
       }
       console.log('click')
-      this.__emit__('onclick',e);
+      this.__emit__('click',e);
     },
     async handleFormSubmit(event) {
       console.log(event)

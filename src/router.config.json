@@ -21,6 +21,12 @@
       "mock": "index.php"
     },
     {
+      "name": "h-popup",
+      "url": "/pages/COMP/h-popup/h-popup",
+      "path": "/pages/COMP/h-popup/h-popup",
+      "mock": "index.php"
+    },
+    {
       "name": "h-button",
       "url": "/pages/COMP/h-button/h-button",
       "path": "/pages/COMP/h-button/h-button",

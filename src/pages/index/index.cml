@@ -1,7 +1,7 @@
 <template>
-<page title="chameleon组件展示">
+<page title="hupo-ui 组件展示">
   <view slot="titlebar" class="titlebar">
-    <text class="titlebar-text">chameleon组件展示</text>
+    <text class="titlebar-text">hupo-ui 组件展示</text>
   </view>
   <view class="index-page">
     <view class="index-body" style="{{bodyComputedStyl}}">
@@ -79,10 +79,9 @@ class Demo {
         pages: [
           routeObj["h-toast"],
           routeObj["h-popup-manager"],
+          routeObj["h-popup"],
           routeObj["h-button"],
           routeObj["h-icon"],
-          routeObj["h-tab"],
-          routeObj["h-tabbar"],
         ],
         src: require(`../../assets/images/component/kind/content.png`)
       },
@@ -99,6 +98,8 @@ class Demo {
         name: "导航",
         open: false,
         pages: [
+          routeObj["h-tab"],
+          routeObj["h-tabbar"],
         ],
         src: require(`../../assets/images/component/kind/nav.png`)
       }

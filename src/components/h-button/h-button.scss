@@ -11,6 +11,9 @@
   padding: 0;
   border-radius: 0;
   color: $--font-color-c1;
+  &::after{
+    border: 0;
+  }
   @include flexCenter();
 
   @include when(opacity) {

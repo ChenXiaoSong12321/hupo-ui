@@ -7,7 +7,7 @@
       disabled="{{disabled}}"
       open-type="{{openType}}"
       style="{{customStyle||''}}"
-      bindtap="onclick"
+      bindtap="click"
       bindcontact="contact"
       bindgetuserinfo="getuserinfo"
       bindgetphonenumber="getphonenumber"
@@ -41,11 +41,11 @@ class HButton implements ButtonInterface {
     opensetting(e) {
       this.__emit__("opensetting", e.detail);
     },
-    onclick(e) {
+    click(e) {
       console.log("click");
       const { disabled, openType } = this;
       if (disabled || openType) return;
-      this.__emit__("onclick", e);
+      this.__emit__("click", e);
     },
     async handleFormSubmit(event) {
       // console.log(event,'handleFormSubmit')

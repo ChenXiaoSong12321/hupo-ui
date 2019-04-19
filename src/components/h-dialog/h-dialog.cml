@@ -1,16 +1,16 @@
 <template>
-  <h-popup-manager show="{{ visible }}" bind:close="close">
-    <view class="h-popup" catchtouchmove>
-      <view class="h-popup-close">
-        <h-button type="none" bind:click="close">
-          <hp-icon name="el-icon-hp-shanchu" class="h-popup-close-icon"></hp-icon>
-        </h-button>
+  <h-popup-manager top="{{top}}" show="{{ _show }}" bind:close="close">
+    <view class="hupo-popup-frame" catchtouchmove>
+      <view class="hupo-popup-frame-close">
+        <hupo-button type="none" bind:click="close">
+          <hp-icon class-name="el-icon-hp-shanchu" class="hupo-popup-frame-close-icon"></hp-icon>
+        </hupo-button>
       </view>
-      <view class="h-popup-box {{type?'h-popup-box'+type:''}}" style="{{customStyle}}">
-        <view class="h-popup-box-bg">
+      <view class="h-popup-frame-box {{type?'h-popup-frame-box'+type:''}}" style="{{customStyle}}">
+        <view class="hupo-popup-frame-box-bg">
           <slot name="bg"></slot>
         </view>
-        <view class="h-popup-box-content {{type?'h-popup-box-content'+type:''}}">
+        <view class="{{ utils.bem('popup-frame-box-content', [type]) }}">
           <slot></slot>
         </view>
       </view>
@@ -22,20 +22,17 @@ class HPopup {
   props = {
     show: {
       type: Boolean,
-      default: false
+      value: false
     },
     type: {
       type: String,
-      default: "ad"
+      value: "ad"
     },
     top: String,
     customStyle: {
       type: String,
-      default: ""
+      value: ""
     }
-  };
-  data={
-    visible:false
   }
   watch = {
     show(n) {
@@ -53,8 +50,7 @@ class HPopup {
 
 export default new HPopup();
 </script>
-<style scoped lang="scss">
-@import './h-popup.scss';
+<style scoped>
 </style>
 <script cml-type="json">
 {
@@ -62,7 +58,7 @@ export default new HPopup();
     "usingComponents": {
       "h-popup-manager": "../h-popup-manager/h-popup-manager",
       "hp-icon": "../h-icon/h-icon",
-      "h-button": "../h-button/h-button"
+      "hupo-button": "../h-button/h-button"
     },
     "component": true
     }

@@ -1,6 +1,6 @@
 @import '../../assets/scss/output';
 
-@include b(popup){
+@include b(popup-manager){
   position: fixed;
   z-index: 10000;
   top: 0;

@@ -9,12 +9,12 @@
     <h-popup-manager show="{{show2}}" mask="{{mask}}" c-bind:close="closePopup" position="{{position}}">
       <view style="{{contentStyle}}"><text style="font-size: 28cpx;">content</text></view>
     </h-popup-manager>
-    <button c-bind:onclick="showPopup" class="btn" text="show popup"></button>
-    <button c-bind:onclick="showPopup2('left')" class="btn" text="left"></button>
-    <button c-bind:onclick="showPopup2('top')" class="btn" text="top"></button>
-    <button c-bind:onclick="showPopup2('right')" class="btn" text="right"></button>
-    <button c-bind:onclick="showPopup2('bottom')" class="btn" text="bottom"></button>
-    <button c-bind:onclick="showPopup2('center')" class="btn" text="center"></button>
+    <button c-bind:click="showPopup" class="btn" text="show popup"></button>
+    <button c-bind:click="showPopup2('left')" class="btn" text="left"></button>
+    <button c-bind:click="showPopup2('top')" class="btn" text="top"></button>
+    <button c-bind:click="showPopup2('right')" class="btn" text="right"></button>
+    <button c-bind:click="showPopup2('bottom')" class="btn" text="bottom"></button>
+    <button c-bind:click="showPopup2('center')" class="btn" text="center"></button>
     </view>
 </page>
 </template>
