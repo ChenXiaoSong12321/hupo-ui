@@ -27,25 +27,25 @@ class HButton implements ButtonInterface {
   methods = {
     getuserinfo(e) {
       console.log(e, "getuserinfo");
-      this.__emit__("getuserinfo", e.detail);
+      this.btnEmit("getuserinfo", e.detail);
     },
     contact(e) {
-      this.__emit__("contact");
+      this.btnEmit("contact");
     },
     getphonenumber(e) {
-      this.__emit__("getphonenumber", e.detail);
+      this.btnEmit("getphonenumber", e.detail);
     },
     error(e) {
-      this.__emit__("error", e.detail);
+      this.btnEmit("error", e.detail);
     },
     opensetting(e) {
-      this.__emit__("opensetting", e.detail);
+      this.btnEmit("opensetting", e.detail);
     },
     onclick(e) {
-      console.log("click");
+      console.log("onclick");
       const { disabled, openType } = this;
       if (disabled || openType) return;
-      this.__emit__("onclick", e);
+      this.btnEmit("onclick", e);
     },
     async handleFormSubmit(event) {
       // console.log(event,'handleFormSubmit')

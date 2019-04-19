@@ -1,142 +1,73 @@
 <template>
-<view c-if="{{show}}" class="h-popup" style="{{containerStyle}}">
-  <view  class="{{maskClass}}" c-bind:tap="closeevent"></view>
-  <!-- c-catch禁止事件冒泡 -->
-  <view class="h-popup-content" style="{{contentStyle}}" c-catch:tap="contentTap">
-    <slot></slot>
-  </view>
-</view>
+  <h-popup-manager show="{{ visible }}" bind:onclose="onclose">
+    <view class="h-popup" c-catch:touchmove="empty">
+      <view class="h-popup-close">
+        <h-button type="none" bind:onclick="close">
+          <hp-icon name="el-icon-hp-shanchu" class="h-popup-close-icon"></hp-icon>
+        </h-button>
+      </view>
+      <view class="h-popup-box {{type?'h-popup-box'+type:''}}" style="{{customStyle}}">
+        <view class="h-popup-box-bg">
+          <slot name="bg"></slot>
+        </view>
+        <view class="h-popup-box-content {{type?'h-popup-box-content'+type:''}}">
+          <slot></slot>
+        </view>
+      </view>
+    </view>
+  </h-popup-manager>
 </template>
 <script>
-import cml from 'chameleon-api';
-const createAnimation = cml.createAnimation;
-
-class CPopup   {
+class HPopup {
   props = {
-    mask: {
-      type: Boolean,
-      default: true
-    },
     show: {
       type: Boolean,
       default: false
     },
-    center: {
-      type: Boolean,
-      default: true
-    },
-    position: {
+    type: {
       type: String,
-      default: ''
-    }
-  }
-
-  data = {
-    animationData: createAnimation()
-  }
-
-  computed = {
-    maskClass() {
-      return this.mask ? "has-mask" : "no-mask";
+      default: "ad"
     },
-    containerStyle() {
-      let s = ''
-
-      if (this.center) {
-         s += 'align-items:center;justify-content:center;'
-      }
-
-      return s
-    },
-    contentStyle() {
-      let style = "position: absolute;left:0;right:0;top:0;bottom:0;"
-      switch (this.position) {
-        case 'top':
-          style = style.replace('bottom:0;', 'display:flex;flex-direction:column;');
-          break;
-        case 'right':
-          style = style.replace('left:0;', 'display:flex;flex-direction:row;');
-          break;
-        case 'bottom':
-          style = style.replace('top:0;', 'display:flex;flex-direction:column;');
-          break;
-        case 'left':
-          style = style.replace('right:0;', 'display:flex;flex-direction:row;');
-          break;
-        default: 
-          style="position:relative;";
-          break;
-      }
-      return style;
+    top: String,
+    customStyle: {
+      type: String,
+      default: ""
     }
+  };
+  data={
+    visible:false
   }
-
   watch = {
-
-  }
+    show(n) {
+      console.log(n,'popup')
+      this.visible = n;
+    }
+  };
 
   methods = {
-    closeevent(){
-      this.$cmlEmit("close");
+    onclose() {
+      debugger
+      this.visible = false;
+      this.$cmlEmit("onclose", false);
     },
-    contentTap(){},
-    showMask() {
-      this.animationData = createAnimation()
-        .opacity(0.4)
-        .backgroundColor('#25262d')
-        .step({
-          duration: 300,
-          timingFunction: 'linear',
-          delay: 0
-        })
-        .export()
-    },
-    hideMask() {
-      this.animationData = createAnimation()
-        .opacity(0)
-        .step({
-          duration: 300,
-          timingFunction: 'linear',
-          delay: 0
-        })
-        .export()
-    }
-  }
+    empty(){}
+  };
 }
 
-export default new CPopup();
+export default new HPopup();
 </script>
-<style scoped>
-.h-popup {
-  position: fixed;
-  z-index: 10000;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-}
-.has-mask {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(37, 38, 45, .4);
-}
-.no-mask {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
+<style scoped lang="scss">
+@import './h-popup.scss';
 </style>
 <script cml-type="json">
 {
-    "base": {
-        "component": true
+  "base": {
+    "usingComponents": {
+      "h-popup-manager": "../h-popup-manager/h-popup-manager",
+      "hp-icon": "../h-icon/h-icon",
+      "h-button": "../h-button/h-button"
+    },
+    "component": true
     }
 }
 </script>

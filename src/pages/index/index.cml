@@ -76,10 +76,9 @@ class Demo {
         pages: [
           routeObj["h-toast"],
           routeObj["h-popup-manager"],
+          routeObj["h-popup"],
           routeObj["h-button"],
           routeObj["h-icon"],
-          routeObj["h-tab"],
-          routeObj["h-tabbar"],
         ],
         src: require(`../../assets/images/component/kind/content.png`)
       },
@@ -97,6 +96,8 @@ class Demo {
         open: false,
         pages: [
           routeObj["h-navbar"],
+          routeObj["h-tab"],
+          routeObj["h-tabbar"],
         ],
         src: require(`../../assets/images/component/kind/nav.png`)
       }

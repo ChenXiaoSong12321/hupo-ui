@@ -39,13 +39,14 @@ class HTabPane {
 }
 export default new HTabPane();
 </script>
-<style lang="less">
-.h-tab-pane{
+<style lang="scss">
+@import '../../assets/scss/output';
+@include b(tab-pane){
   width:750cpx;
   overflow-x:hidden;
   overflow-y:hidden;
-  &-wrap{
-    display:flex;
+  @include e(wrap){
+       display:flex;
     flex-direction:row;
     transition-duration: 0.5s;
     transition-timing-function:ease-in-out;

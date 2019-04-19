@@ -1,11 +1,11 @@
 <template>
-  <view style="{{customStyle}}" class="h-icon {{className}}"></view>
+  <view style="{{customStyle}}" class="h-icon {{name}}"></view>
 </template>
 
 <script>
 class HIcon {
  props = {
-    className: {
+    name: {
       type: String,
       default: ''
     },
@@ -18,21 +18,14 @@ class HIcon {
 
 export default new HIcon();
 </script>
-<style lang="less">
-@import './_iconfont.less';
+
+<style lang="scss">
+@import "../../assets/scss/common/iconfont.scss";
 .h-icon {
-  font-family: "hp-icon" !important;
-  speak: none;
-  font-style: normal;
-  font-weight: 400;
-  font-variant: normal;
-  text-transform: none;
-  vertical-align: baseline;
-  display: inline-block;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @include icon();
 }
 </style>
+
 <script cml-type="json">
 {
   "base": {

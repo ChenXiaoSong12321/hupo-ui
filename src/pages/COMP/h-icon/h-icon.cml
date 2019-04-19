@@ -1,19 +1,19 @@
 <template>
-  <h-page title="h-icon 演示">
+  <h-page title="h-icon演示">
     <view class="container">
       <view class="icon-wrap">
-        <h-icon class="el-icon-hp-tuikuan2" customStyle="color:red;"></h-icon>
-        <h-icon class="el-icon-hp-iconfontpinglun"></h-icon>
-        <h-icon class="el-icon-hp-search"></h-icon>
-        <h-icon class="el-icon-hp-home"></h-icon>
-        <h-icon class="el-icon-hp-shanchu"></h-icon>
+        <h-icon name="el-icon-hp-tuikuan2" customStyle="color:red;"></h-icon>
+        <h-icon name="el-icon-hp-iconfontpinglun"></h-icon>
+        <h-icon name="el-icon-hp-search"></h-icon>
+        <h-icon name="el-icon-hp-home"></h-icon>
+        <h-icon name="el-icon-hp-shanchu"></h-icon>
       </view>
       <view class="icon-wrap">
-        <h-icon class="el-icon-hp-tuikuan2" customStyle="color:red;"></h-icon>
-        <h-icon class="el-icon-hp-iconfontpinglun"></h-icon>
-        <h-icon class="el-icon-hp-search"></h-icon>
-        <h-icon class="el-icon-hp-home"></h-icon>
-        <h-icon class="el-icon-hp-shanchu"></h-icon>
+        <h-icon name="el-icon-hp-tuikuan2" customStyle="color:red;"></h-icon>
+        <h-icon name="el-icon-hp-iconfontpinglun"></h-icon>
+        <h-icon name="el-icon-hp-search"></h-icon>
+        <h-icon name="el-icon-hp-home"></h-icon>
+        <h-icon name="el-icon-hp-shanchu"></h-icon>
       </view>
     </view>
   </h-page>

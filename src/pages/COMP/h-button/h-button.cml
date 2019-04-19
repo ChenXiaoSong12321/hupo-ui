@@ -15,7 +15,7 @@
       <h-button class="btn" c-bind:onclick="showLoading" type="forbidden">forbidden</h-button>
       <h-button class="btn" c-bind:onclick="showLoading" type="member">member</h-button>
       <h-button class="btn" c-bind:onclick="showLoading" type="specialmember">specialmember</h-button>
-
+      <h-button class="btn" c-bind:onclick="showLoading" type="none">type none</h-button>
       <h-button class="btn" c-bind:onclick="showLoading" openType="getUserInfo">getUserInfo</h-button>
     </view>
   </h-page>
@@ -24,7 +24,7 @@
 class HPageButton {
   methods= {
     showLoading() {
-      console.log('click button')
+      console.log('onclick button')
     }
   }
 

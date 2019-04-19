@@ -13,7 +13,7 @@ Component({
       type: Boolean,
       value: true
     },
-    closeOnClickOverlay: {
+    closeclickOverlay: {
       type: Boolean,
       value: true
     },
@@ -27,10 +27,10 @@ Component({
     }
   },
   methods: {
-    onClickOverlay() {
-      this.triggerEvent('click-overlay')
+    clickOverlay() {
+      this.triggerEvent('onclick-overlay')
 
-      if (this.data.closeOnClickOverlay) {
+      if (this.data.closeclickOverlay) {
         this.triggerEvent('close')
       }
     }

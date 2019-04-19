@@ -1,4 +1,4 @@
-<view wx:if="{{ overlay }}" class="overlay-class hupo-popup__overlay {{ show ? 'hupo-popup--show' : '' }}" style="{{ overlayStyle }}" bind:tap="onClickOverlay"></view>
+<view wx:if="{{ overlay }}" class="overlay-class hupo-popup__overlay {{ show ? 'hupo-popup--show' : '' }}" style="{{ overlayStyle }}" bind:tap="onclickOverlay"></view>
 <view style="top:{{ top }}" class="custom-class hupo-popup {{ position ? 'hupo-popup--' + position : '' }} {{ show ? 'hupo-popup--show' : '' }}">
   <slot></slot>
 </view>

@@ -65,9 +65,11 @@ class HToast {
 
 export default new HToast();
 </script>
-<style lang="less">
-.h-toast {
-  &-content {
+<style lang="scss">
+@import '../../assets/scss/output';
+
+@include b(toast){
+  @include e(content) {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -76,12 +78,12 @@ export default new HToast();
     background-color: rgba(37, 38, 45, 1);
     border-radius: 4cpx;
   }
-  &-icon {
+  @include e(icon) {
     width: 48cpx;
     height: 48cpx;
     margin-right: 16cpx;
   }
-  &-text {
+  @include e(text) {
     font-size: 32cpx;
     color: #fff;
     flex: 1;

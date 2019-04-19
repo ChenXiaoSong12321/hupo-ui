@@ -1,5 +1,5 @@
 <template>
-  <view class="h-pane-item-root">
+  <view class="h-pane-item">
     <slot></slot>
   </view>
 </template>
@@ -9,8 +9,9 @@ class HTabPaneItem {
 }
 export default new HTabPaneItem();
 </script>
-<style lang="less">
-.h-pane-item-root{
+<style lang="scss">
+@import '../../assets/scss/output';
+@include b(pane-item){
   width:750cpx;
 }
 </style>

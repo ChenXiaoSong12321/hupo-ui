@@ -9,7 +9,7 @@
     >
       <view class="h-navbar-left-button-slot">
         <h-icon
-          class-name="el-icon-hp-shouye-jiantou"
+          name="el-icon-hp-shouye-jiantou"
           class="h-navbar-left-button-icon h-navbar-left-button-icon--{{type}}"
         ></h-icon>
       </view>
@@ -23,7 +23,7 @@
     >
       <view class="h-navbar-left-button-slot">
         <h-icon
-          class-name="el-icon-hp-shouye"
+          name="el-icon-hp-shouye"
           class="h-navbar-left-button-icon h-navbar-left-button-icon--{{type}}"
         ></h-icon>
       </view>

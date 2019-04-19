@@ -41,7 +41,7 @@ HupoComponent({
   },
 
   methods: {
-    handleButtonClick(event) {
+    handleButtclick(event) {
       const { type = '', openType = '' } = event.currentTarget.dataset
 
       // 获取当次弹出框的信息

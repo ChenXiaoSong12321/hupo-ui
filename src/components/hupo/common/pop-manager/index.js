@@ -24,7 +24,7 @@ HupoComponent({
   },
   methods: {
     handleMaskClick() {
-      this._emit('clickmask', {})
+      this._emit('onclickmask', {})
     }
   }
 })

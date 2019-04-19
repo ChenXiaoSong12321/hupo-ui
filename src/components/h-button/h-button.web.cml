@@ -33,14 +33,15 @@ class HButton implements ButtonInterface{
      console.log('todo opensetting')
     },
     onclick(e) {
+      console.log(e,'sssssssssssss')
       const { disabled,openType } = this
       if (disabled) return;
       if(openType){
         this[openType.toLowerCase()](e)
         return
       }
-      console.log('click')
-      this.__emit__('onclick',e);
+      console.log('onclick')
+      this.btnEmit('onclick',e);
     },
     async handleFormSubmit(event) {
       console.log(event)
@@ -49,7 +50,6 @@ class HButton implements ButtonInterface{
   }
 }
 const HButtonCom = mix(HButton, HButtonMixins)
-console.log(new HButtonCom())
 export default new HButtonCom();
 </script>
 
