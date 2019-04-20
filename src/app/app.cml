@@ -3,20 +3,21 @@
 </template>
 
 <script>
-import routerConfig from '../router.config.json';
+import routerConfig from "../router.config.json";
 
 class App {
   data = {
     routerConfig
-  }
-  created(res) {
-  }
+  };
 }
 
 export default new App();
 </script>
 
-<style scoped>
+<style>
+page {
+  height: 100%;
+}
 </style>
 
 <script cml-type="json">

@@ -1,19 +1,28 @@
 <template>
   <page title="{{title}}">
-    <h-navbar
-      type="{{type}}"
-      loading="{{loading}}"
-      title="{{title}}"
-      showHomeIcon="{{showHomeIcon}}"
-    ></h-navbar>
-    <view class="h-page {{ disableScroll ? 'h-page--disable-scroll' : '' }}">
-      <slot></slot>
+    <view
+      class="h-page {{ disableScroll ? 'h-page--disable-scroll' : '' }}"
+      style="height: {{viewportHeight}}px;"
+    >
+      <h-navbar
+        type="{{type}}"
+        loading="{{loading}}"
+        title="{{title}}"
+        showHomeIcon="{{showHomeIcon}}"
+      ></h-navbar>
+      <view class="h-page-container">
+        <scroller height="{{scrollHeight}}">
+          <slot></slot>
+        </scroller>
+      </view>
+      <view class="h-page-bottom" c-if="{{viewport.isAllScreen}}"></view>
     </view>
   </page>
 </template>
 <script>
-import defaultData from '../../core/viewport/defaultData';
-import calculate from '../../core/viewport/calculate';
+import cml from "chameleon-api";
+import defaultData from "../../core/viewport/defaultData";
+import calculate from "../../core/viewport/calculate";
 class HPage {
   props = {
     loading: {
@@ -22,7 +31,7 @@ class HPage {
     },
     title: {
       type: String,
-      default: '琥珀亲子'
+      default: "琥珀亲子"
     },
     showHomeIcon: {
       type: Boolean,
@@ -30,12 +39,36 @@ class HPage {
     },
     type: {
       type: String,
-      default: 'default'
+      default: "default"
     },
     disableScroll: {
       type: Boolean,
       default: false
     }
+  };
+
+  data = {
+    viewport: defaultData
+  };
+
+  computed = {
+    viewportHeight() {
+      return cml.cpx2px(parseInt(this.viewport.viewportHeight));
+    },
+    scrollHeight() {
+      return parseInt(
+        this.viewport.viewportHeight -
+          cml.px2cpx(this.viewport.headerHeight) -
+          (this.viewport.isAllScreen
+            ? cml.px2cpx(this.viewport.bottomHeight)
+            : 0)
+      );
+    }
+  };
+
+  async created() {
+    const data = await calculate();
+    this.viewport = data;
   }
 }
 export default new HPage();

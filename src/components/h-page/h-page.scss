@@ -1,6 +1,17 @@
 @import '../../assets/scss/output';
-@include b(page){
-  @include m(disable-scroll){
 
+@include b(page) {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  @include e(container) {
+    flex: 1;
   }
+
+  @include e(bottom) {
+    height: 34px;
+  }
+
+  @include m(disable-scroll) {}
 }

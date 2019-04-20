@@ -1,17 +1,14 @@
 <script cml-type="interface">
-/*
- 不同平台，接口差异化实现
-*/
 interface DifferenceInterface {
-  // getApp: void,
-  getUrl: void,
-  getCurrentPages: void,
-  getCurrentPage: void
+  // // getApp: void,
+  // getUrl: void,
+  // getCurrentPages: void,
+  // getCurrentPage: void
 }
 </script>
 
 <script cml-type="web">
-  class Method implements DifferenceInterface {
+  class Difference implements DifferenceInterface {
     getApp() {
       if(!window.__HUMALL__)window.__HUMALL__ = {}
       return window.__HUMALL__
@@ -20,22 +17,24 @@ interface DifferenceInterface {
       return window.location.href
     }
     getCurrentPages() {
-      console.log('web')
-      return this
+      const app = this.getApp()
+      return (app.router && app.router.historys) ? JSON.parse(JSON.stringify(app.router.historys)) : []
     }
     getCurrentPage() {
-      console.log('web')
-      return this
+      const app = this.getApp()
+      return (app.router && app.router.current) ? app.router.current : {}
     }
   }
-  export default new Method();
+  export default new Difference();
 </script>
 <script cml-type="wx">
-  class Method implements DifferenceInterface {
+  class Difference implements DifferenceInterface {
     getApp() {
       return getApp()
     }
     getUrl(){
+      const page = this.getCurrentPage()
+      console.log(page)
       return ''
     }
     getCurrentPages(){
@@ -46,5 +45,5 @@ interface DifferenceInterface {
       return pages[pages.length - 1]
     }
   }
-  export default new Method();
+  export default new Difference();
 </script>

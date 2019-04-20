@@ -6,6 +6,7 @@ async function calculate() {
   const data = JSON.parse(JSON.stringify(defaultData))
   const system = await cml.getSystemInfo()
   const channel = await getChannel()
+  console.log(system)
   data.channel = channel
   data.viewportWidth = parseInt(system.viewportWidth)
   data.viewportHeight = parseInt(system.viewportHeight)
@@ -18,14 +19,18 @@ async function calculate() {
         data.capsuleHeight = 48
       }
       data.statusBarHeight = system.extraParams.statusBarHeight
+      if (system.extraParams.screenHeight - data.statusBarHeight > 750 && system.os != 'android') data.isAllScreen = true
       break
     case 'HP_WECHAT':
+      if (/iphone/gi.test(window.navigator.userAgent) && window.screen.height >= 812) data.isAllScreen = true
       data.capsuleHeight = 0
+      break
+    case 'HP_H5':
+      if (/iphone/gi.test(window.navigator.userAgent) && window.screen.height >= 812) data.isAllScreen = true
       break
     default:
       break
   }
-  if (data.viewportHeight - data.statusBarHeight > 750 && system.os != 'android') data.isAllScreen = true
   data.titleHeight = data.capsuleHeight + data.statusBarHeight
   if (data.statusBarHeight >= 44) {
     data.isHighHead = true
@@ -35,4 +40,4 @@ async function calculate() {
   data.bottomHeight = 34
   return data
 }
-export default async() => await promise.cache('calculate', calculate())
+export default async () => await promise.cache('calculate', () => calculate())
