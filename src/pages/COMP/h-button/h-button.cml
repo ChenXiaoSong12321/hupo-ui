@@ -21,15 +21,15 @@
   </h-page>
 </template>
 <script>
+import page from "../../../core/mixins/page";
 class HPageButton {
-  methods= {
+  methods = {
     showLoading() {
-      console.log('onclick button')
+      console.log("onclick button");
     }
-  }
-
+  };
 }
-export default new HPageButton();
+export default page(HPageButton);
 </script>
 <style scoped>
 .container {

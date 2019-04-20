@@ -6,11 +6,9 @@ async function calculate() {
   const data = JSON.parse(JSON.stringify(defaultData))
   const system = await cml.getSystemInfo()
   const channel = await getChannel()
-  console.log(system)
   data.channel = channel
   data.viewportWidth = parseInt(system.viewportWidth)
   data.viewportHeight = parseInt(system.viewportHeight)
-  // console.log(system, channel)
   switch (channel) {
     case 'HP_MALL':
       if (system.extraParams.platform == 'devtools') {

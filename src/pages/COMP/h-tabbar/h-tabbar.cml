@@ -1,80 +1,78 @@
 <template>
-<page title="h-tabbar演示">
-  <component is="{{currentComp}}" ></component>
-  <!-- <bar-index c-show="{{currentComp === 'bar-index'}}"></bar-index>
+  <h-page title="h-tabbar 演示">
+    <component is="{{currentComp}}"></component>
+    <!-- <bar-index c-show="{{currentComp === 'bar-index'}}"></bar-index>
   <bar-trip c-show="{{currentComp === 'bar-trip'}}"></bar-trip>
-  <bar-my c-show="{{currentComp === 'bar-my'}}"></bar-my> -->
-  <h-tabbar 
-    c-bind:onclick='handleTabbarClick' 
-    c-model="{{currentComp}}"
-    tabbar="{{tabbar}}"
-  ></h-tabbar>
-</page>
+    <bar-my c-show="{{currentComp === 'bar-my'}}"></bar-my>-->
+    <h-tabbar c-bind:onclick="handleTabbarClick" c-model="{{currentComp}}" tabbar="{{tabbar}}"></h-tabbar>
+  </h-page>
 </template>
 
 <script>
-import cml from "chameleon-api"
+import cml from "chameleon-api";
+import page from "../../../core/mixins/page";
 let preIndex = 0;
-class Index  {
+class HTabbar {
   data = {
-    viewportHeight:0,
-    currentComp:'bar-index',
-    tabbar:{
+    viewportHeight: 0,
+    currentComp: "bar-index",
+    tabbar: {
       // "tabbarStyle":"height:120cpx;background-color:#BAF6E8",//tabbar最外层的样式支持自定义
       // "tabLineStyle":"background-color:#069ADC;height:2cpx;",//自定义tabline的高度和背景色
-      "textStyle":"color:#666;font-size:24cpx", //文案默认style ,可以这里控制文案的大小，样式等
-      "selectedTextStyle":"color:#dd392e;font-size:24cpx",//文案被选择style
+      textStyle: "color:#666;font-size:24cpx", //文案默认style ,可以这里控制文案的大小，样式等
+      selectedTextStyle: "color:#dd392e;font-size:24cpx", //文案被选择style
       // "position":"top", //tabbar的位置 top/bottom
-      "useFixedLayout":true,  //是否通过fixed布局进行tabbar的布局
-      "list":[
-        { 
-          "compName":"bar-index",
-          "text": "首页",
-          "icon": require("../../../assets/images/index.png"),
-          "selectedIcon": require("../../../assets/images/index-active.png"),
-          // "iconStyle":"width:50cpx;height:50cpx;",//默认的icon的宽高是40cpx;这里可以自定义
-          // "selectedIconStyle":"width:70cpx;height:70cpx;",//默认的icon的宽高是40cpx;这里可以自定义
-        },
-        { 
-          "compName":"bar-trip",
-          "text": "行程",
-          "icon": require("../../../assets/images/trip.png"),
-          "selectedIcon": require("../../../assets/images/trip-active.png"),
+      useFixedLayout: true, //是否通过fixed布局进行tabbar的布局
+      list: [
+        {
+          compName: "bar-index",
+          text: "首页",
+          icon: require("../../../assets/images/index.png"),
+          selectedIcon: require("../../../assets/images/index-active.png")
           // "iconStyle":"width:50cpx;height:50cpx;",//默认的icon的宽高是40cpx;这里可以自定义
           // "selectedIconStyle":"width:70cpx;height:70cpx;",//默认的icon的宽高是40cpx;这里可以自定义
         },
         {
-          "compName":"bar-my",
-          "text": "我的",
-          "icon": require("../../../assets/images/my.png"),
-          "selectedIcon": require("../../../assets/images/my-active.png"),
+          compName: "bar-trip",
+          text: "行程",
+          icon: require("../../../assets/images/trip.png"),
+          selectedIcon: require("../../../assets/images/trip-active.png")
+          // "iconStyle":"width:50cpx;height:50cpx;",//默认的icon的宽高是40cpx;这里可以自定义
+          // "selectedIconStyle":"width:70cpx;height:70cpx;",//默认的icon的宽高是40cpx;这里可以自定义
+        },
+        {
+          compName: "bar-my",
+          text: "我的",
+          icon: require("../../../assets/images/my.png"),
+          selectedIcon: require("../../../assets/images/my-active.png")
           // "iconStyle":"width:50cpx;height:50cpx;",
           // "selectedIconStyle":"width:70cpx;height:70cpx;",
         }
       ]
-    },
-  }
+    }
+  };
   methods = {
-    handleTabbarClick(e){
-      console.log(e)
+    handleTabbarClick(e) {
+      console.log(e);
     },
-    async getViewportHeight(){
-      let info = await cml.getSystemInfo()
-      console.log(info,'getSystemInfo')
+    async getViewportHeight() {
+      let info = await cml.getSystemInfo();
+      console.log(info, "getSystemInfo");
       this.viewportHeight = Number(info.viewportHeight) - 120;
     }
-  }
-  mounted(){
+  };
+  mounted() {
     this.getViewportHeight();
   }
 }
 
-export default new Index();
+export default page(HTabbar);
 </script>
 <script cml-type="json">
 {
   "base":{
     "usingComponents": {
+      "h-page": "/components/h-page/h-page",
       "h-tabbar": "/components/h-tabbar/h-tabbar",
       "bar-my":"./bar-my",
       "bar-trip":"./bar-trip",
@@ -91,29 +89,29 @@ export default new Index();
   flex: 1;
   background: #f8f8f8;
 }
-.title{
-  display:flex;
-  flex-direction:row;
-  justify-content:center;
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   line-height: 88cpx;
   font-size: 28cpx;
   text-align: center;
   height: 88cpx;
   color: #999;
 }
-.one{
-  color:#fff;
-  height:500cpx;
-  background-color:rgb(46, 240, 127);
+.one {
+  color: #fff;
+  height: 500cpx;
+  background-color: rgb(46, 240, 127);
 }
-.two{
-  color:#fff;
-  height:500cpx;
-  background-color:rgb(0, 162, 255);
+.two {
+  color: #fff;
+  height: 500cpx;
+  background-color: rgb(0, 162, 255);
 }
-.three{
-  color:#fff;
-  height:500cpx;
-  background-color:#00ffe4;
+.three {
+  color: #fff;
+  height: 500cpx;
+  background-color: #00ffe4;
 }
 </style>

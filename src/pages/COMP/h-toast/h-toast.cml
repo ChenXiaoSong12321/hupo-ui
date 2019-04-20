@@ -1,26 +1,27 @@
 <template>
-<page title="h-toast演示">
-  <view class="container">
-    <h-header title="h-toast"></h-header>
-    <h-toast duration="{{duration}}"
-            show="{{show}}"
-            c-bind:show="changeShow"
-            message="{{message}}"
-            type="{{type}}"
-            need-icon="{{needIcon}}"
-            mask="{{mask}}"></h-toast>
-    <h-button class="btn" c-bind:onclick="showLoading">loading toast</h-button>
-    <h-button class="btn" c-bind:onclick="showMask" >loading toast with mask</h-button>
-    <h-button class="btn" c-bind:onclick="showSuccess">success toast</h-button>
-    <h-button class="btn" c-bind:onclick="showWarn">warn toast</h-button>
-    <h-button class="btn" c-bind:onclick="showWithout">toast without icon</h-button>
-    <h-button class="btn" c-bind:onclick="showWith10">toast duration 10s</h-button>
-  </view>
-</page>
+  <h-page title="h-toast 演示">
+    <view class="container">
+      <h-toast
+        duration="{{duration}}"
+        show="{{show}}"
+        c-bind:show="changeShow"
+        message="{{message}}"
+        type="{{type}}"
+        need-icon="{{needIcon}}"
+        mask="{{mask}}"
+      ></h-toast>
+      <h-button class="btn" c-bind:onclick="showLoading">loading toast</h-button>
+      <h-button class="btn" c-bind:onclick="showMask">loading toast with mask</h-button>
+      <h-button class="btn" c-bind:onclick="showSuccess">success toast</h-button>
+      <h-button class="btn" c-bind:onclick="showWarn">warn toast</h-button>
+      <h-button class="btn" c-bind:onclick="showWithout">toast without icon</h-button>
+      <h-button class="btn" c-bind:onclick="showWith10">toast duration 10s</h-button>
+    </view>
+  </h-page>
 </template>
 <script>
-class CToast {
-
+import page from "../../../core/mixins/page";
+class HToast {
   data = {
     show: false,
     message: "",
@@ -28,13 +29,11 @@ class CToast {
     mask: false,
     duration: 1000,
     needIcon: true
-  }
+  };
 
-  computed = {
-  }
+  computed = {};
 
-  watch  = {
-  }
+  watch = {};
 
   methods = {
     changeShow(e) {
@@ -81,11 +80,9 @@ class CToast {
       this.needIcon = false;
       this.show = true;
     }
-  }
-
+  };
 }
-
-export default new CToast();
+export default page(HToast);
 </script>
 <style scoped>
 .container {
@@ -102,7 +99,7 @@ export default new CToast();
 {
   "base": {
     "usingComponents": {
-      "h-header": "../../components/h-header/h-header",
+      "h-page": "/components/h-page/h-page",
       "h-toast": "/components/h-toast/h-toast",
       "h-button": "/components/h-button/h-button"
     },

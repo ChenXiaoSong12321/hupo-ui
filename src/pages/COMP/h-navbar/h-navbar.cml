@@ -78,7 +78,6 @@ export default page(HPageNavbar);
   "base": {
     "usingComponents": {
       "h-page": "/components/h-page/h-page",
-      "h-fixed": "/components/h-fixed/h-fixed",
       "h-navbar": "/components/h-navbar/h-navbar",
       "h-button": "/components/h-button/h-button"
     },
