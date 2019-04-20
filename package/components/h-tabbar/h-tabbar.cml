@@ -2,7 +2,7 @@
   <view class="h-tab-bar {{layoutClass}}">
     <view class="h-tab-bar-wrap " style="{{tabbar.tabbarStyle || ';'}}">
       <view c-for="{{tabbar.list }}" c-key="text" class="h-tab-bar-item-wrap">
-        <view class="h-tab-bar-content" c-bind:click="onTabbarItemTap(index)">
+        <view class="h-tab-bar-content" c-bind:onclick="onTabbarItemTap(index)">
           <view class="h-tab-bar-icon-wrap" c-if="{{!top && hasIcon}}">
             <image c-if="{{!(index === tapedIndex)}}" class="tab-icon" src="{{item.icon}}"
               style="{{!(index === tapedIndex) ? (item.iconStyle || '') : ';'}}"></image>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-  /*** 
+  /***
 以下列举下tabbar的一些默认值
 tabbar:{
       "tabbarStyle": "";
@@ -32,7 +32,7 @@ tabbar:{
       "position":"bottom", //tabbar的位置 top/bottom
       "useFixedLayout":默认不使用fixed布局,  //是否通过fixed布局进行tabbar的布局
       "list":[
-        { 
+        {
           "compName":"bar-detail", //这里如果外部组件通过component is进行关联，则这个值必须传，且要和useingComponents中的key的保持一致；
           "text": "detail",//tabbar的文案
           "icon": require("../../../assets/images/index/icon_API.png"),
@@ -104,7 +104,7 @@ tabbar:{
         this.$cmlEmit('tabbarclick', {
           index
         });
-        /*这里是为了方便和使用h-tabbar的组件进行关联，如果是通过 
+        /*这里是为了方便和使用h-tabbar的组件进行关联，如果是通过
         <component is="{{currentComp}}"></component>
         <h-tabbar c-model="{{currentComp}}"></h-tabbar>
         这里方式使用，可以关联currentComp的值*/

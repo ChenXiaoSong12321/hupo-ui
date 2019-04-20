@@ -1,11 +1,10 @@
 {
   "mode": "hash",
   "domain": "https://api.chameleon.com",
-  "routes": [
-    {
+  "routes": [{
+      "name": "首页",
       "url": "/",
       "path": "/pages/index/index",
-      "name": "首页",
       "mock": "index.php"
     },
     {

@@ -1,5 +1,5 @@
 <template>
-  <h-page title="h-icon演示">
+  <h-page title="h-icon 演示">
     <view class="container">
       <view class="icon-wrap">
         <h-icon name="el-icon-hp-tuikuan2" customStyle="color:red;"></h-icon>
@@ -19,11 +19,10 @@
   </h-page>
 </template>
 <script>
-class HPageIcon {
+import page from "../../../core/mixins/page";
+class HPageIcon {}
 
-}
-
-export default new HPageIcon();
+export default page(HPageIcon);
 </script>
 <style scoped>
 .container {

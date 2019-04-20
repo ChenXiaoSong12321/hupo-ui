@@ -1,23 +1,28 @@
 @import '../../assets/scss/output';
-@include b(tab-bar){
+
+@include b(tab-bar) {
   width: 750cpx;
   z-index: 9999;
-  @include e(wrap){
+
+  @include e(wrap) {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
   }
-  @include e(top){
-    position: fixed;
+
+  @include e(top) {
+    position: absolute;
     left: 0;
     top: 0;
   }
-  @include e(bottom){
-    position: fixed;
+
+  @include e(bottom) {
+    position: absolute;
     left: 0;
     bottom: 0;
   }
-  @include e(item-wrap){
+
+  @include e(item-wrap) {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -25,7 +30,8 @@
     justify-content: center;
     border-top: 1cpx solid $--border-color-d1;
   }
-  @include e(content){
+
+  @include e(content) {
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -33,13 +39,15 @@
     position: relative;
     padding: 8cpx;
   }
-  @include e(icon-wrap){
+
+  @include e(icon-wrap) {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding-bottom: 4cpx;
-     .tab-icon {
+
+    .tab-icon {
       width: 44cpx;
       height: 44cpx;
     }
@@ -57,9 +65,10 @@
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
-    } 
+    }
   }
-  @include e(line-wrap){
+
+  @include e(line-wrap) {
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
     transition-property: transform;

@@ -1,7 +1,6 @@
 <template>
-  <page title="h-popup演示">
+  <h-page title="h-popup 演示">
     <view class="container">
-      <h-header title="h-popup"></h-header>
       <h-button class="btn" c-bind:onclick="showPopup">open popup</h-button>
       <text>sss</text>
       <h-popup show="{{show}}" c-bind:onclose="closePopup">
@@ -9,16 +8,17 @@
       </h-popup>
       <text>d</text>
     </view>
-  </page>
+  </h-page>
 </template>
 <script>
-class Popup {
+import page from "../../../core/mixins/page";
+class HPopup {
   data = {
     show: false
   };
   methods = {
     showPopup() {
-      console.log(this.show,'page')
+      console.log(this.show, "page");
       this.show = true;
     },
     closePopup() {
@@ -27,7 +27,7 @@ class Popup {
   };
 }
 
-export default new Popup();
+export default page(HPopup);
 </script>
 <style scoped lang="scss">
 @import "../../../assets/scss/_output.scss";
@@ -49,8 +49,8 @@ export default new Popup();
 {
   "base": {
     "usingComponents": {
+      "h-page": "/components/h-page/h-page",
       "h-popup": "/components/h-popup/h-popup",
-      "h-header": "../../components/h-header/h-header",
       "h-button": "/components/h-button/h-button"
     },
     "navigationBarTitleText": "h-button",

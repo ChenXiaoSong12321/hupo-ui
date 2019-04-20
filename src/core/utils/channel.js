@@ -1,5 +1,6 @@
 import cml from 'chameleon-api'
 import promise from './promise'
+
 function isWechat() {
   var ua = window.navigator.userAgent.toLowerCase()
   if (ua.match(/MicroMessenger/i) == 'micromessenger') {
@@ -24,4 +25,4 @@ async function calc() {
   }
   return channel
 }
-export default async() => await promise.cache('channel', calc())
+export default async () => await promise.cache('channel', () => calc())

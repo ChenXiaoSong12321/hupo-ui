@@ -1,6 +1,6 @@
 <template>
   <view class="h-navbar" c-if="{{viewport.headerHeight > 0}}">
-    <view class="h-navbar-place" style="height: {{viewport.headerHeight}}px"></view>
+    <!-- <view class="h-navbar-place" style="height: {{viewport.headerHeight}}px"></view> -->
     <view
       class="h-navbar-box h-navbar-box--{{type}}"
       style="height: {{viewport.capsuleHeight}}px; padding-top: {{viewport.statusBarHeight}}px;"
@@ -23,9 +23,9 @@
   </view>
 </template>
 <script>
-import defaultData from '../../core/viewport/defaultData';
-import calculate from '../../core/viewport/calculate';
-import promise from '../../core/utils/promise'
+import defaultData from "../../core/viewport/defaultData";
+import calculate from "../../core/viewport/calculate";
+import promise from "../../core/utils/promise";
 class HNavbar {
   props = {
     loading: {
@@ -34,7 +34,7 @@ class HNavbar {
     },
     title: {
       type: String,
-      default: '琥珀亲子'
+      default: "琥珀亲子"
     },
     showHomeIcon: {
       type: Boolean,
@@ -42,19 +42,18 @@ class HNavbar {
     },
     type: {
       type: String,
-      default: 'default'
+      default: "default"
     }
-  }
+  };
 
   data = {
     viewport: defaultData
-  }
+  };
 
-  async created(){
-    const data = await calculate()
-    this.viewport = data
+  async created() {
+    const data = await calculate();
+    this.viewport = data;
   }
-
 }
 export default new HNavbar();
 </script>

@@ -1,15 +1,18 @@
-// import difference from './difference.interface'
+const LIFE_TIMES = ['beforeCreate', 'created', 'beforeMount', 'mounted', 'beforeDestroy', 'destroyed']
+
 function copyProperties(target, source) {
   for (const key of Reflect.ownKeys(source)) {
     if (key !== 'constructor' &&
       key !== 'prototype' &&
-      key !== 'name'
+      key !== 'name' &&
+      LIFE_TIMES.indexOf(key) === -1
     ) {
       const desc = Object.getOwnPropertyDescriptor(source, key)
       Object.defineProperty(target, key, desc)
     }
   }
 }
+
 function compose(...funcs) {
   if (funcs.length === 0) return arg => arg
   if (funcs.length === 1) return funcs[0]
@@ -17,8 +20,6 @@ function compose(...funcs) {
   const rest = funcs.slice(0, -1)
   return (...args) => rest.reduceRight((composed, f) => f(...args), last(...args))
 }
-
-const LIFE_TIMES = ['beforeCreate', 'created', 'beforeMount', 'mounted', 'beforeDestroy', 'destroyed']
 
 export default function mix(...mixins) {
   const lifetimes = {}
@@ -29,8 +30,8 @@ export default function mix(...mixins) {
         const mixin = new Mixin()
         this.composeLifetimes(mixin) // 合并生命周期
         properties.forEach(propertie => {
-          if(mixin[propertie]){
-            if(!this[propertie])this[propertie] = {}
+          if (mixin[propertie]) {
+            if (!this[propertie]) this[propertie] = {}
             copyProperties(this[propertie], mixin[propertie])
           }
         })
@@ -40,7 +41,7 @@ export default function mix(...mixins) {
       LIFE_TIMES.forEach(lifetime => {
         // 循环合并生命周期
         if (mixin[lifetime]) {
-          if (!lifetimes[lifetime])lifetimes[lifetime] = []
+          if (!lifetimes[lifetime]) lifetimes[lifetime] = []
           // 缓存生命周期
           lifetimes[lifetime].push(mixin[lifetime])
         }
@@ -49,7 +50,7 @@ export default function mix(...mixins) {
     beforeCreate(...args) {
       // beforeCreate -- 实例未生成，无法调用 _lifetimes 方法
       const methodsList = lifetimes['beforeCreate']
-      if (methodsList && methodsList.length > 0)compose(...methodsList.reverse().map(f => f.bind(this)))(...args)
+      if (methodsList && methodsList.length > 0) compose(...methodsList.reverse().map(f => f.bind(this)))(...args)
     }
     created() {
       this._lifetimes('created').apply(this, arguments)
@@ -69,9 +70,9 @@ export default function mix(...mixins) {
     methods = {
       _lifetimes(key) {
         // 执行缓存生命周期
-        return function(...args) {
+        return function (...args) {
           const methodsList = lifetimes[key]
-          if (methodsList && methodsList.length > 0)compose(...methodsList.reverse().map(f => f.bind(this)))(...args)
+          if (methodsList && methodsList.length > 0) compose(...methodsList.reverse().map(f => f.bind(this)))(...args)
         }
       },
       $viewportCommonGetCurrentPage() {
@@ -90,6 +91,9 @@ export default function mix(...mixins) {
       }
     }
   }
-
+  for (const Mixin of mixins) {
+    copyProperties(Mix, Mixin); // 拷贝原型属性
+    copyProperties(Mix.prototype, Mixin.prototype); // 拷贝原型属性
+  }
   return Mix
 }
