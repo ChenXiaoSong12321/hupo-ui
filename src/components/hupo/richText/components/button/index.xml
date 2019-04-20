@@ -1,0 +1,5 @@
+<button type="default" size="mini">
+  <block wx:for="{{nodes.nodes}}" wx:key="">
+    <parse-base nodes="{{item}}"></parse-base>
+  </block>
+</button>

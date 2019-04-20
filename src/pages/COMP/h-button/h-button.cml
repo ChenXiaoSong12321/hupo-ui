@@ -1,38 +1,35 @@
 <template>
-<page title="h-button演示">
-  <view class="container">
-    <h-header title="h-button"></h-header>
-
-    <h-button class="btn" c-bind:onclick="showLoading" size="max" type="primary" radius>max</h-button>
-    <h-button class="btn" c-bind:onclick="showLoading" size="large">large</h-button>
-    <h-button class="btn" c-bind:onclick="showLoading" size="medium">medium</h-button>
-    <h-button class="btn" c-bind:onclick="showLoading" size="small">small</h-button>
-    <h-button class="btn" c-bind:onclick="showLoading" size="mini">mini</h-button>
-    <h-button class="btn" c-bind:onclick="showLoading" type="primary" plain>plain</h-button>
-    <h-button class="btn" c-bind:onclick="showLoading" type="primary" radius="{{false}}">no-radius</h-button>
-    <h-button class="btn" c-bind:onclick="showLoading" type="primary" disabled>disabled</h-button>
-    <h-button class="btn" c-bind:onclick="showLoading" type="primary" >primary</h-button>
-    <h-button class="btn" c-bind:onclick="showLoading" type="preheat" >preheat</h-button>
-    <h-button class="btn" c-bind:onclick="showLoading" type="muted" >muted</h-button>
-    <h-button class="btn" c-bind:onclick="showLoading" type="forbidden" >forbidden</h-button>
-    <h-button class="btn" c-bind:onclick="showLoading" type="member" >member</h-button>
-    <h-button class="btn" c-bind:onclick="showLoading" type="specialmember" >specialmember</h-button>
-
-    <h-button class="btn" c-bind:onclick="showLoading" openType="getUserInfo">getUserInfo</h-button>
-  </view>
-</page>
+  <h-page title="h-button 演示">
+    <view class="container">
+      <h-button class="btn" c-bind:onclick="showLoading" size="max" type="primary" radius>max</h-button>
+      <h-button class="btn" c-bind:onclick="showLoading" size="large">large</h-button>
+      <h-button class="btn" c-bind:onclick="showLoading" size="medium">medium</h-button>
+      <h-button class="btn" c-bind:onclick="showLoading" size="small">small</h-button>
+      <h-button class="btn" c-bind:onclick="showLoading" size="mini">mini</h-button>
+      <h-button class="btn" c-bind:onclick="showLoading" type="primary" plain>plain</h-button>
+      <h-button class="btn" c-bind:onclick="showLoading" type="primary" radius="{{false}}">no-radius</h-button>
+      <h-button class="btn" c-bind:onclick="showLoading" type="primary" disabled>disabled</h-button>
+      <h-button class="btn" c-bind:onclick="showLoading" type="primary">primary</h-button>
+      <h-button class="btn" c-bind:onclick="showLoading" type="preheat">preheat</h-button>
+      <h-button class="btn" c-bind:onclick="showLoading" type="muted">muted</h-button>
+      <h-button class="btn" c-bind:onclick="showLoading" type="forbidden">forbidden</h-button>
+      <h-button class="btn" c-bind:onclick="showLoading" type="member">member</h-button>
+      <h-button class="btn" c-bind:onclick="showLoading" type="specialmember">specialmember</h-button>
+      <h-button class="btn" c-bind:onclick="showLoading" type="none">type none</h-button>
+      <h-button class="btn" c-bind:onclick="showLoading" openType="getUserInfo">getUserInfo</h-button>
+    </view>
+  </h-page>
 </template>
 <script>
-class HButton {
+class HPageButton {
   methods= {
     showLoading() {
-      console.log('click button')
+      console.log('onclick button')
     }
   }
 
 }
-
-export default new HButton();
+export default new HPageButton();
 </script>
 <style scoped>
 .container {
@@ -45,12 +42,11 @@ export default new HButton();
   margin-top: 20cpx;
 }
 </style>
-
 <script cml-type="json">
 {
   "base": {
     "usingComponents": {
-      "h-header": "../../components/h-header/h-header",
+      "h-page": "/components/h-page/h-page",
       "h-button": "/components/h-button/h-button"
     },
     "navigationBarTitleText": "h-button",

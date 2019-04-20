@@ -1,0 +1,47 @@
+@import '../style/mixins/common';
+
+@include b(popup-frame) {
+  position: relative;
+
+  @include e(close) {
+    margin-bottom: 30rpx;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  @include e(close-icon) {
+    font-size: 50rpx;
+    line-height: 1;
+    color: $--font-color-c3;
+  }
+
+  @include e(box) {
+    position: relative;
+    width: 580rpx;
+    @include when(ad){
+      width: 500rpx;
+      height: 600rpx;
+    }
+  }
+
+  @include e(box-bg){
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  @include e(box-content){
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10rpx;
+    @include m(ad){
+      border-radius: 20rpx;
+    }
+  }
+}

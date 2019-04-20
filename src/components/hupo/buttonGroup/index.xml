@@ -1,0 +1,3 @@
+<view class="hupo-button-group hupo-button-group--{{type}} {{show ? 'hupo-button-group-show' : ''}}">
+  <slot></slot>
+</view>

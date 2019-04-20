@@ -1,0 +1,11 @@
+<hupo-button customClass="{{customClass}}" customStyle="{{customStyle}}" type="{{type}}" radius="{{radius}}" size="{{size}}" plain="{{plain}}" throttle="{{throttle}}" openType="{{authorize.isAuth ? 'getUserInfo' : !authorize.lastMobileBindTime ? 'getPhoneNumber' : openType}}" opacity="{{opacity}}" transition="{{transition}}" bind:onclick="handleTap" bind:getuserinfo="handleGetuserinfo" bind:getphonenumber="handleGetphonenumber">
+  <slot></slot>
+</hupo-button>
+<van-popup show="{{popup.mobile}}" position="bottom" bind:close="hiddenMobilePopup">
+  <view class="hupo-authorize-popup">
+    <view class="hupo-authorize-popup-title">请完成授权以继续使用</view>
+    <button class="hupo-authorize-popup-button" type="primary" open-type="getPhoneNumber" bindgetphonenumber="handleGetphonenumber" bindtap="hiddenMobilePopup">
+      通过微信手机号快速绑定
+    </button>
+  </view>
+</van-popup>

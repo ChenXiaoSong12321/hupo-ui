@@ -3,7 +3,9 @@
   <view class="container">
     <h-header title="h-popup-manager"></h-header>
     
-    <h-popup-manager show="{{show}}" mask="{{mask}}" c-bind:close="closePopup">hhhhh</h-popup-manager>
+    <h-popup-manager show="{{show}}" mask="{{mask}}" c-bind:close="closePopup">
+      <view style="background:#fff">hhhhhhh</view>
+    </h-popup-manager>
     <h-popup-manager show="{{show2}}" mask="{{mask}}" c-bind:close="closePopup" position="{{position}}">
       <view style="{{contentStyle}}"><text style="font-size: 28cpx;">content</text></view>
     </h-popup-manager>

@@ -1,0 +1,6 @@
+@import '../../assets/scss/output';
+@include b(page){
+  @include m(disable-scroll){
+
+  }
+}

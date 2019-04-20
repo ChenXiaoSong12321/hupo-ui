@@ -1,30 +1,29 @@
 <template>
-<page title="h-icon演示">
-  <view class="container">
-    <h-header title="h-icon"></h-header>
-    <view class="icon-wrap">
-      <h-icon className="el-icon-hp-tuikuan2" customStyle="color:red;"></h-icon>
-      <h-icon className="el-icon-hp-iconfontpinglun"></h-icon>
-      <h-icon className="el-icon-hp-search"></h-icon>
-      <h-icon className="el-icon-hp-home" ></h-icon>
-      <h-icon className="el-icon-hp-shanchu"></h-icon>
+  <h-page title="h-icon演示">
+    <view class="container">
+      <view class="icon-wrap">
+        <h-icon name="el-icon-hp-tuikuan2" customStyle="color:red;"></h-icon>
+        <h-icon name="el-icon-hp-iconfontpinglun"></h-icon>
+        <h-icon name="el-icon-hp-search"></h-icon>
+        <h-icon name="el-icon-hp-home"></h-icon>
+        <h-icon name="el-icon-hp-shanchu"></h-icon>
+      </view>
+      <view class="icon-wrap">
+        <h-icon name="el-icon-hp-tuikuan2" customStyle="color:red;"></h-icon>
+        <h-icon name="el-icon-hp-iconfontpinglun"></h-icon>
+        <h-icon name="el-icon-hp-search"></h-icon>
+        <h-icon name="el-icon-hp-home"></h-icon>
+        <h-icon name="el-icon-hp-shanchu"></h-icon>
+      </view>
     </view>
-    <view class="icon-wrap">
-      <h-icon className="el-icon-hp-tuikuan2" customStyle="color:red;"></h-icon>
-      <h-icon className="el-icon-hp-iconfontpinglun"></h-icon>
-      <h-icon className="el-icon-hp-search"></h-icon>
-      <h-icon className="el-icon-hp-home" ></h-icon>
-      <h-icon className="el-icon-hp-shanchu"></h-icon>
-    </view>
-  </view>
-</page>
+  </h-page>
 </template>
 <script>
-class HIcon {
+class HPageIcon {
 
 }
 
-export default new HIcon();
+export default new HPageIcon();
 </script>
 <style scoped>
 .container {
@@ -36,7 +35,7 @@ export default new HIcon();
 .btn {
   margin-top: 20cpx;
 }
-.icon-wrap{
+.icon-wrap {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -49,8 +48,8 @@ export default new HIcon();
 {
   "base": {
     "usingComponents": {
-      "h-header": "../../components/h-header/h-header",
-      "h-icon": "/components/h-icon/h-icon-base"
+      "h-page": "/components/h-page/h-page",
+      "h-icon": "/components/h-icon/h-icon"
     },
     "navigationBarTitleText": "h-icon",
     "backgroundTextStyle": "dark",

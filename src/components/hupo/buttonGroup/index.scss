@@ -1,0 +1,13 @@
+@import '../style/mixins/common';
+
+@include b(button-group){
+  display: flex;
+  align-items: center;
+  hupo-button{
+    flex: 1;
+  }
+  @include m(capsule){
+    width: 560rpx;
+    overflow: hidden;
+  }
+}

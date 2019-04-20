@@ -1,0 +1,16 @@
+{
+  "component": true,
+  "usingComponents": {
+    "parse-a": "../a/index",
+    "parse-block": "../block/index",
+    "parse-br": "../br/index",
+    "parse-button": "../button/index",
+    "parse-img": "../img/index",
+    "parse-inline": "../inline/index",
+    "parse-li": "../li/index",
+    "parse-table": "../table/index",
+    "parse-tr": "../tr/index",
+    "parse-text": "../text/index",
+    "parse-video": "../video/index"
+  }
+}

@@ -1,0 +1,10 @@
+
+<wxs src="../wxs/utils.wxs" module="utils" />
+
+<view
+  class="{{ utils.bem('tag', [type,size,{radius}]) }} {{plain?'is-plain':''}} {{customClass}}"
+  style="{{radiusValue?'border-radius:'+radiusValue+'rpx;':''}} {{width?'width:'+width+'rpx;':''}}
+     {{color?'color:'+color+';border:1rpx solid '+_color+';':''}} {{customStyle}}"
+>
+  <slot></slot>
+</view>

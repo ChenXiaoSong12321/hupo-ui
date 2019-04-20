@@ -1,0 +1,3 @@
+<view class="{{nodes.classStr}} wxParse-inline" style="{{nodes.styleStr || ''}}">
+  <block wx:if="{{nodes.node == 'text'}}">{{nodes.text}}</block>
+</view>

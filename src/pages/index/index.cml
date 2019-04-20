@@ -1,8 +1,5 @@
 <template>
-<page title="chameleon组件展示">
-  <view slot="titlebar" class="titlebar">
-    <text class="titlebar-text">chameleon组件展示</text>
-  </view>
+<h-page title="hupo-ui组件展示">
   <view class="index-page">
     <view class="index-body" style="{{bodyComputedStyl}}">
       <scroller cstyle="{{scrollerStyl}}" height="{{-1}}">
@@ -56,7 +53,7 @@
     </view>
 
   </view>
-</page>
+</h-page>
 </template>
 <script>
 import cml from "chameleon-api"
@@ -79,10 +76,9 @@ class Demo {
         pages: [
           routeObj["h-toast"],
           routeObj["h-popup-manager"],
+          routeObj["h-popup"],
           routeObj["h-button"],
           routeObj["h-icon"],
-          routeObj["h-tab"],
-          routeObj["h-tabbar"],
         ],
         src: require(`../../assets/images/component/kind/content.png`)
       },
@@ -99,6 +95,9 @@ class Demo {
         name: "导航",
         open: false,
         pages: [
+          routeObj["h-navbar"],
+          routeObj["h-tab"],
+          routeObj["h-tabbar"],
         ],
         src: require(`../../assets/images/component/kind/nav.png`)
       }
@@ -178,7 +177,7 @@ class Demo {
   }
 
   created() {
-    
+
   }
 
   beforeMount() {
@@ -398,6 +397,7 @@ export default new Demo();
 {
     "base": {
         "usingComponents": {
+          "h-page": "/components/h-page/h-page"
         },
         "navigationBarTitleText": "cml-ui组件库",
         "backgroundTextStyle": "dark",

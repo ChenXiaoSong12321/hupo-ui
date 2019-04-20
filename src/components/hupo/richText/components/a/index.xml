@@ -1,0 +1,5 @@
+<view bindtap="goto" class="wxParse-inline {{nodes.classStr}} wxParse-{{nodes.tag}}" data-src="{{nodes.attr.href}}" style="{{nodes.styleStr || ''}}">
+  <block wx:for="{{nodes.nodes}}" wx:key="">
+    <parse-base nodes="{{item}}"></parse-base>
+  </block>
+</view>

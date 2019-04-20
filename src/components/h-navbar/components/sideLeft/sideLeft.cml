@@ -1,0 +1,94 @@
+<template>
+  <view class="h-navbar-left">
+    <h-button
+      class="h-navbar-left-button"
+      type="none"
+      customStyle="height: 100%;"
+      c-if="{{selfShowBackIcon}}"
+      c-bind:click="back"
+    >
+      <view class="h-navbar-left-button-slot">
+        <h-icon
+          name="el-icon-hp-shouye-jiantou"
+          class="h-navbar-left-button-icon h-navbar-left-button-icon--{{type}}"
+        ></h-icon>
+      </view>
+    </h-button>
+    <h-button
+      class="h-navbar-left-button"
+      type="none"
+      customStyle="height: 100%;"
+      c-if="{{showHomeIcon && selfShowHomeIcon}}"
+      c-bind:click="backToHome"
+    >
+      <view class="h-navbar-left-button-slot">
+        <h-icon
+          name="el-icon-hp-shouye"
+          class="h-navbar-left-button-icon h-navbar-left-button-icon--{{type}}"
+        ></h-icon>
+      </view>
+    </h-button>
+  </view>
+</template>
+<script>
+class HNavbarSideLeft {
+  props = {
+    showHomeIcon: {
+      type: Boolean,
+      default: true
+    },
+    type: {
+      type: String,
+      default: 'default'
+    }
+  }
+  data = {
+    selfShowBackIcon: false,
+    selfShowHomeIcon: false,
+    pages: {
+      current: '',
+      first: ''
+    }
+  }
+  mounted(){
+    // const pages = getCurrentPages()
+    // const first = `/${pages[0].route}`
+    // const current = `/${pages[pages.length - 1].route}`
+    // const selfShowBackIcon = pages.length > 1
+    // const selfShowHomeIcon = !this.isTabbar(current)
+    // this.setData({
+    //   pages: {
+    //     current,
+    //     first
+    //   },
+    //   selfShowBackIcon,
+    //   selfShowHomeIcon
+    // })
+  }
+  methods = {
+    backToHome() {
+      if (this.isTabbar(this.data.pages.first)) {
+        this.goto(this.data.pages.first)
+      } else {
+        this.goto('/packages/tabbar/pages/index/index')
+      }
+    }
+  }
+}
+
+export default new HNavbarSideLeft();
+</script>
+<style lang="scss">
+@import "./sideLeft.scss";
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-button": "../../../h-button/h-button",
+      "h-icon": "../../../h-icon/h-icon"
+    },
+    "component": true
+  }
+}
+</script>

@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "popup-wrap": "../common/popup-wrap/index",
+    "hp-icon": "/components/hpIcon/index",
+    "hupo-button": "/hupo/button/index"
+  }
+}

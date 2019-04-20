@@ -1,7 +1,7 @@
 {
   "mode": "hash",
   "domain": "https://api.chameleon.com",
-  "routes":[
+  "routes": [
     {
       "url": "/",
       "path": "/pages/index/index",
@@ -18,6 +18,12 @@
       "name": "h-popup-manager",
       "url": "/pages/COMP/h-popup-manager/h-popup-manager",
       "path": "/pages/COMP/h-popup-manager/h-popup-manager",
+      "mock": "index.php"
+    },
+    {
+      "name": "h-popup",
+      "url": "/pages/COMP/h-popup/h-popup",
+      "path": "/pages/COMP/h-popup/h-popup",
       "mock": "index.php"
     },
     {
@@ -42,6 +48,12 @@
       "name": "h-tabbar",
       "url": "/pages/COMP/h-tabbar/h-tabbar",
       "path": "/pages/COMP/h-tabbar/h-tabbar",
+      "mock": "index.php"
+    },
+    {
+      "name": "h-navbar",
+      "url": "/pages/COMP/h-navbar/h-navbar",
+      "path": "/pages/COMP/h-navbar/h-navbar",
       "mock": "index.php"
     }
   ]

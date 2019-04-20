@@ -1,0 +1,55 @@
+<template>
+  <page title="{{title}}">
+    <h-navbar
+      type="{{type}}"
+      loading="{{loading}}"
+      title="{{title}}"
+      showHomeIcon="{{showHomeIcon}}"
+    ></h-navbar>
+    <view class="h-page {{ disableScroll ? 'h-page--disable-scroll' : '' }}">
+      <slot></slot>
+    </view>
+  </page>
+</template>
+<script>
+import defaultData from '../../core/viewport/defaultData';
+import calculate from '../../core/viewport/calculate';
+class HPage {
+  props = {
+    loading: {
+      type: Boolean,
+      default: false
+    },
+    title: {
+      type: String,
+      default: '琥珀亲子'
+    },
+    showHomeIcon: {
+      type: Boolean,
+      default: true
+    },
+    type: {
+      type: String,
+      default: 'default'
+    },
+    disableScroll: {
+      type: Boolean,
+      default: false
+    }
+  }
+}
+export default new HPage();
+</script>
+<style lang="scss">
+@import "./h-page.scss";
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-navbar": "../h-navbar/h-navbar"
+    },
+    "component": true
+  }
+}
+</script>
