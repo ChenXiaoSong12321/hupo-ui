@@ -1,0 +1,81 @@
+<template>
+  <block>
+    <block wx:if="{{loadmore.nomore}}">
+      <view class="h-loadmore-fix-bug">
+        <view class="h-loadmore h-loadmore--nomore">
+          <view class="h-loadmore__tips">
+            <view class="h-loadmore__dot"></view>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <block wx:elif="{{loadmore.loading}}">
+      <view class="h-loadmore-fix-bug">
+        <view class="h-loadmore">
+          <view class="h-loading"></view>
+          <view class="h-loadmore__tips">加载中...</view>
+        </view>
+      </view>
+    </block>
+
+    <block wx:elif="{{loadmore.nodata && (length >= 20 || isSlogen)}}">
+      <view class="h-loadmore-fix-bug">
+        <view class="h-loadmore h-loadmore--nodata">
+          <block wx:if="{{isSlotSlogen}}">
+            <slot></slot>
+          </block>
+          <block wx:else>
+            <image src="./nodata.png" mode="widthFix"></image>
+          </block>
+          <!-- <view class="h-loadmore__tips">{{ nodata_str || '暂无数据' }}</view> -->
+          <!-- <view class="h-loadmore__tips"><image src="./nodata.png" mode="widthFix"></image></view> -->
+        </view>
+      </view>
+    </block>
+  </block>
+</template>
+
+<script>
+class HLoadMore {
+ props = {
+    loadmore: {
+      type: Object,
+      default() {
+        return {
+          loading: false,
+          nomore: false,
+          nodata: true
+        }
+      }
+    },
+    length: {
+      type: Number,
+      default: 20
+    },
+    isSlogen: {
+      type: Boolean,
+      default: false
+    },
+    isSlotSlogen: {
+      type: Boolean,
+      default: false
+    }
+  }
+}
+
+export default new HLoadMore();
+</script>
+
+<style lang="scss">
+@import "./h-load-more.scss";
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {},
+    "component": true
+  }
+}
+</script>

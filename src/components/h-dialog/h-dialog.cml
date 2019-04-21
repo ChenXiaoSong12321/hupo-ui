@@ -1,44 +1,51 @@
 <template>
-  <h-popup-manager show="{{ show }}" type="center">
-  <view class="h-dialog--container">
-    <view wx:if="{{ title }}" class="h-dialog-header">
-      <block wx:if="{{icon}}">
-        <view class="h-dialog-header--icon" style="color: {{ iconColor || '#333' }}">
-          <h-icon className="{{icon}}"></h-icon>
-        </view>
-      </block>
-      <view class="h-dialog-header--title">
-        <block wx:if="{{htmlTitle}}">
-          <h-rich-text document="{{htmlTitle}}"></h-rich-text>
+  <h-popup-manager show="{{ show }}" position="center">
+    <view class="h-dialog--container">
+      <view wx:if="{{ title }}" class="h-dialog-header">
+        <block wx:if="{{icon}}">
+          <view class="h-dialog-header--icon" style="color: {{ iconColor || '#333' }}">
+            <h-icon className="{{icon}}"></h-icon>
+          </view>
         </block>
-        <block wx:else>{{ title }}</block>
-      </view>
-    </view>
-    <view class="h-dialog-content {{ title ? 'is-has-title' : '' }}">
-      <view wx:if="{{html}}" class="h-dialog-content--html">
-        <h-rich-text document="{{html}}"></h-rich-text>
-      </view>
-      <view wx:else class="h-dialog-content--message">{{ message }}</view>
-    </view>
-    <view class="h-dialog-footer {{title?'is-unradius-button':'is-radius-button'}}" style="{{title&&buttons.length!==2?'':'padding:10rpx 0'}}">
-      <block wx:for="{{ buttons }}" wx:key="{{ item.text }}-{{ item.type }}">
-        <h-button size="medium" type="{{title?'none':'primary'}}" plain="{{item.type!=='confirm'}}" class="h-dialog-footer-button {{!title&&item.type!=='confirm'?'is-cancel':''}} {{title?'h-dialog-footer-button-no-type':''}}" customStyle="{{!title&&buttons.length!==2?'width:480rpx':''}}" data-open-type="{{ item.openType }}" data-type="{{ item.type }}" open-type="{{ item.openType }}" bindtap="handleButtclick" bind:getuserinfo="handleUserInfoResponse" bind:getphonenumber="handlePhoneResponse" bind:opensetting="handleOpenSettingResponse">
-          <block wx:if="{{!title}}">{{ item.text }}</block>
-          <block wx:else>
-            <view class="button-text {{item.type==='confirm'?'is-confirm':'is-cancel'}}" style="{{title&&buttons.length!==2?'height:90rpx':''}}">
-              {{ item.text }}
-            </view>
+        <view class="h-dialog-header--title">
+          <block wx:if="{{htmlTitle}}">
+            <!-- <h-rich-text document="{{htmlTitle}}"></h-rich-text> -->
+            {{htmlTitle}}
           </block>
-        </h-button>
-      </block>
+          <block wx:else>{{ title }}</block>
+        </view>
+      </view>
+      <view class="h-dialog-content {{ title ? 'is-has-title' : '' }}">
+        <view wx:if="{{html}}" class="h-dialog-content--html">
+          <!-- <h-rich-text document="{{html}}"></h-rich-text> -->
+          {{html}}
+        </view>
+        <view wx:else class="h-dialog-content--message">{{ message }}</view>
+      </view>
+      <view class="h-dialog-footer {{title?'is-unradius-button':'is-radius-button'}}" style="{{title&&buttons.length!==2?'':'padding:10rpx 0'}}">
+        <block wx:for="{{ buttons }}" wx:key="{{ item.text }}-{{ item.type }}">
+          <h-button size="medium" type="{{title?'none':'primary'}}" plain="{{item.type!=='confirm'}}" class="h-dialog-footer-button {{!title&&item.type!=='confirm'?'is-cancel':''}} {{title?'h-dialog-footer-button-no-type':''}}" customStyle="{{!title&&buttons.length!==2?'width:480rpx':''}}" data-open-type="{{ item.openType }}" data-type="{{ item.type }}" open-type="{{ item.openType }}" bindtap="handleButtclick" bind:getuserinfo="handleUserInfoResponse" bind:getphonenumber="handlePhoneResponse" bind:opensetting="handleOpenSettingResponse">
+            <block wx:if="{{!title}}">{{ item.text }}</block>
+            <block wx:else>
+              <view class="button-text {{item.type==='confirm'?'is-confirm':'is-cancel'}}" style="{{title&&buttons.length!==2?'height:90rpx':''}}">
+                {{ item.text }}
+              </view>
+            </block>
+          </h-button>
+        </block>
+      </view>
     </view>
-  </view>
-</h-popup-manager>
+  </h-popup-manager>
 </template>
 <script>
-const fn = function fn() {}
-const needResponseOpenTypes = ['getUserInfo', 'getPhoneNumber', 'openSetting']
+import {primaryColor, fontColorC1} from '../../assets/config/style.var.js'
+import createComponent from "../../core/mixins/component.js"
+
+// const fn = function fn() {}
+// const needResponseOpenTypes = ['getUserInfo', 'getPhoneNumber', 'openSetting']
+
 class HDialog {
+  props={}
   data= {
     // 标题
     title: '',
@@ -49,111 +56,108 @@ class HDialog {
     message: ' ',
     html: '',
     // 选择节点
-    selector: '#vant-dialog',
-    // 按钮是否展示为纵向
-    buttonsShowVertical: false,
+    selector: '#h-dialog',
     // 是否展示确定
     showConfirmButton: true,
     // 确认按钮文案
     confirmButtonText: '确定',
     // 确认按钮颜色
-    confirmButtonColor: '#dd392e',
+    confirmButtonColor: primaryColor,
     // 是否展示取消
     showCancelButton: false,
     // 取消按钮文案
     cancelButtonText: '取消',
     // 取消按钮颜色
-    cancelButtonColor: '#333',
+    cancelButtonColor: fontColorC1,
     key: '',
     autoClose: true,
     center: true,
     large: false,
     icon: '',
     iconColor: '',
-    show: false,
+    show: true,
     promise: {}
   }
 
-  methods= {
-    handleButtclick(event) {
-      const { type = '', openType = '' } = event.currentTarget.dataset
+  // methods= {
+  //   handleButtclick(event) {
+  //     const { type = '', openType = '' } = event.currentTarget.dataset
 
-      // 获取当次弹出框的信息
-      const resolve = this.data.promise.resolve || fn
-      const reject = this.data.promise.reject || fn
-      // 重置展示
-      if (this.data.autoClose) {
-        this.setData({ show: false })
-      }
-      // 自定义按钮，全部 resolve 形式返回，根据 type 区分点击按钮
-      const isNeedOpenDataButton = needResponseOpenTypes.indexOf(openType) > -1
-        // 如果需要 openData，就额外返回一个 promise，用于后续 open 数据返回
-      if (isNeedOpenDataButton) {
-        if (type !== 'confirm') {
-          reject({
-            type: 'cancel'
-          })
-          this.setData({ promise: {}})
-        }
-        return
-      }
+  //     // 获取当次弹出框的信息
+  //     const resolve = this.promise.resolve || fn
+  //     const reject = this.promise.reject || fn
+  //     // 重置展示
+  //     if (this.autoClose) {
+  //       this.show =false
+  //     }
+  //     // 自定义按钮，全部 resolve 形式返回，根据 type 区分点击按钮
+  //     const isNeedOpenDataButton = needResponseOpenTypes.indexOf(openType) > -1
+  //       // 如果需要 openData，就额外返回一个 promise，用于后续 open 数据返回
+  //     if (isNeedOpenDataButton) {
+  //       if (type !== 'confirm') {
+  //         reject({
+  //           type: 'cancel'
+  //         })
+  //         this.promise = {}
+  //       }
+  //       return
+  //     }
 
-      // 默认按钮，确认为 resolve，取消为 reject
-      if (type === 'confirm') {
-        resolve({
-          type: 'confirm'
-        })
-      } else {
-        reject({
-          type: 'cancel'
-        })
-      }
+  //     // 默认按钮，确认为 resolve，取消为 reject
+  //     if (type === 'confirm') {
+  //       resolve({
+  //         type: 'confirm'
+  //       })
+  //     } else {
+  //       reject({
+  //         type: 'cancel'
+  //       })
+  //     }
+  //     this.promise = {}
+  //   },
 
-      this.setData({ promise: {}})
-    },
+  //   // 以下为处理微信按钮开放能力的逻辑
+  //   handleUserInfoResponse(event) {
+  //     const detail = event.detail
 
-    // 以下为处理微信按钮开放能力的逻辑
-    handleUserInfoResponse(event) {
-      const detail = event.detail
+  //     this.$handleOpenDataResponse({
+  //       type: detail.errMsg === 'getUserInfo:ok' ? 'resolve' : 'reject',
+  //       data: detail
+  //     })
+  //   },
+  //   handlePhoneResponse(event) {
+  //     const detail = event.detail
 
-      this.__handleOpenDataResponse({
-        type: detail.errMsg === 'getUserInfo:ok' ? 'resolve' : 'reject',
-        data: detail
-      })
-    },
-    handlePhoneResponse(event) {
-      const detail = event.detail
+  //     this.$handleOpenDataResponse({
+  //       type: detail.errMsg === 'getPhoneNumber:ok' ? 'resolve' : 'reject',
+  //       data: detail
+  //     })
+  //   },
+  //   handleOpenSettingResponse(event) {
+  //     const detail = event.detail
 
-      this.__handleOpenDataResponse({
-        type: detail.errMsg === 'getPhoneNumber:ok' ? 'resolve' : 'reject',
-        data: detail
-      })
-    },
-    handleOpenSettingResponse(event) {
-      const detail = event.detail
+  //     this.$handleOpenDataResponse({
+  //       type: detail.errMsg === 'openSetting:ok' ? 'resolve' : 'reject',
+  //       data: detail
+  //     })
+  //   },
+  //   $handleOpenDataResponse(options) {
+  //     const type = options.type || 'resolve'
+  //     const data = options.data || {}
 
-      this.__handleOpenDataResponse({
-        type: detail.errMsg === 'openSetting:ok' ? 'resolve' : 'reject',
-        data: detail
-      })
-    },
-    __handleOpenDataResponse(options) {
-      const type = options.type || 'resolve'
-      const data = options.data || {}
+  //     const promise = this.promise || {}
+  //     const responseFunc = promise[type] || fn
 
-      const promise = this.data.promise || {}
-      const responseFunc = promise[type] || fn
-
-      responseFunc(data)
-      this.setData({ promise: {}})
-    }
-  }
+  //     responseFunc(data)
+  //     this.promise = {}
+  //   }
+  // }
 }
 
-export default new HDialog();
+export default createComponent(HDialog)
 </script>
 <style lang="scss">
-
+  @import './h-dialog.scss';
 </style>
 <script cml-type="json">
 {

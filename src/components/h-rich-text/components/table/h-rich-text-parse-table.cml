@@ -1,12 +1,12 @@
 <template>
-  <view bindtap="goto" class="wxParse-inline {{nodes.classStr}} wxParse-{{nodes.tag}}" data-src="{{nodes.attr.href}}" style="{{nodes.styleStr || ''}}">
-    <block wx:for="{{nodes.nodes}}" wx:key="">
-      <h-rich-text-parse-base nodes="{{item}}"></h-rich-text-parse-base>
-    </block>
-  </view>
+   <view class="{{nodes.classStr}} wxParse-{{nodes.tag}}" style="{{nodes.styleStr || ''}}">
+  <block wx:for="{{nodes.nodes}}" wx:key="">
+    <h-rich-text-parse-base nodes="{{item}}"></h-rich-text-parse-base>
+  </block>
+</view>
 </template>
 <script>
-class HRichTextParseA {
+class HRichTextParseTable {
   props= {
     nodes: {
       type: Object,
@@ -14,7 +14,7 @@ class HRichTextParseA {
     }
   }
 }
-export default new HRichTextParseA();
+export default new HRichTextParseTable();
 </script>
 
 <style lang="scss">
@@ -24,6 +24,7 @@ export default new HRichTextParseA();
 <script cml-type="json">
 {
   "base": {
+    
     "usingComponents": {
       "h-rich-text-parse-base": "../base/h-rich-text-parse-base"
     },

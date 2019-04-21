@@ -1,4 +1,4 @@
-@import "../../assets/scss/common/iconfont.scss";
+@import '../../assets/scss/output';
 
 @include b(dialog){
   @include m(container){
@@ -8,7 +8,7 @@
   }
   @include e(header){
     @include flexCenter;
-    padding: 60rpx $--dialog-wrap-padding 0;
+    padding: 60cpx $--dialog-wrap-padding 0;
     font-size: $--font-size-title-large-ftl;
     color: $--font-color-c1;
     @include m(title){
@@ -16,45 +16,45 @@
       line-height: 1;
     }
     @include m(icon){
-      margin-right: 20rpx;
+      margin-right: 20cpx;
     }
   }
   @include e(content){
     @include flexCenter();
-    padding: 0 40rpx ;
+    padding: 0 40cpx ;
     @include m(message){
       text-align: center;
       font-size: $--font-size-title-large-ftl;
       line-height: $--dialog-content-line-height;
       color: $--font-color-c2;
-      margin-top: 60rpx-(($--font-size-title-large-ftl*($--dialog-content-line-height - 1))/2);
+      margin-top: 60cpx-(($--font-size-title-large-ftl*($--dialog-content-line-height - 1))/2);
     }
     @include m(html){
       color: $--font-color-c2;
-      margin-top: 40rpx-(($--font-size-title-large-ftl*($--dialog-content-line-height - 1))/2);
+      margin-top: 40cpx-(($--font-size-title-large-ftl*($--dialog-content-line-height - 1))/2);
     }
     @include when(has-title){
       .hupo-dialog-content--message{
         font-size: $--font-size-desc-small-fds;
-        margin-top: 40rpx-(($--font-size-desc-small-fds*($--dialog-content-line-height - 1))/2);
+        margin-top: 40cpx-(($--font-size-desc-small-fds*($--dialog-content-line-height - 1))/2);
       }
     }
   }
   @include e(footer){
     @include flexCenter;
-    margin-top: 60rpx-(($--font-size-title-large-ftl*($--dialog-content-line-height - 1))/2);
+    margin-top: 60cpx-(($--font-size-title-large-ftl*($--dialog-content-line-height - 1))/2);
 
     @include when(unradius-button){
       border-top: 1px solid $--border-color-d1;
       @include flexCenter;
     }
     @include when(radius-button){
-      padding-bottom: 30rpx!important;
+      padding-bottom: 30cpx!important;
     }
   }
   @include e(footer-button){
     @include when(cancel){
-      margin-right: 20rpx;
+      margin-right: 20cpx;
     }
     @include when(no-type-button){
       flex:1;
@@ -73,7 +73,7 @@
     font-size: $--font-size-desc-large-fdl;
     .button-text{
       @include flexCenter;
-      height: 70rpx;
+      height: 70cpx;
       width: 100%;
       @include when(confirm){
         color: $--primary-color-a1;

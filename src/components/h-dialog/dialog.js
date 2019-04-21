@@ -1,13 +1,12 @@
-const defaultData = require('./data')
-
+import defaultData from './data'
+import difference from '../../core/difference/difference.interface';
 function getDialogCtx(_ref) {
   const selector = _ref.selector
   const pageCtx = _ref.pageCtx
 
   let ctx = pageCtx
   if (!ctx) {
-    const pages = getCurrentPages()
-    ctx = pages[pages.length - 1]
+    ctx = difference.getCurrentPage()
   }
   return ctx.selectComponent(selector)
 }
@@ -98,4 +97,4 @@ Dialog.close = function(options, pageCtx) {
   })
 }
 
-module.exports = Dialog
+export default Dialog

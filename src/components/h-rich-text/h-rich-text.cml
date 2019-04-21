@@ -1,7 +1,7 @@
 <template>
   <view class="h-rich-text">
     <view class="wxParse">
-      <block wx:for="{{_nodes}}" wx:key="{{index}}">
+      <block wx:for="{{selfNodes}}" wx:key="{{index}}">
         <block wx:for="{{item}}" wx:for-item="node" wx:for-index="y" wx:key="{{node.index}}">
           <h-rich-text-parse-base nodes="{{node}}"></h-rich-text-parse-base>
         </block>
@@ -10,50 +10,53 @@
   </view>
 </template>
 <script>
+import wxParse from '../../assets/js/wxParse/index.js'
 class HRichText {
   props= {
     document: {
       type: String,
-      value: '',
-      observer() {
-        this.parse()
-      }
+      default: ''
     },
     type: {
       type: String,
-      value: 'html'
+      default: 'html'
     },
     renderNum: {
       type: Number,
-      value: 5
+      default: 5
     }
-  },
+  }
   data= {
     nodes: [],
-    _nodes: []
-  },
+    selfNodes: []
+  }
+  watch={
+    document(){
+      this.parse()
+    }
+  }
   methods= {
     async parse() {
-      if (!this.data.document) return
-      const parsedData = wxParse(this.data.document)
+      if (!this.document) return
+      const parsedData = wxParse(this.document)
       this.nodes = parsedData.nodes
       this.init()
     },
     async init() {
-      const _nodes = new Map()
-      const nodes = this.data.nodes
-      const renderNum = this.data.renderNum
+      const selfNodes = new Map()
+      const nodes = this.nodes
+      const renderNum = this.renderNum
       if (nodes.length > renderNum) {
         for (let i = 0, len = nodes.length; i < len; i += renderNum) {
           const index = parseInt(i / renderNum)
           const item = nodes.slice(i, i + renderNum)
-          _nodes.set(index, item)
+          selfNodes.set(index, item)
         }
       } else {
-        _nodes.set(0, nodes)
+        selfNodes.set(0, nodes)
       }
-      for (const [index, item] of _nodes) {
-        this[`_nodes[${index}]`] = item
+      for (const [index, item] of selfNodes) {
+        this.selfNodes[`${index}]`] = item
         // await wxTools.$nextTick(300)
         // await this.delay(200)
       }
@@ -70,7 +73,7 @@ export default new HRichText();
 {
   "base": {
     "usingComponents": {
-      "h-rich-text-parse-base": "../components/base/index"
+      "h-rich-text-parse-base": "./components/base/h-rich-text-parse-base"
     },
     "component": true
   }
