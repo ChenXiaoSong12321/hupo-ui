@@ -15,6 +15,7 @@
       <view class="title">
         <text class="title">tab+pane案例</text>
       </view>
+
       <h-tab tabs="{{tabs}}" c-bind:tabclick="handleTabTap" active-label="{{activeLabel}}"></h-tab>
       <h-tab-pane tabs="{{tabs}}" active-label="{{activeLabel}}">
         <!-- 案例1 -->
@@ -37,12 +38,8 @@
             <text>perfect</text>
           </view>
         </h-tab-pane-item>
-        <h-tab-pane-item>
-          <view>
-            <text>4</text>
-          </view>
-        </h-tab-pane-item>
       </h-tab-pane>
+      
     </view>
   </h-page>
 </template>

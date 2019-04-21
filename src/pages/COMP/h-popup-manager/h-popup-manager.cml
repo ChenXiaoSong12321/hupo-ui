@@ -1,13 +1,13 @@
 <template>
   <h-page title="h-popup-manager 演示">
     <view class="container">
-      <h-popup-manager show="{{show}}" mask="{{mask}}" c-bind:close="closePopup">
+      <h-popup-manager show="{{show}}" mask="{{mask}}" c-bind:onclose="closePopup">
         <view style="background:#fff">hhhhhhh</view>
       </h-popup-manager>
       <h-popup-manager
         show="{{show2}}"
         mask="{{mask}}"
-        c-bind:close="closePopup"
+        c-bind:onclose="closePopup"
         position="{{position}}"
       >
         <view style="{{contentStyle}}">

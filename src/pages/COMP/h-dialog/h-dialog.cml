@@ -1,0 +1,45 @@
+<template>
+  <h-page title="h-dialog 演示">
+    <view class="container">
+      <h-dialog></h-dialog>
+    </view>
+  </h-page>
+</template>
+<script>
+import page from "../../../core/mixins/page";
+class HDialog {}
+
+export default page(HDialog);
+</script>
+<style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+.btn {
+  margin-top: 20cpx;
+}
+.icon-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  margin-top: 20cpx;
+}
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-page": "/components/h-page/h-page",
+      "h-dialog": "/components/h-dialog/h-dialog"
+    },
+    "navigationBarTitleText": "h-dialog",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#E2E2E2"
+  }
+}
+</script>

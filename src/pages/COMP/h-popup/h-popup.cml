@@ -2,11 +2,9 @@
   <h-page title="h-popup 演示">
     <view class="container">
       <h-button class="btn" c-bind:onclick="showPopup">open popup</h-button>
-      <text>sss</text>
       <h-popup show="{{show}}" c-bind:onclose="closePopup">
         <view class="h-popup">hhhh</view>
       </h-popup>
-      <text>d</text>
     </view>
   </h-page>
 </template>

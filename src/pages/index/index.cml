@@ -75,8 +75,10 @@ class Demo {
           routeObj["h-toast"],
           routeObj["h-popup-manager"],
           routeObj["h-popup"],
+          routeObj["h-dialog"],
           routeObj["h-button"],
           routeObj["h-icon"],
+          routeObj["h-filter"],
         ],
         src: require(`../../assets/images/component/kind/content.png`)
       },

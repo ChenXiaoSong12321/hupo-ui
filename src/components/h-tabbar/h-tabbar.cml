@@ -2,7 +2,7 @@
   <view class="h-tab-bar {{layoutClass}}">
     <view class="h-tab-bar-wrap " style="{{tabbar.tabbarStyle || ';'}}">
       <view c-for="{{tabbar.list }}" c-key="text" class="h-tab-bar-item-wrap">
-        <view class="h-tab-bar-content" c-bind:onclick="onTabbarItemTap(index)">
+        <view class="h-tab-bar-content" c-bind:click="onTabbarItemTap(index)">
           <view class="h-tab-bar-icon-wrap" c-if="{{!top && hasIcon}}">
             <image c-if="{{!(index === tapedIndex)}}" class="tab-icon" src="{{item.icon}}" style="{{!(index === tapedIndex) ? (item.iconStyle || '') : ';'}}"></image>
             <image c-if="{{index === tapedIndex}}" class="tab-icon" src="{{item.selectedIcon || item.icon}}" style="{{(index === tapedIndex) ? (item.selectedIconStyle || '') : ''}}"></image>
@@ -42,7 +42,7 @@ tabbar:{
     props = {
       tabbar: {
         type: Object,
-        default: {}
+        default(){return {}}
       },
       selectedIndex: { //默认选中那个tabbbar
         type: Number,

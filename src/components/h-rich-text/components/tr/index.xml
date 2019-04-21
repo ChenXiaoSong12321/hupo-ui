@@ -1,0 +1,14 @@
+<view class="{{nodes.classStr}} wxParse-{{nodes.tag}}" style="{{nodes.styleStr || ''}}">
+  <block wx:for="{{nodes.nodes}}" wx:key="">
+    <block wx:if="{{item.tag == 'td'}}">
+      <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr || ''}}">
+        <block wx:for="{{item.nodes}}" wx:key="" wx:for-item="td">
+          <parse-base nodes="{{td}}"></parse-base>
+        </block>
+      </view>
+    </block>
+    <block wx:else>
+      <parse-base nodes="{{item}}"></parse-base>
+    </block>
+  </block>
+</view>

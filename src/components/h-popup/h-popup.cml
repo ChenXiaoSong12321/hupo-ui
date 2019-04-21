@@ -2,8 +2,8 @@
   <h-popup-manager show="{{ visible }}" bind:onclose="onclose">
     <view class="h-popup" c-catch:touchmove="empty">
       <view class="h-popup-close">
-        <h-button type="none" bind:onclick="close">
-          <hp-icon name="el-icon-hp-shanchu" class="h-popup-close-icon"></hp-icon>
+        <h-button type="none" bind:onclick="onclose">
+          <h-icon name="el-icon-hp-shanchu" class="h-popup-close-icon"></h-icon>
         </h-button>
       </view>
       <view class="h-popup-box {{type?'h-popup-box'+type:''}}" style="{{customStyle}}">
@@ -46,7 +46,6 @@ class HPopup {
 
   methods = {
     onclose() {
-      debugger
       this.visible = false;
       this.$cmlEmit("onclose", false);
     },
@@ -64,7 +63,7 @@ export default new HPopup();
   "base": {
     "usingComponents": {
       "h-popup-manager": "../h-popup-manager/h-popup-manager",
-      "hp-icon": "../h-icon/h-icon",
+      "h-icon": "../h-icon/h-icon",
       "h-button": "../h-button/h-button"
     },
     "component": true

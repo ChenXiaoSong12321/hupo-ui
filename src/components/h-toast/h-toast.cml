@@ -55,6 +55,7 @@ class HToast {
   watch = {
     show(n, o) {
       if (n) {
+        console.log(this.duration,'this.duration')
         setTimeout(() => {
           this.$cmlEmit("show", { value: false });
         }, this.duration);

@@ -46,7 +46,7 @@ export default new HTabPane();
   overflow-x:hidden;
   overflow-y:hidden;
   @include e(wrap){
-       display:flex;
+    display:flex;
     flex-direction:row;
     transition-duration: 0.5s;
     transition-timing-function:ease-in-out;

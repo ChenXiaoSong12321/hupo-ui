@@ -4,7 +4,7 @@
     <!-- <bar-index c-show="{{currentComp === 'bar-index'}}"></bar-index>
   <bar-trip c-show="{{currentComp === 'bar-trip'}}"></bar-trip>
     <bar-my c-show="{{currentComp === 'bar-my'}}"></bar-my>-->
-    <h-tabbar c-bind:onclick="handleTabbarClick" c-model="{{currentComp}}" tabbar="{{tabbar}}"></h-tabbar>
+    <h-tabbar c-bind:tabbarclick="handleTabbarClick" c-model="{{currentComp}}" tabbar="{{tabbar}}"></h-tabbar>
   </h-page>
 </template>
 

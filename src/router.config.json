@@ -26,6 +26,12 @@
       "mock": "index.php"
     },
     {
+      "name": "h-dialog",
+      "url": "/pages/COMP/h-dialog/h-dialog",
+      "path": "/pages/COMP/h-dialog/h-dialog",
+      "mock": "index.php"
+    },
+    {
       "name": "h-button",
       "url": "/pages/COMP/h-button/h-button",
       "path": "/pages/COMP/h-button/h-button",
@@ -35,6 +41,12 @@
       "name": "h-icon",
       "url": "/pages/COMP/h-icon/h-icon",
       "path": "/pages/COMP/h-icon/h-icon",
+      "mock": "index.php"
+    },
+    {
+      "name": "h-filter",
+      "url": "/pages/COMP/h-filter/h-filter",
+      "path": "/pages/COMP/h-filter/h-filter",
       "mock": "index.php"
     },
     {

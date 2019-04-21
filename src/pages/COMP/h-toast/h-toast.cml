@@ -41,6 +41,7 @@ class HToast {
     },
     showLoading() {
       this.message = "loading";
+      this.duration = 3000
       this.type = "loading";
       this.mask = false;
       this.needIcon = true;
@@ -48,6 +49,7 @@ class HToast {
     },
     showMask() {
       this.message = "mask toast";
+      this.duration = 3000
       this.type = "loading";
       this.mask = true;
       this.needIcon = true;
@@ -55,6 +57,7 @@ class HToast {
     },
     showSuccess() {
       this.message = "success toast";
+      this.duration = 3000
       this.type = "success";
       this.mask = true;
       this.needIcon = true;
@@ -62,6 +65,7 @@ class HToast {
     },
     showWarn() {
       this.message = "warn toast";
+      this.duration = 3000
       this.type = "warn";
       this.mask = true;
       this.needIcon = true;
@@ -69,6 +73,7 @@ class HToast {
     },
     showWithout() {
       this.message = "toast without icon";
+      this.duration = 3000
       this.mask = false;
       this.needIcon = false;
       this.show = true;

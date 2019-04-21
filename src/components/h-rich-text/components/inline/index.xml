@@ -1,0 +1,5 @@
+  <view class="{{nodes.classStr}} wxParse-{{nodes.tag}} wxParse-{{nodes.tagType}}" style="{{nodes.styleStr || ''}}">
+    <block wx:for="{{nodes.nodes}}" wx:key="">
+      <parse-base nodes="{{item}}"></parse-base>
+    </block>
+  </view>
