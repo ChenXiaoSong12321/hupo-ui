@@ -13,7 +13,6 @@ class HTag {
   props = {
     customClass: String,
     customStyle: String,
-    // blue,primary
     type: {
       type: String,
       default: "primary"

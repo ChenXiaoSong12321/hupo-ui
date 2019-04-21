@@ -67,14 +67,17 @@ function Dialog(options, pageCtx) {
     showCustomBtns = true
   }
 
-  return new Promise(function(resolve, reject) {
-    dialogCtx.setData(Object.assign({}, parsedOptions, {
-      buttons: buttons,
-      showCustomBtns: showCustomBtns,
-      key: '' + new Date().getTime(),
-      show: true,
-      promise: { resolve: resolve, reject: reject }
-    }))
+  return new Promise((resolve, reject)=> {
+    let opts = Object.assign({}, parsedOptions, {
+        buttons: buttons,
+        showCustomBtns: showCustomBtns,
+        key: '' + new Date().getTime(),
+        show: true,
+        promise: { resolve, reject }
+      })
+      Object.keys(opts).forEach(key=>{
+        dialogCtx[key] = opts[key]
+      })
   })
 }
 
@@ -83,17 +86,14 @@ Dialog.close = function(options, pageCtx) {
 
   const dialogCtx = getDialogCtx({
     selector: parsedOptions.selector,
-    pageCtx: pageCtx
+    pageCtx
   })
 
   if (!dialogCtx) {
     return
   }
-
-  dialogCtx.setData({
-    show: false,
-    promise: null
-  })
+  dialogCtx.show = false
+  dialogCtx.promise = null
 }
 
 export default Dialog

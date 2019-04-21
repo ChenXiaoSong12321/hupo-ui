@@ -44,13 +44,9 @@
     @include flexCenter;
     margin-top: 60cpx-(($--font-size-title-large-ftl*($--dialog-content-line-height - 1))/2);
 
-    @include when(unradius-button){
-      border-top: 1px solid $--border-color-d1;
-      @include flexCenter;
-    }
-    @include when(radius-button){
-      padding-bottom: 30cpx!important;
-    }
+    border-top: 1px solid $--border-color-d1;
+    @include flexCenter;
+    padding:10cpx 0;
   }
   @include e(footer-button){
     @include when(cancel){
