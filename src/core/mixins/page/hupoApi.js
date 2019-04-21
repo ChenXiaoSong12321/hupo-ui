@@ -5,7 +5,7 @@ const defaultOptions = options => typeof options === 'string' ? {
   message: options
 } : options
 
-export default {
+export default class HupoApi{
   $alert(options) {
     options = defaultOptions(options)
     return Dialog({
@@ -16,7 +16,7 @@ export default {
       showCancelButton: false,
       confirmButtonText: options.confirmButtonText || '好的',
     })
-  },
+  }
   $confirm(options) {
     options = defaultOptions(options)
     return Dialog({
@@ -29,10 +29,10 @@ export default {
       confirmButtonText: options.confirmButtonText || '确定',
       cancelButtonText: options.cancelButtonText || '取消'
     })
-  },
+  }
   $loading(options){
     console.log('loading')
-  },
+  }
   $toast(options){
     console.log('toast')
   }

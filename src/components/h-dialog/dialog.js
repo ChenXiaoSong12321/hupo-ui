@@ -30,7 +30,6 @@ function Dialog(options, pageCtx) {
     selector: parsedOptions.selector,
     pageCtx: pageCtx
   })
-
   if (!dialogCtx) {
     console.error('无法找到对应的dialog组件，请于页面中注册并在 wxml 中声明 dialog 自定义组件')
     return Promise.reject({ type: 'component error' })

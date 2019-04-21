@@ -1,24 +1,23 @@
 <template>
   <h-page title="h-dialog 演示">
     <view class="container">
-      wori
-      <!-- <h-dialog id="h-dialog"></h-dialog> -->
+      <h-dialog id="h-dialog"></h-dialog>
     </view>
   </h-page>
 </template>
 <script>
 import page from "../../../core/mixins/page";
 class HDialogPage {
-  // async mounted() {
-  //   // await this.testConfirm()
-  // }
-  // methods= {
-  //   async testConfirm(){
-  //     await this.$confirm({
-  //       message: '您的账号已在其他地方登录，请重新验证身份。'
-  //     })
-  //   }
-  // }
+  async mounted() {
+    await this.testConfirm()
+  }
+  methods= {
+    async testConfirm(){
+      await this.$confirm({
+        message: '您的账号已在其他地方登录，请重新验证身份。'
+      })
+    }
+  }
 }
 
 export default page(HDialogPage);
@@ -46,7 +45,8 @@ export default page(HDialogPage);
 {
   "base": {
     "usingComponents": {
-      "h-page": "/components/h-page/h-page"
+      "h-page": "/components/h-page/h-page",
+      "h-dialog": "/components/h-dialog/h-dialog"
     },
     "navigationBarTitleText": "h-dialog",
     "backgroundTextStyle": "dark",
