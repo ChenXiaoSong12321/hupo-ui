@@ -16,10 +16,6 @@ cml.config.merge({
     wxAppId: '123456',
     wxEntryPage: ''
   },
-  baseStyle: {
-    web: false,
-    wx: false
-  },
   wx: {
     dev: {
     },

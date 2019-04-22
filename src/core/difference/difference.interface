@@ -20,6 +20,7 @@ interface DifferenceInterface {}
       return (app.router && app.router.current) ? app.router.current : {}
     }
     selectComponent(ctx,compName){
+      compName = compName.replace('#','')
       return ctx?ctx.$refs[compName]:{}
     }
     async nextTick(){

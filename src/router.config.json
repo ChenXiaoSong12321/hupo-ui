@@ -22,6 +22,16 @@
       "path": "/pages/COMP/h-popup/h-popup"
     },
     {
+      "name": "h-loading",
+      "url": "/pages/COMP/h-loading/h-loading",
+      "path": "/pages/COMP/h-loading/h-loading"
+    },
+    {
+      "name": "h-tag",
+      "url": "/pages/COMP/h-tag/h-tag",
+      "path": "/pages/COMP/h-tag/h-tag"
+    },
+    {
       "name": "h-dialog",
       "url": "/pages/COMP/h-dialog/h-dialog",
       "path": "/pages/COMP/h-dialog/h-dialog"

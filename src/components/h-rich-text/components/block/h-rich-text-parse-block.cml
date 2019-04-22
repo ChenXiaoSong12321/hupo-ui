@@ -1,6 +1,6 @@
 <template>
    <view class="{{nodes.classStr}} wxParse-{{nodes.tag}}" style="{{nodes.styleStr || ''}}">
-    <block c-for="{{nodes.nodes}}" c-key="">
+    <block c-for="{{nodes.nodes}}">
       <parse-base nodes="{{item}}"></parse-base>
     </block>
   </view>

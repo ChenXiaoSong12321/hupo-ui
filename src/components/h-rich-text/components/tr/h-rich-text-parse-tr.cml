@@ -1,17 +1,11 @@
 <template>
   <view class="{{nodes.classStr}} wxParse-{{nodes.tag}}" style="{{nodes.styleStr || ''}}">
-    <block c-for="{{nodes.nodes}}" c-key="">
-      <block c-if="{{item.tag == 'td'}}">
-        <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr || ''}}">
-          <block c-for="{{item.nodes}}" c-key="" c-for-item="td">
-            <h-rich-text-parse-base nodes="{{td}}"></h-rich-text-parse-base>
-          </block>
+    <view c-for="{{nodes.nodes}}" c-key="">
+        <view c-if="{{item.tag == 'td'}}" class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr || ''}}">
+            <h-rich-text-parse-base c-for="{{item.nodes}}" c-key="" c-for-item="td" nodes="{{td}}"></h-rich-text-parse-base>
         </view>
-      </block>
-      <block c-else>
-        <h-rich-text-parse-base nodes="{{item}}"></h-rich-text-parse-base>
-      </block>
-    </block>
+        <h-rich-text-parse-base c-else nodes="{{item}}"></h-rich-text-parse-base>
+    </view>
   </view>
 </template>
 <script>

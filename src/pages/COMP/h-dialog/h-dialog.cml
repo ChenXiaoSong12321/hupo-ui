@@ -2,29 +2,30 @@
   <h-page title="h-dialog 演示">
     <view class="container">
       <h-dialog id="h-dialog" ref="h-dialog"></h-dialog>
+      <h-button class="btn" c-bind:onclick="showDialog('dialog')">show dialog</h-button>
+      <h-button class="btn" c-bind:onclick="showDialog('alert')">show alert</h-button>
     </view>
   </h-page>
 </template>
 <script>
 import page from "../../../core/mixins/page";
+import promise from "../../../core/utils/promise.js";
 class HDialogPage {
-  async mounted() {
-    await this.testConfirm()
-  }
-  methods= {
-    async testConfirm(){
-       console.log('start',this)
-      await this.$confirm({
-        message: '您的账号已在其他地方登录，请重新验证身份。'
-      })
-      console.log('end')
-      await this.$alert({
-        message: '您的账号已在其他地方登录，请重新验证身份。',
-        title:'alert',
-        confirmButtonText:'hhhh'
-      })
+  methods = {
+    async showDialog(e) {
+      if (e === "dialog") {
+        await this.$confirm({
+          message: "您的账号已在其他地方登录，请重新验证身份。"
+        });
+      } else {
+        await this.$alert({
+          message: "您的账号已在其他地方登录，请重新验证身份。",
+          title: "alert",
+          confirmButtonText: "hhhh"
+        });
+      }
     }
-  }
+  };
 }
 
 export default page(HDialogPage);
@@ -39,20 +40,13 @@ export default page(HDialogPage);
 .btn {
   margin-top: 20cpx;
 }
-.icon-wrap {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  width: 90%;
-  margin-top: 20cpx;
-}
 </style>
 <script cml-type="json">
 {
   "base": {
     "usingComponents": {
       "h-page": "/components/h-page/h-page",
+      "h-button": "/components/h-button/h-button",
       "h-dialog": "/components/h-dialog/h-dialog"
     },
     "navigationBarTitleText": "h-dialog",

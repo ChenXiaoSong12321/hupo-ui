@@ -40,7 +40,7 @@ class HToast {
       this.show = e.detail.value;
     },
     showLoading() {
-      this.message = "loading";
+      this.message = "加载中...";
       this.duration = 3000
       this.type = "loading";
       this.mask = false;
@@ -48,7 +48,7 @@ class HToast {
       this.show = true;
     },
     showMask() {
-      this.message = "mask toast";
+      this.message = "加载中...";
       this.duration = 3000
       this.type = "loading";
       this.mask = true;

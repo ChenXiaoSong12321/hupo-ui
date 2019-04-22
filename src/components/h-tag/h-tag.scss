@@ -29,10 +29,10 @@
   @include m(blue) {
     background-color: transparent;
     box-sizing: border-box;
-    color: $--primary-color-a1;
+    color: $--secondary-color-b2;
 
     @include when(plain) {
-      border: 1px solid rgba($--primary-color-a1, 0.3);
+      border: 1px solid rgba($--secondary-color-b2, 0.3);
     }
   }
   @include m(large) {

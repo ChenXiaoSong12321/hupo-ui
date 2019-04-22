@@ -79,6 +79,8 @@ class Demo {
           routeObj["h-button"],
           routeObj["h-icon"],
           routeObj["h-load-more"],
+          routeObj["h-loading"],
+          routeObj["h-tag"],
           routeObj["h-filter"],
         ],
         src: require(`../../assets/images/component/kind/content.png`)
@@ -196,7 +198,10 @@ class Demo {
 
 export default page(Demo);
 </script>
-<style scoped>
+<style>
+.inner-scroll{
+  transform:none!important;
+}
 .titlebar {
   display: flex;
   flex-direction: row;

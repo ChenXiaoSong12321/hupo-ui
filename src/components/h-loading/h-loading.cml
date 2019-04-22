@@ -4,14 +4,14 @@
     style="width: {{ size }}; height: {{ size }}"
   >
     <view
-      class="h-loading__spinner h-loading__spinner--{{ type }}"
+      class="h-loading-spinner h-loading-spinner--{{ type }}"
       style="color: {{ color }};"
     >
       <view
         c-if="{{ type === 'spinner' }}"
-        c-for="item in 12"
-        c-key="{{ index }}"
-        class="h-loading__dot"
+        c-for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}}"
+        c-key="{{ item }}"
+        class="h-loading-dot"
       ></view>
     </view>
   </view>

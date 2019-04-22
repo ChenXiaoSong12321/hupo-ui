@@ -1,8 +1,7 @@
 <template>
   <view
     class="h-tag {{type?'h-tag--'+type:''}} {{size?'h-tag--'+size:''}} {{radius?'is-radius':''}} {{plain?'is-plain':''}} {{customClass}}"
-    style="{{radiusValue?'border-radius:'+radiusValue+'cpx;':''}} {{width?'width:'+width+'cpx;':''}}
-    {{color?'color:'+color+';border:1cpx solid '+_color+';':''}} {{customStyle}}"
+    style="{{radiusValue?'border-radius:'+radiusValue+'cpx;':''}} {{width?'width:'+width+'cpx;':''}} {{color?'color:'+color+';border:1cpx solid '+_color+';':''}} {{customStyle}}"
   >
     <slot></slot>
   </view>

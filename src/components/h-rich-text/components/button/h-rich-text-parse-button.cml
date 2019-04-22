@@ -1,8 +1,6 @@
 <template>
   <view type="default" size="mini">
-    <block c-for="{{nodes.nodes}}" c-key="">
-      <h-rich-text-parse-base nodes="{{item}}"></h-rich-text-parse-base>
-    </block>
+      <h-rich-text-parse-base c-for="{{nodes.nodes}}" nodes="{{item}}"></h-rich-text-parse-base>
   </view>
 </template>
 <script>
