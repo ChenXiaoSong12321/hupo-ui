@@ -38,7 +38,7 @@
 import {primaryColor, fontColorC1} from '../../assets/config/style.var.js'
 import component from "../../core/mixins/component.js"
 
-const fn = function fn() {}
+const emptyFn = function emptyFn() {}
 const needResponseOpenTypes = ['getUserInfo', 'getPhoneNumber', 'openSetting']
 
 class HDialog {
@@ -78,8 +78,8 @@ class HDialog {
       const { type = '', openType = '' } = event.currentTarget.dataset
 
       // 获取当次弹出框的信息
-      const resolve = this.promise.resolve || fn
-      const reject = this.promise.reject || fn
+      const resolve = this.promise.resolve || emptyFn
+      const reject = this.promise.reject || emptyFn
       // 重置展示
       if (this.autoClose) {
         this.show =false
@@ -140,7 +140,7 @@ class HDialog {
       const data = options.data || {}
 
       const promise = this.promise || {}
-      const responseFunc = promise[type] || fn
+      const responseFunc = promise[type] || emptyFn
 
       responseFunc(data)
       this.promise = {}

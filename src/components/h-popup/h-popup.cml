@@ -1,5 +1,5 @@
 <template>
-  <h-popup-manager show="{{ visible }}" bind:onclose="onclose">
+  <h-popup-manager show="{{ visible }}" c-bind:onclose="onclose">
     <view class="h-popup" c-catch:touchmove="empty">
       <view class="h-popup-close">
         <h-button type="none" bind:onclick="onclose">
@@ -46,6 +46,7 @@ class HPopup {
 
   methods = {
     onclose() {
+      debugger
       this.visible = false;
       this.$cmlEmit("onclose", false);
     },

@@ -18,7 +18,7 @@
 </template>
 
 <script>
-class HIcon {
+class HLoading {
  props = {
     size: {
       type: String,
@@ -35,7 +35,7 @@ class HIcon {
   }
 }
 
-export default new HIcon();
+export default new HLoading();
 </script>
 
 <style lang="scss">

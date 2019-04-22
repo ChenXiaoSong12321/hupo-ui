@@ -4,68 +4,57 @@
   "routes": [{
       "name": "首页",
       "url": "/",
-      "path": "/pages/index/index",
-      "mock": "index.php"
+      "path": "/pages/index/index"
     },
     {
       "name": "h-toast",
       "url": "/pages/COMP/h-toast/h-toast",
-      "path": "/pages/COMP/h-toast/h-toast",
-      "mock": "index.php"
+      "path": "/pages/COMP/h-toast/h-toast"
     },
     {
       "name": "h-popup-manager",
       "url": "/pages/COMP/h-popup-manager/h-popup-manager",
-      "path": "/pages/COMP/h-popup-manager/h-popup-manager",
-      "mock": "index.php"
+      "path": "/pages/COMP/h-popup-manager/h-popup-manager"
     },
     {
       "name": "h-popup",
       "url": "/pages/COMP/h-popup/h-popup",
-      "path": "/pages/COMP/h-popup/h-popup",
-      "mock": "index.php"
+      "path": "/pages/COMP/h-popup/h-popup"
     },
     {
       "name": "h-dialog",
       "url": "/pages/COMP/h-dialog/h-dialog",
-      "path": "/pages/COMP/h-dialog/h-dialog",
-      "mock": "index.php"
+      "path": "/pages/COMP/h-dialog/h-dialog"
     },
     {
       "name": "h-button",
       "url": "/pages/COMP/h-button/h-button",
-      "path": "/pages/COMP/h-button/h-button",
-      "mock": "index.php"
+      "path": "/pages/COMP/h-button/h-button"
     },
     {
       "name": "h-icon",
       "url": "/pages/COMP/h-icon/h-icon",
-      "path": "/pages/COMP/h-icon/h-icon",
-      "mock": "index.php"
+      "path": "/pages/COMP/h-icon/h-icon"
     },
     {
       "name": "h-filter",
       "url": "/pages/COMP/h-filter/h-filter",
-      "path": "/pages/COMP/h-filter/h-filter",
-      "mock": "index.php"
+      "path": "/pages/COMP/h-filter/h-filter"
     },
     {
       "name": "h-tab",
       "url": "/pages/COMP/h-tab/h-tab",
-      "path": "/pages/COMP/h-tab/h-tab",
-      "mock": "index.php"
+      "path": "/pages/COMP/h-tab/h-tab"
     },
     {
       "name": "h-tabbar",
       "url": "/pages/COMP/h-tabbar/h-tabbar",
-      "path": "/pages/COMP/h-tabbar/h-tabbar",
-      "mock": "index.php"
+      "path": "/pages/COMP/h-tabbar/h-tabbar"
     },
     {
       "name": "h-navbar",
       "url": "/pages/COMP/h-navbar/h-navbar",
-      "path": "/pages/COMP/h-navbar/h-navbar",
-      "mock": "index.php"
+      "path": "/pages/COMP/h-navbar/h-navbar"
     }
   ]
 }

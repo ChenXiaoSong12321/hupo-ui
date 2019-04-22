@@ -76,7 +76,7 @@ class HFiexed {
     wrapperBottom(){
       let bottom = ''
       if (this.bottom !== '') {
-        bottom = `bottom: ${this.viewport.isAllScreen ? this.viewport.bottomHeight : 0}rpx;`
+        bottom = `bottom: ${this.viewport.isAllScreen ? this.viewport.bottomHeight : 0}cpx;`
       }
       return bottom
     },

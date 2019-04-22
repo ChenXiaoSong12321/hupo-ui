@@ -30,7 +30,7 @@ class HRichText {
     nodes: [],
     selfNodes: []
   }
-  watch={
+  watch= {
     document(){
       this.parse()
     }
