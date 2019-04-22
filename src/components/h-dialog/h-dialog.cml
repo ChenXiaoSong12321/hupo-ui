@@ -24,7 +24,7 @@
       </view>
       <view class="h-dialog-footer">
         <block c-for="{{ buttons }}" c-key="{{ item.text }}-{{ item.type }}">
-          <h-button size="medium" type="none" class="h-dialog-footer-button-no-type {{item.type!=='confirm'?'is-cancel':''}}" customStyle="{{buttons.length!==2?'width:480cpx':''}}" data-open-type="{{ item.openType }}" data-type="{{ item.type }}" open-type="{{ item.openType }}" bindtap="handleButtclick" bind:getuserinfo="handleUserInfoResponse" bind:getphonenumber="handlePhoneResponse" bind:opensetting="handleOpenSettingResponse">
+          <h-button size="medium" type="none" class="h-dialog-footer-button-no-type {{item.type!=='confirm'?'is-cancel':''}}" customStyle="{{buttons.length!==2?'width:480cpx':''}}" data-open-type="{{ item.openType }}" data-type="{{ item.type }}" open-type="{{ item.openType }}" bindtap="handleButtclick" c-bind:getuserinfo="handleUserInfoResponse" c-bind:getphonenumber="handlePhoneResponse" c-bind:opensetting="handleOpenSettingResponse">
             <view class="button-text {{item.type==='confirm'?'is-confirm':'is-cancel'}}">
               {{ item.text }}
             </view>
