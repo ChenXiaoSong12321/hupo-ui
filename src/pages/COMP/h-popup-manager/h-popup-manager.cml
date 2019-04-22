@@ -14,12 +14,12 @@
           <text style="font-size: 28cpx;">content</text>
         </view>
       </h-popup-manager>
-      <button c-bind:onclick="showPopup" class="btn" text="show popup"></button>
-      <button c-bind:onclick="showPopup2('left')" class="btn" text="left"></button>
-      <button c-bind:onclick="showPopup2('top')" class="btn" text="top"></button>
-      <button c-bind:onclick="showPopup2('right')" class="btn" text="right"></button>
-      <button c-bind:onclick="showPopup2('bottom')" class="btn" text="bottom"></button>
-      <button c-bind:onclick="showPopup2('center')" class="btn" text="center"></button>
+      <h-button c-bind:onclick="showPopup" class="btn" >show popup</h-button>
+      <h-button c-bind:onclick="showPopup2('left')" class="btn" >left</h-button>
+      <h-button c-bind:onclick="showPopup2('top')" class="btn" >top</h-button>
+      <h-button c-bind:onclick="showPopup2('right')" class="btn" >right</h-button>
+      <h-button c-bind:onclick="showPopup2('bottom')" class="btn" >bottom</h-button>
+      <h-button c-bind:onclick="showPopup2('center')" class="btn" >center</h-button>
     </view>
   </h-page>
 </template>

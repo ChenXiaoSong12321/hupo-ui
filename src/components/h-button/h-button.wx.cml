@@ -1,5 +1,5 @@
 <template>
-  <origin-form bindsubmit="handleFormSubmit" report-submit>
+  <origin-form bindsubmit="handleFormSubmit" report-submit class="h-button-form">
     <origin-button
       type="keng"
       form-type="{{openType ? '' : 'submit'}}"

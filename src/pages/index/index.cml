@@ -78,6 +78,7 @@ class Demo {
           routeObj["h-dialog"],
           routeObj["h-button"],
           routeObj["h-icon"],
+          routeObj["h-load-more"],
           routeObj["h-filter"],
         ],
         src: require(`../../assets/images/component/kind/content.png`)

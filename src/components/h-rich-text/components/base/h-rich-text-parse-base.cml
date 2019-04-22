@@ -1,5 +1,5 @@
 <template>
-  <block>
+  <view>
     <block c-if="{{nodes.node == 'element'}}">
       <block c-if="{{ nodes.tag == 'video' || nodes.tag == 'embed' || nodes.tag == 'img' || nodes.tag == 'br' || nodes.tag == 'button' || nodes.tag == 'li' || nodes.tag == 'a' || nodes.tag == 'table' || nodes.tag == 'tr' }}">
         <h-rich-text-parse-video c-if="{{nodes.tag == 'video' || nodes.tag == 'embed'}}" nodes="{{nodes}}"></h-rich-text-parse-video>
@@ -21,7 +21,7 @@
     <block c-else-if="{{nodes.node == 'text'}}">
       <h-rich-text-parse-text nodes="{{nodes}}"></h-rich-text-parse-text>
     </block>
-  </block>
+  </view>
 </template>
 <script>
 class HRichTextParseBase {

@@ -51,7 +51,6 @@ class HPopupManager {
 
   methods = {
     closeevent() {
-      console.log(this.$cmlEmit)
       this.$cmlEmit("onclose");
     },
     showMask() {

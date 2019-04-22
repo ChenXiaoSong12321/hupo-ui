@@ -46,7 +46,6 @@ class HPopup {
 
   methods = {
     onclose() {
-      debugger
       this.visible = false;
       this.$cmlEmit("onclose", false);
     },

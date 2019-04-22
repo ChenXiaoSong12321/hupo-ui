@@ -37,6 +37,11 @@
       "path": "/pages/COMP/h-icon/h-icon"
     },
     {
+      "name": "h-load-more",
+      "url": "/pages/COMP/h-load-more/h-load-more",
+      "path": "/pages/COMP/h-load-more/h-load-more"
+    },
+    {
       "name": "h-filter",
       "url": "/pages/COMP/h-filter/h-filter",
       "path": "/pages/COMP/h-filter/h-filter"

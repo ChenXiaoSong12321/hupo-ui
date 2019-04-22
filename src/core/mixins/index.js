@@ -1,3 +1,4 @@
+import difference from '../difference/difference.interface'
 const LIFE_TIMES = ['beforeCreate', 'created', 'beforeMount', 'mounted', 'beforeDestroy', 'destroyed']
 
 function copyProperties(target, source) {
@@ -58,7 +59,9 @@ export default function mix(...mixins) {
     beforeMount() {
       this._lifetimes('beforeMount').apply(this, arguments)
     }
-    mounted() {
+    async mounted() {
+      console.log(this)
+      await difference.nextTick()
       this._lifetimes('mounted').apply(this, arguments)
     }
     beforeDestroy() {

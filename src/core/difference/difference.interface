@@ -1,10 +1,5 @@
 <script cml-type="interface">
-interface DifferenceInterface {
-  // // getApp: void,
-  // getUrl: void,
-  // getCurrentPages: void,
-  // getCurrentPage: void
-}
+interface DifferenceInterface {}
 </script>
 
 <script cml-type="web">
@@ -24,10 +19,18 @@ interface DifferenceInterface {
       const app = this.getApp()
       return (app.router && app.router.current) ? app.router.current : {}
     }
+    selectComponent(ctx,compName){
+      return ctx?ctx.$refs[compName]:{}
+    }
+    async nextTick(){
+      Vue && await Vue.nextTick()
+    }
   }
   export default new Difference();
 </script>
 <script cml-type="wx">
+  import wxTools from '../utils/wxTools.js'
+  import promise from '../utils/promise.js'
   class Difference implements DifferenceInterface {
     getApp() {
       return getApp()
@@ -43,6 +46,17 @@ interface DifferenceInterface {
     getCurrentPage() {
       const pages = getCurrentPages()
       return pages[pages.length - 1]
+    }
+    selectComponent(ctx,compName){
+      return ctx?ctx.selectComponent(compName):{}
+    }
+    async nextTick(delay = 500){
+      console.log(wxTools)
+      if(wxTools.nextTick){
+        await wxTools.nextTick()
+      }else{
+        await promise.delay(delay)
+      }
     }
   }
   export default new Difference();

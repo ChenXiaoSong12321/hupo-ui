@@ -4,15 +4,18 @@
 
 @include b(button) {
   border: 0;
-  display: block;
   font-size: $--font-size-title-medium-ftm;
   overflow: hidden;
   line-height: 1;
+  height: 100%;
   padding: 0;
   border-radius: 0;
   color: $--font-color-c1;
   &::after{
     border: 0;
+  }
+  @include e(form){
+    height: 100%;
   }
   @include flexCenter();
 

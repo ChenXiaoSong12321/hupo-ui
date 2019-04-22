@@ -1,5 +1,5 @@
 <template>
-  <block>
+  <view>
     <block c-if="{{loadmore.nomore}}">
       <view class="h-loadmore-fix-bug">
         <view class="h-loadmore h-loadmore--nomore">
@@ -33,7 +33,7 @@
         </view>
       </view>
     </block>
-  </block>
+  </view>
 </template>
 
 <script>
