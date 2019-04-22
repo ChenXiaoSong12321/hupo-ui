@@ -60,7 +60,6 @@ export default function mix(...mixins) {
       this._lifetimes('beforeMount').apply(this, arguments)
     }
     async mounted() {
-      console.log(this)
       await difference.nextTick()
       this._lifetimes('mounted').apply(this, arguments)
     }

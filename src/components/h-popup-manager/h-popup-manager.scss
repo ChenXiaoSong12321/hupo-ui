@@ -9,11 +9,7 @@
   right: 0;
   display: flex;
   flex-direction: column;
-  @include when(transition){
-    transition-property: opacity, transform, -webkit-transform;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-in-out;
-  }
+ 
   @include m(show){
     display: block;
   }
@@ -37,7 +33,11 @@
     @include when(leave){
       opacity: 0;
     }
-    
+    @include when(transition){
+      transition-property: opacity, transform, -webkit-transform;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-in-out;
+    }
     @include m(top){
       width: 100%;
       top: 0;
@@ -114,6 +114,11 @@
     }
     @include when(leave){
       opacity: 0;
+    }
+    @include when(transition){
+      transition-property: opacity, transform, -webkit-transform;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-in-out;
     }
   }
 }

@@ -64,4 +64,13 @@ if(wx){
     }
   })
 }
+wxTools.$nextTick = (delay = 500) => new Promise((resolve, reject) => {
+  if (wxTools.nextTick) {
+    wxTools.nextTick(resolve)
+  } else {
+    setTimeout(() => {
+      resolve()
+    }, delay)
+  }
+})
 export default wxTools

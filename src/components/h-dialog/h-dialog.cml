@@ -7,20 +7,13 @@
             <h-icon name="{{icon}}"></h-icon>
           </view>
         </block>
-        <view class="h-dialog-header--title">
-          <block c-if="{{htmlTitle}}">
-            <!-- <h-rich-text document="{{htmlTitle}}"></h-rich-text> -->
-            {{htmlTitle}}
-          </block>
-          <block c-else>{{ title }}</block>
-        </view>
+        <view class="h-dialog-header--title">{{ title }}</view>
       </view>
       <view class="h-dialog-content {{ title ? 'is-has-title' : '' }}">
-        <view c-if="{{html}}" class="h-dialog-content--html">
+        <view class="h-dialog-content--message">
           <!-- <h-rich-text document="{{html}}"></h-rich-text> -->
-          {{html}}
+          {{message}}
         </view>
-        <view c-else class="h-dialog-content--message">{{ message }}</view>
       </view>
       <view class="h-dialog-footer">
         <block c-for="{{ buttons }}" c-key="{{ item.text }}-{{ item.type }}">
@@ -51,7 +44,6 @@ class HDialog {
     buttons: [],
     // 内容
     message: ' ',
-    html: '',
     // 选择节点
     selector: '#h-dialog',
     // 是否展示确定

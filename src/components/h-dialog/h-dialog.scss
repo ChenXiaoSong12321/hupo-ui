@@ -23,13 +23,6 @@
     @include flexCenter();
     padding: 0 40cpx ;
     @include m(message){
-      text-align: center;
-      font-size: $--font-size-title-large-ftl;
-      line-height: $--dialog-content-line-height;
-      color: $--font-color-c2;
-      margin-top: 60cpx-(($--font-size-title-large-ftl*($--dialog-content-line-height - 1))/2);
-    }
-    @include m(html){
       color: $--font-color-c2;
       margin-top: 40cpx-(($--font-size-title-large-ftl*($--dialog-content-line-height - 1))/2);
     }

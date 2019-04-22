@@ -16,7 +16,7 @@ export default class HupoApi{
         selector: '#h-dialog',
         showCancelButton: false,
         confirmButtonText: options.confirmButtonText || '好的',
-      })
+      }, this)
     },
     $confirm(options) {
       options = defaultOptions(options)
@@ -29,7 +29,7 @@ export default class HupoApi{
         showCancelButton: options.showCancelButton !== undefined ? options.showCancelButton : true,
         confirmButtonText: options.confirmButtonText || '确定',
         cancelButtonText: options.cancelButtonText || '取消'
-      })
+      }, this)
     },
     $loading(options){
       console.log('loading')

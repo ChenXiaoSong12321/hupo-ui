@@ -51,9 +51,8 @@ interface DifferenceInterface {}
       return ctx?ctx.selectComponent(compName):{}
     }
     async nextTick(delay = 500){
-      console.log(wxTools)
-      if(wxTools.nextTick){
-        await wxTools.nextTick()
+      if(wxTools.$nextTick){
+        await wxTools.$nextTick()
       }else{
         await promise.delay(delay)
       }
