@@ -1,29 +1,29 @@
 <template>
   <h-popup-manager show="{{ show }}" position="center">
     <view class="h-dialog--container">
-      <view wx:if="{{ title }}" class="h-dialog-header">
-        <block wx:if="{{icon}}">
+      <view c-if="{{ title }}" class="h-dialog-header">
+        <block c-if="{{icon}}">
           <view class="h-dialog-header--icon" style="color: {{ iconColor || '#333' }}">
-            <h-icon className="{{icon}}"></h-icon>
+            <h-icon name="{{icon}}"></h-icon>
           </view>
         </block>
         <view class="h-dialog-header--title">
-          <block wx:if="{{htmlTitle}}">
+          <block c-if="{{htmlTitle}}">
             <!-- <h-rich-text document="{{htmlTitle}}"></h-rich-text> -->
             {{htmlTitle}}
           </block>
-          <block wx:else>{{ title }}</block>
+          <block c-else>{{ title }}</block>
         </view>
       </view>
       <view class="h-dialog-content {{ title ? 'is-has-title' : '' }}">
-        <view wx:if="{{html}}" class="h-dialog-content--html">
+        <view c-if="{{html}}" class="h-dialog-content--html">
           <!-- <h-rich-text document="{{html}}"></h-rich-text> -->
           {{html}}
         </view>
-        <view wx:else class="h-dialog-content--message">{{ message }}</view>
+        <view c-else class="h-dialog-content--message">{{ message }}</view>
       </view>
       <view class="h-dialog-footer">
-        <block wx:for="{{ buttons }}" wx:key="{{ item.text }}-{{ item.type }}">
+        <block c-for="{{ buttons }}" c-key="{{ item.text }}-{{ item.type }}">
           <h-button size="medium" type="none" class="h-dialog-footer-button-no-type {{item.type!=='confirm'?'is-cancel':''}}" customStyle="{{buttons.length!==2?'width:480cpx':''}}" data-open-type="{{ item.openType }}" data-type="{{ item.type }}" open-type="{{ item.openType }}" bindtap="handleButtclick" bind:getuserinfo="handleUserInfoResponse" bind:getphonenumber="handlePhoneResponse" bind:opensetting="handleOpenSettingResponse">
             <view class="button-text {{item.type==='confirm'?'is-confirm':'is-cancel'}}">
               {{ item.text }}
@@ -36,7 +36,7 @@
 </template>
 <script>
 import {primaryColor, fontColorC1} from '../../assets/config/style.var.js'
-import createComponent from "../../core/mixins/component.js"
+import component from "../../core/mixins/component.js"
 
 const fn = function fn() {}
 const needResponseOpenTypes = ['getUserInfo', 'getPhoneNumber', 'openSetting']
@@ -148,7 +148,8 @@ class HDialog {
   }
 }
 
-export default createComponent(HDialog)
+// export default component(HDialog)
+export default new HDialog()
 </script>
 <style lang="scss">
   @import './h-dialog.scss';
@@ -163,6 +164,6 @@ export default createComponent(HDialog)
       "h-button": "../h-button/h-button"
     },
     "component": true
-    }
+  }
 }
 </script>

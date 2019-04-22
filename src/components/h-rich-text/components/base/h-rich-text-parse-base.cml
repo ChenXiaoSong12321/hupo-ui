@@ -1,24 +1,24 @@
 <template>
   <block>
-    <block wx:if="{{nodes.node == 'element'}}">
-      <block wx:if="{{ nodes.tag == 'video' || nodes.tag == 'embed' || nodes.tag == 'img' || nodes.tag == 'br' || nodes.tag == 'button' || nodes.tag == 'li' || nodes.tag == 'a' || nodes.tag == 'table' || nodes.tag == 'tr' }}">
-        <h-rich-text-parse-video wx:if="{{nodes.tag == 'video' || nodes.tag == 'embed'}}" nodes="{{nodes}}"></h-rich-text-parse-video>
-        <h-rich-text-parse-img wx:if="{{nodes.tag == 'img'}}" nodes="{{nodes}}"></h-rich-text-parse-img>
-        <h-rich-text-parse-br wx:if="{{nodes.tag == 'br'}}" nodes="{{nodes}}"></h-rich-text-parse-br>
-        <h-rich-text-parse-button wx:if="{{nodes.tag == 'button'}}" nodes="{{nodes}}"></h-rich-text-parse-button>
-        <h-rich-text-parse-li wx:if="{{nodes.tag == 'li'}}" nodes="{{nodes}}"></h-rich-text-parse-li>
-        <h-rich-text-parse-a wx:if="{{nodes.tag == 'a'}}" nodes="{{nodes}}"></h-rich-text-parse-a>
-        <h-rich-text-parse-table wx:if="{{nodes.tag == 'table'}}" nodes="{{nodes}}"></h-rich-text-parse-table>
-        <h-rich-text-parse-tr wx:if="{{nodes.tag == 'tr'}}" nodes="{{nodes}}"></h-rich-text-parse-tr>
+    <block c-if="{{nodes.node == 'element'}}">
+      <block c-if="{{ nodes.tag == 'video' || nodes.tag == 'embed' || nodes.tag == 'img' || nodes.tag == 'br' || nodes.tag == 'button' || nodes.tag == 'li' || nodes.tag == 'a' || nodes.tag == 'table' || nodes.tag == 'tr' }}">
+        <h-rich-text-parse-video c-if="{{nodes.tag == 'video' || nodes.tag == 'embed'}}" nodes="{{nodes}}"></h-rich-text-parse-video>
+        <h-rich-text-parse-img c-if="{{nodes.tag == 'img'}}" nodes="{{nodes}}"></h-rich-text-parse-img>
+        <h-rich-text-parse-br c-if="{{nodes.tag == 'br'}}" nodes="{{nodes}}"></h-rich-text-parse-br>
+        <h-rich-text-parse-button c-if="{{nodes.tag == 'button'}}" nodes="{{nodes}}"></h-rich-text-parse-button>
+        <h-rich-text-parse-li c-if="{{nodes.tag == 'li'}}" nodes="{{nodes}}"></h-rich-text-parse-li>
+        <h-rich-text-parse-a c-if="{{nodes.tag == 'a'}}" nodes="{{nodes}}"></h-rich-text-parse-a>
+        <h-rich-text-parse-table c-if="{{nodes.tag == 'table'}}" nodes="{{nodes}}"></h-rich-text-parse-table>
+        <h-rich-text-parse-tr c-if="{{nodes.tag == 'tr'}}" nodes="{{nodes}}"></h-rich-text-parse-tr>
       </block>
-      <block wx:elif="{{nodes.tagType == 'block'}}">
+      <block c-else-if="{{nodes.tagType == 'block'}}">
         <h-rich-text-parse-block nodes="{{nodes}}"></h-rich-text-parse-block>
       </block>
-      <block wx:else>
+      <block c-else>
         <h-rich-text-parse-inline nodes="{{nodes}}"></h-rich-text-parse-inline>
       </block>
     </block>
-    <block wx:elif="{{nodes.node == 'text'}}">
+    <block c-else-if="{{nodes.node == 'text'}}">
       <h-rich-text-parse-text nodes="{{nodes}}"></h-rich-text-parse-text>
     </block>
   </block>

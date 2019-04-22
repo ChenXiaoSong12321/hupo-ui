@@ -1,7 +1,7 @@
 <template>
    <view class="{{nodes.classStr}} wxParse-{{nodes.tag}}" style="{{nodes.styleStr || ''}}">
       <!-- <video class="{{nodes.classStr}} wxParse-{{nodes.tag}}-video" src="{{nodes.attr.src}}"></video> -->
-      <block wx:if="{{video.type == 'tencentvideo'}}">
+      <block c-if="{{video.type == 'tencentvideo'}}">
         <!-- <txv-video vid="{{video.vid}}" playerid="{{video.vid}}" width="100%" height="auto"></txv-video> -->
       </block>
     </view>

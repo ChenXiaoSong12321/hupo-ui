@@ -1,8 +1,8 @@
 <template>
   <view class="h-rich-text">
     <view class="wxParse">
-      <block wx:for="{{selfNodes}}" wx:key="{{index}}">
-        <block wx:for="{{item}}" wx:for-item="node" wx:for-index="y" wx:key="{{node.index}}">
+      <block c-for="{{selfNodes}}" c-key="{{index}}">
+        <block c-for="{{item}}" c-for-item="node" c-for-index="y" c-key="{{node.index}}">
           <h-rich-text-parse-base nodes="{{node}}"></h-rich-text-parse-base>
         </block>
       </block>

@@ -8,9 +8,9 @@
       style="color: {{ color }};"
     >
       <view
-        wx:if="{{ type === 'spinner' }}"
-        wx:for="item in 12"
-        wx:key="{{ index }}"
+        c-if="{{ type === 'spinner' }}"
+        c-for="item in 12"
+        c-key="{{ index }}"
         class="h-loading__dot"
       ></view>
     </view>
