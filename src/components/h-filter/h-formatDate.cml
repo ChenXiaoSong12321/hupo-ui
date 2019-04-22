@@ -4,6 +4,9 @@
 
 <script>
 import dayjs from 'dayjs'
+import dayjsPluginUTC from 'dayjs-plugin-utc' // load on demand
+
+dayjs.extend(dayjsPluginUTC) // use plugin
 class FormatDate {
   props = {
     time: {
@@ -20,12 +23,12 @@ class FormatDate {
       let {time,type} =this
       console.log(time,type,dayjs(time))
       if (isNaN(time)) return time;
-      return dayjs(parseInt(time)).format(type)
+      return dayjs.utc(parseInt(time)).utcOffset(480).format(type)
     }
-  };
+  }
 }
 
-export default new FormatDate();
+export default new FormatDate()
 </script>
 <style lang="scss">
 </style>
