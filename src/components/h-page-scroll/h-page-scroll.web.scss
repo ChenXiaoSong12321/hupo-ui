@@ -20,10 +20,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    @include when(delay){
-      position: static;
-    }
   }
   @include e(pullup) {
     width: 100%;
