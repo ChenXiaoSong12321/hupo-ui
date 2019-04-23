@@ -10,6 +10,9 @@
       ></h-navbar>
       <view class="h-page-container" style="min-height: {{scrollHeight}}px">
         <slot></slot>
+        <view class="h-page-pullup">
+          <h-load-more loading="{{status == 'pullup'}}"></h-load-more>
+        </view>
       </view>
       <view class="h-page-bottom" c-if="{{viewport.isAllScreen}}">
         <view class="h-page-bottom-fixed"></view>
@@ -42,7 +45,8 @@ class HPageScroll {
   };
 
   data = {
-    viewport: defaultData
+    viewport: defaultData,
+    status: ''
   };
 
   computed = {
@@ -60,7 +64,18 @@ class HPageScroll {
   }
 
   methods = {
+    pullup(){
+      if(!!this.status)return
+      this.status = 'pullup'
+      this.$cmlEmit('pullup', this)
+    },
+    pulldown(){
+      if(!!this.status)return
+      this.status = 'pulldown'
+      this.$cmlEmit('pulldown', this)
+    },
     stop(){
+      this.status = ''
       wx.stopPullDownRefresh()
     }
   }
@@ -74,7 +89,8 @@ export default new HPageScroll();
 {
   "base": {
     "usingComponents": {
-      "h-navbar": "../h-navbar/h-navbar"
+      "h-navbar": "../h-navbar/h-navbar",
+      "h-load-more": "../h-load-more/h-load-more"
     },
     "component": true
   }

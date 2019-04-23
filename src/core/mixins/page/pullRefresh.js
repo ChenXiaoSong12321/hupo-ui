@@ -2,11 +2,11 @@ import difference from '../../difference/difference.interface'
 export default class PullRefresh {
   onPullDownRefresh() {
     const pageScroll = this.__getPageScroll__()
-    pageScroll && pageScroll.$cmlEmit('pulldown', pageScroll)
+    pageScroll && pageScroll.pulldown()
   }
   onReachBottom() {
     const pageScroll = this.__getPageScroll__()
-    pageScroll && pageScroll.$cmlEmit('pullup', pageScroll)
+    pageScroll && pageScroll.pullup()
   }
 
   methods = {

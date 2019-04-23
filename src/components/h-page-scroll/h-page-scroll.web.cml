@@ -19,7 +19,7 @@
           </view>
           <!-- 底部提示信息 -->
           <view class="h-page-pullup">
-            <h-load-more></h-load-more>
+            <h-load-more loading="{{status == 'pullup'}}"></h-load-more>
           </view>
         </view>
       </view>

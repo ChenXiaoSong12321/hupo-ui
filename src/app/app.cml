@@ -39,7 +39,7 @@ page {
       "navigationBarBackgroundColor": "#FAFAFA",
       "navigationBarTextStyle": "black",
       "backgroundColor": "#FAFAFA",
-      "onReachBottomDistance": 1000,
+      "onReachBottomDistance": 100,
       "navigationStyle": "custom",
       "enablePullDownRefresh": false
     },

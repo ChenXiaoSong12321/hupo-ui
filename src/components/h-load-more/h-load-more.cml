@@ -1,41 +1,30 @@
 <template>
-  <view>
-    <view class="h-loadmore-wrap" c-if="{{loadmore.loading}}">
-      <view class="h-loadmore">
-        <!-- <h-icon name="h-loadmore--loading"></h-icon> -->
-        <view class="h-loadmore--loading"></view>
-        <view class="h-loadmore-tips">加载中...</view>
-      </view>
+  <view class="h-loadmore-wrap">
+    <view class="h-loadmore" c-show="{{loading}}">
+      <view class="h-loadmore--loading"></view>
+      <view class="h-loadmore-tips">加载中...</view>
     </view>
-
-    <view class="h-loadmore-wrap" c-else-if="{{loadmore.nodata && listLength >= 20}}">
-      <view class="h-loadmore h-loadmore--nodata">
-        <view c-if="{{hasSlot}}">
-          <slot></slot>
-        </view>
-        <image class="image" c-else src="{{nodataImg}}" mode="widthFix"></image>
-      </view >
+    <view class="h-loadmore h-loadmore--nodata" c-show="{{!loading && listLength >= 20}}">
+      <view c-if="{{useSlot}}">
+        <slot></slot>
+      </view>
+      <image class="image" c-else src="{{nodataImg}}" mode="widthFix"></image>
     </view>
   </view>
 </template>
 
 <script>
 class HLoadMore {
- props = {
-   loadmore:{
-     type:Object,
-     default(){
-       return {
-         loading:true,
-         nodata:false
-       }
-     }
-   },
+  props = {
+    loading: {
+      type: Boolean,
+      default: false
+    },
     listLength: {
       type: Number,
       default: 20
     },
-    hasSlot: {
+    useSlot: {
       type: Boolean,
       default: false
     }
