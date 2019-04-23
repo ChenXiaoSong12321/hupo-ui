@@ -47,6 +47,11 @@
       "path": "/pages/COMP/h-icon/h-icon"
     },
     {
+      "name": "h-progress",
+      "url": "/pages/COMP/h-progress/h-progress",
+      "path": "/pages/COMP/h-progress/h-progress"
+    },
+    {
       "name": "h-load-more",
       "url": "/pages/COMP/h-load-more/h-load-more",
       "path": "/pages/COMP/h-load-more/h-load-more"
