@@ -35,7 +35,7 @@
   line-height: 20px;
 }
 
-.h-loadmore-tips image {
+.h-loadmore-tips .image {
   width: 100%;
   vertical-align: middle;
 }
@@ -45,9 +45,8 @@
   color: #999
 }
 .h-loadmore--nodata {
-  image {
+  .image {
     width: 460cpx;
-    height: 0;
   }
 }
 

@@ -20,8 +20,8 @@
           <view c-if="{{isSlotSlogen}}">
             <slot></slot>
           </view>
-          <image c-else src="{{nodataImg}}" mode="widthFix"></image>
-        </view>
+          <image class="image" c-else src="{{nodataImg}}" mode="widthFix"></image>
+        </view >
       </view>
   </view>
 </template>
