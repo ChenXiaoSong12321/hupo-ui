@@ -81,6 +81,7 @@ class Demo {
           routeObj["h-load-more"],
           routeObj["h-loading"],
           routeObj["h-tag"],
+          routeObj["h-progress"],
           routeObj["h-filter"],
         ],
         src: require(`../../assets/images/component/kind/content.png`)
