@@ -3,8 +3,7 @@
     <view class="container">
       <h-load-more loadmore="{{loadMore1}}"></h-load-more>
       <h-load-more loadmore="{{loadMore2}}"></h-load-more>
-      <h-load-more loadmore="{{loadMore3}}"></h-load-more>
-      <h-load-more loadmore="{{loadMore3}}" isSlotSlogen>slot hhhh</h-load-more>
+      <h-load-more loadmore="{{loadMore2}}" hasSlot>slot hhhh</h-load-more>
     </view>
   </h-page>
 </template>
@@ -13,20 +12,13 @@ import page from "../../../core/mixins/page";
 class HPageIcon {
   data={
     loadMore1:{
-      loading:false,
-      nomore:true,
+      loading:true,
       nodata:false
     },
     loadMore2:{
-      loading:true,
-      nomore:false,
-      nodata:false
-    },
-    loadMore3:{
       loading:false,
-      nomore:false,
       nodata:true
-    },
+    }
   }
 }
 export default page(HPageIcon);

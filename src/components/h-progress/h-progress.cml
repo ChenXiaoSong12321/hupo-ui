@@ -1,0 +1,72 @@
+<template>
+  <view class="h-progress" style="{{progressStyle}}">
+    <view class="h-progress-line"
+      style="{{progressLineStyle}}">
+    </view>
+  </view>
+</template>
+
+<script>
+class HProgress {
+props= {
+    percentage: {
+      type: [String, Number],
+      default: 40
+    },
+    borderColor: {
+      type: String,
+      default: 'rgba(252, 38, 88, 1)'
+    },
+    color: {
+      type: String,
+      default: '#FC2658'
+    },
+    height: {
+      type: [Number, String],
+      default: '10'
+    },
+    backgroundColor: {
+      type: String,
+      default: '#FFE0E4'
+    }
+  },
+  computed= {
+    _percentage(){
+      return this.percentage / 100 + '%'
+    },
+    progressStyle(){
+      return `border-color:${this.borderColor};background-color:${this.backgroundColor};height: ${this.height}rpx;`
+    },
+    progressLineStyle(){
+      return `width:${_percentage};background-color:${color};height: ${height}rpx;border-top-right-radius: ${height}rpx;border-bottom-right-radius: ${height}rpx;`
+    }
+  }
+}
+
+export default new HProgress();
+</script>
+
+<style lang="scss">
+@import '../../../scss/output';
+
+@include b(progress) {
+    height: 10rpx;
+    border-radius: 10rpx;
+    border: 1rpx solid rgba(252, 38, 88, 1);
+    background-color: #FFE0E4;
+    @include e(line){
+      background-color: #FC2658;
+      height: 10rpx;
+      border-radius: 10rpx;
+  }
+}
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {},
+    "component": true
+  }
+}
+</script>
