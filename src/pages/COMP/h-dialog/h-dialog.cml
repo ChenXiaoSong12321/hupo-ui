@@ -1,7 +1,7 @@
 <template>
   <h-page title="h-dialog 演示">
     <view class="container">
-      <h-dialog id="h-dialog" ref="h-dialog"></h-dialog>
+      <h-dialog ref="h-dialog"></h-dialog>
       <h-button class="btn" c-bind:onclick="showDialog('dialog')">show dialog</h-button>
       <h-button class="btn" c-bind:onclick="showDialog('alert')">show alert</h-button>
     </view>
@@ -21,7 +21,7 @@ class HDialogPage {
         await this.$alert({
           message: "您的账号已在其他地方登录，请重新验证身份。",
           title: "alert",
-          confirmButtonText: "hhhh"
+          confirmButtonText: "perfect"
         });
       }
     }

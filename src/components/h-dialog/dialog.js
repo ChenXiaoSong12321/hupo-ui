@@ -8,7 +8,6 @@ function getDialogCtx(_ref) {
   if (!ctx) {
     ctx = difference.getCurrentPage()
   }
-  console.log(ctx,'getCurrentPage')
   return difference.selectComponent(ctx,selector)
 }
 

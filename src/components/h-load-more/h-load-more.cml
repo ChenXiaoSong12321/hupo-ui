@@ -1,38 +1,28 @@
 <template>
   <view>
-    <block c-if="{{loadmore.nomore}}">
-      <view class="h-loadmore-fix-bug">
+      <view class="h-loadmore-fix-bug" c-if="{{loadmore.nomore}}">
         <view class="h-loadmore h-loadmore--nomore">
-          <view class="h-loadmore__tips">
-            <view class="h-loadmore__dot"></view>
+          <view class="h-loadmore-tips">
+            <view class="h-loadmore-dot"></view>
           </view>
         </view>
       </view>
-    </block>
 
-    <block c-else-if="{{loadmore.loading}}">
-      <view class="h-loadmore-fix-bug">
+      <view class="h-loadmore-fix-bug" c-else-if="{{loadmore.loading}}">
         <view class="h-loadmore">
           <view class="h-loading"></view>
-          <view class="h-loadmore__tips">加载中...</view>
+          <view class="h-loadmore-tips">加载中...</view>
         </view>
       </view>
-    </block>
 
-    <block c-else-if="{{loadmore.nodata && (length >= 20 || isSlogen)}}">
-      <view class="h-loadmore-fix-bug">
+      <view class="h-loadmore-fix-bug" c-else-if="{{loadmore.nodata && (length >= 20 || isSlogen)}}">
         <view class="h-loadmore h-loadmore--nodata">
-          <block c-if="{{isSlotSlogen}}">
+          <view c-if="{{isSlotSlogen}}">
             <slot></slot>
-          </block>
-          <block c-else>
-            <image src="./nodata.png" mode="widthFix"></image>
-          </block>
-          <!-- <view class="h-loadmore__tips">{{ nodata_str || '暂无数据' }}</view> -->
-          <!-- <view class="h-loadmore__tips"><image src="./nodata.png" mode="widthFix"></image></view> -->
-        </view>
+          </view>
+          <image class="image" c-else src="{{nodataImg}}" mode="widthFix"></image>
+        </view >
       </view>
-    </block>
   </view>
 </template>
 
@@ -62,6 +52,9 @@ class HLoadMore {
       default: false
     }
   }
+  data={
+    nodataImg: require('./nodata.png')
+  }
 }
 
 export default new HLoadMore();
@@ -70,6 +63,7 @@ export default new HLoadMore();
 <style lang="scss">
 @import "./h-load-more.scss";
 </style>
+
 
 <script cml-type="json">
 {

@@ -1,67 +1,31 @@
 <template>
   <h-popup-manager show="{{show}}" mask="{{mask}}">
     <view class="h-toast-content">
-      <image c-if="{{needIcon}}" src="{{typeImg}}" class="h-toast-icon"></image>
+      <image c-if="{{needIcon}}" src="{{IconMap[type]}}" class="h-toast-icon"></image>
       <text class="h-toast-text">{{message}}</text>
     </view>
   </h-popup-manager>
 </template>
 <script>
 class HToast {
-  props = {
-    type: {
-      type: String,
-      default: "loading"
-    },
-    message: {
-      type: String,
-      default: ""
-    },
-    duration: {
-      type: Number,
-      default: 3000
-    },
-    show: {
-      type: Boolean,
-      default: false
-    },
-    mask: {
-      type: Boolean,
-      default: false
-    },
-    needIcon: {
-      type: Boolean,
-      default: true
-    }
-  };
   data = {
-    transitionStyle: "",
+    type: "loading",
+    message: "",
+    duration: 3000,
+    show: false,
+    mask: false,
+    needIcon: true,
     IconMap: {
       loading: require("./images/loading.gif"),
       success: require("./images/succ.png"),
       warn: require("./images/warn.png")
     }
-  };
-
+  }
   computed = {
     typeImg() {
       return this.IconMap[this.type];
-    },
-    maskClass() {
-      return this.mask ? "has-mask" : "no-mask";
     }
-  };
-
-  watch = {
-    show(n, o) {
-      if (n) {
-        console.log(this.duration,'this.duration')
-        setTimeout(() => {
-          this.$cmlEmit("show", { value: false });
-        }, this.duration);
-      }
-    }
-  };
+  }
 }
 
 export default new HToast();

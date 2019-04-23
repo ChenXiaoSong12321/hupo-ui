@@ -1,89 +1,39 @@
 <template>
   <h-page title="h-toast 演示">
     <view class="container">
-      <h-toast
-        duration="{{duration}}"
-        show="{{show}}"
-        c-bind:show="changeShow"
-        message="{{message}}"
-        type="{{type}}"
-        need-icon="{{needIcon}}"
-        mask="{{mask}}"
-      ></h-toast>
-      <h-button class="btn" c-bind:onclick="showLoading">loading toast</h-button>
-      <h-button class="btn" c-bind:onclick="showMask">loading toast with mask</h-button>
-      <h-button class="btn" c-bind:onclick="showSuccess">success toast</h-button>
-      <h-button class="btn" c-bind:onclick="showWarn">warn toast</h-button>
-      <h-button class="btn" c-bind:onclick="showWithout">toast without icon</h-button>
-      <h-button class="btn" c-bind:onclick="showWith10">toast duration 10s</h-button>
+      <h-toast ref="h-toast"></h-toast>
+      <h-button class="btn" c-bind:onclick="show$toast">this.$toast()</h-button>
+      <h-button class="btn" c-bind:onclick="show$toastHasMask">this.$toast('has mask')</h-button>
+      <h-button class="btn" c-bind:onclick="show$loading">this.$loading()</h-button>
+      <h-button class="btn" c-bind:onclick="failToast">this.$failToast()</h-button>
     </view>
   </h-page>
 </template>
 <script>
 import page from "../../../core/mixins/page";
 class HToast {
-  data = {
-    show: false,
-    message: "",
-    type: "loading",
-    mask: false,
-    duration: 1000,
-    needIcon: true
-  };
-
-  computed = {};
-
-  watch = {};
-
   methods = {
-    changeShow(e) {
-      this.show = e.detail.value;
+    // type: "loading",
+    // message: "",
+    // duration: 3000,
+    // show: false,
+    // mask: false,
+    // needIcon: true,
+    show$toastHasMask(){
+      this.$toast({
+        message:'has mask',
+        mask:true
+      })
     },
-    showLoading() {
-      this.message = "加载中...";
-      this.duration = 3000
-      this.type = "loading";
-      this.mask = false;
-      this.needIcon = true;
-      this.show = true;
+    show$toast(){
+      this.$toast('perfect')
     },
-    showMask() {
-      this.message = "加载中...";
-      this.duration = 3000
-      this.type = "loading";
-      this.mask = true;
-      this.needIcon = true;
-      this.show = true;
+    show$loading(){
+      this.$loading()
+      setTimeout(() => {this.$clear()}, 3000);
     },
-    showSuccess() {
-      this.message = "success toast";
-      this.duration = 3000
-      this.type = "success";
-      this.mask = true;
-      this.needIcon = true;
-      this.show = true;
-    },
-    showWarn() {
-      this.message = "warn toast";
-      this.duration = 3000
-      this.type = "warn";
-      this.mask = true;
-      this.needIcon = true;
-      this.show = true;
-    },
-    showWithout() {
-      this.message = "toast without icon";
-      this.duration = 3000
-      this.mask = false;
-      this.needIcon = false;
-      this.show = true;
-    },
-    showWith10() {
-      this.message = "toast duration 10s";
-      this.duration = 10000;
-      this.mask = false;
-      this.needIcon = false;
-      this.show = true;
+    failToast(){
+      this.$failToast('warn or error')
     }
   };
 }

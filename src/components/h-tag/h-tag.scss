@@ -1,50 +1,17 @@
 @import '../../assets/scss/output';
 
 @include b(tag) {
-  text-align: center;
-  color: $--font-color-c1;
-  display: inline-flex;
-  height: 40cpx;
-  align-items: center;
-  line-height: 1;
-  padding-left: 10cpx;
-  padding-right: 10cpx;
+  @include flexCenter;
   border-radius: 5cpx;
-  @include when(radius) {
-    border-radius: 80cpx;
-  }
-  @include when(plain) {
-    background-color: transparent;
-    box-sizing: border-box;
-  }
   @include m(primary) {
     background-color: transparent;
-    box-sizing: border-box;
-    color: $--primary-color-a1;
-
-    @include when(plain) {
-      border: 1px solid rgba($--primary-color-a1, 0.3);
-    }
-  }
-  @include m(blue) {
-    background-color: transparent;
-    box-sizing: border-box;
     color: $--secondary-color-b2;
-
-    @include when(plain) {
-      border: 1px solid rgba($--secondary-color-b2, 0.3);
-    }
+    border: 1px solid rgba($--secondary-color-b2, 0.4);
   }
-  @include m(large) {
-    height: 40cpx;
-    padding-left: 11cpx;
-    font-size: $--font-size-weak-large-fwl;
-    padding-right: 11cpx;
-  }
-  @include m(small) {
+  
+  @include m(medium) {
     height: 30cpx;
-    padding-left: 8cpx;
-    font-size: 22cpx;
-    padding-right: 8cpx;
+    padding:0 8cpx;
+    font-size: $--font-size-weak-medium-fwm;
   }
 }

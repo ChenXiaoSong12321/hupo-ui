@@ -1,11 +1,8 @@
 <template>
   <h-page title="h-tag 演示">
     <view class="container">
-      <h-tag size="large">large</h-tag>
-      <h-tag size="small">small</h-tag>
-      <h-tag type="primary">primary</h-tag>
-      <h-tag type="blue">blue</h-tag>
-      <h-tag color="#333">#333</h-tag>
+      <h-tag class="h-tag-page">完美tag</h-tag>
+      <h-tag class="h-tag-page" color="#dd392e">自定义颜色</h-tag>
     </view>
   </h-page>
 </template>
@@ -21,6 +18,9 @@ export default page(HPagetag);
   flex-direction: column;
   flex: 1;
   align-items: center;
+}
+.h-tag-page{
+  margin-top: 20cpx;
 }
 </style>
 <script cml-type="json">

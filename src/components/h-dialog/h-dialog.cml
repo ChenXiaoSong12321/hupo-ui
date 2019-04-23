@@ -59,7 +59,7 @@ class HDialog {
     // 内容
     message: " ",
     // 选择节点
-    selector: "#h-dialog",
+    selector: "h-dialog",
     // 是否展示确定
     showConfirmButton: true,
     // 确认按钮文案
