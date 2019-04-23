@@ -3,7 +3,9 @@
     <view class="h-navbar-title-side">
       <h-navbar-loading show="{{loading}}" type="{{type}}"></h-navbar-loading>
     </view>
-    <view class="h-navbar-title-text h-navbar-title-text--{{type}}">{{title}}</view>
+    <view class="h-navbar-title-text h-navbar-title-text--{{type}}">
+      <text>{{title}}</text>
+    </view>
     <view class="h-navbar-title-side"></view>
   </view>
 </template>

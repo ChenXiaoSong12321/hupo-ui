@@ -1,0 +1,73 @@
+<template>
+  <page title="{{title}}">
+    <view class="h-page">
+      <h-navbar
+        type="{{type}}"
+        loading="{{loading}}"
+        title="{{title}}"
+        showHomeIcon="{{showHomeIcon}}"
+        fixed
+      ></h-navbar>
+      <view class="h-page-container">
+        <slot></slot>
+      </view>
+      <view class="h-page-bottom" c-if="{{viewport.isAllScreen}}">
+        <view class="h-page-bottom-fixed"></view>
+      </view>
+    </view>
+  </page>
+</template>
+<script>
+import cml from "chameleon-api";
+import defaultData from "../../core/viewport/defaultData";
+import calculate from "../../core/viewport/calculate";
+class HPageScroll {
+  props = {
+    loading: {
+      type: Boolean,
+      default: false
+    },
+    title: {
+      type: String,
+      default: "琥珀亲子"
+    },
+    showHomeIcon: {
+      type: Boolean,
+      default: true
+    },
+    type: {
+      type: String,
+      default: "default"
+    }
+  };
+
+  data = {
+    viewport: defaultData
+  };
+
+  computed = {
+    viewportHeight() {
+      return cml.cpx2px(parseInt(this.viewport.viewportHeight));
+    }
+  };
+
+  async created() {
+    const data = await calculate();
+    this.viewport = data;
+  }
+}
+export default new HPageScroll();
+</script>
+<style lang="scss">
+@import "./h-page-scroll.wx.scss";
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-navbar": "../h-navbar/h-navbar"
+    },
+    "component": true
+  }
+}
+</script>

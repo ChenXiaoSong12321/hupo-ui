@@ -1,0 +1,106 @@
+<template>
+  <page title="{{title}}">
+    <view class="h-page" style="height: {{viewportHeight}}px;">
+      <h-navbar
+        type="{{type}}"
+        loading="{{loading}}"
+        title="{{title}}"
+        showHomeIcon="{{showHomeIcon}}"
+      ></h-navbar>
+      <view class="h-page-wrapper" ref="wrapper" style="height: {{scrollHeight}}px">
+        <view class="h-page-container">
+          <!-- 刷新提示信息 -->
+          <view class="h-page-pulldown">
+            <h-navbar-loading show></h-navbar-loading>
+          </view>
+          <!-- 内容 -->
+          <view class="h-page-content">
+            <slot></slot>
+          </view>
+          <!-- 底部提示信息 -->
+          <view class="h-page-pullup">
+            <h-load-more></h-load-more>
+          </view>
+        </view>
+      </view>
+      <view class="h-page-bottom" c-if="{{viewport.isAllScreen}}"></view>
+    </view>
+  </page>
+</template>
+<script>
+
+import cml from "chameleon-api";
+import BScroll from 'better-scroll'
+import difference from '../../core/difference/difference.interface'
+import defaultData from "../../core/viewport/defaultData";
+import calculate from "../../core/viewport/calculate";
+class HPageScroll {
+  props = {
+    loading: {
+      type: Boolean,
+      default: false
+    },
+    title: {
+      type: String,
+      default: "琥珀亲子"
+    },
+    showHomeIcon: {
+      type: Boolean,
+      default: true
+    },
+    type: {
+      type: String,
+      default: "default"
+    }
+  };
+
+  data = {
+    viewport: defaultData
+  };
+
+  computed = {
+    viewportHeight() {
+      return cml.cpx2px(parseInt(this.viewport.viewportHeight));
+    },
+    scrollHeight() {
+      return parseInt( cml.cpx2px(this.viewport.viewportHeight) - this.viewport.headerHeight - ( this.viewport.isAllScreen ? this.viewport.bottomHeight : 0 ) );
+    }
+  };
+
+  async created() {
+    const data = await calculate();
+    this.viewport = data;
+    await difference.nextTick()
+    this.scroll = new BScroll(this.$refs.wrapper,{ //初始化better-scroll
+        probeType: 1, //1 滚动的时候会派发scroll事件，会截流。2滚动的时候实时派发scroll事件，不会截流。 3除了实时派发scroll事件，在swipe的情况下仍然能实时派发scroll事件
+        click: true //是否派发click事件
+    })
+    //滑动结束松开事件
+    this.scroll.on('touchEnd',pos =>{
+      if(pos.y > 30){
+        // pulldown refresh
+        console.log('pulldown refresh')
+      } else if(pos.y<(this.scroll.maxScrollY - 30)){
+        // pullup loading
+        console.log('pulldown loading')
+      }
+    })
+  }
+}
+export default new HPageScroll();
+</script>
+<style lang="scss">
+@import "./h-page-scroll.web.scss";
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-navbar": "../h-navbar/h-navbar",
+      "h-navbar-loading": "../h-navbar/components/loading/loading",
+      "h-load-more": "../h-load-more/h-load-more"
+    },
+    "component": true
+  }
+}
+</script>

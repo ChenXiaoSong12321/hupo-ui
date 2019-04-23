@@ -40,7 +40,8 @@ page {
       "navigationBarTextStyle": "black",
       "backgroundColor": "#FAFAFA",
       "onReachBottomDistance": 1000,
-      "navigationStyle": "custom"
+      "navigationStyle": "custom",
+      "enablePullDownRefresh": false
     },
     "networkTimeout": {
       "request": 15000,

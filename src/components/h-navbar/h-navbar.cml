@@ -1,8 +1,8 @@
 <template>
   <view class="h-navbar" c-if="{{viewport.headerHeight > 0}}">
-    <!-- <view class="h-navbar-place" style="height: {{viewport.headerHeight}}px"></view> -->
+    <view class="h-navbar-place" c-if="{{fixed}}" style="height: {{viewport.headerHeight}}px"></view>
     <view
-      class="h-navbar-box h-navbar-box--{{type}}"
+      class="h-navbar-box h-navbar-box--{{type}} {{fixed ? 'is-fixed' : ''}}"
       style="height: {{viewport.capsuleHeight}}px; padding-top: {{viewport.statusBarHeight}}px;"
     >
       <view class="h-navbar-box-side">
@@ -43,6 +43,10 @@ class HNavbar {
     type: {
       type: String,
       default: "default"
+    },
+    fixed: {
+      type: Boolean,
+      default: false
     }
   };
 

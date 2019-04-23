@@ -1,5 +1,5 @@
 <template>
-<h-page title="hupo-ui组件展示">
+<h-page-scroll title="hupo-ui组件展示">
   <view class="index-page">
     <view class="index-body" style="{{bodyComputedStyl}}">
       <view ref="index-content-wrap" class="index-content-wrap" style="{{computedStyle}}">
@@ -50,7 +50,7 @@
       </view>
     </view>
   </view>
-</h-page>
+</h-page-scroll>
 </template>
 <script>
 import cml from "chameleon-api"
@@ -400,12 +400,12 @@ export default page(Demo);
 {
     "base": {
         "usingComponents": {
-          "h-page": "/components/h-page/h-page"
+          "h-page": "/components/h-page/h-page",
+          "h-page-scroll": "/components/h-page-scroll/h-page-scroll"
         },
         "navigationBarTitleText": "cml-ui组件库",
         "backgroundTextStyle": "dark",
-        "backgroundColor": "#E2E2E2",
-        "enablePullDownRefresh": true
+        "backgroundColor": "#E2E2E2"
     }
 }
 </script>
