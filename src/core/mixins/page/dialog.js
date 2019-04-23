@@ -5,7 +5,7 @@ const defaultOptions = options => typeof options === 'string' ? {
   message: options
 } : options
 
-export default class HupoApi{
+export default class HDialog{
   methods = {
     $alert(options) {
       options = defaultOptions(options)
@@ -13,7 +13,7 @@ export default class HupoApi{
         title: options.title || '',
         message: options.message || '',
         openType: options.openType || '',
-        selector: '#h-dialog',
+        selector: 'h-dialog',
         showCancelButton: false,
         confirmButtonText: options.confirmButtonText || '好的',
       }, this)
@@ -25,17 +25,11 @@ export default class HupoApi{
         message: options.message || '',
         html: options.html || '',
         openType: options.openType || '',
-        selector: '#h-dialog',
+        selector: 'h-dialog',
         showCancelButton: options.showCancelButton !== undefined ? options.showCancelButton : true,
         confirmButtonText: options.confirmButtonText || '确定',
         cancelButtonText: options.cancelButtonText || '取消'
       }, this)
-    },
-    $loading(options){
-      console.log('loading')
-    },
-    $toast(options){
-      console.log('toast')
     }
   }
 }

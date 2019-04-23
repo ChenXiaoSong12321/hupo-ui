@@ -20,7 +20,6 @@ interface DifferenceInterface {}
       return (app.router && app.router.current) ? app.router.current : {}
     }
     selectComponent(ctx,compName){
-      compName = compName.replace('#','')
       return ctx?ctx.$refs[compName]:{}
     }
     async nextTick(){
@@ -49,7 +48,7 @@ interface DifferenceInterface {}
       return pages[pages.length - 1]
     }
     selectComponent(ctx,compName){
-      return ctx?ctx.selectComponent(compName):{}
+      return ctx?ctx.selectComponent('#'+compName):{}
     }
     async nextTick(delay = 500){
       if(wxTools.$nextTick){

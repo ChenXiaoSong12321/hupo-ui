@@ -1,7 +1,7 @@
 <template>
   <view
-    class="h-tag {{type?'h-tag--'+type:''}} {{size?'h-tag--'+size:''}} {{radius?'is-radius':''}} {{plain?'is-plain':''}} {{customClass}}"
-    style="{{radiusValue?'border-radius:'+radiusValue+'cpx;':''}} {{width?'width:'+width+'cpx;':''}} {{color?'color:'+color+';border:1cpx solid '+_color+';':''}} {{customStyle}}"
+    class="h-tag {{type?'h-tag--'+type:''}} {{size?'h-tag--'+size:''}} {{customClass}}"
+    style="{{style}}"
   >
     <slot></slot>
   </view>
@@ -11,46 +11,35 @@
 class HTag {
   props = {
     customClass: String,
-    customStyle: String,
+    customStyle: {
+      type:String,
+      default:''
+    },
     type: {
       type: String,
       default: "primary"
     },
-    radius: Boolean,
-    radiusValue: {
-      type: [Number, String],
-      default: ""
-    },
     size: {
       type: String,
-      default: "large"
+      default: "medium"
     },
     color: {
       type: String,
       default: ""
-    },
-    width: {
-      type: [Number, String],
-      default: ""
-    },
-    plain: {
-      type: Boolean,
-      default: true
     }
-  };
-  watch = {
-    color(n, o) {
-      this._color = this.hex2rgba(n);
+  }
+  computed={
+    style(){
+      let color = this.color?`color:${this.color};border:1px solid ${this.hex2rgba(this.color)};`:''
+      return color + this.customStyle
     }
-  };
-  data = {
-    _color: ""
-  };
+  }
+
   methods = {
     /**
      * 16进制颜色转换成rgba
      */
-    hex2rgba(hex, opacity = ".3") {
+    hex2rgba(hex, opacity = ".4") {
       const rgb = [];
       hex = hex.substr(1); // 去除 # 号
       hex.length === 3 && (hex = hex.replace(/(.)/g, "$1$1")); // 处理 "#abc" 成 "#aabbcc"
@@ -59,9 +48,9 @@ class HTag {
 
       return `rgb${opacity ? "a" : ""}(${rgb.join(",")}${
         opacity ? "," + opacity : ""
-      })`;
+      })`
     }
-  };
+  }
 }
 
 export default new HTag();

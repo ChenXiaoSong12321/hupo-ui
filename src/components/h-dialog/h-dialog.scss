@@ -27,7 +27,7 @@
       margin-top: 40cpx-(($--font-size-title-large-ftl*($--dialog-content-line-height - 1))/2);
     }
     @include when(has-title){
-      .hupo-dialog-content--message{
+      .h-dialog-content--message{
         font-size: $--font-size-desc-small-fds;
         margin-top: 40cpx-(($--font-size-desc-small-fds*($--dialog-content-line-height - 1))/2);
       }

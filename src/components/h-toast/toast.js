@@ -1,4 +1,8 @@
-import { isObj } from '../utils/index';
+import difference from '../../core/difference/difference.interface';
+const isObj = x => {
+  const type = typeof x
+  return x !== null && (type === 'object' || type === 'function')
+}
 
 const defaultOptions = {
   type: 'text',
@@ -6,45 +10,44 @@ const defaultOptions = {
   message: '',
   show: true,
   duration: 3000,
-  position: 'middle',
-  forbidClick: false,
-  loadingType: 'circular',
-  selector: '#van-toast'
-};
+  selector: 'h-toast'
+}
+
 const parseOptions = message => isObj(message) ? message : { message };
 
 let queue = [];
 let currentOptions = { ...defaultOptions };
 
 function Toast(options = {}) {
-  options = {
-    ...currentOptions,
-    ...parseOptions(options)
-  };
+  options = {...currentOptions,...parseOptions(options)}
+  
+  let ctx = difference.getCurrentPage()
+  const toast = difference.selectComponent(ctx,options.selector)
 
-  const pages = getCurrentPages();
-  const ctx = pages[pages.length - 1];
-
-  const toast = ctx.selectComponent(options.selector);
   delete options.selector;
 
   queue.push(toast);
-  toast.setData(options);
+  Object.keys(options).forEach(key=>{
+    console.log(key,toast[key],options[key])
+    toast[key] = options[key]
+  })
   clearTimeout(toast.timer);
 
   if (options.duration > 0) {
     toast.timer = setTimeout(() => {
-      toast.clear();
+      toast.show = false
       queue = queue.filter(item => item !== toast);
     }, options.duration);
   }
 
   return toast;
-};
+}
 
-const createMethod = type => options => Toast({
-  type, ...parseOptions(options)
-});
+const createMethod = type => {
+  return options => Toast({
+    type, ...parseOptions(options)
+  })
+}
 
 ['loading', 'success', 'fail'].forEach(method => {
   Toast[method] = createMethod(method);
@@ -52,7 +55,7 @@ const createMethod = type => options => Toast({
 
 Toast.clear = all => {
   queue.forEach(toast => {
-    toast.clear();
+    toast.show = false
   });
   queue = [];
 };

@@ -44,7 +44,6 @@ class HPopupManager {
 
   watch = {
     show(n) {
-      console.log(n,'popup-comp')
       n ? this.showMask() : this.hideMask();
     }
   };

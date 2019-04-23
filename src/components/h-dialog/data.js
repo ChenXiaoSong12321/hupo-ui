@@ -5,7 +5,7 @@ export default {
   // 内容
   message: ' ',
   // 选择节点
-  selector: '#h-dialog',
+  selector: 'h-dialog',
   // 按钮是否展示为纵向
   buttonsShowVertical: false,
   // 是否展示确定
