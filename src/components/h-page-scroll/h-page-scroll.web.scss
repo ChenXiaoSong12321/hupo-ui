@@ -20,11 +20,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include when(delay){
+      position: static;
+    }
   }
   @include e(pullup) {
-    position: absolute;
-    bottom: -40px;
-    left: 0;
     width: 100%;
     height: 40px;
     display: flex;
@@ -34,5 +35,6 @@
 
   @include e(bottom) {
     height: 34px;
+    background: $--white;
   }
 }

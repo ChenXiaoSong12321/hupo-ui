@@ -11,6 +11,7 @@
 
   @include e(bottom) {
     height: 34px;
+    background: $--white;
   }
 
   @include m(disable-scroll) {}

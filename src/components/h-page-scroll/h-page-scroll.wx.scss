@@ -2,12 +2,16 @@
 
 @include b(page) {
   @include e(container) {
+    position: relative;
+    z-index: 1;
     width: 100%;
   }
 
   @include e(bottom) {
     width: 100%;
     height: 34px;
+    position: relative;
+    z-index: 10000;
   }
 
   @include e(bottom-fixed) {
@@ -17,5 +21,7 @@
     right: 0;
     width: 100%;
     height: 34px;
+    z-index: 10000;
+    background: $--white;
   }
 }

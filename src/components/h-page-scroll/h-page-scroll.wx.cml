@@ -8,7 +8,7 @@
         showHomeIcon="{{showHomeIcon}}"
         fixed
       ></h-navbar>
-      <view class="h-page-container">
+      <view class="h-page-container" style="min-height: {{scrollHeight}}px">
         <slot></slot>
       </view>
       <view class="h-page-bottom" c-if="{{viewport.isAllScreen}}">
@@ -48,12 +48,21 @@ class HPageScroll {
   computed = {
     viewportHeight() {
       return cml.cpx2px(parseInt(this.viewport.viewportHeight));
+    },
+    scrollHeight() {
+      return parseInt( cml.cpx2px(this.viewport.viewportHeight) - this.viewport.headerHeight - ( this.viewport.isAllScreen ? this.viewport.bottomHeight : 0 ) );
     }
   };
 
   async created() {
     const data = await calculate();
     this.viewport = data;
+  }
+
+  methods = {
+    stop(){
+      wx.stopPullDownRefresh()
+    }
   }
 }
 export default new HPageScroll();

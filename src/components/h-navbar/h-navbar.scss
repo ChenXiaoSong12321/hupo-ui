@@ -10,7 +10,6 @@
   @include e(box) {
     display: flex;
     align-items: center;
-    z-index: 999;
 
     @include m(default) {
       background: $--primary-background-write-1;
@@ -26,6 +25,7 @@
       right: 0;
       top: 0;
       width: 100%;
+      z-index: 999;
     }
   }
 

@@ -8,9 +8,9 @@
         showHomeIcon="{{showHomeIcon}}"
       ></h-navbar>
       <view class="h-page-wrapper" ref="wrapper" style="height: {{scrollHeight}}px">
-        <view class="h-page-container">
+        <view class="h-page-container" style="min-height: {{scrollHeight}}px">
           <!-- 刷新提示信息 -->
-          <view class="h-page-pulldown">
+          <view class="h-page-pulldown {{status == 'pulldown' ? 'is-delay' : ''}}">
             <h-navbar-loading show></h-navbar-loading>
           </view>
           <!-- 内容 -->
@@ -55,7 +55,8 @@ class HPageScroll {
   };
 
   data = {
-    viewport: defaultData
+    viewport: defaultData,
+    status: ''
   };
 
   computed = {
@@ -77,14 +78,27 @@ class HPageScroll {
     })
     //滑动结束松开事件
     this.scroll.on('touchEnd',pos =>{
+      if(!!this.status)return
       if(pos.y > 30){
+        this.status = 'pulldown'
         // pulldown refresh
+        this.$cmlEmit('pulldown', this)
         console.log('pulldown refresh')
-      } else if(pos.y<(this.scroll.maxScrollY - 30)){
+      } else if(pos.y < this.scroll.maxScrollY + 40){
         // pullup loading
+        this.status = 'pullup'
+        this.$cmlEmit('pullup', this)
         console.log('pulldown loading')
       }
     })
+  }
+
+  methods = {
+    async stop(){
+      this.status = ''
+      await difference.nextTick()
+      this.scroll && this.scroll.refresh();
+    }
   }
 }
 export default new HPageScroll();

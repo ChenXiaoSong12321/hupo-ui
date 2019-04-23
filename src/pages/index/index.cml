@@ -1,5 +1,5 @@
 <template>
-<h-page-scroll title="hupo-ui组件展示">
+<h-page-scroll ref="h-page-scroll" title="hupo-ui组件展示" c-bind:pulldown="onPulldown" c-bind:pullup="onPullup">
   <view class="index-page">
     <view class="index-body" style="{{bodyComputedStyl}}">
       <view ref="index-content-wrap" class="index-content-wrap" style="{{computedStyle}}">
@@ -170,6 +170,20 @@ class Demo {
       cml.navigateTo({
         path: path
       });
+    },
+    onPulldown(e){
+      setTimeout(() => {
+        console.log(111)
+        e.detail.stop()
+      }, 3000);
+      console.log(e.detail)
+    },
+    onPullup(e){
+      setTimeout(() => {
+        console.log(222)
+        e.detail.stop()
+      }, 2000);
+      console.log(e.detail)
     }
   }
 
@@ -405,7 +419,8 @@ export default page(Demo);
         },
         "navigationBarTitleText": "cml-ui组件库",
         "backgroundTextStyle": "dark",
-        "backgroundColor": "#E2E2E2"
+        "backgroundColor": "#E2E2E2",
+        "enablePullDownRefresh": true
     }
 }
 </script>
