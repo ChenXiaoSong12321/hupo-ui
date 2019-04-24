@@ -1,4 +1,4 @@
-import {primaryColor, fontColorC1} from '../../assets/config/style.var'
+import { primaryColor, fontColorC1 } from '../../assets/config/style.var'
 export default {
   // 标题
   title: '',

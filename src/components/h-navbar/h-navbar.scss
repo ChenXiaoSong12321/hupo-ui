@@ -1,6 +1,8 @@
 @import '../../assets/scss/output';
 
 @include b(navbar) {
+  position: relative;
+  z-index: $--z-index-max;
   @include e(place) {
     display: flex;
     align-items: flex-end;
@@ -25,7 +27,7 @@
       right: 0;
       top: 0;
       width: 100%;
-      z-index: 999;
+      z-index: $--z-index-max;
     }
   }
 

@@ -8,7 +8,8 @@
         showHomeIcon="{{showHomeIcon}}"
       ></h-navbar>
       <view class="h-page-wrapper" ref="wrapper" style="height: {{scrollHeight}}px">
-        <view class="h-page-container" style="min-height: {{scrollHeight}}px">
+        <view class="h-page-container" style="min-height: {{scrollHeight + 1}}px">
+          <h-dialog ref="h-dialog" c-bind:confirm="dialogConfirm" c-bind:cancel="dialogCancel"></h-dialog>
           <!-- 刷新提示信息 -->
           <view class="h-page-pulldown">
             <h-navbar-loading show></h-navbar-loading>
@@ -28,49 +29,19 @@
   </page>
 </template>
 <script>
-
 import cml from "chameleon-api";
 import BScroll from 'better-scroll'
 import difference from '../../core/difference/difference.interface'
-import defaultData from "../../core/viewport/defaultData";
-import calculate from "../../core/viewport/calculate";
+import HPageMixins from '../h-page/h-page.mixin'
+import component from "../../core/mixins/component.js"
 class HPageScroll {
-  props = {
-    loading: {
-      type: Boolean,
-      default: false
-    },
-    title: {
-      type: String,
-      default: "琥珀亲子"
-    },
-    showHomeIcon: {
-      type: Boolean,
-      default: true
-    },
-    type: {
-      type: String,
-      default: "default"
-    }
-  };
-
-  data = {
-    viewport: defaultData,
-    status: ''
-  };
-
   computed = {
-    viewportHeight() {
-      return cml.cpx2px(parseInt(this.viewport.viewportHeight));
-    },
     scrollHeight() {
       return parseInt( cml.cpx2px(this.viewport.viewportHeight) - this.viewport.headerHeight - ( this.viewport.isAllScreen ? this.viewport.bottomHeight : 0 ) );
     }
   };
 
   async created() {
-    const data = await calculate();
-    this.viewport = data;
     await difference.nextTick()
     this.scroll = new BScroll(this.$refs.wrapper,{ //初始化better-scroll
         probeType: 1, //1 滚动的时候会派发scroll事件，会截流。2滚动的时候实时派发scroll事件，不会截流。 3除了实时派发scroll事件，在swipe的情况下仍然能实时派发scroll事件
@@ -104,11 +75,12 @@ class HPageScroll {
       this.status = ''
       await difference.nextTick()
       this.scroll && this.scroll.finishPullDown()
+      this.scroll && this.scroll.finishPullUp()
       this.scroll && this.scroll.refresh();
     }
   }
 }
-export default new HPageScroll();
+export default component(HPageMixins, HPageScroll)
 </script>
 <style lang="scss">
 @import "./h-page-scroll.web.scss";
@@ -119,7 +91,8 @@ export default new HPageScroll();
     "usingComponents": {
       "h-navbar": "../h-navbar/h-navbar",
       "h-navbar-loading": "../h-navbar/components/loading/loading",
-      "h-load-more": "../h-load-more/h-load-more"
+      "h-load-more": "../h-load-more/h-load-more",
+      "h-dialog": "../h-dialog/h-dialog"
     },
     "component": true
   }

@@ -2,7 +2,7 @@
 
 @include b(tab-bar) {
   width: 750cpx;
-  z-index: 9999;
+  z-index: 1000;
 
   @include e(wrap) {
     display: flex;

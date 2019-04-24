@@ -1,7 +1,7 @@
 @import './var.color';
 @import './var.size';
 
-/* 
+/*
  * UI命名规范
  * $--模块-功能-类别-程度-编号
  * 模块: [ primary / secondary / play / hotel / theatre / coupon / member / group / seckill ]
@@ -132,114 +132,5 @@ $--color-background-yellow-8: #FCD20E;
 $--color-background-yellow-9: #FFFCF4;
 $--color-background-coffee-1: #371A02;
 
-
-
-// $--black: #000;
-// $--white: #fff;
-
-// // 主色
-// $--primary-color: #dd392e;
-
-// $--primary-color-9: mix($--white, $--primary-color, 10%) !default;
-// /* e04d43 */
-// $--primary-color-8: mix($--white, $--primary-color, 20%) !default;
-// /* e46158 */
-// $--primary-color-7: mix($--white, $--primary-color, 30%) !default;
-// /* e7746d */
-// $--primary-color-6: mix($--white, $--primary-color, 40%) !default;
-// /* eb8882 */
-// $--primary-color-5: mix($--white, $--primary-color, 50%) !default;
-// /* ee9c97 */
-// $--primary-color-4: mix($--white, $--primary-color, 60%) !default;
-// /* f1b0ab */
-// $--primary-color-3: mix($--white, $--primary-color, 70%) !default;
-// /* f5c4c0 */
-// $--primary-color-2: mix($--white, $--primary-color, 80%) !default;
-// /* f8d7d5 */
-// $--primary-color-1: mix($--white, $--primary-color, 90%) !default;
-// /* fcebea */
-
-// // 辅色
-// $--secondary-color-blue: #86A3EA;
-// $--secondary-color-yellow: #feca2d;
-
-// // 黑色字体
-// $--primary-font-black-1:#000000;
-// $--primary-font-black-2:#333333;
-// $--primary-font-black-3:#666666;
-
-// // 灰色字体
-// $--primary-font-grey-1:#999999;
-// $--primary-font-grey-2:#b3b3b3;
-// $--primary-font-grey-3:#e0e0e0;
-
-// // 白色字体
-// $--primary-font-write-1:#fff;
-// $--primary-font-write-2:#f8f8f8;
-
-// // 背景色
-// $--primary-background-write-1: #F2F2F2;
-// $--primary-background-write-2: #FFFBCC;
-// $--primary-background-write-3: #FAFAFA;
-
-// // 线条
-// $--primary-border-grey-1:#efefef;
-// $--primary-border-grey-2:#D2D2D2;
-// $--primary-border-grey-3: #EEEEEE;
-// $--primary-border-grey-4: #cccccc;
-// $--primary-border-grey-4: #d7d7d7;
-
-// // 游玩酒店剧场
-// $--play-color:#ffb82f;
-// $--hotel-color:#f35367;
-// $--theatre-color:#008AFF;
-// // 预热
-// $--preheat-color:#51B94A;
-// // 优惠券
-// $--coupon-color:#F83543;
-// $--coupon-font:#FFE597;
-
-// // 会员
-// $--member-color:#EEDDB7;
-
-// // 字号
-// $--primary-title-size-large:60rpx;
-// $--primary-title-size-medium:48rpx;
-// $--primary-title-size-small:36rpx;
-
-// $--primary-text-size-large:32rpx;
-// $--primary-text-size-medium:28rpx;
-// $--primary-text-size-small:24rpx;
-
-// $--primary-desc-size:24rpx;
-
-// // 按钮
-// $--primary-button-width-max:600rpx;
-// $--primary-button-height-max:80rpx;
-
-// $--primary-button-width-large:560rpx;
-// $--primary-button-height-large:70rpx;
-
-// $--primary-button-width-medium:240rpx;
-// $--primary-button-height-medium:70rpx;
-
-// $--primary-button-width-small:120rpx;
-// $--primary-button-height-small:50rpx;
-
-// $--primary-button-width-mini:100rpx;
-// $--primary-button-height-mini:40rpx;
-
-// // 弹窗
-// $--ad-dialog-width:500rpx;
-// $--ad-dialog-height:600rpx;
-// $--ad-dialog-radius:20rpx;
-
-// $--poster-dialog-width:580rpx;
-// $--poster-dialog-height:780rpx;
-// $--poster-dialog-radius:10rpx;
-
-// $--primary-popup-width:580rpx;
-// $--primary-popup-height:350rpx;
-// $--primary-popup-radius:10rpx;
-
-// /* UI规范 */
+// 最大 z-index
+$--z-index-max: 999999
