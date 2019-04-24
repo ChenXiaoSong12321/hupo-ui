@@ -4,8 +4,11 @@
 
 <script>
 import routerConfig from "../router.config.json";
-
+import Eventbus from '../core/utils/eventbus'
 class App {
+  constructor() {
+    this.$eventbus = new Eventbus()
+  }
   data = {
     routerConfig
   };
