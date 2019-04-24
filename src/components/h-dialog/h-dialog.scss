@@ -24,6 +24,7 @@
     padding: 0 40cpx ;
     @include m(message){
       color: $--font-color-c2;
+      font-size: $--font-size-price-small-fps;
       margin-top: 40cpx-(($--font-size-title-large-ftl*($--dialog-content-line-height - 1))/2);
     }
     @include when(has-title){

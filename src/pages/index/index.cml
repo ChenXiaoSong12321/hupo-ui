@@ -76,13 +76,13 @@ class Demo {
           routeObj["h-popup-manager"],
           routeObj["h-popup"],
           routeObj["h-dialog"],
-          routeObj["h-button"],
           routeObj["h-icon"],
           routeObj["h-load-more"],
           routeObj["h-loading"],
           routeObj["h-tag"],
           routeObj["h-progress"],
           routeObj["h-filter"],
+          routeObj["h-carousel"],
         ],
         src: require(`../../assets/images/component/kind/content.png`)
       },
@@ -91,6 +91,11 @@ class Demo {
         name: "表单组件",
         open: false,
         pages: [
+          routeObj["h-radio"],
+          routeObj["h-checkbox"],
+          routeObj["h-field"],
+          routeObj["h-button"],
+          routeObj["h-stepper"],
         ],
         src: require(`../../assets/images/component/kind/form.png`)
       },

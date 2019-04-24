@@ -1,0 +1,105 @@
+<template>
+  <view class="van-stepper custom-class">
+    <view
+      class="minus-class van-stepper__minus {{ disabled || value <= min ? 'van-stepper__minus--disabled' : '' }}"
+      bind:tap="onMinus"
+    ></view>
+    <!-- <input
+      type="{{ integer ? 'number' : 'digit' }}"
+      class="input-class van-stepper__input {{ disabled || disableInput ? 'van-stepper__input--disabled' : '' }}"
+      value="{{ value }}"
+      disabled="{{ disabled || disableInput }}"
+      bindinput="onInput"
+      bind:blur="onBlur"
+    ></input> -->
+    <view
+      class="plus-class van-stepper__plus {{ disabled || value >= max ? 'van-stepper__plus--disabled' : '' }}"
+      bind:tap="onPlus"
+    ></view>
+  </view>
+</template>
+
+<script>
+const MAX = 2147483647;
+class HStepper {
+props= {
+    integer: Boolean,
+    disabled: Boolean,
+    disableInput: Boolean,
+    min: {
+      type: null,
+      value: 1
+    },
+    max: {
+      type: null,
+      value: MAX
+    },
+    step: {
+      type: null,
+      value: 1
+    }
+  }
+
+  created() {
+    this.value = this.range(this.data.value)
+  }
+
+  methods= {
+    range(value) {
+      return Math.max(Math.min(this.data.max, value), this.data.min);
+    },
+
+    onInput(event) {
+      const { value = '' } = event.detail || {};
+      this.triggerInput(value);
+    },
+
+    onChange(type) {
+      if (this[`${type}Disabled`]) {
+        this.triggerEvent('overlimit', type);
+        return;
+      }
+
+      const diff = type === 'minus' ? -this.data.step : +this.data.step;
+      const value = Math.round((this.data.value + diff) * 100) / 100;
+      this.triggerInput(this.range(value));
+      this.triggerEvent(type);
+    },
+
+    onBlur(event) {
+      const value = this.range(this.data.value);
+      this.triggerInput(value);
+      this.triggerEvent('blur', event);
+    },
+
+    onMinus() {
+      this.onChange('minus');
+    },
+
+    onPlus() {
+      this.onChange('plus');
+    },
+
+    triggerInput(value) {
+      this.setData({ value });
+      this.triggerEvent('change', value);
+    }
+  }
+}
+
+export default new HStepper();
+</script>
+
+<style lang="scss">
+@import '../../assets/scss/_output.scss';
+@import './h-stepper.scss';
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {},
+    "component": true
+  }
+}
+</script>

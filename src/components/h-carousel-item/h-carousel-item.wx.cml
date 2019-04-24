@@ -1,0 +1,19 @@
+<template>
+  <view class="h-carousel-item"><slot></slot></view>
+</template>
+
+<script>
+  class HCarouselItem implements HCarouselItemInterface {}
+  export default new HCarouselItem();
+</script>
+<style lang="scss">
+
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "component": true
+  }
+}
+</script>

@@ -2,7 +2,9 @@
   <h-page title="h-icon 演示">
     <view class="container">
      progress
-      <h-progress width="35" class="h-page-progress"></h-progress>
+      <h-progress percentage="3578" class="h-page-progress"></h-progress>
+      <h-progress percentage="3578" height="20" class="h-page-progress"></h-progress>
+      <h-progress percentage="3578" borderColor="#008aff" color="#51B94A" backgroundColor="#fcd20e" class="h-page-progress"></h-progress>
     </view>
   </h-page>
 </template>
@@ -20,7 +22,8 @@ export default page(HPageIcon);
   align-items: center;
 }
 .h-page-progress{
-  width: 400rpx;
+  width: 400cpx;
+  margin-top: 40cpx;
 }
 </style>
 <script cml-type="json">

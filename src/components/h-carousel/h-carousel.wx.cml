@@ -1,0 +1,55 @@
+<template>
+  <swiper
+    indicatorDots="{{indicatorDots}}"
+    indicatorActiveColor="{{indicatorActiveColor}}"
+    autoplay="{{autoplay}}"
+    interval="{{interval}}"
+    duration="{{duration}}"
+    current="{{current}}"
+    circular
+  >
+    <swiper-item>
+      <slot></slot>
+    </swiper-item>
+  </swiper>
+</template>
+
+<script>
+class HCarousel implements HCarouselInterface {
+  props = {
+    autoplay: {
+      type: Boolean,
+      default: false
+    },
+    interval: {
+      type: Number,
+      default: 5000
+    },
+    current: {
+      type: Number,
+      default: 0
+    },
+    indicatorDots: {
+      type: Boolean,
+      default: false
+    },
+    circular: {
+      type: Boolean,
+      default: false
+    }
+  };
+}
+
+export default new HCarousel();
+</script>
+
+<style scoped>
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "component": true
+  }
+}
+</script>
