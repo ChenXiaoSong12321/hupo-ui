@@ -1,14 +1,12 @@
 <template>
   <view class="h-progress" style="{{progressStyle}}">
-    <view class="h-progress-line"
-      style="{{progressLineStyle}}">
-    </view>
+    <view class="h-progress-line" style="{{progressLineStyle}}"></view>
   </view>
 </template>
 
 <script>
 class HProgress {
-props= {
+  props= {
     percentage: {
       type: [String, Number],
       default: 40
@@ -29,7 +27,7 @@ props= {
       type: String,
       default: '#FFE0E4'
     }
-  },
+  }
   computed= {
     _percentage(){
       return this.percentage / 100 + '%'
@@ -47,19 +45,19 @@ export default new HProgress();
 </script>
 
 <style lang="scss">
-@import '../../../scss/output';
+// @import "../../../scss/output";
 
-@include b(progress) {
-    height: 10rpx;
-    border-radius: 10rpx;
-    border: 1rpx solid rgba(252, 38, 88, 1);
-    background-color: #FFE0E4;
-    @include e(line){
-      background-color: #FC2658;
-      height: 10rpx;
-      border-radius: 10rpx;
-  }
-}
+// @include b(progress) {
+//   height: 10rpx;
+//   border-radius: 10rpx;
+//   border: 1rpx solid rgba(252, 38, 88, 1);
+//   background-color: #ffe0e4;
+//   @include e(line) {
+//     background-color: #fc2658;
+//     height: 10rpx;
+//     border-radius: 10rpx;
+//   }
+// }
 </style>
 
 <script cml-type="json">

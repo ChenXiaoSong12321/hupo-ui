@@ -1,5 +1,5 @@
 <template>
-  <h-page title="h-button 演示">
+  <h-page title="h-button 演示" c-bind:pullup="onPullup">
     <view class="container">
       <h-button class="btn" c-bind:onclick="showLoading" size="max" type="primary" radius>max</h-button>
       <h-button class="btn" c-bind:onclick="showLoading" size="large">large</h-button>
@@ -26,6 +26,12 @@ class HPageButton {
   methods = {
     showLoading() {
       console.log("onclick button");
+    },
+    onPullup(e){
+      setTimeout(() => {
+        e.detail.stop()
+        console.log(e.detail)
+      }, 2000);
     }
   };
 }

@@ -11,8 +11,11 @@
         showHomeIcon="{{showHomeIcon}}"
       ></h-navbar>
       <view class="h-page-container">
-        <scroller height="{{scrollHeight}}">
+        <scroller height="{{scrollHeight}}" c-bind:scrolltobottom="pullup">
           <slot></slot>
+          <view class="h-page-pullup" c-if="{{loadmore}}">
+            <h-load-more loading="{{status == 'pullup'}}"></h-load-more>
+          </view>
         </scroller>
       </view>
       <view class="h-page-bottom" c-if="{{viewport.isAllScreen}}"></view>
@@ -44,11 +47,16 @@ class HPage {
     disableScroll: {
       type: Boolean,
       default: false
+    },
+    loadmore: {
+      type: Boolean,
+      default: false
     }
   };
 
   data = {
-    viewport: defaultData
+    viewport: defaultData,
+    status: ''
   };
 
   computed = {
@@ -70,6 +78,17 @@ class HPage {
     const data = await calculate();
     this.viewport = data;
   }
+
+  methods = {
+    pullup(){
+      if(!!this.status)return
+      this.status = 'pullup'
+      this.$cmlEmit('pullup', this)
+    },
+    stop(){
+      this.status = ''
+    }
+  }
 }
 export default new HPage();
 </script>
@@ -80,7 +99,8 @@ export default new HPage();
 {
   "base": {
     "usingComponents": {
-      "h-navbar": "../h-navbar/h-navbar"
+      "h-navbar": "../h-navbar/h-navbar",
+      "h-load-more": "../h-load-more/h-load-more"
     },
     "component": true
   }

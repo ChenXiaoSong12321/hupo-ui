@@ -76,7 +76,7 @@ class HPageScroll {
         probeType: 1, //1 滚动的时候会派发scroll事件，会截流。2滚动的时候实时派发scroll事件，不会截流。 3除了实时派发scroll事件，在swipe的情况下仍然能实时派发scroll事件
         click: true, //是否派发click事件
         bounce: {
-          bottom: false,
+          bottom: true,
           top: true
         },
         pullDownRefresh : {
@@ -86,18 +86,15 @@ class HPageScroll {
     })
     //滑动结束松开事件
     this.scroll.on('touchEnd',pos =>{
-      console.log(pos.y, this.scroll.maxScrollY)
       if(!!this.status)return
       if(pos.y > 30){
         this.status = 'pulldown'
         // pulldown refresh
         this.$cmlEmit('pulldown', this)
-        console.log('pulldown refresh')
       } else if(pos.y < this.scroll.maxScrollY + 200){
         // pullup loading
         this.status = 'pullup'
         this.$cmlEmit('pullup', this)
-        console.log('pulldown loading')
       }
     })
   }
