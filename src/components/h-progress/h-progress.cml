@@ -36,7 +36,7 @@ class HProgress {
       return `border-color:${this.borderColor};background-color:${this.backgroundColor};height: ${this.height}rpx;`
     },
     progressLineStyle(){
-      return `width:${_percentage};background-color:${color};height: ${height}rpx;border-top-right-radius: ${height}rpx;border-bottom-right-radius: ${height}rpx;`
+      return `width:${this._percentage};background-color:${this.color};height: ${this.height}rpx;border-top-right-radius: ${this.height}rpx;border-bottom-right-radius: ${this.height}rpx;`
     }
   }
 }
@@ -45,19 +45,19 @@ export default new HProgress();
 </script>
 
 <style lang="scss">
-// @import "../../../scss/output";
+@import '../../assets/scss/_output.scss';
 
-// @include b(progress) {
-//   height: 10rpx;
-//   border-radius: 10rpx;
-//   border: 1rpx solid rgba(252, 38, 88, 1);
-//   background-color: #ffe0e4;
-//   @include e(line) {
-//     background-color: #fc2658;
-//     height: 10rpx;
-//     border-radius: 10rpx;
-//   }
-// }
+@include b(progress) {
+  height: 10rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid rgba(252, 38, 88, 1);
+  background-color: #ffe0e4;
+  @include e(line) {
+    background-color: #fc2658;
+    height: 10rpx;
+    border-radius: 10rpx;
+  }
+}
 </style>
 
 <script cml-type="json">

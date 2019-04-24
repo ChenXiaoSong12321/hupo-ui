@@ -2,7 +2,7 @@
   <h-page title="h-icon 演示">
     <view class="container">
      progress
-      <h-progress width="35"></h-progress>
+      <h-progress width="35" class="h-page-progress"></h-progress>
     </view>
   </h-page>
 </template>
@@ -18,6 +18,9 @@ export default page(HPageIcon);
   flex-direction: column;
   flex: 1;
   align-items: center;
+}
+.h-page-progress{
+  width: 400rpx;
 }
 </style>
 <script cml-type="json">

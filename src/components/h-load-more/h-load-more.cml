@@ -46,7 +46,6 @@ export default new HLoadMore();
 {
   "base": {
     "usingComponents": {
-      "h-icon": "../h-icon/h-icon"
     },
     "component": true
   }
