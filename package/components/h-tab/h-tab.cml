@@ -60,24 +60,23 @@ export default new HTabs();
   }
 }
 </script>
-<style lang="less">
-@import '../../assets/less/_output.less';
-.h-tabs{
+<style lang="scss">
+@import '../../assets/scss/output';
+@include b(tabs){
   position:relative;
-  &-item{
+  @include e(item){
     flex:1;
     text-align:center;
   }
-  &-wrap{
+  @include e(wrap){
     display:flex;
     flex-direction:row;
     justify-content:space-around;
-    // border-bottom: 1cpx solid @--border-color-d1;
   }
-  &-bottom{
+  @include e(bottom){
     width: 100%;
     height: 1cpx;
-    background-color: @--border-color-d1;
+    background-color: $--border-color-d1;
   }
 }
 </style>

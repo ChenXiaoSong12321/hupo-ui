@@ -93,6 +93,7 @@ class Demo {
         pages: [
           routeObj["h-radio"],
           routeObj["h-checkbox"],
+          routeObj["h-input"],
           routeObj["h-field"],
           routeObj["h-button"],
           routeObj["h-stepper"],

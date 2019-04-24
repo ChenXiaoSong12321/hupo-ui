@@ -77,6 +77,11 @@
       "path": "/pages/COMP/h-checkbox/h-checkbox"
     },
     {
+      "name": "h-input",
+      "url": "/pages/COMP/h-input/h-input",
+      "path": "/pages/COMP/h-input/h-input"
+    },
+    {
       "name": "h-field",
       "url": "/pages/COMP/h-field/h-field",
       "path": "/pages/COMP/h-field/h-field"

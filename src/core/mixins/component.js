@@ -1,4 +1,4 @@
-import Goto from './common/Goto'
+import Goto from './common/goto'
 import Event from './common/event'
 import mix from './index'
 export default function component() {

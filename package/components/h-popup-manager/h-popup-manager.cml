@@ -1,16 +1,16 @@
 <template>
   <view
     c-if="{{visible}}"
-    class="h-popup {{ visible ? 'h-popup-wrap--show' : '' }}"
+    class="h-popup-manager {{ visible ? 'h-popup-manager--show' : '' }}"
   >
     <view
-      class="h-popup-mask h-popup-transition {{mask?'is-has-mask':''}} {{ transitionIn ? 'is-in' : 'is-leave' }}"
+      class="h-popup-manager-mask is-transition {{mask?'is-has-mask':''}} {{ transitionIn ? 'is-in' : 'is-leave' }}"
       style="z-index:{{zIndex}}"
       c-bind:tap="closeevent"
     ></view>
     <!-- c-catch禁止事件冒泡 -->
     <view
-      class="h-popup-content h-popup-transition {{ transitionIn ? 'is-in' : 'is-leave' }} {{ position ? 'h-popup-content--' + position : 'h-popup-content--center' }}"
+      class="h-popup-manager-content is-transition {{ transitionIn ? 'is-in' : 'is-leave' }} {{ position ? 'h-popup-manager-content--' + position : 'h-popup-manager-content--center' }}"
       style="z-index:{{zIndex+1}}"
       c-catch:tap="contentTap"
     >
@@ -43,14 +43,14 @@ class HPopupManager {
   };
 
   watch = {
-    show(value) {
-      value ? this.showMask() : this.hideMask();
+    show(n) {
+      n ? this.showMask() : this.hideMask();
     }
   };
 
   methods = {
     closeevent() {
-      this.$cmlEmit("close");
+      this.$cmlEmit("onclose");
     },
     showMask() {
       zindexManager=zindexManager+2
@@ -66,15 +66,16 @@ class HPopupManager {
         this.visible = false;
       }, 300);
     },
-    contentTap() {}
+    contentTap() {
+    }
   };
 }
 
 export default new HPopupManager();
 </script>
 
-<style lang="less">
-@import "./h-popup-manager.less";
+<style lang="scss">
+@import "./h-popup-manager.scss";
 </style>
 <script cml-type="json">
 {

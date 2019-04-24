@@ -1,0 +1,22 @@
+@import '../../assets/scss/output';
+
+@include b(page) {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  @include e(container) {
+    flex: 1;
+  }
+
+  @include e(content) {
+    min-height: 100%;
+  }
+
+  @include e(bottom) {
+    height: 34px;
+    background: $--white;
+  }
+
+  @include m(disable-scroll) {}
+}
