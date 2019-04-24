@@ -29,7 +29,7 @@ props= {
       type: String,
       default: '#FFE0E4'
     }
-  },
+  }
   computed= {
     _percentage(){
       return this.percentage / 100 + '%'
@@ -38,7 +38,7 @@ props= {
       return `border-color:${this.borderColor};background-color:${this.backgroundColor};height: ${this.height}rpx;`
     },
     progressLineStyle(){
-      return `width:${_percentage};background-color:${color};height: ${height}rpx;border-top-right-radius: ${height}rpx;border-bottom-right-radius: ${height}rpx;`
+      return `width:${this._percentage};background-color:${this.color};height: ${this.height}rpx;border-top-right-radius: ${this.height}rpx;border-bottom-right-radius: ${this.height}rpx;`
     }
   }
 }
@@ -47,7 +47,7 @@ export default new HProgress();
 </script>
 
 <style lang="scss">
-@import '../../../scss/output';
+@import '../../assets/scss/output';
 
 @include b(progress) {
     height: 10rpx;
