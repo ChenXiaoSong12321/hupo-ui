@@ -1,0 +1,33 @@
+@import '../../assets/scss/output';
+@include b(loadmore){
+  position: relative;
+  width: 100%;
+  padding: 21px 0;
+  line-height: 20px;
+  font-size: 14px;
+  @include flexCenter;
+  @include e(wrap){
+    width: 100%;
+    overflow:hidden;
+  }
+  @include m(loading){
+    @include h-loading;
+    margin-right: 4px
+  }
+  @include e(tips) {
+    display: inline-block;
+    vertical-align: middle;
+    height: 20px;
+    line-height: 20px;
+    .image {
+      width: 100%;
+      vertical-align: middle;
+    }
+  }
+  @include m(nodata){
+    color: $--font-color-c3;
+    .image {
+      width: 460cpx;
+    }
+  }
+}

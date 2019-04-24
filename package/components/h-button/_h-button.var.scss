@@ -1,0 +1,18 @@
+$button-size:(
+  max:( width:600cpx, height:80cpx, font-size:32cpx),
+  large:( width:560cpx, height:70cpx, font-size:32cpx),
+  medium:( width:240cpx, height:70cpx, font-size:28cpx),
+  small:( width:120cpx, height:50cpx, font-size:24cpx),
+  mini:( width:100cpx, height:40cpx, font-size:24cpx)
+);
+
+$button-color:(
+  default:( color:$--white, background-color:$--primary-color-a1, plian-color:$--primary-color-a1 ),
+  primary:( color:$--white, background-color:$--primary-color-a1, plian-color:$--primary-color-a1 ),
+  preheat:( color:$--white, background-color:$--preheat-color, plian-color:$--preheat-color ),
+  muted:( color:$--font-color-c2, background-color:$--border-color-d1, plian-color:$--border-color-d1 ),
+  forbidden:( color:$--white, background-color:$--border-color-d1, plian-color:$--border-color-d1 ),
+  member:( color:$--font-color-c1, background-color:$--member-color, plian-color:$--font-color-c1 ),
+  specialmember:( color:$--member-color, background-color:$--font-color-c1, plian-color:$--member-color ),
+  black:( color:$--font-color-c1, background-color:$--font-color-c1, plian-color:$--font-color-c1 )
+);

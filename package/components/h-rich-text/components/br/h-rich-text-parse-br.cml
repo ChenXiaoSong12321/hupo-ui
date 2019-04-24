@@ -1,0 +1,26 @@
+<template>
+   <text>\n\r</text>
+</template>
+<script>
+class HRichTextParseBr {
+  props= {
+    nodes: {
+      type: Object,
+      default(){return {}}
+    }
+  }
+}
+export default new HRichTextParseBr();
+</script>
+
+<style lang="scss">
+@import '../common.scss';
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "component": true
+  }
+}
+</script>

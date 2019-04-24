@@ -1,19 +1,19 @@
 <template>
   <h-page title="h-carousel 演示">
     <view class="container">
-     <h-carousel indicator-dots="{{true}}"  current="{{1}}" autoplay circular="{{true}}">
+     <carousel indicator-dots="{{true}}"  current="{{1}}" autoplay circular="{{true}}">
 
-      <h-carousel-item>
+      <carousel-item>
         <view class="h-carousel-item" style="background-color: #EBDEAA"></view>
-      </h-carousel-item>
-      <h-carousel-item>
+      </carousel-item>
+      <carousel-item>
         <view class="h-carousel-item" style="background-color: #E3EDCD"></view>
-      </h-carousel-item>
-      <h-carousel-item>
+      </carousel-item>
+      <carousel-item>
         <view class="h-carousel-item" style="background-color: #EAEAEF"></view>
-      </h-carousel-item>
+      </carousel-item>
 
-    </h-carousel>
+    </carousel>
     </view>
   </h-page>
 </template>
@@ -36,14 +36,13 @@ export default page(HPageCarousel);
   height: 300cpx;
   width: 750cpx;
 }
+
 </style>
 <script cml-type="json">
 {
   "base": {
     "usingComponents": {
-      "h-page": "/components/h-page/h-page",
-      "h-carousel": "/components/h-carousel/h-carousel",
-      "h-carousel-item": "/components/h-carousel-item/h-carousel-item"
+      "h-page": "/components/h-page/h-page"
     },
     "navigationBarTitleText": "h-carousel",
     "backgroundTextStyle": "dark",

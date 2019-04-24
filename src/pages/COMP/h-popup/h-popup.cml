@@ -1,12 +1,15 @@
 <template>
-  <h-page title="h-popup 演示">
-    <view class="container">
-      <h-button class="btn" c-bind:onclick="showPopup">open popup</h-button>
-      <h-popup show="{{show}}" c-bind:onclose="closePopup">
-        <view class="h-popup">hhhh</view>
-      </h-popup>
-    </view>
-  </h-page>
+  <view>
+    <h-page title="h-popup 演示">
+      <view class="container">
+        <h-button class="btn" c-bind:onclick="showPopup">open popup</h-button>
+      </view>
+    </h-page>
+    <!-- 所有弹出层要在 h-page 外使用，想踩坑的可以试试写里面 -->
+    <h-popup show="{{show}}" c-bind:onclose="closePopup">
+      <view class="h-popup">hhhh</view>
+    </h-popup>
+  </view>
 </template>
 <script>
 import page from "../../../core/mixins/page";
@@ -37,6 +40,7 @@ export default page(HPopup);
 }
 .h-popup {
   background-color: #fff;
+  font-size: 26cpx;
   @include flexCenter;
 }
 .btn {

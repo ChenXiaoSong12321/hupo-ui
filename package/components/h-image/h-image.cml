@@ -1,0 +1,97 @@
+<template>
+  <view bindtap="goto" class="wxParse-inline {{nodes.classStr}} wxParse-{{nodes.tag}}" data-src="{{nodes.attr.href}}" style="{{nodes.styleStr || ''}}">
+      <!-- <h-rich-text-parse-base c-for="{{nodes.nodes}}" nodes="{{item}}"></h-rich-text-parse-base> -->
+  </view>
+</template>
+<script>
+class HImage {
+   props= {
+    src: {
+      type: String,
+      default: ''
+    },
+    mode: {
+      type: String,
+      default: 'scaleToFill'
+    },
+    loadingHeight: {
+      type: String,
+      default: ''
+    },
+    lazyLoad: {
+      type: Boolean,
+      default: true
+    },
+    reload: {
+      type: Boolean,
+      default: false
+    }
+  }
+  watch={
+    src(){
+      this.init()
+    }
+  }
+  data= {
+    show: false,
+    url: '',
+    i: 0,
+    status: 'loading'
+  }
+  async mounted() {
+    this.init()
+    await this.$relativeToViewport('.humall-image')
+    this.show = true
+  }
+  methods= {
+    async init() {
+      if (!this.data.src) return
+      const data = await wxTools.getNetworkType()
+      if (data.networkType == 'none') {
+        this.status = this.data.reload ? 'load-refresh' : 'load-fail'
+      } else {
+        this.url = this.data.src
+      }
+    },
+    reloadImage() {
+      if (this.data.status == 'load-complete') return false
+      let i = this.data.i
+      this.url = this.addQs(this.data.src, {i})
+      this.i = i++
+      this.status = 'loading'
+    },
+    __imageOnLoad() {
+      this.status = 'load-complete'
+      this.$cmlEmit('load')
+    },
+    __imageOnLoadError() {
+      this.status = this.data.reload ? 'load-refresh' : 'load-fail'
+      this.$cmlEmit('error')
+    }
+  }
+  pageLifetimes= {
+    async show() {
+      if (this.data.status == 'load-fail') {
+        this.status = 'loading'
+        await this.$relativeToViewport('.humall-image')
+        this.reloadImage()
+      }
+    }
+  }
+}
+export default new HImage();
+</script>
+
+<style lang="scss">
+// @import '../common.scss';
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+    },
+    "component": true
+  }
+}
+</script>

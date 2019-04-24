@@ -1,0 +1,69 @@
+<template>
+  <page title="{{title}}">
+    <view class="h-page">
+      <h-navbar
+        type="{{type}}"
+        loading="{{loading}}"
+        title="{{title}}"
+        showHomeIcon="{{showHomeIcon}}"
+        fixed
+      ></h-navbar>
+      <view class="h-page-container" style="min-height: {{scrollHeight}}px">
+        <h-dialog ref="h-dialog" c-bind:confirm="dialogConfirm" c-bind:cancel="dialogCancel"></h-dialog>
+        <slot></slot>
+        <view class="h-page-pullup">
+          <h-load-more loading="{{status == 'pullup'}}"></h-load-more>
+        </view>
+      </view>
+      <view class="h-page-bottom" c-if="{{viewport.isAllScreen}}">
+        <view class="h-page-bottom-fixed"></view>
+      </view>
+    </view>
+  </page>
+</template>
+<script>
+import cml from "chameleon-api";
+import HPageMixins from '../h-page/h-page.mixin'
+import component from "../../core/mixins/component.js"
+
+class HPageScroll {
+  computed = {
+    scrollHeight() {
+      return parseInt( cml.cpx2px(this.viewport.viewportHeight) - this.viewport.headerHeight - ( this.viewport.isAllScreen ? this.viewport.bottomHeight : 0 ) );
+    }
+  };
+
+  methods = {
+    pullup(){
+      if(!!this.status)return
+      this.status = 'pullup'
+      this.$cmlEmit('pullup', this)
+    },
+    pulldown(){
+      if(!!this.status)return
+      this.status = 'pulldown'
+      this.$cmlEmit('pulldown', this)
+    },
+    stop(){
+      this.status = ''
+      wx.stopPullDownRefresh()
+    }
+  }
+}
+export default component(HPageMixins, HPageScroll)
+</script>
+<style lang="scss">
+@import "./h-page-scroll.wx.scss";
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-navbar": "../h-navbar/h-navbar",
+      "h-load-more": "../h-load-more/h-load-more",
+      "h-dialog": "../h-dialog/h-dialog"
+    },
+    "component": true
+  }
+}
+</script>

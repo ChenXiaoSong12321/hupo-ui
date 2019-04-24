@@ -4,11 +4,15 @@
 
 <script>
 import routerConfig from "../router.config.json";
+import difference from '../core/difference/difference.interface'
 
 class App {
   data = {
     routerConfig
   };
+  mounted(){
+    difference.setApp(this)
+  }
 }
 
 export default new App();
@@ -17,6 +21,9 @@ export default new App();
 <style>
 page {
   height: 100%;
+}
+.cml-carousel{
+  width: 100%;
 }
 </style>
 

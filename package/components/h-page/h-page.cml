@@ -1,0 +1,90 @@
+<template>
+  <page title="{{title}}">
+    <view
+      class="h-page {{ disableScroll ? 'h-page--disable-scroll' : '' }}"
+      style="height: {{viewportHeight}}px;"
+    >
+      <h-navbar
+        type="{{type}}"
+        loading="{{loading}}"
+        title="{{title}}"
+        showHomeIcon="{{showHomeIcon}}"
+      ></h-navbar>
+      <view class="h-page-container">
+        <h-dialog ref="h-dialog" c-bind:confirm="dialogConfirm" c-bind:cancel="dialogCancel"></h-dialog>
+        <scroller
+          height="{{scrollHeight}}"
+          bottomOffset="{{bottomOffset}}"
+          c-bind:scrolltobottom="pullup"
+        >
+          <slot></slot>
+          <view class="h-page-pullup" c-if="{{loadmore}}">
+            <h-load-more loading="{{status == 'pullup'}}"></h-load-more>
+          </view>
+        </scroller>
+      </view>
+      <view class="h-page-bottom" c-if="{{viewport.isAllScreen}}"></view>
+    </view>
+  </page>
+</template>
+<script>
+import cml from "chameleon-api";
+import HPageMixins from './h-page.mixin'
+import component from "../../core/mixins/component.js";
+
+class HPage {
+  props = {
+    disableScroll: {
+      type: Boolean,
+      default: false
+    },
+    loadmore: {
+      type: Boolean,
+      default: false
+    },
+    bottomOffset: {
+      type: Number,
+      default: 50
+    }
+  };
+
+  computed = {
+    scrollHeight() {
+      return parseInt(
+        this.viewport.viewportHeight -
+          cml.px2cpx(this.viewport.headerHeight) -
+          (this.viewport.isAllScreen
+            ? cml.px2cpx(this.viewport.bottomHeight)
+            : 0)
+      );
+    }
+  };
+
+  methods = {
+    pullup(){
+      if(!!this.status)return
+      this.status = 'pullup'
+      this.$cmlEmit('pullup', this)
+    },
+    stop(){
+      this.status = ''
+    }
+  }
+}
+export default component(HPageMixins, HPage)
+</script>
+<style lang="scss">
+@import "./h-page.scss";
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-navbar": "../h-navbar/h-navbar",
+      "h-load-more": "../h-load-more/h-load-more",
+      "h-dialog": "../h-dialog/h-dialog"
+    },
+    "component": true
+  }
+}
+</script>
