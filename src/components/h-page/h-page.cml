@@ -11,7 +11,11 @@
         showHomeIcon="{{showHomeIcon}}"
       ></h-navbar>
       <view class="h-page-container">
-        <scroller height="{{scrollHeight}}" c-bind:scrolltobottom="pullup">
+        <scroller
+          height="{{scrollHeight}}"
+          bottomOffset="{{bottomOffset}}"
+          c-bind:scrolltobottom="pullup"
+        >
           <slot></slot>
           <view class="h-page-pullup" c-if="{{loadmore}}">
             <h-load-more loading="{{status == 'pullup'}}"></h-load-more>
@@ -51,6 +55,10 @@ class HPage {
     loadmore: {
       type: Boolean,
       default: false
+    },
+    bottomOffset: {
+      type: Number,
+      default: 50
     }
   };
 
