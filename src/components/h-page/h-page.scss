@@ -9,6 +9,10 @@
     flex: 1;
   }
 
+  @include e(content) {
+    min-height: 100%;
+  }
+
   @include e(bottom) {
     height: 34px;
     background: $--white;

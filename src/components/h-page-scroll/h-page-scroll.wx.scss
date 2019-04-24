@@ -18,7 +18,7 @@
     width: 100%;
     height: 34px;
     position: relative;
-    z-index: 10000;
+    z-index: $--z-index-max;
   }
 
   @include e(bottom-fixed) {
@@ -28,7 +28,7 @@
     right: 0;
     width: 100%;
     height: 34px;
-    z-index: 10000;
+    z-index: $--z-index-max;
     background: $--white;
   }
 }
