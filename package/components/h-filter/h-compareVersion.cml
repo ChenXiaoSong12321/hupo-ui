@@ -5,11 +5,11 @@
 <script>
 class CompareVersion {
   props = {
-    min: {
+    v1: {
       type: [String, Number],
       default: ""
     },
-    max: {
+    v2: {
       type: [String, Number],
       default: ""
     }
