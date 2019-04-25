@@ -25,4 +25,4 @@ async function calc() {
   }
   return channel
 }
-export default async () => await promise.cache('channel', () => calc())
+export default async() => await promise.cache('channel', () => calc())
