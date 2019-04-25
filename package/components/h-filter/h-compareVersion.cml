@@ -5,11 +5,11 @@
 <script>
 class CompareVersion {
   props = {
-    v1: {
+    min: {
       type: [String, Number],
       default: ""
     },
-    v2: {
+    max: {
       type: [String, Number],
       default: ""
     }
@@ -17,21 +17,17 @@ class CompareVersion {
 
   computed = {
     compareVersion() {
-      let { v1, v2 } = this;
-      v1 = v1.split(".");
-      v2 = v2.split(".");
-      var len = Math.max(v1.length, v2.length);
+      let { min, max } = this;
+      min = min.split(".");
+      max = max.split(".");
+      var len = Math.max(min.length, max.length);
 
-      while (v1.length < len) {
-        v1.push("0");
-      }
-      while (v2.length < len) {
-        v2.push("0");
-      }
+      min.length < len && min.push("0");
+      max.length < len && max.push("0");
 
       for (var i = 0; i < len; i++) {
-        var num1 = parseInt(v1[i]);
-        var num2 = parseInt(v2[i]);
+        var num1 = parseInt(min[i]);
+        var num2 = parseInt(max[i]);
 
         if (num1 > num2) {
           return true;

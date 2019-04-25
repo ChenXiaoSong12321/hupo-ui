@@ -1,21 +1,22 @@
 <template>
-  <view class="h-tab-bar {{layoutClass}}">
-    <view class="h-tab-bar-wrap " style="{{tabbar.tabbarStyle || ';'}}">
-      <view c-for="{{tabbar.list }}" c-key="text" class="h-tab-bar-item-wrap">
-        <view class="h-tab-bar-content" c-bind:click="onTabbarItemTap(index)">
-          <view class="h-tab-bar-icon-wrap" c-if="{{!top && hasIcon}}">
-            <image c-if="{{!(index === tapedIndex)}}" class="tab-icon" src="{{item.icon}}" style="{{!(index === tapedIndex) ? (item.iconStyle || '') : ';'}}"></image>
-            <image c-if="{{index === tapedIndex}}" class="tab-icon" src="{{item.selectedIcon || item.icon}}" style="{{(index === tapedIndex) ? (item.selectedIconStyle || '') : ''}}"></image>
-          </view>
-          <view class='tab-title'>
-            <text class="tab-text" style="{{index === tapedIndex ? (tabbar.selectedTextStyle || 'color:#61c7fc'):(tabbar.textStyle || 'color:#000000')}}">{{item.text}}</text>
+  <h-fixed position="{{useFixedLayout?'fixed':'absolute'}}" bottom="0" place-height="100">
+    <view class="h-tab-bar">
+      <view class="h-tab-bar-wrap " style="{{tabbar.tabbarStyle || ';'}}">
+        <view c-for="{{tabbar.list }}" c-key="text" class="h-tab-bar-item-wrap">
+          <view class="h-tab-bar-content" c-bind:click="onTabbarItemTap(index)">
+            <view class="h-tab-bar-icon-wrap" c-if="{{!top && hasIcon}}">
+              <image c-if="{{!(index === tapedIndex)}}" class="tab-icon" src="{{item.icon}}" style="{{!(index === tapedIndex) ? (item.iconStyle || '') : ';'}}"></image>
+              <image c-if="{{index === tapedIndex}}" class="tab-icon" src="{{item.selectedIcon || item.icon}}" style="{{(index === tapedIndex) ? (item.selectedIconStyle || '') : ''}}"></image>
+            </view>
+            <view class='tab-title'>
+              <text class="tab-text" style="{{index === tapedIndex ? (tabbar.selectedTextStyle || 'color:#61c7fc'):(tabbar.textStyle || 'color:#000000')}}">{{item.text}}</text>
+            </view>
           </view>
         </view>
       </view>
+      <view c-if="{{top}}" class="h-tab-bar-line-wrap" style="{{tabLineStyle}}"></view>
     </view>
-    <view c-if="{{top}}" class="h-tab-bar-line-wrap" style="{{tabLineStyle}}"></view>
-
-  </view>
+  </h-fixed>
 </template>
 
 <script>
@@ -54,16 +55,6 @@ tabbar:{
     }
 
     computed = {
-      layoutClass() {
-        //默认不用fixed布局
-        if (!this.useFixedLayout) {
-          return ''
-        } else if (this.useFixedLayout && this.top) { //tabbar在top
-          return 'h-tab-bar-top'
-        } else if (this.useFixedLayout && !this.top) { //tabbar在bottom
-          return 'h-tab-bar-bottom'
-        }
-      },
       useFixedLayout() {
         return this.tabbar.useFixedLayout;
       },
@@ -125,12 +116,15 @@ tabbar:{
 
 </script>
 <style lang="scss">
- @import './h-tabbar.scss'
+ @import './h-tabbar.scss';
 </style>
 <script cml-type="json">
   {
     "base": {
-      "usingComponents": {}
+      "usingComponents": {
+        "h-fixed": "../h-fixed/h-fixed"
+      },
+      "component": true
     }
   }
 

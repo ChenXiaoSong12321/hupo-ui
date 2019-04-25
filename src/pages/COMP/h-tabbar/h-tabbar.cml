@@ -1,11 +1,14 @@
 <template>
+  <view>
   <h-page title="h-tabbar 演示">
     <component is="{{currentComp}}"></component>
     <!-- <bar-index c-show="{{currentComp === 'bar-index'}}"></bar-index>
   <bar-trip c-show="{{currentComp === 'bar-trip'}}"></bar-trip>
     <bar-my c-show="{{currentComp === 'bar-my'}}"></bar-my>-->
-    <h-tabbar c-bind:tabbarclick="handleTabbarClick" c-model="{{currentComp}}" tabbar="{{tabbar}}"></h-tabbar>
   </h-page>
+    <h-tabbar c-bind:tabbarclick="handleTabbarClick" c-model="{{currentComp}}" tabbar="{{tabbar}}"></h-tabbar>
+
+  </view>
 </template>
 
 <script>
@@ -19,8 +22,8 @@ class HTabbar {
     tabbar: {
       // "tabbarStyle":"height:120cpx;background-color:#BAF6E8",//tabbar最外层的样式支持自定义
       // "tabLineStyle":"background-color:#069ADC;height:2cpx;",//自定义tabline的高度和背景色
-      textStyle: "color:#666;font-size:24cpx", //文案默认style ,可以这里控制文案的大小，样式等
-      selectedTextStyle: "color:#dd392e;font-size:24cpx", //文案被选择style
+      textStyle: "color:#666;", //文案默认style ,可以这里控制文案的大小，样式等
+      selectedTextStyle: "color:#dd392e;", //文案被选择style
       // "position":"top", //tabbar的位置 top/bottom
       useFixedLayout: true, //是否通过fixed布局进行tabbar的布局
       list: [
