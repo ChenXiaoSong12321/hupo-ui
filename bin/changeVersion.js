@@ -1,7 +1,8 @@
 const fs = require('fs')
-let hupoUiPackagePath = '../package/package.json'
+const path = require('path')
+let hupoUiPackagePath = path.join(__dirname, '../package/package.json')
 let hupoUiPackage = require(hupoUiPackagePath)
-let version = process.argv.splice(2)[0]
+let version = process.env.v
 if(version){
   hupoUiPackage.version = version
   fs.writeFile(hupoUiPackagePath, JSON.stringify(hupoUiPackage,null,2), function(err){
