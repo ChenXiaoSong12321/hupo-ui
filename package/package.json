@@ -1,6 +1,6 @@
 {
   "name": "hupo-ui",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "description": "hupo ui基础组件库&接口能力",
   "main": "/components",
   "scripts": {
