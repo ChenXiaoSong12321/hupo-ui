@@ -7,12 +7,12 @@ $button-size:(
 );
 
 $button-color:(
-  default:( color:$--white, background-color:$--primary-color-a1, plian-color:$--primary-color-a1 ),
-  primary:( color:$--white, background-color:$--primary-color-a1, plian-color:$--primary-color-a1 ),
+  default:( color:$--white, background-color:$--primary-color-CM1, plian-color:$--primary-color-CM1 ),
+  primary:( color:$--white, background-color:$--primary-color-CM1, plian-color:$--primary-color-CM1 ),
   preheat:( color:$--white, background-color:$--preheat-color, plian-color:$--preheat-color ),
-  muted:( color:$--font-color-c2, background-color:$--border-color-d1, plian-color:$--border-color-d1 ),
-  forbidden:( color:$--white, background-color:$--border-color-d1, plian-color:$--border-color-d1 ),
-  member:( color:$--font-color-c1, background-color:$--member-color, plian-color:$--font-color-c1 ),
-  specialmember:( color:$--member-color, background-color:$--font-color-c1, plian-color:$--member-color ),
-  black:( color:$--font-color-c1, background-color:$--font-color-c1, plian-color:$--font-color-c1 )
+  muted:( color:$--font-color-FC2, background-color:$--border-color-PC1, plian-color:$--border-color-PC1 ),
+  forbidden:( color:$--white, background-color:$--border-color-PC1, plian-color:$--border-color-PC1 ),
+  member:( color:$--font-color-FC1, background-color:$--member-color-MCM1, plian-color:$--font-color-FC1 ),
+  specialmember:( color:$--member-color-MCM1, background-color:$--font-color-FC1, plian-color:$--member-color-MCM1 ),
+  black:( color:$--font-color-FC1, background-color:$--font-color-FC1, plian-color:$--font-color-FC1 )
 );

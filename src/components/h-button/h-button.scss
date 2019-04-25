@@ -4,13 +4,13 @@
 
 @include b(button) {
   border: 0;
-  font-size: $--font-size-title-medium-ftm;
+  font-size: $--font-size-title-medium-Fi2;
   overflow: hidden;
   line-height: 1;
   height: 100%;
   padding: 0;
   border-radius: 0;
-  color: $--font-color-c1;
+  color: $--font-color-FC1;
   &::after{
     border: 0;
   }
