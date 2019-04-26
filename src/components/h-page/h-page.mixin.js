@@ -6,10 +6,6 @@ const promise = {}
 
 class HPageMixins {
   props = {
-    loading: {
-      type: Boolean,
-      default: false
-    },
     title: {
       type: String,
       default: '琥珀亲子'
@@ -25,6 +21,7 @@ class HPageMixins {
   };
 
   data = {
+    loading: false,
     viewport: defaultData,
     status: ''
   };

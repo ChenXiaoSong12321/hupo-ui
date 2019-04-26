@@ -1,5 +1,5 @@
 <template>
-  <h-page title="h-field 演示">
+  <h-page ref="h-page" title="h-field 演示">
     <view class="container">
       <h-field></h-field>
     </view>

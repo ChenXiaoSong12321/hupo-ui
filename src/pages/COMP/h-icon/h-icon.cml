@@ -1,5 +1,5 @@
 <template>
-  <h-page title="h-icon 演示">
+  <h-page ref="h-page" title="h-icon 演示">
     <view class="container">
       <view class="icon-wrap">
         <h-icon name="el-icon-hp-tuikuan2" customStyle="color:red;"></h-icon>

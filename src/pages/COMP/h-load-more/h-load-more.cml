@@ -1,5 +1,5 @@
 <template>
-  <h-page title="h-load-more 演示">
+  <h-page ref="h-page" title="h-load-more 演示">
     <view class="container">
       <h-load-more loading></h-load-more>
       <h-load-more loading="{{false}}"></h-load-more>
@@ -11,7 +11,7 @@
 import page from "../../../core/mixins/page";
 class HPageIcon {
   data={
-    
+
   }
 }
 export default page(HPageIcon);
