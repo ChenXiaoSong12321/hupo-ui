@@ -1,8 +1,8 @@
 <template>
   <h-popup-manager show="{{show}}" mask="{{mask}}">
     <view class="h-toast-content h-toast-content--{{IconMap[type] ? 'square' : 'other'}}" >
-      <!-- <image c-if="{{needIcon}}" src="{{IconMap[type]}}" class="h-toast-icon"></image> -->
-      <h-icon c-if="{{IconMap[type]}}" name="{{IconMap[type]}}" class="h-toast-icon h-toast-icon--{{type}}"></h-icon>
+      <view c-if="{{type==='loading'}}" class="h-toast-icon h-toast-icon--loading" style="width:80cpx;height:80cpx"></view>
+      <h-icon c-else-if="{{type==='success'||type==='warn'}}" name="{{IconMap[type]}}" class="h-toast-icon h-toast-icon--{{type}}"></h-icon>
       <view class="h-toast-text">{{message}}</view>
     </view>
   </h-popup-manager>
@@ -17,12 +17,14 @@ class HToast {
     mask: false,
     IconMap: {
       loading: 'el-icon-hp-jiazai1',
-      success: 'el-icon-hp-chenggong',
-      warn: 'el-icon-hp-shibai'
+      warn: 'el-icon-hp-shibai',
+      success: 'el-icon-hp-chenggong'
     }
   }
-  mounted(){
-    console.log(this.type)
+  watch = {
+    type(n){
+      console.log(n)
+    }
   }
   computed = {
     typeImg() {
@@ -42,7 +44,7 @@ export default new HToast();
       transform: rotate(0deg);
     }
     to {
-      transform: rotate(-360deg);
+      transform: rotate(360deg);
     }
   }
   @include e(content) {
@@ -65,7 +67,8 @@ export default new HToast();
     font-size:80cpx;
     margin-bottom: 6cpx;
     @include m(loading) {
-      animation: loading-rotate 1s steps(12, end) infinite;
+      // animation: loading-rotate 1s steps(12, end) infinite;
+      @include h-loading;
     }
   }
   @include e(text) {
