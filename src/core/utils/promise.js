@@ -4,6 +4,7 @@ export default {
   exit,
   async cache(id, promise) {
     const app = difference.getApp()
+    console.log(app,difference,difference.getApp,getApp())
     if (!app.promise) app.promise = {}
     if (!app.promise[id]) {
       app.promise[id] = promise()

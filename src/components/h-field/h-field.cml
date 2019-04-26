@@ -10,7 +10,7 @@ class FormatDate {
   computed = {
    
   }
-
+}
 export default new FormatDate()
 </script>
 <style lang="scss">
