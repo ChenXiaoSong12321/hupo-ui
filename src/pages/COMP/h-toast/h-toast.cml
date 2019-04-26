@@ -1,11 +1,12 @@
 <template>
-  <h-page title="h-toast 演示">
+  <h-page ref="h-page" title="h-toast 演示">
     <view class="container">
       <h-toast ref="h-toast"></h-toast>
       <h-button class="btn" c-bind:onclick="show$toast">this.$toast()</h-button>
       <h-button class="btn" c-bind:onclick="show$toastHasMask">this.$toast('has mask')</h-button>
-      <h-button class="btn" c-bind:onclick="show$loading">this.$loading()</h-button>
+      <h-button class="btn" c-bind:onclick="show$loadingToast">this.$loadingToast()</h-button>
       <h-button class="btn" c-bind:onclick="failToast">this.$failToast()</h-button>
+      <h-button class="btn" c-bind:onclick="successToast">this.$successToast()</h-button>
     </view>
   </h-page>
 </template>
@@ -28,12 +29,15 @@ class HToast {
     show$toast(){
       this.$toast('perfect')
     },
-    show$loading(){
-      this.$loading()
-      setTimeout(() => {this.$clear()}, 3000);
+    show$loadingToast(){
+      this.$loadingToast()
+      setTimeout(() => {this.$clearToast()}, 3000);
     },
     failToast(){
       this.$failToast('warn or error')
+    },
+    successToast(){
+      this.$successToast('success')
     }
   };
 }
