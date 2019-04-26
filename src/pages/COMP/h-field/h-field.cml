@@ -1,7 +1,7 @@
 <template>
   <h-page title="h-field 演示">
     <view class="container">
-      field
+      <h-field></h-field>
     </view>
   </h-page>
 </template>
@@ -23,7 +23,8 @@ export default page(HPageField);
 {
   "base": {
     "usingComponents": {
-      "h-page": "/components/h-page/h-page"
+      "h-page": "/components/h-page/h-page",
+      "h-field": "/components/h-field/h-field"
     },
     "navigationBarTitleText": "h-field",
     "backgroundTextStyle": "dark",

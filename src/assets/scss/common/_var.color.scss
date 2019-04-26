@@ -3,54 +3,54 @@ $--black: #000;
 $--white: #fff;
 
 // 主色 a1 red
-$--primary-color-a1: #dd392e;
+$--primary-color-CM1: #dd392e;
 
-$--primary-color-a1-9: rgba($color: $--primary-color-a1, $alpha: .9); 
-$--primary-color-a1-8: rgba($color: $--primary-color-a1, $alpha: .8); 
-$--primary-color-a1-7: rgba($color: $--primary-color-a1, $alpha: .7); 
-$--primary-color-a1-6: rgba($color: $--primary-color-a1, $alpha: .6); 
-$--primary-color-a1-5: rgba($color: $--primary-color-a1, $alpha: .5); 
-$--primary-color-a1-4: rgba($color: $--primary-color-a1, $alpha: .4); 
-$--primary-color-a1-3: rgba($color: $--primary-color-a1, $alpha: .3); 
-$--primary-color-a1-2: rgba($color: $--primary-color-a1, $alpha: .2); 
-$--primary-color-a1-1: rgba($color: $--primary-color-a1, $alpha: .1); 
+$--primary-color-CM1-9: rgba($color: $--primary-color-CM1, $alpha: .9); 
+$--primary-color-CM1-8: rgba($color: $--primary-color-CM1, $alpha: .8); 
+$--primary-color-CM1-7: rgba($color: $--primary-color-CM1, $alpha: .7); 
+$--primary-color-CM1-6: rgba($color: $--primary-color-CM1, $alpha: .6); 
+$--primary-color-CM1-5: rgba($color: $--primary-color-CM1, $alpha: .5); 
+$--primary-color-CM1-4: rgba($color: $--primary-color-CM1, $alpha: .4); 
+$--primary-color-CM1-3: rgba($color: $--primary-color-CM1, $alpha: .3); 
+$--primary-color-CM1-2: rgba($color: $--primary-color-CM1, $alpha: .2); 
+$--primary-color-CM1-1: rgba($color: $--primary-color-CM1, $alpha: .1); 
 
 // 辅色-yellow
-$--secondary-color-b1: #fcd20e;
+$--secondary-color-CA1: #fcd20e;
 
-$--secondary-color-b1-9: rgba($color: $--secondary-color-b1, $alpha: .9); 
-$--secondary-color-b1-8: rgba($color: $--secondary-color-b1, $alpha: .8); 
-$--secondary-color-b1-7: rgba($color: $--secondary-color-b1, $alpha: .7); 
-$--secondary-color-b1-6: rgba($color: $--secondary-color-b1, $alpha: .6); 
-$--secondary-color-b1-5: rgba($color: $--secondary-color-b1, $alpha: .5); 
-$--secondary-color-b1-4: rgba($color: $--secondary-color-b1, $alpha: .4); 
-$--secondary-color-b1-3: rgba($color: $--secondary-color-b1, $alpha: .3); 
-$--secondary-color-b1-2: rgba($color: $--secondary-color-b1, $alpha: .2); 
-$--secondary-color-b1-1: rgba($color: $--secondary-color-b1, $alpha: .1); 
+$--secondary-color-CA1-9: rgba($color: $--secondary-color-CA1, $alpha: .9); 
+$--secondary-color-CA1-8: rgba($color: $--secondary-color-CA1, $alpha: .8); 
+$--secondary-color-CA1-7: rgba($color: $--secondary-color-CA1, $alpha: .7); 
+$--secondary-color-CA1-6: rgba($color: $--secondary-color-CA1, $alpha: .6); 
+$--secondary-color-CA1-5: rgba($color: $--secondary-color-CA1, $alpha: .5); 
+$--secondary-color-CA1-4: rgba($color: $--secondary-color-CA1, $alpha: .4); 
+$--secondary-color-CA1-3: rgba($color: $--secondary-color-CA1, $alpha: .3); 
+$--secondary-color-CA1-2: rgba($color: $--secondary-color-CA1, $alpha: .2); 
+$--secondary-color-CA1-1: rgba($color: $--secondary-color-CA1, $alpha: .1); 
 
-$--secondary-color-b2: #008aff;
+$--secondary-color-CA2: #008aff;
 
-$--secondary-color-b2-9: mix($--white, $--secondary-color-b2, .9); 
-$--secondary-color-b2-8: mix($--white, $--secondary-color-b2, .8); 
-$--secondary-color-b2-7: mix($--white, $--secondary-color-b2, .7); 
-$--secondary-color-b2-6: mix($--white, $--secondary-color-b2, .6); 
-$--secondary-color-b2-5: mix($--white, $--secondary-color-b2, .5); 
-$--secondary-color-b2-4: mix($--white, $--secondary-color-b2, .4); 
-$--secondary-color-b2-3: mix($--white, $--secondary-color-b2, .3); 
-$--secondary-color-b2-2: mix($--white, $--secondary-color-b2, .2); 
-$--secondary-color-b2-1: mix($--white, $--secondary-color-b2, .1); 
+$--secondary-color-CA2-9: mix($--white, $--secondary-color-CA2, .9); 
+$--secondary-color-CA2-8: mix($--white, $--secondary-color-CA2, .8); 
+$--secondary-color-CA2-7: mix($--white, $--secondary-color-CA2, .7); 
+$--secondary-color-CA2-6: mix($--white, $--secondary-color-CA2, .6); 
+$--secondary-color-CA2-5: mix($--white, $--secondary-color-CA2, .5); 
+$--secondary-color-CA2-4: mix($--white, $--secondary-color-CA2, .4); 
+$--secondary-color-CA2-3: mix($--white, $--secondary-color-CA2, .3); 
+$--secondary-color-CA2-2: mix($--white, $--secondary-color-CA2, .2); 
+$--secondary-color-CA2-1: mix($--white, $--secondary-color-CA2, .1); 
 
 // 字体
-$--font-color-c1:#333333;
-$--font-color-c2:#666666;
-$--font-color-c3:#999999;
+$--font-color-FC1:#333333;
+$--font-color-FC2:#666666;
+$--font-color-FC3:#999999;
 
 // border
-$--border-color-d1:#d7d7d7;
-$--splitline-color-Fgx-C-1:#e5e5e5;
+$--border-color-PC1:#d7d7d7;
+$--splitline-color-FgxC1:#e5e5e5;
 
 // background
-$--background-color-d2:#efefef;
+$--background-color-BgC1:#efefef;
 $--background-color-BgC2:#fafafa;
 
 // old 不甜
@@ -76,4 +76,6 @@ $--coupon-color:#F83543;
 $--coupon-font:#FFE597;
 
 // 会员
-$--member-color:#EEDDB7;
+$--member-color-MCM1:#EEDDB7;
+$--member-font-color-MFC1:#ffe9af;
+$--member-background-color-MBGC1:#f6f1e6;

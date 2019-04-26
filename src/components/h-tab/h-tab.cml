@@ -76,7 +76,7 @@ export default new HTabs();
   @include e(bottom){
     width: 100%;
     height: 1cpx;
-    background-color: $--border-color-d1;
+    background-color: $--border-color-PC1;
   }
 }
 </style>
