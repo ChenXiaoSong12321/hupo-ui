@@ -21,6 +21,10 @@ class HPageMixins {
     background: {
       type: String,
       default: 'BgC3'
+    },
+    subtract: {
+      type: Number,
+      default: 0
     }
   };
 
@@ -32,7 +36,7 @@ class HPageMixins {
 
   computed = {
     viewportHeight() {
-      return Math.ceil(cml.cpx2px(parseInt(this.viewport.viewportHeight)))
+      return Math.ceil(cml.cpx2px(this.viewport.viewportHeight - this.subtract))
     }
   };
 
