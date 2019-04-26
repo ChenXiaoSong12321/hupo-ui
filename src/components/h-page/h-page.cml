@@ -51,13 +51,9 @@ class HPage {
 
   computed = {
     scrollHeight() {
-      return parseInt(
-        this.viewport.viewportHeight -
-          cml.px2cpx(this.viewport.headerHeight) -
-          (this.viewport.isAllScreen
-            ? cml.px2cpx(this.viewport.bottomHeight)
-            : 0)
-      );
+      const headerHeight = cml.px2cpx(this.viewport.headerHeight)
+      const bottomHeight = cml.px2cpx(this.viewport.bottomHeight)
+      return Math.ceil( this.viewport.viewportHeight - headerHeight - (this.viewport.isAllScreen ? bottomHeight : 0) - this.subtract );
     }
   };
 
