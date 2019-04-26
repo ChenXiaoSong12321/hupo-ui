@@ -6,10 +6,6 @@ const promise = {}
 
 class HPageMixins {
   props = {
-    loading: {
-      type: Boolean,
-      default: false
-    },
     title: {
       type: String,
       default: '琥珀亲子'
@@ -21,17 +17,22 @@ class HPageMixins {
     type: {
       type: String,
       default: 'default'
+    },
+    background: {
+      type: String,
+      default: 'BgC3'
     }
   };
 
   data = {
+    loading: false,
     viewport: defaultData,
     status: ''
   };
 
   computed = {
     viewportHeight() {
-      return cml.cpx2px(parseInt(this.viewport.viewportHeight))
+      return Math.ceil(cml.cpx2px(parseInt(this.viewport.viewportHeight)))
     }
   };
 

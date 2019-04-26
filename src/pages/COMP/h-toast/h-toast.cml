@@ -37,8 +37,8 @@ class HToast {
       console.log('complete toast')
     },
     show$loadingToast(){
-      this.$loadingToast('加载中...')
-      // setTimeout(() => {this.$clearToast()}, 3000);
+      this.$loadingToast()
+      this.$setTimeout(() => {this.$clearToast()}, 3000);
     },
     failToast(){
       this.$failToast('错误提示')

@@ -1,5 +1,5 @@
 <template>
-<h-page-scroll ref="h-page-scroll" title="hupo-ui组件展示" c-bind:pulldown="onPulldown" c-bind:pullup="onPullup">
+<h-page-scroll ref="h-page" title="hupo-ui组件展示" background="BgC2" c-bind:pulldown="onPulldown" c-bind:pullup="onPullup">
   <view class="index-page">
     <view class="index-body" style="{{bodyComputedStyl}}">
       <view ref="index-content-wrap" class="index-content-wrap" style="{{computedStyle}}">
@@ -179,17 +179,17 @@ class Demo {
       });
     },
     onPulldown(e){
-      setTimeout(() => {
+      this.$setTimeout(() => {
         console.log(111)
         e.detail.stop()
       }, 3000);
       console.log(e.detail)
     },
     onPullup(e){
-      setTimeout(() => {
+      this.$setTimeout(() => {
         console.log(222)
         e.detail.stop()
-      }, 2000);
+      }, 20000);
       console.log(e.detail)
     }
   }
@@ -352,10 +352,7 @@ export default page(Demo);
 
 .index-page {
   display: flex;
-
   flex-direction: column;
-
-  background-color: #f8f8f8;
   font-size: 32cpx;
   line-height: 1.6;
 }

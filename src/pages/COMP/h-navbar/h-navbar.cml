@@ -1,5 +1,5 @@
 <template>
-  <h-page type="{{type}}" loading="{{loading}}" title="{{title}}" showHomeIcon="{{showHomeIcon}}">
+  <h-page ref="h-page" type="{{type}}" title="{{title}}" showHomeIcon="{{showHomeIcon}}">
     <view class="container">
       <h-button
         class="btn"
@@ -32,15 +32,14 @@ import page from "../../../core/mixins/page";
 class HPageNavbar {
   data = {
     type: "default",
-    loading: false,
     title: "h-navabr 演示",
     showHomeIcon: true
   };
   methods = {
     async toggleLoading() {
-      this.loading = true;
+      this.$loadingNavbar()
       await promise.delay(5000);
-      this.loading = false;
+      this.$clearLoadingNavbar()
     },
     async toggleTitle() {
       this.title = "琥珀亲子";

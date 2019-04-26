@@ -1,9 +1,14 @@
 <template>
-  <h-page title="h-radio 演示">
+  <h-page ref="h-page" title="h-radio 演示">
     <view class="container">
       <h-radio checked="{{ radioValue }}" label="Option" c-bind:change="valueChange"></h-radio>
       <h-radio checked="{{ true }}" label="disabled seleted" disabled c-bind:change="valueChange"></h-radio>
-      <h-radio checked="{{ false }}" label="disabled unseleted" disabled c-bind:change="valueChange"></h-radio>
+      <h-radio
+        checked="{{ false }}"
+        label="disabled unseleted"
+        disabled
+        c-bind:change="valueChange"
+      ></h-radio>
     </view>
   </h-page>
 </template>

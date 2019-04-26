@@ -1,4 +1,3 @@
-import difference from '../../difference/difference.interface'
 const parseOptions = options => typeof options === 'string' ? {
   message: options
 } : options
@@ -17,9 +16,7 @@ const toastOptions = options => Object.assign({}, defaultOptions, options)
 export default class HToast {
   methods = {
     __toastSet__(options) {
-      const current = difference.getCurrentPage()
-      if (!current) return
-      const page = difference.selectComponent(current, 'h-page')
+      const page = this.$getPageComponent()
       if (!page) return
       return page.toastSet(options)
     },

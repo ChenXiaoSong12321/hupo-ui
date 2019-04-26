@@ -1,5 +1,4 @@
 import { dialogOptions } from '../../../components/h-dialog/dialog'
-import difference from '../../difference/difference.interface'
 const parseOptions = options => typeof options === 'string' ? {
   message: options
 } : options
@@ -7,10 +6,7 @@ const parseOptions = options => typeof options === 'string' ? {
 export default class HDialog {
   methods = {
     __dialogSet__(options) {
-      const current = difference.getCurrentPage()
-      console.log(current)
-      if (!current) return
-      const page = difference.selectComponent(current, 'h-page')
+      const page = this.$getPageComponent()
       if (!page) return
       return page.dialogSet(options)
     },

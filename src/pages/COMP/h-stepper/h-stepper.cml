@@ -1,8 +1,6 @@
 <template>
-  <h-page title="h-stepper 演示">
-    <view class="container">
-      stepper
-    </view>
+  <h-page ref="h-page" title="h-stepper 演示">
+    <view class="container">stepper</view>
   </h-page>
 </template>
 <script>

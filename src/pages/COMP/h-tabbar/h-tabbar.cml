@@ -1,13 +1,12 @@
 <template>
   <view>
-  <h-page title="h-tabbar 演示">
-    <component is="{{currentComp}}"></component>
-    <!-- <bar-index c-show="{{currentComp === 'bar-index'}}"></bar-index>
+    <h-page ref="h-page" title="h-tabbar 演示">
+      <component is="{{currentComp}}"></component>
+      <!-- <bar-index c-show="{{currentComp === 'bar-index'}}"></bar-index>
   <bar-trip c-show="{{currentComp === 'bar-trip'}}"></bar-trip>
-    <bar-my c-show="{{currentComp === 'bar-my'}}"></bar-my>-->
-  </h-page>
+      <bar-my c-show="{{currentComp === 'bar-my'}}"></bar-my>-->
+    </h-page>
     <h-tabbar c-bind:tabbarclick="handleTabbarClick" c-model="{{currentComp}}" tabbar="{{tabbar}}"></h-tabbar>
-
   </view>
 </template>
 

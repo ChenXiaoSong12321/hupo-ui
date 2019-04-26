@@ -1,10 +1,9 @@
 @import '../../assets/scss/output';
-
+@import './h-page-background.scss';
 @include b(page) {
   display: flex;
   flex-direction: column;
   height: 100%;
-
   @include e(container) {
     flex: 1;
   }
