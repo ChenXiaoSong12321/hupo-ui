@@ -19,6 +19,7 @@
 </template>
 <script>
 let zindexManager = 1000
+import component from "../../core/mixins/component.js";
 class HPopupManager {
   props = {
     mask: {
@@ -68,7 +69,7 @@ class HPopupManager {
   };
 }
 
-export default new HPopupManager();
+export default component(HPopupManager)
 </script>
 
 <style lang="scss">

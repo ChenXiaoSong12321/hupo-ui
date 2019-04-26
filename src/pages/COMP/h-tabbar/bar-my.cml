@@ -6,6 +6,7 @@
 
 <script>
 import cml from 'chameleon-api';
+import page from "../../../core/mixins/page";
 class DemoCom {
   props = {
     title: {
@@ -27,7 +28,7 @@ class DemoCom {
   }
 }
 
-export default new DemoCom();
+export default page(DemoCom)
 </script>
 <style>
 .demo-com {

@@ -29,7 +29,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-top: 1cpx solid $--border-color-d1;
+    border-top: 1cpx solid $--border-color-PC1;
   }
 
   @include e(content) {
@@ -56,7 +56,7 @@
     .tab-text {
       text-align: center;
       font-size: 22cpx;
-      color: $--primary-color-a1;
+      color: $--primary-color-CM1;
       font-family: PingFangSC-Regular;
       text-overflow: ellipsis;
       overflow: hidden;

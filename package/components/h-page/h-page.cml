@@ -1,7 +1,7 @@
 <template>
-  <page title="{{title}}">
+  <page class="llll" title="{{title}}">
     <view
-      class="h-page {{ disableScroll ? 'h-page--disable-scroll' : '' }}"
+      class="h-page h-page--{{background}} {{ disableScroll ? 'h-page--disable-scroll' : '' }}"
       style="height: {{viewportHeight}}px;"
     >
       <h-navbar
@@ -12,6 +12,7 @@
       ></h-navbar>
       <view class="h-page-container">
         <h-dialog ref="h-dialog" c-bind:confirm="dialogConfirm" c-bind:cancel="dialogCancel"></h-dialog>
+        <h-toast ref="h-toast" c-bind:confirm="dialogConfirm" c-bind:cancel="dialogCancel"></h-toast>
         <scroller
           height="{{scrollHeight}}"
           bottomOffset="{{bottomOffset}}"
@@ -82,7 +83,8 @@ export default component(HPageMixins, HPage)
     "usingComponents": {
       "h-navbar": "../h-navbar/h-navbar",
       "h-load-more": "../h-load-more/h-load-more",
-      "h-dialog": "../h-dialog/h-dialog"
+      "h-dialog": "../h-dialog/h-dialog",
+      "h-toast": "../h-toast/h-toast"
     },
     "component": true
   }

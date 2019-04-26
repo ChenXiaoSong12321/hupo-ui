@@ -72,7 +72,7 @@ export default new HTabsItem();
     text-align: center;
     height: 90cpx;
     padding-left:5cpx;
-    color:$--font-color-c2;
+    color:$--font-color-FC2;
     padding-right:5cpx;
     padding-top:5cpx;
     padding-bottom:5cpx;

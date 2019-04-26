@@ -47,7 +47,7 @@
 }
 
 // 设置文字颜色大小
-@mixin setFont ($color: $--black, $size:$--font-size-title-medium-ftm) {
+@mixin setFont ($color: $--black, $size:$--font-size-title-medium-Fi2) {
   font-size: $size;
   color: $color;
   line-height: 1;

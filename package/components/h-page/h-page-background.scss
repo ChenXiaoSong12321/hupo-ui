@@ -1,0 +1,12 @@
+@import '../../assets/scss/output';
+
+@include b(page) {
+  @include m(BgC2){
+    background: $--background-color-BgC2;
+  }
+
+  @include m(BgC3){
+    background: $--background-color-BgC3;
+  }
+
+}
