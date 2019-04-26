@@ -11,9 +11,9 @@ export default class PullRefresh {
 
   methods = {
     __getPageScroll__() {
-      const pageScroll = difference.selectComponent(this, 'h-page-scroll')
+      const pageScroll = difference.selectComponent(this, 'h-page')
       if (!pageScroll) {
-        console.error('请给h-page-scroll组件添加id：h-page-scroll，<h-page-scroll ref="h-page-scroll"></h-page-scroll>')
+        console.error('请给h-page-scroll组件添加id：h-page<h-page-scroll ref="h-page"></h-page-scroll>')
         return null
       }
       return pageScroll

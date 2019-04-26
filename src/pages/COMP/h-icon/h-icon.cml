@@ -12,8 +12,8 @@
         <h-icon name="el-icon-hp-tuikuan2" customStyle="color:red;"></h-icon>
         <h-icon name="el-icon-hp-iconfontpinglun"></h-icon>
         <h-icon name="el-icon-hp-search"></h-icon>
-        <h-icon name="el-icon-hp-home"></h-icon>
-        <h-icon name="el-icon-hp-shanchu"></h-icon>
+        <h-icon name="el-icon-hp-shibai"></h-icon>
+        <h-icon name="el-icon-hp-chenggong"></h-icon>
       </view>
     </view>
   </h-page>

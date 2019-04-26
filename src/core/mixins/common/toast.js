@@ -34,7 +34,7 @@ export default class HToast {
     },
     $loadingToast(options = {}) {
       options = parseOptions(options)
-      options = Object.assign(options, { message: '加载中', needIcon: true, type: 'loading', duration: options.duration || -1 })
+      options = Object.assign(options, { message: '加载中...', needIcon: true, type: 'loading', duration: options.duration || -1 })
       return this.$toast(options)
     },
     $clearToast() {
