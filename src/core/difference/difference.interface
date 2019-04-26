@@ -3,6 +3,7 @@ interface DifferenceInterface {}
 </script>
 
 <script cml-type="web">
+import getNetworkType from '../utils/getNetworkType'
   let app = {}
   class Difference implements DifferenceInterface {
     setApp(_app){
@@ -27,6 +28,9 @@ interface DifferenceInterface {}
     }
     async nextTick(){
       Vue && await Vue.nextTick()
+    }
+    getNetworkType(){
+      return getNetworkType()
     }
   }
   export default new Difference();
@@ -61,6 +65,9 @@ interface DifferenceInterface {}
       }else{
         await promise.delay(delay)
       }
+    }
+    getNetworkType(){
+      return wxTools.getNetworkType()
     }
   }
   export default new Difference();

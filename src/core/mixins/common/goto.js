@@ -3,8 +3,8 @@ import difference from '../../difference/difference.interface'
 let indexRoute = ''
 
 export default class Goto {
-  mounted(){
-    if(!indexRoute){
+  mounted() {
+    if (!indexRoute) {
       const app = difference.getApp()
       const data = app.data || app
       indexRoute = data.routerConfig.routes[0].path
@@ -24,7 +24,7 @@ export default class Goto {
       @加载过首页，会自动加载首页
     */
     $backToHome() {
-      const pages = difference.getCurrentPages();
+      const pages = difference.getCurrentPages()
       const first = pages[0]
       if (this.$isHomeRoute(first.route)) {
         this.$back(1 - pages.length)

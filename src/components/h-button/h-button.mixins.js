@@ -1,12 +1,12 @@
 class HButtonMixins {
   props = {
     customClass: {
-      type:String,
-      default:''
+      type: String,
+      default: ''
     },
     customStyle: {
-      type:String,
-      default:''
+      type: String,
+      default: ''
     },
     radius: {
       type: Boolean,
@@ -51,7 +51,7 @@ class HButtonMixins {
       return stateClass
     }
   }
-  
+
   methods = {
     async btnEmit(type, data = {}) {
       if (this.throttle > 0) {
@@ -59,9 +59,8 @@ class HButtonMixins {
       }
       this.$cmlEmit(type, data)
     }
-    
-  }
 
+  }
 }
 
 export default HButtonMixins

@@ -14,8 +14,10 @@ class App {
     routerConfig
   };
   async beforeCreate(){
-    this.$eventbus = new Eventbus()
     difference.setApp(this)
+    const network = await difference.getNetworkType()
+    console.log(network)
+    this.$eventbus = new Eventbus()
     const channel = await getChannel()
     if(channel == 'HP_WECHAT'){
       await loadScript('https://res2.wx.qq.com/open/js/jweixin-1.4.0.js')

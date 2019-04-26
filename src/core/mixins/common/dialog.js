@@ -1,18 +1,21 @@
 import { dialogOptions } from '../../../components/h-dialog/dialog'
 import difference from '../../difference/difference.interface'
-const defaultOptions = options => typeof options === 'string' ? {
+const parseOptions = options => typeof options === 'string' ? {
   message: options
 } : options
 
 export default class HDialog {
   methods = {
     __dialogSet__(options) {
-      const page = difference.selectComponent(this, 'h-page')
+      const current = difference.getCurrentPage()
+      console.log(current)
+      if (!current) return
+      const page = difference.selectComponent(current, 'h-page')
       if (!page) return
       return page.dialogSet(options)
     },
     $alert(options) {
-      options = defaultOptions(options)
+      options = parseOptions(options)
       options = dialogOptions({
         title: options.title || '',
         message: options.message || '',
@@ -23,7 +26,7 @@ export default class HDialog {
       return this.__dialogSet__(options)
     },
     $confirm(options) {
-      options = defaultOptions(options)
+      options = parseOptions(options)
       options = dialogOptions({
         title: options.title || '',
         message: options.message || '',
