@@ -12,9 +12,11 @@
     <view
       class="h-popup-manager-content is-transition {{ transitionIn ? 'is-in' : 'is-leave' }} {{ position ? 'h-popup-manager-content--' + position : 'h-popup-manager-content--center' }}"
       style="z-index:{{zIndex+1}}"
-      c-catch:tap="contentTap"
+      c-bind:tap="closeevent"
     >
-      <slot></slot>
+      <view c-catch:tap="contentTap">
+        <slot></slot>
+      </view>
     </view>
   </view>
 </template>

@@ -76,20 +76,6 @@ export default function mix(...mixins) {
           const methodsList = lifetimes[key]
           if (methodsList && methodsList.length > 0) compose(...methodsList.reverse().map(f => f.bind(this)))(...args)
         }
-      },
-      $viewportCommonGetCurrentPage() {
-        // difference.viewportCommonGetCurrentPage()
-      },
-      $throttle(gapTime = 500) {
-        return new Promise((resolve, reject) => {
-          const nowTime = +new Date()
-          if (!this.__lastTapTime__ || nowTime - this.__lastTapTime__ > gapTime) {
-            this.__lastTapTime__ = nowTime
-            resolve()
-          } else {
-            reject('throttle')
-          }
-        })
       }
     }
   }

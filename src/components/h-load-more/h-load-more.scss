@@ -2,9 +2,8 @@
 @include b(loadmore){
   position: relative;
   width: 100%;
-  padding: 21px 0;
-  line-height: 20px;
-  font-size: 14px;
+  height: 120cpx;
+  font-size: 28cpx;
   @include flexCenter;
   @include e(wrap){
     width: 100%;
@@ -12,7 +11,7 @@
   }
   @include m(loading){
     @include h-loading;
-    margin-right: 4px
+    margin-right: 8cpx
   }
   @include e(tips) {
     display: inline-block;

@@ -23,27 +23,28 @@ class HToast {
     // needIcon: true,
     show$toastHasMask(){
       this.$toast({
-        message:'has mask',
+        message:'很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的提示',
+        duration: 200000,
         mask:true
       })
     },
     show$toast(){
-      this.$toast('perfect')
+      this.$toast('测试')
     },
     async show$toastAwait(){
       console.log('start toast')
-      await this.$toast('toast')
+      await this.$toast('提示框 await')
       console.log('complete toast')
     },
     show$loadingToast(){
-      this.$loadingToast()
-      setTimeout(() => {this.$clearToast()}, 3000);
+      this.$loadingToast('加载中...')
+      // setTimeout(() => {this.$clearToast()}, 3000);
     },
     failToast(){
-      this.$failToast('warn or error')
+      this.$failToast('错误提示')
     },
     successToast(){
-      this.$successToast('success')
+      this.$successToast('成功提示')
     }
   };
 }

@@ -1,8 +1,9 @@
 <template>
   <h-popup-manager show="{{show}}" mask="{{mask}}">
-    <view class="h-toast-content">
-      <image c-if="{{needIcon}}" src="{{IconMap[type]}}" class="h-toast-icon"></image>
-      <text class="h-toast-text">{{message}}</text>
+    <view class="h-toast-content h-toast-content--{{IconMap[type] ? 'square' : 'other'}}" >
+      <!-- <image c-if="{{needIcon}}" src="{{IconMap[type]}}" class="h-toast-icon"></image> -->
+      <h-icon c-if="{{IconMap[type]}}" name="{{IconMap[type]}}" class="h-toast-icon h-toast-icon--{{type}}"></h-icon>
+      <view class="h-toast-text">{{message}}</view>
     </view>
   </h-popup-manager>
 </template>
@@ -14,12 +15,14 @@ class HToast {
     duration: 3000,
     show: false,
     mask: false,
-    needIcon: true,
     IconMap: {
-      loading: require("./images/loading.gif"),
-      success: require("./images/succ.png"),
-      warn: require("./images/warn.png")
+      loading: 'el-icon-hp-jiazai1',
+      success: 'el-icon-hp-chenggong',
+      warn: 'el-icon-hp-shibai'
     }
+  }
+  mounted(){
+    console.log(this.type)
   }
   computed = {
     typeImg() {
@@ -34,29 +37,41 @@ export default new HToast();
 @import '../../assets/scss/output';
 
 @include b(toast){
+  @keyframes loading-rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  }
   @include e(content) {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 26cpx 32cpx;
-    color: #ccc;
-    background-color: rgba(37, 38, 45, 1);
-    border-radius: 4cpx;
+    @include flexCenter;
+    flex-direction: column;
+    background-color: rgba(51, 51, 51, .9);
+    border-radius: 8cpx;
+    max-width: 510cpx;
+    overflow: hidden;
+    @include m(square) {
+      width: 220cpx;
+      height: 220cpx;
+    }
+    @include m(other) {
+      padding: 13cpx 20cpx;
+    }
   }
   @include e(icon) {
-    width: 48cpx;
-    height: 48cpx;
-    margin-right: 16cpx;
+    color:#fff;
+    font-size:80cpx;
+    margin-bottom: 6cpx;
+    @include m(loading) {
+      animation: loading-rotate 1s steps(12, end) infinite;
+    }
   }
   @include e(text) {
-    font-size: 32cpx;
     color: #fff;
-    flex: 1;
-    line-height: 40cpx;
-    font-size: 28cpx;
-    max-width: 600cpx;
-    max-height: 80cpx;
-    overflow: hidden;
+    line-height: 1.5;
+    font-size: 26cpx;
   }
 }
 </style>
@@ -64,7 +79,8 @@ export default new HToast();
 {
     "base": {
         "usingComponents": {
-          "h-popup-manager": "../h-popup-manager/h-popup-manager"
+          "h-popup-manager": "../h-popup-manager/h-popup-manager",
+          "h-icon": "../h-icon/h-icon"
         },
         "component": true
     }
