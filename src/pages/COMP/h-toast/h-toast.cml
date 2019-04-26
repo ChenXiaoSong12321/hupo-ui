@@ -4,6 +4,7 @@
       <h-toast ref="h-toast"></h-toast>
       <h-button class="btn" c-bind:onclick="show$toast">this.$toast()</h-button>
       <h-button class="btn" c-bind:onclick="show$toastHasMask">this.$toast('has mask')</h-button>
+      <h-button class="btn" c-bind:onclick="show$toastAwait">this.$toast() with await</h-button>
       <h-button class="btn" c-bind:onclick="show$loadingToast">this.$loadingToast()</h-button>
       <h-button class="btn" c-bind:onclick="failToast">this.$failToast()</h-button>
       <h-button class="btn" c-bind:onclick="successToast">this.$successToast()</h-button>
@@ -28,6 +29,11 @@ class HToast {
     },
     show$toast(){
       this.$toast('perfect')
+    },
+    async show$toastAwait(){
+      console.log('start toast')
+      await this.$toast('toast')
+      console.log('complete toast')
     },
     show$loadingToast(){
       this.$loadingToast()
