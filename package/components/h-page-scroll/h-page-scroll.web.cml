@@ -37,7 +37,9 @@ import component from "../../core/mixins/component.js"
 class HPageScroll {
   computed = {
     scrollHeight() {
-      return Math.ceil( cml.cpx2px(this.viewport.viewportHeight) - this.viewport.headerHeight - ( this.viewport.isAllScreen ? this.viewport.bottomHeight : 0 ) );
+      const subtract = cml.cpx2px(this.subtract)
+      const viewportHeight = cml.cpx2px(this.viewport.viewportHeight)
+      return Math.ceil( viewportHeight - this.viewport.headerHeight - ( this.viewport.isAllScreen ? this.viewport.bottomHeight : 0 ) - subtract );
     }
   };
 

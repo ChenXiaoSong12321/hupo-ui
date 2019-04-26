@@ -1,4 +1,4 @@
-import {$throttle} from '../../core/utils/throttle'
+import { throttle } from '../../core/utils/throttle'
 class HButtonMixins {
   props = {
     customClass: {
@@ -56,7 +56,7 @@ class HButtonMixins {
   methods = {
     async btnEmit(type, data = {}) {
       if (this.throttle > 0) {
-        await $throttle(this.throttle)
+        await throttle(this.throttle)
       }
       this.$cmlEmit(type, data)
     }
