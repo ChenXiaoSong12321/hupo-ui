@@ -1,8 +1,5 @@
 <template>
-  <view
-    c-if="{{visible}}"
-    class="h-popup-manager {{ visible ? 'h-popup-manager--show' : '' }}"
-  >
+  <view c-if="{{visible}}" class="h-popup-manager {{ visible ? 'h-popup-manager--show' : '' }}">
     <view
       class="h-popup-manager-mask is-transition {{mask?'is-has-mask':''}} {{ transitionIn ? 'is-in' : 'is-leave' }}"
       style="z-index:{{zIndex}}"
@@ -56,17 +53,15 @@ class HPopupManager {
       zindexManager=zindexManager+2
       this.zIndex = zindexManager
       this.visible = true;
-      setTimeout(() => {
+      this.$setTimeout(() => {
         this.transitionIn = true;
       }, 50);
     },
     hideMask() {
       this.transitionIn = false;
-      setTimeout(() => {
+      this.$setTimeout(() => {
         this.visible = false;
       }, 300);
-    },
-    contentTap() {
     }
   };
 }

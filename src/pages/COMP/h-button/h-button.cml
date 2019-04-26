@@ -28,7 +28,7 @@ class HPageButton {
       console.log("onclick button");
     },
     onPullup(e){
-      setTimeout(() => {
+      this.$setTimeout(() => {
         e.detail.stop()
         console.log(e.detail)
       }, 2000);

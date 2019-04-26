@@ -179,14 +179,14 @@ class Demo {
       });
     },
     onPulldown(e){
-      setTimeout(() => {
+      this.$setTimeout(() => {
         console.log(111)
         e.detail.stop()
       }, 3000);
       console.log(e.detail)
     },
     onPullup(e){
-      setTimeout(() => {
+      this.$setTimeout(() => {
         console.log(222)
         e.detail.stop()
       }, 2000);

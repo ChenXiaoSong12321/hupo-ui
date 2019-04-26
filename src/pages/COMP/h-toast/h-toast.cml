@@ -37,7 +37,7 @@ class HToast {
     },
     show$loadingToast(){
       this.$loadingToast()
-      setTimeout(() => {this.$clearToast()}, 3000);
+      this.$setTimeout(() => {this.$clearToast()}, 3000);
     },
     failToast(){
       this.$failToast('warn or error')

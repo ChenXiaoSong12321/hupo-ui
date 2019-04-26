@@ -87,7 +87,7 @@ class HPageInput {
   }
   mounted(res) {
     console.log('mounted')
-    setTimeout(() => {
+    this.$setTimeout(() => {
       this.isfocus = true;
     }, 300);
   }
