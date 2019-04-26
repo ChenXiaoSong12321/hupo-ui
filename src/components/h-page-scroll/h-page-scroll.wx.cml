@@ -1,6 +1,6 @@
 <template>
-  <page title="{{title}}">
-    <view class="h-page">
+  <page class="llll" title="{{title}}">
+    <view class="h-page h-page--{{background}}">
       <h-navbar
         type="{{type}}"
         loading="{{loading}}"
@@ -29,7 +29,7 @@ import component from "../../core/mixins/component.js"
 class HPageScroll {
   computed = {
     scrollHeight() {
-      return parseInt( cml.cpx2px(this.viewport.viewportHeight) - this.viewport.headerHeight - ( this.viewport.isAllScreen ? this.viewport.bottomHeight : 0 ) );
+      return Math.ceil( cml.cpx2px(this.viewport.viewportHeight) - this.viewport.headerHeight - ( this.viewport.isAllScreen ? this.viewport.bottomHeight : 0 ) );
     }
   };
 

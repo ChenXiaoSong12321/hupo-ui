@@ -1,7 +1,7 @@
 <template>
-  <page title="{{title}}">
+  <page class="llll" title="{{title}}">
     <view
-      class="h-page {{ disableScroll ? 'h-page--disable-scroll' : '' }}"
+      class="h-page h-page--{{background}} {{ disableScroll ? 'h-page--disable-scroll' : '' }}"
       style="height: {{viewportHeight}}px;"
     >
       <h-navbar
