@@ -1,8 +1,8 @@
-function getNetworkType() {
-  var ua = navigator.userAgent
-  var networkStr = ua.match(/NetType\/\w+/) ? ua.match(/NetType\/\w+/)[0] : 'NetType/other'
+const getNetworkType = () => new Promise(resolve => {
+  const ua = navigator.userAgent
+  let networkStr = ua.match(/NetType\/\w+/) ? ua.match(/NetType\/\w+/)[0] : 'NetType/other'
   networkStr = networkStr.toLowerCase().replace('nettype/', '')
-  var networkType
+  let networkType
   switch (networkStr) {
     case 'wifi':
       networkType = 'wifi'
@@ -10,10 +10,7 @@ function getNetworkType() {
     case '4g':
       networkType = '4g'
       break
-    case '3g':
-      networkType = '3g'
-      break
-    case '3gnet':
+    case '3g' || '3gnet':
       networkType = '3g'
       break
     case '2g':
@@ -22,6 +19,6 @@ function getNetworkType() {
     default:
       networkType = 'other'
   }
-  return networkType
-}
+  resolve({ networkType })
+})
 export default getNetworkType
