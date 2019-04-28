@@ -22,7 +22,7 @@ const noPromiseMethods = {
 }
 
 const wxTools = {}
-if (wx) {
+if (typeof wx !== 'undefined') {
   Object.keys(wx).forEach((key) => {
     if (
       noPromiseMethods[key] || // 特别指定的方法
