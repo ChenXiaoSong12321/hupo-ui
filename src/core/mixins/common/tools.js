@@ -19,11 +19,20 @@ export default class HTool {
     },
     $loadingNavbar() {
       const page = this.$getPageComponent()
-      page.loading = true
+      if (page) page.loading = true
     },
     $clearLoadingNavbar() {
       const page = this.$getPageComponent()
-      page.loading = false
+      if (page) page.loading = false
+    },
+    $getPageTitle() {
+      const page = this.$getPageComponent()
+      if (page) return page.selfTitle
+      else return ''
+    },
+    $setPageTitle(title) {
+      const page = this.$getPageComponent()
+      if (page) page.selfTitle = title
     }
   }
 }

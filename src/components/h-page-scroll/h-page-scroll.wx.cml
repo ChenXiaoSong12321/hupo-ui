@@ -1,10 +1,10 @@
 <template>
-  <page class="llll" title="{{title}}">
+  <page title="{{selfTitle}}">
     <view class="h-page h-page--{{background}}">
       <h-navbar
         type="{{type}}"
         loading="{{loading}}"
-        title="{{title}}"
+        title="{{selfTitle}}"
         showHomeIcon="{{showHomeIcon}}"
         fixed
       ></h-navbar>
@@ -24,36 +24,41 @@
 </template>
 <script>
 import cml from "chameleon-api";
-import HPageMixins from '../h-page/h-page.mixin'
-import component from "../../core/mixins/component.js"
+import HPageMixins from "../h-page/h-page.mixin";
+import component from "../../core/mixins/component.js";
 
 class HPageScroll {
   computed = {
     scrollHeight() {
-      const subtract = cml.cpx2px(this.subtract)
-      const viewportHeight = cml.cpx2px(this.viewport.viewportHeight)
-      return Math.ceil( viewportHeight - this.viewport.headerHeight - ( this.viewport.isAllScreen ? this.viewport.bottomHeight : 0 ) - subtract );
+      const subtract = cml.cpx2px(this.subtract);
+      const viewportHeight = cml.cpx2px(this.viewport.viewportHeight);
+      return Math.ceil(
+        viewportHeight -
+          this.viewport.headerHeight -
+          (this.viewport.isAllScreen ? this.viewport.bottomHeight : 0) -
+          subtract
+      );
     }
   };
 
   methods = {
-    pullup(){
-      if(!!this.status)return
-      this.status = 'pullup'
-      this.$cmlEmit('pullup', this)
+    pullup() {
+      if (!!this.status) return;
+      this.status = "pullup";
+      this.$cmlEmit("pullup", this);
     },
-    pulldown(){
-      if(!!this.status)return
-      this.status = 'pulldown'
-      this.$cmlEmit('pulldown', this)
+    pulldown() {
+      if (!!this.status) return;
+      this.status = "pulldown";
+      this.$cmlEmit("pulldown", this);
     },
-    stop(){
-      this.status = ''
-      wx.stopPullDownRefresh()
+    stop() {
+      this.status = "";
+      wx.stopPullDownRefresh();
     }
-  }
+  };
 }
-export default component(HPageMixins, HPageScroll)
+export default component(HPageMixins, HPageScroll);
 </script>
 <style lang="scss">
 @import "./h-page-scroll.wx.scss";
