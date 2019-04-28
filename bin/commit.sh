@@ -1,10 +1,18 @@
 #!/bin/bash
 
 function git-branch-name {
-  git symbolic-ref --short -q HEAD
+  branch=`git symbolic-ref --short -q HEAD`
+  echo $branch
 }
 
-cd ../
+function get-project-path {
+  path=`pwd`
+  path=${path//bin/}
+  echo $path
+}
+
+path=`get-project-path`
+cd $path
 branch=`git-branch-name`
 echo "执行提交 当前在$branch分支"
 
