@@ -10,6 +10,7 @@
       ></h-navbar>
       <view class="h-page-container" style="min-height: {{scrollHeight}}px">
         <h-dialog ref="h-dialog" c-bind:confirm="dialogConfirm" c-bind:cancel="dialogCancel"></h-dialog>
+        <h-toast ref="h-toast"></h-toast>
         <slot></slot>
         <view class="h-page-pullup">
           <h-load-more loading="{{status == 'pullup'}}"></h-load-more>

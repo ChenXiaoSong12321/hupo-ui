@@ -1,5 +1,5 @@
 <template>
-  <h-fixed position="{{useFixedLayout?'fixed':'absolute'}}" bottom="0" place-height="{{height}}">
+  <h-fixed position="{{useFixedLayout?'fixed':'absolute'}}" bottom="0" place-height="{{height}}cpx">
     <view class="h-tab-bar">
       <view class="h-tab-bar-wrap " style="{{tabbar.tabbarStyle || ';'}}">
         <view c-for="{{tabbar.list }}" c-key="text" class="h-tab-bar-item-wrap">
@@ -54,8 +54,8 @@ tabbar:{
       tapedIndex: 0,
       height:100
     }
-    beforeCreate(){
-      this.$cmlEmit('height', this.height)
+   created(){
+      this.$cmlEmit('height', {height: this.height})
     }
     computed = {
       useFixedLayout() {
