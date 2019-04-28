@@ -5,7 +5,7 @@
   "scripts": {
     "build": "cml wx build && cml web build",
     "build-web": "cml web build",
-    "commit": "cd bin && ./commit.sh",
+    "commit": "cd ./bin && sh ./commit.sh",
     "publish": "node ./bin/changeVersion.js && sh ./bin/build.sh && cd package && npm publish"
   },
   "author": "Hupo-Team",
