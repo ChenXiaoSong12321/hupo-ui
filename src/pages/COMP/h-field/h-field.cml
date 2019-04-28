@@ -1,30 +1,42 @@
 <template>
   <h-page ref="h-page" title="h-field 演示">
     <view class="container">
-      <h-field></h-field>
+      <h-field class="h-field-page" useSlot placeholder="空的什么都没有" label="坑得很" icon="el-icon-hp-chenggong" c-model="{{inputval}}">
+        <h-button size="small">烦烦烦</h-button>
+      </h-field>
+      <h-field class="h-field-page" placeholder="空的什么都没有">
+      </h-field>
+      <h-field class="h-field-page" placeholder="空的什么都没有" useSlot label="坑得很" is-last>
+        <h-button size="small">烦烦烦</h-button>
+      </h-field>
     </view>
   </h-page>
 </template>
 <script>
 import page from "../../../core/mixins/page";
-class HPageField {}
+class HPageField {
+  data={
+    inputval:''
+  }
+  watch = {
+    inputval(n){
+      console.log(n)
+    }
+  }
+}
 
 export default page(HPageField);
 </script>
-<style scoped>
-.container {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  align-items: center;
-}
+<style scoped lang="scss">
+
 </style>
 <script cml-type="json">
 {
   "base": {
     "usingComponents": {
       "h-page": "/components/h-page/h-page",
-      "h-field": "/components/h-field/h-field"
+      "h-field": "/components/h-field/h-field",
+      "h-button": "/components/h-button/h-button"
     },
     "navigationBarTitleText": "h-field",
     "backgroundTextStyle": "dark",

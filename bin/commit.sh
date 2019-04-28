@@ -1,8 +1,7 @@
 #!/bin/bash
 
 function git-branch-name {
-  branch=`git symbolic-ref --short -q HEAD`
-  echo $branch
+  git symbolic-ref --short -q HEAD
 }
 
 function get-project-path {

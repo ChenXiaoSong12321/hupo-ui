@@ -68,7 +68,7 @@ class HButton implements ButtonInterface {
   };
 }
 
-export default createComponent(HButton, HButtonMixins)
+export default createComponent(HButtonMixins, HButton)
 </script>
 
 <style lang="scss">

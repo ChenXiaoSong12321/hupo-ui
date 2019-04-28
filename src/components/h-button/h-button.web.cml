@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import HButtonMixins from './h-button.mixins.js';
+import HButtonMixins from './h-button.mixins.js'; 
 import createComponent from "../../core/mixins/component.js";
 
 class HButton implements ButtonInterface{
@@ -23,8 +23,8 @@ class HButton implements ButtonInterface{
     contact(e){
       console.log('todo contact')
     },
-    getphonenumber(e){
-      console.log('todo getphonenumber')
+    getphonenumber(e){ 
+      console.log('todo getphonenumber') 
     },
     error(e){
       console.log('todo error')
@@ -49,7 +49,7 @@ class HButton implements ButtonInterface{
     }
   }
 }
-export default createComponent(HButton, HButtonMixins)
+export default createComponent(HButtonMixins, HButton)
 </script>
 
 <style lang="scss">

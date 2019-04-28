@@ -3,18 +3,20 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [hupo-ui](#hupo-ui)
-    - [1 如何开发](#1-%E5%A6%82%E4%BD%95%E5%BC%80%E5%8F%91)
-    - [2 目录概述](#2-%E7%9B%AE%E5%BD%95%E6%A6%82%E8%BF%B0)
-    - [4 多端预览效果](#4-%E5%A4%9A%E7%AB%AF%E9%A2%84%E8%A7%88%E6%95%88%E6%9E%9C)
+    - [如何开发](#%E5%A6%82%E4%BD%95%E5%BC%80%E5%8F%91)
+    - [目录概述](#%E7%9B%AE%E5%BD%95%E6%A6%82%E8%BF%B0)
+    - [多端预览效果](#%E5%A4%9A%E7%AB%AF%E9%A2%84%E8%A7%88%E6%95%88%E6%9E%9C)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # hupo-ui
+
 本仓库为 `cml` 框架的扩展组件库，提供丰富的组件能力
 
 详细见[cml扩展组件文档](https://cmljs.org/doc/component/expand/expand.html)
 
 例如:
+
 ```html
 <script cml-type="json">
 {
@@ -27,13 +29,14 @@
 </script>
 ```
 
-### 1 如何开发
+### 如何开发
 
 ```javascript
 npm install
 cml dev  //开始开发
 ```
-### 2 目录概述
+
+### 目录概述
 
 ```javascript
 .
@@ -98,7 +101,7 @@ cml dev  //开始开发
 4. 当前以上的工作都是为了可以实时查看开发的组件的效果做准备，接下来就需要去`src/components`中去开发我们对应的组件
 5. enjoy yourself
 
-### 4 多端预览效果
+### 多端预览效果
 
 | web   |      微信小程序      |  native-weex |
 |:----------:|:-------------:|:------:|

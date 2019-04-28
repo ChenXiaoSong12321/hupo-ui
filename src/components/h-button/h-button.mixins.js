@@ -22,7 +22,7 @@ class HButtonMixins {
       default: false
     },
     throttle: {
-      type: Number,
+      type: [Number, String],
       default: 500 // 当throttle <= 0，无防暴力点击
     },
     disabled: {
