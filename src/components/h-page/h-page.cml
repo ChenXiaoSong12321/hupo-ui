@@ -12,7 +12,7 @@
       ></h-navbar>
       <view class="h-page-container">
         <h-dialog ref="h-dialog" c-bind:confirm="dialogConfirm" c-bind:cancel="dialogCancel"></h-dialog>
-        <h-toast ref="h-toast" c-bind:confirm="dialogConfirm" c-bind:cancel="dialogCancel"></h-toast>
+        <h-toast ref="h-toast"></h-toast>
         <scroller
           height="{{scrollHeight}}"
           bottomOffset="{{bottomOffset}}"

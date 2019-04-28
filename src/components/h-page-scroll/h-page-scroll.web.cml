@@ -10,6 +10,7 @@
       <view class="h-page-wrapper" ref="wrapper" style="height: {{scrollHeight}}px">
         <view class="h-page-container" style="min-height: {{scrollHeight + 1}}px">
           <h-dialog ref="h-dialog" c-bind:confirm="dialogConfirm" c-bind:cancel="dialogCancel"></h-dialog>
+          <h-toast ref="h-toast"></h-toast>
           <!-- 刷新提示信息 -->
           <view class="h-page-pulldown">
             <h-navbar-loading show></h-navbar-loading>
