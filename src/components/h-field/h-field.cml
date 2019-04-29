@@ -10,14 +10,16 @@
         <slot class="h-field-slot"></slot>
       </view>
     </view>
-    <view class="h-field-bottom-line-wrap" c-if="{{!isLast}}">
+    <view class="h-field-bottom-line-wrap" c-if="{{!border}}">
       <view class="h-field-bottom-line"></view>
     </view>
   </view>
 </template>
 
 <script>
-class FormatDate {
+import HInput from './h-input.mixins.js'
+import component from "../../core/mixins/component.js";
+class HField {
   props = {
     icon:{
       type: String, 
@@ -39,7 +41,7 @@ class FormatDate {
       type: String,
       default:''
     },
-    isLast:{
+    border:{
       type: Boolean,
       default:false
     }
@@ -62,7 +64,7 @@ class FormatDate {
     }
   }
 }
-export default new FormatDate()
+export default component(HInput, HField) 
 </script>
 <style lang="scss">
 @import './h-field.scss';

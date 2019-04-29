@@ -21,16 +21,6 @@ class HToast {
       success: 'el-icon-hp-chenggong'
     }
   }
-  watch = {
-    type(n){
-      console.log(n)
-    }
-  }
-  computed = {
-    typeImg() {
-      return this.IconMap[this.type];
-    }
-  }
 }
 
 export default new HToast();

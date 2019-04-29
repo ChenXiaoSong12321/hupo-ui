@@ -101,6 +101,7 @@ export default component(HPageMixins, HPageScroll);
       "h-navbar": "../h-navbar/h-navbar",
       "h-navbar-loading": "../h-navbar/components/loading/loading",
       "h-load-more": "../h-load-more/h-load-more",
+      "h-toast": "../h-toast/h-toast",
       "h-dialog": "../h-dialog/h-dialog"
     },
     "component": true

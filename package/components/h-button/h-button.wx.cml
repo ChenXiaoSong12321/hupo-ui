@@ -30,7 +30,7 @@ class HButton implements ButtonInterface {
       this.btnEmit("getuserinfo", e.detail);
     },
     contact(e) {
-      this.btnEmit("contact");
+      this.btnEmit("contact", e.detail);
     },
     getphonenumber(e) {
       this.btnEmit("getphonenumber", e.detail);
@@ -68,7 +68,7 @@ class HButton implements ButtonInterface {
   };
 }
 
-export default createComponent(HButton, HButtonMixins)
+export default createComponent(HButtonMixins, HButton);
 </script>
 
 <style lang="scss">

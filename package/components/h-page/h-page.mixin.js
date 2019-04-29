@@ -31,8 +31,15 @@ class HPageMixins {
   data = {
     loading: false,
     viewport: defaultData,
-    status: ''
+    status: '',
+    selfTitle: ''
   };
+
+  watch = {
+    title(val) {
+      this.selfTitle = val
+    }
+  }
 
   computed = {
     viewportHeight() {
@@ -41,6 +48,7 @@ class HPageMixins {
   };
 
   async created() {
+    this.selfTitle = this.title
     const data = await calculate()
     this.viewport = data
   }
