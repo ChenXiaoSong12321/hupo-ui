@@ -48,10 +48,12 @@ export default function mix(...mixins) {
         }
       })
     }
-    beforeCreate(...args) {
+    async beforeCreate(...args) {
+      await difference.nextTick()
       // beforeCreate -- 实例未生成，无法调用 _lifetimes 方法
-      const methodsList = lifetimes['beforeCreate']
-      if (methodsList && methodsList.length > 0) compose(...methodsList.reverse().map(f => f.bind(this)))(...args)
+      // const methodsList = lifetimes['beforeCreate']
+      // if (methodsList && methodsList.length > 0) compose(...methodsList.reverse().map(f => f.bind(this)))(...args)
+      this._lifetimes('beforeCreate').apply(this, arguments)
     }
     created() {
       this._lifetimes('created').apply(this, arguments)

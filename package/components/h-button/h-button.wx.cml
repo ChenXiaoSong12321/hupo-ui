@@ -21,7 +21,7 @@
 
 <script>
 import HButtonMixins from "./h-button.mixins.js";
-import createComponent from "../../core/mixins/component.js";
+import component from "../../core/mixins/component.js";
 
 class HButton implements ButtonInterface {
   methods = {
@@ -68,7 +68,7 @@ class HButton implements ButtonInterface {
   };
 }
 
-export default createComponent(HButtonMixins, HButton);
+export default component(HButtonMixins, HButton);
 </script>
 
 <style lang="scss">
