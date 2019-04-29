@@ -1,5 +1,5 @@
 <template>
-  <page class="llll" title="{{title}}">
+  <page title="{{selfTitle}}">
     <view
       class="h-page h-page--{{background}} {{ disableScroll ? 'h-page--disable-scroll' : '' }}"
       style="height: {{viewportHeight}}px;"
@@ -7,7 +7,7 @@
       <h-navbar
         type="{{type}}"
         loading="{{loading}}"
-        title="{{title}}"
+        title="{{selfTitle}}"
         showHomeIcon="{{showHomeIcon}}"
       ></h-navbar>
       <view class="h-page-container">
@@ -30,7 +30,7 @@
 </template>
 <script>
 import cml from "chameleon-api";
-import HPageMixins from './h-page.mixin'
+import HPageMixins from "./h-page.mixin";
 import component from "../../core/mixins/component.js";
 
 class HPage {
@@ -51,24 +51,29 @@ class HPage {
 
   computed = {
     scrollHeight() {
-      const headerHeight = cml.px2cpx(this.viewport.headerHeight)
-      const bottomHeight = cml.px2cpx(this.viewport.bottomHeight)
-      return Math.ceil( this.viewport.viewportHeight - headerHeight - (this.viewport.isAllScreen ? bottomHeight : 0) - this.subtract );
+      const headerHeight = cml.px2cpx(this.viewport.headerHeight);
+      const bottomHeight = cml.px2cpx(this.viewport.bottomHeight);
+      return Math.ceil(
+        this.viewport.viewportHeight -
+          headerHeight -
+          (this.viewport.isAllScreen ? bottomHeight : 0) -
+          this.subtract
+      );
     }
   };
 
   methods = {
-    pullup(){
-      if(!!this.status)return
-      this.status = 'pullup'
-      this.$cmlEmit('pullup', this)
+    pullup() {
+      if (!!this.status) return;
+      this.status = "pullup";
+      this.$cmlEmit("pullup", this);
     },
-    stop(){
-      this.status = ''
+    stop() {
+      this.status = "";
     }
-  }
+  };
 }
-export default component(HPageMixins, HPage)
+export default component(HPageMixins, HPage);
 </script>
 <style lang="scss">
 @import "./h-page.scss";
