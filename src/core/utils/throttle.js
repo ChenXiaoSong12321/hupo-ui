@@ -23,7 +23,12 @@ export const debounce = (waitTime = 500) => new Promise((resolve, reject) => {
     clear()
   }
   debounceCache = {
-    timeId: setTimeout(resolve, waitTime),
+    timeId: setTimeout(() => {
+      resolve()
+      clearTimeout(debounceCache.timeId)
+      delete debounceCache.timeId
+      delete debounceCache.reject
+    }, waitTime),
     reject
   }
 })
