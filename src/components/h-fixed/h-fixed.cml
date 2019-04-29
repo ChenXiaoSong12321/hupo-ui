@@ -1,5 +1,5 @@
 <template>
-  <view class="h-fixed" style="height: {{height}}px">
+  <view class="h-fixed" style="height: {{height}}">
     <view class="h-fixed-wrap" style="z-index: {{zIndex}}; {{wrapperStyle}}">
       <view class="h-fixed-content" style="z-index: {{zIndex}}; {{style}}">
         <slot></slot>
@@ -124,7 +124,9 @@ class HFiexed {
     },
     height() {
       if (this.placeHeight !== '') {
-        return cml.cpx2px(parseInt(this.placeHeight))
+        return `${cml.cpx2px(parseInt(this.placeHeight))}px`
+      }else{
+        return 'auto'
       }
     }
   }
