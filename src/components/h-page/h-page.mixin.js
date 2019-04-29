@@ -48,9 +48,9 @@ class HPageMixins {
   };
 
   async created() {
+    this.selfTitle = this.title
     const data = await calculate()
     this.viewport = data
-    this.selfTitle = this.title
   }
 
   methods = {
