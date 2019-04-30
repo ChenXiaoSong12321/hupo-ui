@@ -27,11 +27,6 @@
       "path": "/pages/COMP/h-loading/h-loading"
     },
     {
-      "name": "h-image",
-      "url": "/pages/COMP/h-image/h-image",
-      "path": "/pages/COMP/h-image/h-image"
-    },
-    {
       "name": "h-tag",
       "url": "/pages/COMP/h-tag/h-tag",
       "path": "/pages/COMP/h-tag/h-tag"

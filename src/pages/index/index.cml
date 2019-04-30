@@ -1,5 +1,5 @@
 <template>
-<h-page-scroll ref="h-page" title="hupo-ui组件展示" background="BgC2" c-bind:pulldown="onPulldown" c-bind:pullup="onPullup">
+<h-page ref="h-page" title="hupo-ui组件展示" background="BgC2">
   <view class="index-page">
     <view class="index-body" style="{{bodyComputedStyl}}">
       <view ref="index-content-wrap" class="index-content-wrap" style="{{computedStyle}}">
@@ -50,7 +50,7 @@
       </view>
     </view>
   </view>
-</h-page-scroll>
+</h-page>
 </template>
 <script>
 import cml from "chameleon-api"
@@ -68,22 +68,30 @@ class Demo {
   data = {
     comList: [
       {
-        cid: "content",
-        name: "基础内容",
+        cid: "content1",
+        name: "基础内容-弹出层",
         open: false,
         pages: [
           routeObj["h-toast"],
           routeObj["h-popup-manager"],
           routeObj["h-popup"],
           routeObj["h-dialog"],
+          routeObj["h-loading"]
+        ],
+        src: require(`../../assets/images/component/kind/content.png`)
+      },
+      {
+        cid: "content2",
+        name: "基础内容-展示",
+        open: false,
+        pages: [
           routeObj["h-icon"],
-          routeObj["h-image"],
+          // routeObj["h-image"],
           routeObj["h-load-more"],
-          routeObj["h-loading"],
           routeObj["h-tag"],
           routeObj["h-progress"],
           routeObj["h-filter"],
-          routeObj["h-carousel"],
+          routeObj["h-carousel"]
         ],
         src: require(`../../assets/images/component/kind/content.png`)
       },
@@ -179,20 +187,20 @@ class Demo {
         path: path
       });
     },
-    onPulldown(e){
-      this.$setTimeout(() => {
-        console.log(111)
-        e.detail.stop()
-      }, 3000);
-      console.log(e.detail)
-    },
-    onPullup(e){
-      this.$setTimeout(() => {
-        console.log(222)
-        e.detail.stop()
-      }, 20000);
-      console.log(e.detail)
-    }
+    // onPulldown(e){
+    //   this.$setTimeout(() => {
+    //     console.log(111)
+    //     e.detail.stop()
+    //   }, 3000);
+    //   console.log(e.detail)
+    // },
+    // onPullup(e){
+    //   this.$setTimeout(() => {
+    //     console.log(222)
+    //     e.detail.stop()
+    //   }, 20000);
+    //   console.log(e.detail)
+    // }
   }
 
   beforeCreate() {

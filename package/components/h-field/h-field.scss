@@ -4,8 +4,9 @@
   @include flexCenter(vertical);
   height: 88cpx;
   width: 100%;
+  background-color: #fff;
   @include e(wrap){
-    height: 88cpx;
+    // height: 88cpx;
     width: 100%;
   }
   @include e(icon){
