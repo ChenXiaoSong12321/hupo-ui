@@ -11,12 +11,14 @@
   padding: 0;
   border-radius: 0;
   color: $--font-color-FC1;
+  margin: 0;
   &::after{
     border: 0;
   }
   @include e(form){
     height: 100%;
     width: 100%;
+    display: block;
   }
   @include flexCenter();
 

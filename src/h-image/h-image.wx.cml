@@ -1,0 +1,168 @@
+<template>
+  <view class="h-image">
+    <block c-if="{{status == 'load-complete'}}">
+      <view class="h-image-loaded">
+        <origin-image class="image" src="{{url}}" mode="{{mode}}"></origin-image>
+      </view>
+    </block>
+    <block c-else-if="{{status == 'load-refresh'}}">
+      <view
+        class="h-image-load-fail"
+        c-bind:tap="reloadImage"
+        style="{{loadingHeight ? 'height: ' + loadingHeight : ''}}"
+      >
+        <h-icon class-name="el-icon-hp-shuaxin"></h-icon>
+      </view>
+    </block>
+    <block c-else-if="{{status == 'load-fail'}}">
+      <view class="h-image-loading" style="{{loadingHeight ? 'height: ' + loadingHeight : ''}}">
+        <origin-image class="image" src="{{unloadImg}}" mode="widthFix"></origin-image>
+      </view>
+    </block>
+    <block c-else>
+      <view class="h-image-loading" style="{{loadingHeight ? 'height: ' + loadingHeight : ''}}">
+        <origin-image class="image" src="{{unloadImg}}" mode="widthFix"></origin-image>
+      </view>
+      <!-- 隐藏的image，用于隐士加载 -->
+      <origin-image
+        class="h-image-hidden"
+        c-if="{{show || !lazyLoad}}"
+        src="{{url}}"
+        mode="{{mode}}"
+        bindload="__imageOnLoad"
+        binderror="__imageOnLoadError"
+      ></origin-image>
+    </block>
+  </view>
+</template>
+
+<script>
+import HImageMixins from "./h-image.mixins.js";
+import component from "../../core/mixins/component.js";
+import wxTools from "../../core/utils/wxTools.js";
+import difference from '../../core/difference/difference.interface' 
+import oprateUrl from '../../core/utils/url.js'
+// const promise = {}
+class HImage implements ImageInterface {
+  data = {
+    unloadImg: require("./image-load-background.png"),
+    show: false,
+    url: "",
+    i: 0,
+    status: "loading"
+  };
+  props = {
+    src: {
+      type: String,
+      default: ""
+    },
+    mode: {
+      type: String,
+      default: "widthFix"
+    },
+    loadingHeight: {
+      type: String,
+      default: ""
+    },
+    lazyLoad: {
+      type: Boolean,
+      default: true
+    },
+    reload: {
+      type: Boolean,
+      default: false
+    }
+  }
+
+  watch = {
+    src() {
+      this.init();
+    },
+    status(n){
+      console.log(n)
+    }
+  };
+
+  async created() {
+    this.init();
+    if (this.lazyLoad) {
+      // for(let i = 0; i < 10000; i++){
+      //   await this.$relativeToViewport(".h-image");
+      // }
+      await this.$relativeToViewport(".h-image");
+    }
+    this.show = true;
+  }
+  // beforeDestory(){
+  //   if(promise.reject)promise.reject()
+  //   delete promise.reject
+  //   delete promise.reject
+  // }
+
+  methods = {
+    async init() {
+      if (!this.src) return;
+      const data = await difference.getNetworkType()
+      if (data.networkType == "none") {
+        this.status = this.reload ? "load-refresh" : "load-fail";
+      } else {
+        this.url = this.src;
+      }
+    },
+    async $relativeToViewport(selector, bottom = 50) {
+      return new Promise((resolve, reject) => {
+        // promise = {resolve, reject}
+        if (!selector) reject("no selector");
+        let observer = this.createIntersectionObserver()
+        observer.relativeToViewport({ bottom }).observe(selector, res => {
+          observer.disconnect();
+          resolve({
+            res
+          });
+        });
+      });
+    },
+    reloadImage() {
+      if (this.status == "load-complete") return false;
+      let i = this.i;
+      this.url = oprateUrl.addUrlParam(this.src, { i });
+      this.i = i++;
+      this.status = "loading";
+    },
+    __imageOnLoad() {
+      this.status = "load-complete";
+      this.$cmlEmit("load");
+    },
+    __imageOnLoadError(e) {
+      this.status = this.reload ? "load-refresh" : "load-fail";
+      this.$cmlEmit("error");
+    }
+  }
+  pageLifetimes = {
+    async show() {
+      if (this.status == "load-fail") {
+        this.status = "loading";
+        await this.$relativeToViewport(".h-image");
+        this.reloadImage();
+      }
+    }
+  }
+}
+
+export default component(HImageMixins, HImage);
+</script>
+
+<style lang="scss">
+@import "./h-image.scss";
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-icon": "../h-icon/h-icon"
+    },
+    "component": true
+  }
+}
+</script>

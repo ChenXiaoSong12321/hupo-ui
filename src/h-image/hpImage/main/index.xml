@@ -1,0 +1,24 @@
+<view class="humall-image">
+  <block wx:if="{{status == 'load-complete'}}">
+    <view class="humall-image-loaded">
+      <image src="{{url}}" mode="{{mode}}"></image>
+    </view>
+  </block>
+  <block wx:elif="{{status == 'load-refresh'}}">
+    <view class="humall-image-load-fail" bindtap="reloadImage" style="{{loadingHeight ? 'height: ' + loadingHeight : ''}}">
+      <hp-icon class-name="el-icon-hp-shuaxin"></hp-icon>
+    </view>
+  </block>
+  <block wx:elif="{{status == 'load-fail'}}">
+    <view class="humall-image-loading" style="{{loadingHeight ? 'height: ' + loadingHeight : ''}}">
+      <image src="../assets/images/image-load-background.png" mode="widthFix"></image>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="humall-image-loading" style="{{loadingHeight ? 'height: ' + loadingHeight : ''}}">
+      <image src="../assets/images/image-load-background.png" mode="widthFix"></image>
+    </view>
+    <!-- 隐藏的image，用于隐士加载 -->
+    <image class="humall-image-hidden" wx:if="{{show || !lazyLoad}}" src="{{url}}" mode="{{mode}}" bindload="__imageOnLoad" binderror="__imageOnLoadError"></image>
+  </block>
+</view>
