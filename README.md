@@ -5,7 +5,6 @@
 - [hupo-ui](#hupo-ui)
     - [如何开发](#%E5%A6%82%E4%BD%95%E5%BC%80%E5%8F%91)
     - [目录概述](#%E7%9B%AE%E5%BD%95%E6%A6%82%E8%BF%B0)
-    - [多端预览效果](#%E5%A4%9A%E7%AB%AF%E9%A2%84%E8%A7%88%E6%95%88%E6%9E%9C)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -101,8 +100,3 @@ cml dev  //开始开发
 4. 当前以上的工作都是为了可以实时查看开发的组件的效果做准备，接下来就需要去`src/components`中去开发我们对应的组件
 5. enjoy yourself
 
-### 多端预览效果
-
-| web   |      微信小程序      |  native-weex |
-|:----------:|:-------------:|:------:|
-| <img src="./preview/web.jpg" width="200px"/> |  <img src="./preview/wx.png" width="200px"/>| <img src="./preview/weex.jpg" width="200px"/> |
