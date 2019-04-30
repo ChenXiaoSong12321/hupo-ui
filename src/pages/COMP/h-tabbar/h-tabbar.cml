@@ -1,12 +1,17 @@
 <template>
   <view>
-    <h-page ref="h-page" title="h-tabbar 演示">
+    <h-page-scroll ref="h-page" title="h-tabbar 演示" subtract="{{subtract}}">
       <component is="{{currentComp}}"></component>
       <!-- <bar-index c-show="{{currentComp === 'bar-index'}}"></bar-index>
-  <bar-trip c-show="{{currentComp === 'bar-trip'}}"></bar-trip>
+    <bar-trip c-show="{{currentComp === 'bar-trip'}}"></bar-trip>
       <bar-my c-show="{{currentComp === 'bar-my'}}"></bar-my>-->
-    </h-page>
-    <h-tabbar c-bind:tabbarclick="handleTabbarClick" c-model="{{currentComp}}" tabbar="{{tabbar}}"></h-tabbar>
+    </h-page-scroll>
+    <h-tabbar
+      c-bind:tabbarclick="handleTabbarClick"
+      c-bind:height="handleTabbarHeight"
+      c-model="{{currentComp}}"
+      tabbar="{{tabbar}}"
+    ></h-tabbar>
   </view>
 </template>
 
@@ -17,6 +22,7 @@ let preIndex = 0;
 class HTabbar {
   data = {
     viewportHeight: 0,
+    subtract: 0,
     currentComp: "bar-index",
     tabbar: {
       // "tabbarStyle":"height:120cpx;background-color:#BAF6E8",//tabbar最外层的样式支持自定义
@@ -61,6 +67,9 @@ class HTabbar {
       let info = await cml.getSystemInfo();
       console.log(info, "getSystemInfo");
       this.viewportHeight = Number(info.viewportHeight) - 120;
+    },
+    handleTabbarHeight(e) {
+      this.subtract = e.detail.height;
     }
   };
   mounted() {
@@ -75,6 +84,7 @@ export default page(HTabbar);
   "base":{
     "usingComponents": {
       "h-page": "/components/h-page/h-page",
+      "h-page-scroll": "/components/h-page-scroll/h-page-scroll",
       "h-tabbar": "/components/h-tabbar/h-tabbar",
       "bar-my":"./bar-my",
       "bar-trip":"./bar-trip",
