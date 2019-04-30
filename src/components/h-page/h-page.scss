@@ -3,9 +3,8 @@
 @include b(page) {
   display: flex;
   flex-direction: column;
-  height: 100%;
   @include e(container) {
-    flex: 1;
+    // flex: 1;
   }
 
   @include e(content) {

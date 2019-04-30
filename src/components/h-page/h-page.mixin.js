@@ -43,7 +43,7 @@ class HPageMixins {
 
   computed = {
     viewportHeight() {
-      return Math.ceil(cml.cpx2px(this.viewport.viewportHeight - this.subtract))
+      return Math.floor(cml.cpx2px(this.viewport.viewportHeight - this.subtract))
     }
   };
 
