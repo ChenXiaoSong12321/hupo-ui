@@ -32,6 +32,9 @@ import getNetworkType from '../utils/getNetworkType'
     getNetworkType(){
       return getNetworkType()
     }
+    getDataset(event){
+      return event.detail.currentTarget.dataset
+    }
   }
   export default new Difference();
 </script>
@@ -46,7 +49,6 @@ import getNetworkType from '../utils/getNetworkType'
     }
     getUrl(){
       const page = this.getCurrentPage()
-      console.log(page)
       return ''
     }
     getCurrentPages(){
@@ -68,6 +70,9 @@ import getNetworkType from '../utils/getNetworkType'
     }
     getNetworkType(){
       return wxTools.getNetworkType()
+    }
+    getDataset(event){
+      return event.currentTarget.dataset
     }
   }
   export default new Difference();
