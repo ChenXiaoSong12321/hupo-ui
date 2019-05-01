@@ -54,8 +54,6 @@ class HField {
       height: 80cpx;
       line-height: 80cpx;
       margin-top: 1px;
-      appearance:none;
-      background-color: transparent;
      `
    }
   }

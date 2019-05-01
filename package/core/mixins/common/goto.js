@@ -35,6 +35,25 @@ export default class Goto {
         })
       }
     },
+    $handleGoto(event){
+      const dataset = difference.getDataset(event)
+      let redirect = false
+      const query = {}
+      Object.keys(dataset).forEach(key => {
+        if(key.indexOf('query') > -1){
+          const queryKey = key.replace(/query([A-Z])/, (a,v)=>v.toLowerCase())
+          query[queryKey] = dataset[key]
+        }else if(key === 'redirect'){
+          redirect = true
+        }
+      })
+      const { path = '/' } = dataset
+      this.$goto({
+        path,
+        query,
+        redirect
+      })
+    },
     // 跳转
     // redirect -- 是否重定向
     $goto(options) {
@@ -42,6 +61,10 @@ export default class Goto {
         path = indexRoute, query = {}, redirect = false
       } = options
       if (redirect) {
+        const app = difference.getApp()
+        if(app.router && app.router.historys){
+          app.router.historys.pop()
+        }
         cml.redirectTo({
           path,
           query
