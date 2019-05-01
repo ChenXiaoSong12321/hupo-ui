@@ -45,7 +45,7 @@ class HButton implements ButtonInterface {
       console.log("onclick");
       const { disabled, openType } = this;
       if (disabled || openType) return;
-      this.btnEmit("onclick", e);
+      this.btnEmit("onclick", e.detail);
     },
     async handleFormSubmit(event) {
       // console.log(event,'handleFormSubmit')

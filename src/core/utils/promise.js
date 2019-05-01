@@ -18,8 +18,10 @@ export default {
   },
   del(id) {
     const app = difference.getApp()
-    app.promise[id] = null
-    delete app.promise[id]
+    if (app.promise[id]) {
+      app.promise[id] = null
+      delete app.promise[id]
+    }
   },
   delay(time) {
     return new Promise(resolve => {

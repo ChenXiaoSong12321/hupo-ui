@@ -33,7 +33,8 @@ import getNetworkType from '../utils/getNetworkType'
       return getNetworkType()
     }
     getDataset(event){
-      return event.detail.currentTarget.dataset
+      const currentTarget = event.currentTarget || event.detail.currentTarget
+      return currentTarget.dataset
     }
   }
   export default new Difference();

@@ -18,24 +18,22 @@ import createComponent from "../../core/mixins/component.js";
 class HButton implements ButtonInterface {
   methods = {
     getuserinfo(e) {
-      console.log(e, "getuserinfo");
-      this.btnEmit("getuserinfo", e.detail);
+      this.btnEmit("getuserinfo", e);
     },
     contact(e) {
-      this.btnEmit("contact", e.detail);
+      this.btnEmit("contact", e);
     },
     getphonenumber(e) {
-      this.btnEmit("getphonenumber", e.detail);
+      this.btnEmit("getphonenumber", e);
     },
     error(e) {
-      this.btnEmit("error", e.detail);
+      this.btnEmit("error", e);
     },
     opensetting(e) {
-      this.btnEmit("opensetting", e.detail);
+      this.btnEmit("opensetting", e);
     },
     onclick(e) {
       const { disabled, openType } = this;
-      console.log(openType, "sssssssssssss");
       if (disabled) return;
       if (openType) {
         this[openType.toLowerCase()](e);

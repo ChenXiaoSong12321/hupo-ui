@@ -1,7 +1,8 @@
 import cml from 'chameleon-api'
 import difference from '../../difference/difference.interface'
+import channelDifference from '../../utils/channelDifference'
+import wxTools from '../../utils/wxTools'
 let indexRoute = ''
-
 export default class Goto {
   mounted() {
     if (!indexRoute) {
@@ -17,6 +18,11 @@ export default class Goto {
     },
     // 返回
     $back(backPageNum = -1) {
+      const app = difference.getApp()
+      if (app.router && app.router.historys) {
+        const historys = app.router.historys
+        app.router.historys = historys.splice(0, historys.length - Math.abs(backPageNum))
+      }
       cml.navigateBack(backPageNum)
     },
     /*
@@ -24,30 +30,39 @@ export default class Goto {
       @加载过首页，会自动加载首页
     */
     $backToHome() {
-      const pages = difference.getCurrentPages()
-      const first = pages[0]
-      if (this.$isHomeRoute(first.route)) {
-        this.$back(1 - pages.length)
-      } else {
+      const reLaunch = () => {
+        const app = difference.getApp()
+        if (app.router && app.router.historys) {
+          app.router.historys = []
+        }
         this.$goto({
           path: indexRoute,
           redirect: true
         })
       }
+      channelDifference('HP_H5', reLaunch)
+      channelDifference('HP_WECHAT', reLaunch)
+      channelDifference('HP_MALL', () => {
+        wxTools.reLaunch({
+          url: indexRoute
+        })
+      })
     },
-    $handleGoto(event){
+    $handleGoto(event) {
       const dataset = difference.getDataset(event)
       let redirect = false
       const query = {}
       Object.keys(dataset).forEach(key => {
-        if(key.indexOf('query') > -1){
-          const queryKey = key.replace(/query([A-Z])/, (a,v)=>v.toLowerCase())
+        if (key.indexOf('query') > -1) {
+          const queryKey = key.replace(/query([A-Z])/, (a, v) => v.toLowerCase())
           query[queryKey] = dataset[key]
-        }else if(key === 'redirect'){
+        } else if (key === 'redirect') {
           redirect = true
         }
       })
-      const { path = '/' } = dataset
+      const {
+        path = '/'
+      } = dataset
       this.$goto({
         path,
         query,
@@ -62,7 +77,7 @@ export default class Goto {
       } = options
       if (redirect) {
         const app = difference.getApp()
-        if(app.router && app.router.historys){
+        if (app.router && app.router.historys) {
           app.router.historys.pop()
         }
         cml.redirectTo({
