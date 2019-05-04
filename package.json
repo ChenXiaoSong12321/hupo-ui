@@ -19,6 +19,7 @@
     "classnames": "2.2.6",
     "dayjs": "^1.8.12",
     "dayjs-plugin-utc": "^0.1.0",
+    "lozad": "^1.9.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0"
   },

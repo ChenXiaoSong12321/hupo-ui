@@ -1,0 +1,52 @@
+<template>
+  <h-page ref="h-page" title="h-search 演示">
+    <view class="container">
+        <h-search c-model="{{searchData}}" c-bind:onclick="handleClick" class="search"></h-search>
+        <h-search c-model="{{searchData}}" c-bind:onclick="handleClick" c-bind:oncancel="cancel" cancel class="search"></h-search>
+    </view>
+  </h-page>
+</template>
+<script>
+import page from "../../../core/mixins/page";
+class HPageSearch {
+  data = {
+    searchData:''
+  }
+  methods = {
+    handleClick(){
+      console.log('clicked search')
+    },
+    cancel(){
+      console.log('cancel search')
+    }
+  }
+}
+
+export default page(HPageSearch);
+</script>
+<style scoped lang="scss">
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+.search{
+  margin-top: 30cpx;
+  margin-bottom: 30cpx;
+  width:100%;
+}
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-page": "/components/h-page/h-page",
+      "h-search": "/components/h-search/h-search"
+    },
+    "navigationBarTitleText": "h-search",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#E2E2E2"
+  }
+}
+</script>

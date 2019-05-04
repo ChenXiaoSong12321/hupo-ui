@@ -1,0 +1,59 @@
+<template>
+  <view class="h-image">
+    <img src="{{unloadImg}}" class="image" c-if="{{status === 'loading' && false}}"></img>
+    <img class="lozad image"  data-src="{{src}}"></img>
+  </view>
+</template>
+
+<script>
+import HImageMixins from "./h-image.mixins.js";
+import component from "../../core/mixins/component.js";
+import lozad from "lozad";
+class HImage implements ImageInterface {
+  watch = {
+    status(n, o) {
+      console.log(n, o);
+    }
+  }
+
+  async beforeCreate() {
+    console.log(this,'beforeCreate')
+    let that = this
+    var observer = lozad(".lozad", {
+      threshold: 0.1,
+      load: el => {
+        el.src = el.getAttribute("data-src");
+        el.onload = () => {
+          console.log(that,el)
+          that.status = "load-complete";
+        }
+      }
+    })
+
+    observer.observe();
+  }
+}
+
+export default component(HImageMixins, HImage);
+</script>
+
+<style lang="scss">
+.h-image{
+  width: 100%;
+  height: 100%;
+  .image{
+    width: 100%;
+    height: 100%;
+  }
+}
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+    },
+    "component": true
+  }
+}
+</script>

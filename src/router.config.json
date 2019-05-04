@@ -22,6 +22,21 @@
       "path": "/pages/COMP/h-popup/h-popup"
     },
     {
+      "name": "h-image",
+      "url": "/pages/COMP/h-image/h-image",
+      "path": "/pages/COMP/h-image/h-image"
+    },
+    {
+      "name": "h-search",
+      "url": "/pages/COMP/h-search/h-search",
+      "path": "/pages/COMP/h-search/h-search"
+    },
+    {
+      "name": "h-rich-text",
+      "url": "/pages/COMP/h-rich-text/h-rich-text",
+      "path": "/pages/COMP/h-rich-text/h-rich-text"
+    },
+    {
       "name": "h-loading",
       "url": "/pages/COMP/h-loading/h-loading",
       "path": "/pages/COMP/h-loading/h-loading"

@@ -3,6 +3,7 @@
     <view class="wxParse">
       <block c-for="{{selfNodes}}" c-key="{{index}}">
         <block c-for="{{item}}" c-for-item="node" c-for-index="y" c-key="{{node.index}}">
+          {{node}}
           <h-rich-text-parse-base nodes="{{node}}"></h-rich-text-parse-base>
         </block>
       </block>
@@ -10,8 +11,8 @@
   </view>
 </template>
 <script>
-import wxParse from '../../assets/js/wxParse/index.js'
-class HRichText {
+import wxParse from './wxParse/index.js'
+class HRichText implements ImageInterface {
   props= {
     document: {
       type: String,
@@ -33,6 +34,9 @@ class HRichText {
   watch= {
     document(){
       this.parse()
+    },
+    selfNodes(n){
+      console.log(n)
     }
   }
   methods= {
@@ -45,6 +49,7 @@ class HRichText {
     async init() {
       const selfNodes = new Map()
       const nodes = this.nodes
+      console.log(this.nodes)
       const renderNum = this.renderNum
       if (nodes.length > renderNum) {
         for (let i = 0, len = nodes.length; i < len; i += renderNum) {
@@ -55,11 +60,14 @@ class HRichText {
       } else {
         selfNodes.set(0, nodes)
       }
-      for (const [index, item] of selfNodes) {
-        this.selfNodes[`${index}]`] = item
+      
+      // for (const [index, item] of selfNodes) {
+        // this.selfNodes[`${index}]`] = item
         // await wxTools.$nextTick(300)
         // await this.delay(200)
-      }
+      // }
+      this.selfNodes = [...selfNodes]
+      console.log(this.selfNodes instanceof Array)
       this.$cmlEmit('success')
     }
   }

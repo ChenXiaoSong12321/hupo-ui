@@ -1,11 +1,11 @@
 <template>
   <h-page ref="h-page" title="h-image 演示">
     <view class="container">
-      <h-image src="{{img[0]}}"></h-image>
+      <h-image class="h-image" src="{{img[0]}}"></h-image>
       <view style="width:320cpx;height:1500cpx"></view>
-      <h-image src="{{img[1]}}"></h-image>
+      <h-image class="h-image" src="{{img[1]}}"></h-image>
       <view style="width:320cpx;height:1500cpx"></view>
-      <h-image src="{{img[2]}}"></h-image>
+      <h-image class="h-image" src="{{img[2]}}"></h-image>
     </view>
   </h-page>
 </template>
@@ -25,6 +25,9 @@ export default page(HImage);
   flex-direction: column;
   flex: 1;
   align-items: center;
+}
+.h-image{
+  width: 100%;
 }
 </style>
 <script cml-type="json">

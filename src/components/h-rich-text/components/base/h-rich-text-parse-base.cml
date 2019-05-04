@@ -28,7 +28,12 @@ class HRichTextParseBase {
   props= {
     nodes: {
       type: Object,
-      default(){return {}}
+      default:{}
+    }
+  }
+  watch = {
+    nodes(){
+      console.log(this.nodes,'base')
     }
   }
 }

@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "hp-icon": "/components/hpIcon/index"
-  }
-}
