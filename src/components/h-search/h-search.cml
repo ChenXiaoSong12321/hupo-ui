@@ -45,7 +45,7 @@ class HSearch {
       font-size:26cpx;
       color:#666;
       padding:0;
-      width:${this.cancel?'528cpx':'446cpx'};
+      width:${this.cancel?'526cpx':'446cpx'};
       border-radius: 0 56cpx 56cpx 0;
      `
    }
