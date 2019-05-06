@@ -1,7 +1,7 @@
 <template>
   <h-page ref="h-page" title="h-image 演示">
     <view class="container">
-      <h-image class="h-image" src="{{img[0]}}"></h-image>
+      <h-image class="h-image" src="{{img[0]}}" mode="aspectFill"></h-image>
       <view style="width:320cpx;height:1500cpx"></view>
       <h-image class="h-image" src="{{img[1]}}"></h-image>
       <view style="width:320cpx;height:1500cpx"></view>
@@ -26,8 +26,9 @@ export default page(HImage);
   flex: 1;
   align-items: center;
 }
-.h-image{
+.h-image {
   width: 100%;
+  height: 240cpx;
 }
 </style>
 <script cml-type="json">

@@ -1,15 +1,5 @@
 @import '../../assets/scss/output';
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @include b(image) {
   display: inline-block;
   vertical-align: top;
@@ -22,12 +12,12 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    background: $--white;
+    background: $--background-color-BgC2;
 
     .image {
       width: 160cpx;
       max-width: 50%;
-      height: 0cpx;
+      height: auto;
     }
   }
 
