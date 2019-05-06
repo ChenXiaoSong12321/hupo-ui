@@ -1,7 +1,7 @@
 import difference from '../../core/difference/difference.interface'
 export default class ImageMixins {
   data = {
-    unloadImg: require("../assets/images/image-load-background.png"),
+    unloadImg: require("./assets/images/image-load-background.png"),
     show: false,
     url: "",
     i: 0,

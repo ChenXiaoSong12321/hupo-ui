@@ -1,14 +1,21 @@
 <template>
-     <view class="{{nodes.classStr}} wxParse-{{nodes.tag}} wxParse-{{nodes.tagType}}" style="{{nodes.styleStr || ''}}">
-      <h-rich-text-parse-base c-for="{{nodes.nodes}}" nodes="{{item}}"></h-rich-text-parse-base>
+  <view
+    class="{{nodes.classStr}} wxParse-{{nodes.tag}} wxParse-{{nodes.tagType}}"
+    style="{{nodes.styleStr || ''}}"
+  >
+    <h-rich-text-parse-base c-for="{{nodes.nodes}}" nodes="{{item}}"></h-rich-text-parse-base>
   </view>
 </template>
 <script>
+import recursion from '../../recursion.interface'
 class HRichTextParseInline {
-  props= {
+  beforeCreate () {
+    recursion.beforeCreate(this)
+  }
+  props = {
     nodes: {
       type: Object,
-      default(){return {}}
+      default: {}
     }
   }
 }
@@ -16,7 +23,7 @@ export default new HRichTextParseInline();
 </script>
 
 <style lang="scss">
-@import '../common.scss';
+@import "../common.scss";
 </style>
 
 <script cml-type="json">

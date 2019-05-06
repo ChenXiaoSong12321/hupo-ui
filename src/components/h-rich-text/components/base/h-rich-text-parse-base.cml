@@ -1,8 +1,13 @@
 <template>
   <view>
     <block c-if="{{nodes.node == 'element'}}">
-      <block c-if="{{ nodes.tag == 'video' || nodes.tag == 'embed' || nodes.tag == 'img' || nodes.tag == 'br' || nodes.tag == 'button' || nodes.tag == 'li' || nodes.tag == 'a' || nodes.tag == 'table' || nodes.tag == 'tr' }}">
-        <h-rich-text-parse-video c-if="{{nodes.tag == 'video' || nodes.tag == 'embed'}}" nodes="{{nodes}}"></h-rich-text-parse-video>
+      <block
+        c-if="{{ nodes.tag == 'video' || nodes.tag == 'embed' || nodes.tag == 'img' || nodes.tag == 'br' || nodes.tag == 'button' || nodes.tag == 'li' || nodes.tag == 'a' || nodes.tag == 'table' || nodes.tag == 'tr' }}"
+      >
+        <h-rich-text-parse-video
+          c-if="{{nodes.tag == 'video' || nodes.tag == 'embed'}}"
+          nodes="{{nodes}}"
+        ></h-rich-text-parse-video>
         <h-rich-text-parse-img c-if="{{nodes.tag == 'img'}}" nodes="{{nodes}}"></h-rich-text-parse-img>
         <h-rich-text-parse-br c-if="{{nodes.tag == 'br'}}" nodes="{{nodes}}"></h-rich-text-parse-br>
         <h-rich-text-parse-button c-if="{{nodes.tag == 'button'}}" nodes="{{nodes}}"></h-rich-text-parse-button>
@@ -28,12 +33,7 @@ class HRichTextParseBase {
   props= {
     nodes: {
       type: Object,
-      default:{}
-    }
-  }
-  watch = {
-    nodes(){
-      console.log(this.nodes,'base')
+      default: {}
     }
   }
 }
@@ -41,7 +41,7 @@ export default new HRichTextParseBase();
 </script>
 
 <style lang="scss">
-@import '../common.scss';
+@import "../common.scss";
 </style>
 
 <script cml-type="json">

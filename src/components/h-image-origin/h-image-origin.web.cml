@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import loadImage from '../assets/js/image.load.js'
+import loadImage from './assets/js/image.load.js'
 class HImageOrigin implements ImageModeInterface {
   props = {
     src: {

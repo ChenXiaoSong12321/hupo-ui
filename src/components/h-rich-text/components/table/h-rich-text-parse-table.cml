@@ -1,14 +1,18 @@
 <template>
-   <view class="{{nodes.classStr}} wxParse-{{nodes.tag}}" style="{{nodes.styleStr || ''}}">
-    <h-rich-text-parse-base c-for="{{nodes.nodes}}" c-key="" nodes="{{item}}"></h-rich-text-parse-base>
-</view>
+  <view class="{{nodes.classStr}} wxParse-{{nodes.tag}}" style="{{nodes.styleStr || ''}}">
+    <h-rich-text-parse-base c-for="{{nodes.nodes}}" c-key nodes="{{item}}"></h-rich-text-parse-base>
+  </view>
 </template>
 <script>
+import recursion from '../../recursion.interface'
 class HRichTextParseTable {
-  props= {
+  beforeCreate () {
+    recursion.beforeCreate(this)
+  }
+  props = {
     nodes: {
       type: Object,
-      default(){return {}}
+      default: {}
     }
   }
 }
@@ -16,13 +20,13 @@ export default new HRichTextParseTable();
 </script>
 
 <style lang="scss">
-@import '../common.scss';
+@import "../common.scss";
 </style>
 
 <script cml-type="json">
 {
   "base": {
-    
+
     "usingComponents": {
       "h-rich-text-parse-base": "../base/h-rich-text-parse-base"
     },
