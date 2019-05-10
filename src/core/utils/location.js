@@ -1,7 +1,7 @@
 import cml from 'chameleon-api'
 import promise from './promise'
 
-const __lastTapTime__
+let __lastTapTime__ = null
 export default {
   async getPosition(force = false) {
     try {
@@ -12,7 +12,7 @@ export default {
         if (!__lastTapTime__ || nowTime - __lastTapTime__ > 15000) {
           console.log('throttle to get location')
           __lastTapTime__ = nowTime
-          setTimeout(async () => await this.getLocation(), 200)
+          setTimeout(async() => await this.getLocation(), 200)
         }
       }
       return await promise.cache('this.getLocation', this.getLocation)
@@ -35,7 +35,7 @@ export default {
     }
   },
   async setAreaId(areaId) {
-    await cml.setStorage('areaId', areaId )
+    await cml.setStorage('areaId', areaId)
   }
   // async getPositionInfo(force = false) {
   //   const location = await this.getPosition(force)
