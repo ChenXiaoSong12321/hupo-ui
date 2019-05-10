@@ -1,5 +1,7 @@
 <template>
-  <br></br>
+  <view>
+    <br></br>
+  </view>
 </template>
 <script>
 class HRichTextParseBr implements HRichTextParseBrInterface {

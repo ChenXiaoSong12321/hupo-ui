@@ -3,43 +3,42 @@
     <!-- <video class="{{nodes.classStr}} wxParse-{{nodes.tag}}-video" src="{{nodes.attr.src}}"></video> -->
     <block c-if="{{video.type == 'tencentvideo'}}">
       <!-- <txv-video vid="{{video.vid}}" playerid="{{video.vid}}" width="100%" height="auto"></txv-video> -->
+      <iframe
+        class="wxParse-iframe-video"
+        frameborder="0"
+        src="https://v.qq.com/txp/iframe/player.html?vid={{video.vid}}"
+        allowfullscreen="true"
+      ></iframe>
     </block>
   </view>
 </template>
 <script>
-class HRichTextParseVideo {
+class HRichTextParseVideo implements HRichTextParseVideoInterface {
   props= {
     nodes: {
       type: Object,
-      default(){return {}}
+      default: {}
     }
   }
-  data= {
-    video: {}
-  }
-  mounted() {
-    this.init()
-  }
-  methods= {
-    init() {
-      const {nodes} = this
+  computed = {
+    video(){
       const video = {}
-      if (nodes.attr && nodes.attr.src && nodes.attr.src.indexOf('qq.com') > -1) {
+      if (this.nodes.attr && this.nodes.attr.src && this.nodes.attr.src.indexOf('qq.com') > -1) {
         video.type = 'tencentvideo'
-        video.vid = nodes.attr.src.split('/').pop().replace(/\.html/, '')
+        video.vid = this.nodes.attr.src.split('/').pop().replace(/\.html/, '')
       }
-      this.video = video
+      return video
     }
   }
 }
 export default new HRichTextParseVideo();
-// "usingComponents": {
-//       "txv-video": "plugin://tencentvideo/video"
-//     },
 </script>
 
 <style lang="scss">
 @import "../common.scss";
+.wxParse-iframe-video{
+  width: 100%;
+}
 </style>
 
 <script cml-type="json">

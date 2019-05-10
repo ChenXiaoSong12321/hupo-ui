@@ -4,7 +4,7 @@ import channelDifference from '../../utils/channelDifference'
 import wxTools from '../../utils/wxTools'
 let indexRoute = ''
 export default class Goto {
-  mounted() {
+  created() {
     if (!indexRoute) {
       const app = difference.getApp()
       const data = app.data || app

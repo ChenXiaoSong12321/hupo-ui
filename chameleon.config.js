@@ -13,7 +13,7 @@ cml.config.merge({
   cmlComponents: [
   ],
   buildInfo: {
-    wxAppId: '123456',
+    wxAppId: 'wx4db830f3098a9a11',
     wxEntryPage: ''
   },
   wx: {
@@ -60,6 +60,23 @@ cml.utils.plugin('webpackConfig', function({ type, media, webpackConfig }, cb) {
       return use
     })
     webpackConfig.module.rules[cmlFile.index] = cmlFile.rule
+  }
+
+  
+  if(type === 'wx') {
+    webpackConfig.plugins.push({
+      apply(compiler) {
+        compiler.plugin('emit', function(compilation, callback) {
+          let target = 'components/h-rich-text/components/video/h-rich-text-parse-video.json'; //改这里
+          let obj = JSON.parse(compilation.assets[target]._value);
+          obj.usingComponents['txv-video'] = 'plugin://tencentvideo/video';
+          compilation.assets[target]._value = JSON.stringify(obj,'',4);
+          // console.log(compilation.assets)
+          return callback();
+
+        })
+      } 
+    })
   }
 
   cb({
