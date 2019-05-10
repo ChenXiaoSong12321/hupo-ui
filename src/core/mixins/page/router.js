@@ -1,18 +1,23 @@
 import difference from '../../difference/difference.interface'
+import routerDifference from './router.difference.interface'
 export default class Router {
-  beforeRouteEnter(to, from, next) {
-    next(vm => {
-      const app = difference.getApp()
-      if (!app.router) app.router = {}
-      if (!app.router.historys || vm.$isHomeRoute(to.path)) app.router.historys = []
-      app.router.historys.push({
-        name: to.name,
-        path: to.path,
-        route: to.path,
-        params: to.params,
-        query: to.query
-      })
-      app.router.current = vm
-    })
+  created(){
+    const app = difference.getApp()
+    if (!app.router) app.router = {}
+    const route = routerDifference.getRouter(this)
+    if (!app.router.historys || this.$isHomeRoute(route.path)) app.router.historys = []
+    app.router.historys.push(route)
+    app.router.current = this
+  }
+  beforeDestroy() {
+    const app = difference.getApp()
+    if(app.router.historys && app.router.historys.length > 1){
+      const route = routerDifference.getRouter(this)
+      const prev = app.router.historys[app.router.historys.length - 2]
+      if(JSON.stringify(route) == JSON.stringify(prev)){
+        app.router.historys.pop()
+      }
+    }
+    app.router.current = null
   }
 }
