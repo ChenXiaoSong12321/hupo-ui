@@ -1,0 +1,18 @@
+{
+  "name": "hupo-cml-tools",
+  "version": "0.0.10",
+  "description": "the tools for hupo mall by chameleon",
+  "main": "/core",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChenXiaoSong12321/hupo-ui.git"
+  },
+  "author": "hupo-front-end-team",
+  "license": "Apache",
+  "dependencies": {
+    "classnames": "2.2.6"
+  }
+}

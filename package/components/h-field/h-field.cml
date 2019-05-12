@@ -4,7 +4,7 @@
       <h-icon name="{{icon}}" c-if="{{icon}}" class="h-field-icon"></h-icon>
       <view class="h-field-label {{icon?'is-has-icon':''}}" c-if="{{label}}">{{label}}</view>
       <view class="h-field-input-wrap {{label?'':'is-no-label'}}">
-        <input class="h-field-input" placeholder="{{placeholder}}" value="{{value}}" cStyle="{{inputStyle}}" c-bind:input="inputChanged"/>
+        <input class="h-field-input" placeholder="{{placeholder}}" value="{{value}}" cStyle="{{inputStyle}}" c-bind:input="inputChanged"  type="{{type}}" disabled="{{disabled}}" focus="{{focus}}" maxlength="{{maxlength}}" returnKeyType="{{returnKeyType}}" placerHolderColor="{{placerHolderColor}}" maxValue="{{maxValue}}" minValue="{{minValue}}"/>
       </view>
       <view c-if="{{useSlot}}" class="h-field-slot">
         <slot class="h-field-slot"></slot>

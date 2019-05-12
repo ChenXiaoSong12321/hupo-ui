@@ -1,0 +1,19 @@
+<script cml-type="interface">
+interface RecursionInterface {}
+</script>
+
+<script cml-type="web">
+  class Recursion implements RecursionInterface {
+    beforeCreate(ctx){
+      ctx.$options.components.hRichTextParseBase = require('./components/base/h-rich-text-parse-base').default
+    }
+  }
+  export default new Recursion();
+</script>
+<script cml-type="wx">
+  class Recursion implements RecursionInterface {
+    beforeCreate(){
+    }
+  }
+  export default new Recursion();
+</script>

@@ -6,7 +6,8 @@
     "build": "cml wx build && cml web build",
     "build-web": "cml web build",
     "commit": "sh ./bin/commit.sh",
-    "publish": "node ./bin/changeVersion.js && sh ./bin/build.sh && cd package && npm publish"
+    "publish": "node ./bin/changeVersion.js && sh ./bin/publish.ui.sh && cd package && npm publish",
+    "publish-tools": "node ./bin/changeVersion.js && sh ./bin/publish.tools.sh && cd package && npm publish"
   },
   "author": "Hupo-Team",
   "license": "Apache",
