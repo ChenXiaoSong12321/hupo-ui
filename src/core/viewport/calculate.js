@@ -35,7 +35,7 @@ async function calculate() {
   }
   data.headerHeight = data.statusBarHeight + data.capsuleHeight
   // 全面屏 底部留空距离 34px
-  data.bottomHeight = 34
+  data.bottomHeight = data.isAllScreen ? 34 : 0
   return data
 }
-export default async () => await promise.cache('calculate', () => calculate())
+export default async() => await promise.cache('calculate', () => calculate())

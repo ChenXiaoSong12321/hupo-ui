@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "hp-image": "/components/layout/hpImage/main/index"
-  }
-}

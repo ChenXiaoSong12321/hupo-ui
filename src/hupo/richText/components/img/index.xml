@@ -1,1 +1,0 @@
-<hp-image class="{{nodes.classStr}} wxParse-{{nodes.tag}}" data-from="{{nodes.from}}" data-src="{{nodes.attr.src}}" data-idx="{{nodes.imgIndex}}" src="{{nodes.attr.src}}" mode="widthFix" style="{{ nodes.width ? nodes.width + 'px;' : '' }}" loading-height="400rpx" reload></hp-image>

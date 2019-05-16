@@ -53,8 +53,8 @@ class HPage {
 
   computed = {
     scrollHeight() {
-      const headerHeight = cml.px2cpx(this.viewport.headerHeight);
-      const bottomHeight = this.viewport.isAllScreen ? cml.px2cpx(this.viewport.bottomHeight) : 0
+      const headerHeight = cml.px2cpx(this.viewport.headerHeight)
+      const bottomHeight = cml.px2cpx(this.viewport.bottomHeight)
       return Math.floor( this.viewport.viewportHeight - headerHeight - bottomHeight - this.subtract );
     }
   };

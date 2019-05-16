@@ -110,9 +110,9 @@
     bottom: 0;
     left: 0;
     right: 0;
-    @include when(has-mask){
-      background: rgba(37, 38, 45, 0.4);
-    }
+    background: rgba(37, 38, 45, 0.4);
+    // @include when(has-mask){
+    // }
     @include when(in){
       opacity: 1;
     }

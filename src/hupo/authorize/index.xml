@@ -1,9 +1,0 @@
-<van-popup show="{{show}}" position="bottom" bind:close="toggleAuthorize">
-  <view class="hupo-authorize-popup">
-    <view class="hupo-authorize-popup-title">请完成授权以继续使用</view>
-    <button class="hupo-authorize-popup-button" type="primary" openType="{{authorize.isAuth ? 'getUserInfo' : 'getPhoneNumber'}}" bindgetuserinfo="handleGetuserinfo" bindgetphonenumber="handleGetphonenumber" bindtap="toggleAuthorize">
-      {{authorize.isAuth ? '微信授权用户信息' : '通过微信手机号快速绑定'}}
-    </button>
-  </view>
-</van-popup>
-<hupo-authorize-button authorize="{{authorize}}" id="hupo-authorize-button" hidden="{{show}}" type="none"></hupo-authorize-button>
