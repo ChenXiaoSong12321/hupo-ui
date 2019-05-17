@@ -1,8 +1,12 @@
 <template>
   <h-page ref="h-page" title="h-search 演示">
     <view class="container">
-        <h-search c-model="{{searchData}}" c-bind:onclick="handleClick" class="search"></h-search>
-        <h-search c-model="{{searchData}}" c-bind:onclick="handleClick" c-bind:oncancel="cancel" cancel class="search"></h-search>
+        <view class="h-search-page-wrap">
+          <h-search c-model="{{searchData}}" c-bind:onclick="handleClick" width="220cpx" class="search"></h-search>
+        </view>
+        <view class="h-search-page-wrap white">
+          <h-search c-model="{{searchData}}" c-bind:onclick="handleClick" c-bind:oncancel="cancel" cancel class="search"></h-search>
+        </view>
     </view>
   </h-page>
 </template>
@@ -35,6 +39,17 @@ export default page(HPageSearch);
   margin-top: 30cpx;
   margin-bottom: 30cpx;
   width:100%;
+}
+.h-search-page-wrap{
+  background-color: #dd392e;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.white{
+  background-color: #fff;
 }
 </style>
 <script cml-type="json">

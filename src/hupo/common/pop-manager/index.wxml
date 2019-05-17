@@ -1,6 +1,0 @@
-<view class="hupo-pop hupo-pop--{{ type }} {{ show ? 'hupo-pop--show' : '' }}">
-  <view wx:if="{{ overlay }}" class="hupo-pop-mask {{ showOverlay ? '' : 'hupo-pop-mask--hide' }}" bindtap="handleMaskClick"></view>
-  <view class="hupo-pop-container">
-    <slot></slot>
-  </view>
-</view>

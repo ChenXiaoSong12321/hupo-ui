@@ -20,6 +20,7 @@
       <h-button c-bind:onclick="showPopup2('right')" class="btn">right</h-button>
       <h-button c-bind:onclick="showPopup2('bottom')" class="btn">bottom</h-button>
       <h-button c-bind:onclick="showPopup2('center')" class="btn">center</h-button>
+      
     </view>
   </h-page>
 </template>
@@ -62,6 +63,7 @@ class PopupManager {
     showPopup() {
       this.show = true;
     },
+    
     showPopup2(e) {
       this.position = e;
       console.log(e);
@@ -75,15 +77,15 @@ class PopupManager {
 }
 export default page(PopupManager);
 </script>
-<style scoped>
+<style scoped lang="scss">
 .container {
   display: flex;
   flex-direction: column;
   flex: 1;
   align-items: center;
-}
-.btn {
-  margin-top: 20cpx;
+  .btn {
+    margin-top: 20cpx;
+  }
 }
 </style>
 <script cml-type="json">

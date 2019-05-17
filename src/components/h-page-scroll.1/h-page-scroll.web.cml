@@ -40,7 +40,7 @@ class HPageScroll {
     scrollHeight() {
       const subtract = cml.cpx2px(this.subtract);
       const viewportHeight = cml.cpx2px(this.viewport.viewportHeight);
-      const bottomHeight = this.viewport.isAllScreen ? this.viewport.bottomHeight : 0
+      const bottomHeight = this.viewport.bottomHeight
       return Math.floor( viewportHeight - this.viewport.headerHeight - bottomHeight - subtract );
     }
   };

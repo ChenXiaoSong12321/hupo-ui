@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "hupo-button": "../button/index",
-    "hp-navbar-fixed": "/modules/viewport/common/components/fixed/index"
-  }
-}

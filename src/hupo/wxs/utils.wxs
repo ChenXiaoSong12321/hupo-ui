@@ -1,7 +1,0 @@
-var bem = require('./bem.wxs').bem
-var memoize = require('./memoize.wxs').memoize
-
-// 快速生成bem的class类，如utils.bem('tag', [type,size,{radius,plain}])
-module.exports = {
-  bem: memoize(bem)
-}

@@ -99,4 +99,3 @@ cml dev  //开始开发
 3. 配置完毕之后 在 `src/pages/COMP`中书写你的demo组件
 4. 当前以上的工作都是为了可以实时查看开发的组件的效果做准备，接下来就需要去`src/components`中去开发我们对应的组件
 5. enjoy yourself
-
