@@ -77,15 +77,15 @@ class PopupManager {
 }
 export default page(PopupManager);
 </script>
-<style scoped>
+<style scoped lang="scss">
 .container {
   display: flex;
   flex-direction: column;
   flex: 1;
   align-items: center;
-}
-.btn {
-  margin-top: 20cpx;
+  .btn {
+    margin-top: 20cpx;
+  }
 }
 </style>
 <script cml-type="json">

@@ -56,7 +56,7 @@ class HSearch {
    }
   }
 
-  watch  = {
+  watch = {
     value(n,o){
       if(n!==o)this.$cmlEmit('onChanged',{value:n})
     }
@@ -85,7 +85,7 @@ export default component(HInputMixins, HSearch);
   "base": {
     "usingComponents": {
       "h-icon": "../h-icon/h-icon",
-      "h-field": "../h-field/h-field",
+      "h-icon": "../h-icon/h-icon",
       "h-button": "../h-button/h-button"
     }
   }

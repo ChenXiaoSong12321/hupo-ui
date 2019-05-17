@@ -58,15 +58,15 @@ class HToast {
 }
 export default page(HToast);
 </script>
-<style scoped>
+<style scoped lang="scss">
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex: 1;
-}
-.btn {
-  margin-top: 20cpx;
+  .btn {
+    margin-top: 20cpx;
+  }
 }
 </style>
 <script cml-type="json">
