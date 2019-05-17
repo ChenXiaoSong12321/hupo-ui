@@ -19,7 +19,7 @@ const clear = () => {
   delete debounceCache.reject
 }
 export const debounce = (waitTime = 500) => new Promise((resolve, reject) => {
-  if(debounceCache.timeId){
+  if (debounceCache.timeId) {
     clear()
   }
   debounceCache = {

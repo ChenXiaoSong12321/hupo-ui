@@ -20,7 +20,7 @@
       <h-button c-bind:onclick="showPopup2('right')" class="btn">right</h-button>
       <h-button c-bind:onclick="showPopup2('bottom')" class="btn">bottom</h-button>
       <h-button c-bind:onclick="showPopup2('center')" class="btn">center</h-button>
-      <h-button c-bind:onclick="wori" class="btn">wori</h-button>
+      
     </view>
   </h-page>
 </template>
@@ -63,9 +63,7 @@ class PopupManager {
     showPopup() {
       this.show = true;
     },
-    wori(){
-      console.log('wori')
-    },
+    
     showPopup2(e) {
       this.position = e;
       console.log(e);

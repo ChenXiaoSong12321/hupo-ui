@@ -1,5 +1,5 @@
 <template>
-  <view c-if="{{visible}}" class="h-popup-manager {{ visible ? 'h-popup-manager--show' : '' }}">
+  <view c-if="{{visible}}" class="h-popup-manager {{position?'is-not-center':''}} {{ visible ? 'h-popup-manager--show' : '' }}">
     <view
       c-if="{{mask}}"
       class="h-popup-manager-mask is-transition {{ transitionIn ? 'is-in' : 'is-leave' }}"

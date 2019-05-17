@@ -8,6 +8,8 @@
       <h-button class="btn" c-bind:onclick="show$loadingToast">this.$loadingToast()</h-button>
       <h-button class="btn" c-bind:onclick="failToast">this.$failToast()</h-button>
       <h-button class="btn" c-bind:onclick="successToast">this.$successToast()</h-button>
+      <h-button c-bind:onclick="wori" class="btn">wori</h-button>
+
     </view>
   </h-page>
 </template>
@@ -24,12 +26,15 @@ class HToast {
     show$toastHasMask(){
       this.$toast({
         message:'很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的提示',
-        duration: 200000,
+        duration: 20000,
         mask:true
       })
     },
     show$toast(){
-      this.$toast('测试')
+      this.$toast({
+        message: '测试',
+        duration: 20000,
+      })
     },
     async show$toastAwait(){
       console.log('start toast')
@@ -39,6 +44,9 @@ class HToast {
     show$loadingToast(){
       this.$loadingToast()
       this.$setTimeout(() => {this.$clearToast()}, 3000);
+    },
+    wori(){
+      console.log('wori')
     },
     failToast(){
       this.$failToast('错误提示')
