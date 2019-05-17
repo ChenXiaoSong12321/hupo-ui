@@ -1,0 +1,90 @@
+<template>
+  <page title="{{selfTitle}}">
+    <view
+      class="h-page h-page--{{background}} {{ disableScroll ? 'h-page--disable-scroll' : '' }}"
+      style="height: {{viewportHeight}}px;"
+    >
+      <h-navbar
+        type="{{type}}"
+        loading="{{loading}}"
+        title="{{selfTitle}}"
+        showHomeIcon="{{showHomeIcon}}"
+      ></h-navbar>
+      <view class="h-page-container">
+        <h-dialog ref="h-dialog" c-bind:confirm="dialogConfirm" c-bind:cancel="dialogCancel"></h-dialog>
+        <h-toast ref="h-toast"></h-toast>
+        <scroller
+          height="{{scrollHeight}}"
+          bottomOffset="{{bottomOffset}}"
+          c-bind:scrolltobottom="pullup"
+        >
+          <view class="h-page-scroll" style="min-height: {{scrollHeight}}cpx">
+            <slot></slot>
+            <view class="h-page-pullup" c-if="{{loadmore}}">
+              <h-load-more loading="{{status == 'pullup'}}"></h-load-more>
+            </view>
+          </view>
+        </scroller>
+      </view>
+      <view class="h-page-bottom" c-if="{{viewport.isAllScreen}}"></view>
+    </view>
+  </page>
+</template>
+<script>
+import cml from "chameleon-api";
+import HPageMixins from "./h-page.mixin";
+import component from "../../core/mixins/component.js";
+
+class HPage {
+  props = {
+    disableScroll: {
+      type: Boolean,
+      default: false
+    },
+    loadmore: {
+      type: Boolean,
+      default: false
+    },
+    bottomOffset: {
+      type: Number,
+      default: 50
+    }
+  };
+
+  computed = {
+    scrollHeight() {
+      const headerHeight = cml.px2cpx(this.viewport.headerHeight);
+      const bottomHeight = this.viewport.isAllScreen ? cml.px2cpx(this.viewport.bottomHeight) : 0
+      return Math.floor( this.viewport.viewportHeight - headerHeight - bottomHeight - this.subtract );
+    }
+  };
+
+  methods = {
+    pullup() {
+      if (!!this.status) return;
+      this.status = "pullup";
+      this.$cmlEmit("pullup", this);
+    },
+    stop() {
+      this.status = "";
+    }
+  };
+}
+export default component(HPageMixins, HPage);
+</script>
+<style lang="scss">
+@import "./h-page.scss";
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-navbar": "../h-navbar/h-navbar",
+      "h-load-more": "../h-load-more/h-load-more",
+      "h-dialog": "../h-dialog/h-dialog",
+      "h-toast": "../h-toast/h-toast"
+    },
+    "component": true
+  }
+}
+</script>

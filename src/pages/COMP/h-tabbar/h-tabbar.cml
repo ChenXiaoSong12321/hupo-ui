@@ -1,11 +1,11 @@
 <template>
   <view>
-    <h-page-scroll ref="h-page" title="h-tabbar 演示" subtract="{{subtract}}">
+    <h-page ref="h-page" title="h-tabbar 演示" subtract="{{subtract}}">
       <component is="{{currentComp}}"></component>
       <!-- <bar-index c-show="{{currentComp === 'bar-index'}}"></bar-index>
     <bar-trip c-show="{{currentComp === 'bar-trip'}}"></bar-trip>
       <bar-my c-show="{{currentComp === 'bar-my'}}"></bar-my>-->
-    </h-page-scroll>
+    </h-page>
     <h-tabbar
       c-bind:tabbarclick="handleTabbarClick"
       c-bind:height="handleTabbarHeight"
@@ -84,7 +84,6 @@ export default page(HTabbar);
   "base":{
     "usingComponents": {
       "h-page": "/components/h-page/h-page",
-      "h-page-scroll": "/components/h-page-scroll/h-page-scroll",
       "h-tabbar": "/components/h-tabbar/h-tabbar",
       "bar-my":"./bar-my",
       "bar-trip":"./bar-trip",

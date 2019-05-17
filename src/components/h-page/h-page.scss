@@ -1,20 +1,34 @@
 @import '../../assets/scss/output';
-@import './h-page-background.scss';
 @include b(page) {
   display: flex;
   flex-direction: column;
-  @include e(container) {
-    // flex: 1;
+
+  @include m(BgC2){
+    background: $--background-color-BgC2;
   }
 
-  @include e(content) {
-    min-height: 100%;
+  @include m(BgC3){
+    background: $--background-color-BgC3;
+  }
+
+  @include e(loading) {
+    flex: 1;
+    @include flexCenter()
   }
 
   @include e(bottom) {
     height: 34px;
+  }
+
+  @include e(bottom-fixed) {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 34px;
+    z-index: $--z-index-max;
     background: $--white;
   }
 
-  @include m(disable-scroll) {}
 }

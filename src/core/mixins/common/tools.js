@@ -10,7 +10,7 @@ export default class HTool {
       const current = difference.getCurrentPage()
       if (!current) return null
       const page = difference.selectComponent(current, 'h-page')
-      if (!current) return null
+      if (!page) return null
       return page
     },
     $setTimeout(fn, delay) {
@@ -19,11 +19,11 @@ export default class HTool {
     },
     $loadingNavbar() {
       const page = this.$getPageComponent()
-      if (page) page.loading = true
+      if (page) page.navbarLoading = true
     },
     $clearLoadingNavbar() {
       const page = this.$getPageComponent()
-      if (page) page.loading = false
+      if (page) page.navbarLoading = false
     },
     $getPageTitle() {
       const page = this.$getPageComponent()

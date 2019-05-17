@@ -1,0 +1,16 @@
+@import '../../assets/scss/output';
+
+@include b(scroll) {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  @include e(pulldown) {
+    width: 100%;
+    @include flexCenter();
+  }
+  @include e(pullup) {
+    width: 100%;
+    height: 120cpx;
+    @include flexCenter();
+  }
+}
