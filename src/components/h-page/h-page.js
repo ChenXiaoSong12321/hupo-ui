@@ -33,6 +33,10 @@ export default class HPage {
     fixed: {
       type: Boolean,
       default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   };
 
