@@ -51,8 +51,7 @@ tabbar:{
       },
     }
     data = {
-      tapedIndex: 0,
-      height:100
+      tapedIndex: 0
     }
     computed = {
       useFixedLayout() {
@@ -90,7 +89,8 @@ tabbar:{
         this.tapedIndex = index;
         let compName = this.tabbar.list[index].compName
         this.$cmlEmit('tabbarclick', {
-          index
+          index,
+          current: this.tabbar.list[index]
         });
         /*这里是为了方便和使用h-tabbar的组件进行关联，如果是通过
         <component is="{{currentComp}}"></component>
@@ -102,7 +102,6 @@ tabbar:{
       }
     }
     mounted() {
-      this.$cmlEmit('height', {height: this.height})
       this.tapedIndex = this.selectedIndex;
       if (!this.tabbar.length) {
         return '';

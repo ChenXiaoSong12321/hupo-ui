@@ -1,15 +1,12 @@
 <template>
   <view>
     <h-page title="h-tabbar 演示" subtract="{{subtract}}">
-      <component is="{{currentComp}}"></component>
-      <!-- <bar-index c-show="{{currentComp === 'bar-index'}}"></bar-index>
-    <bar-trip c-show="{{currentComp === 'bar-trip'}}"></bar-trip>
-      <bar-my c-show="{{currentComp === 'bar-my'}}"></bar-my>-->
+      <bar-index c-show="{{currentTabbarIndex === 0}}" c-if="{{tabbar[0].loaded}}"></bar-index>
+      <bar-trip c-show="{{currentTabbarIndex === 1}}" c-if="{{tabbar[1].loaded}}"></bar-trip>
+      <bar-my c-show="{{currentTabbarIndex === 2}}" c-if="{{tabbar[2].loaded}}"></bar-my>
     </h-page>
     <h-tabbar
       c-bind:tabbarclick="handleTabbarClick"
-      c-bind:height="handleTabbarHeight"
-      c-model="{{currentComp}}"
       tabbar="{{tabbar}}"
     ></h-tabbar>
   </view>
@@ -18,62 +15,49 @@
 <script>
 import cml from "chameleon-api";
 import page from "../../../core/mixins/page";
+import difference from '../../../core/difference/difference.interface'
 let preIndex = 0;
 class HTabbar {
   data = {
-    viewportHeight: 0,
-    subtract: 0,
-    currentComp: "bar-index",
-    tabbar: {
-      // "tabbarStyle":"height:120cpx;background-color:#BAF6E8",//tabbar最外层的样式支持自定义
-      // "tabLineStyle":"background-color:#069ADC;height:2cpx;",//自定义tabline的高度和背景色
-      textStyle: "color:#666;", //文案默认style ,可以这里控制文案的大小，样式等
-      selectedTextStyle: "color:#dd392e;", //文案被选择style
-      // "position":"top", //tabbar的位置 top/bottom
-      useFixedLayout: true, //是否通过fixed布局进行tabbar的布局
-      list: [
+    currentTabbarIndex:0,
+    tabbar: [
         {
-          compName: "bar-index",
           text: "首页",
+          loaded:true,
           icon: require("../../../assets/images/index.png"),
           selectedIcon: require("../../../assets/images/index-active.png")
-          // "iconStyle":"width:50cpx;height:50cpx;",//默认的icon的宽高是40cpx;这里可以自定义
-          // "selectedIconStyle":"width:70cpx;height:70cpx;",//默认的icon的宽高是40cpx;这里可以自定义
         },
         {
-          compName: "bar-trip",
           text: "行程",
+          loaded:false,
           icon: require("../../../assets/images/trip.png"),
           selectedIcon: require("../../../assets/images/trip-active.png")
-          // "iconStyle":"width:50cpx;height:50cpx;",//默认的icon的宽高是40cpx;这里可以自定义
-          // "selectedIconStyle":"width:70cpx;height:70cpx;",//默认的icon的宽高是40cpx;这里可以自定义
         },
         {
-          compName: "bar-my",
           text: "我的",
+          loaded:false,
           icon: require("../../../assets/images/my.png"),
           selectedIcon: require("../../../assets/images/my-active.png")
-          // "iconStyle":"width:50cpx;height:50cpx;",
-          // "selectedIconStyle":"width:70cpx;height:70cpx;",
         }
       ]
-    }
   };
+  watch = {
+    currentTabbarIndex(n){
+      let app = difference.getApp()
+      app.currentTabbarIndex = n
+      console.log(n)
+    }
+  }
   methods = {
     handleTabbarClick(e) {
-      console.log(e);
-    },
-    async getViewportHeight() {
-      let info = await cml.getSystemInfo();
-      console.log(info, "getSystemInfo");
-      this.viewportHeight = Number(info.viewportHeight) - 120;
-    },
-    handleTabbarHeight(e) {
-      this.subtract = e.detail.height;
+      let {index} = e.detail
+      this.currentTabbarIndex = index
+      this.tabbar[index].loaded = true
     }
-  };
-  mounted() {
-    this.getViewportHeight();
+  }
+  mounted(){
+    let app = difference.getApp()
+    this.currentTabbarIndex = app.currentTabbarIndex || 0
   }
 }
 

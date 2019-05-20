@@ -1,0 +1,12 @@
+@import '../../../../assets/scss/output';
+
+@include b(scroll-view) {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  @include e(pullup) {
+    width: 100%;
+    height: 120cpx;
+    @include flexCenter();
+  }
+}

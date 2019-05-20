@@ -1,0 +1,20 @@
+<script cml-type="interface">
+interface ViewportDifferenceInterface {}
+</script>
+
+<script cml-type="web">
+class Difference implements ViewportDifferenceInterface {
+    setViewportTop(top){
+      return 0
+    }
+  }
+  export default new Difference();
+</script>
+<script cml-type="wx">
+  class Difference implements ViewportDifferenceInterface {
+   setViewportTop(top){
+      return top
+    }
+  }
+  export default new Difference();
+</script>

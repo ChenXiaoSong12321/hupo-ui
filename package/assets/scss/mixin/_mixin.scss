@@ -1,10 +1,6 @@
 @import '../common/var';
 @import 'function';
 
-@mixin fontSize ($font-size: 12) {
-  font-size: $font-size * 2rpx;
-}
-
 @mixin transition ($property: all, $time: .35s, $delay: 0s) {
   transition: $property $time ease-in-out $delay;
 }
@@ -44,13 +40,6 @@
   @if $direction == vertical or $direction == '' {
     align-items: center;
   }
-}
-
-// 设置文字颜色大小
-@mixin setFont ($color: $--black, $size:$--font-size-title-medium-Fi2) {
-  font-size: $size;
-  color: $color;
-  line-height: 1;
 }
 
 /* BEM

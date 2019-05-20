@@ -1,13 +1,19 @@
-import cml from 'chameleon-api'
 import defaultData from '../../core/viewport/defaultData'
 import calculate from '../../core/viewport/calculate'
 import difference from '../../core/difference/difference.interface'
 import channelDifference from '../../core/utils/channelDifference'
 import wxTools from '../../core/utils/wxTools'
 const promise = {}
-
-class HPageMixins {
+export default class HPage {
   props = {
+    loading: {
+      type: Boolean,
+      default: false
+    },
+    loadmore: {
+      type: Boolean,
+      default: false
+    },
     title: {
       type: String,
       default: '琥珀亲子'
@@ -24,17 +30,10 @@ class HPageMixins {
       type: String,
       default: 'BgC3'
     },
-    subtract: {
-      type: Number,
-      default: 0
+    fixed: {
+      type: Boolean,
+      default: false
     }
-  };
-
-  data = {
-    loading: false,
-    viewport: defaultData,
-    status: '',
-    selfTitle: ''
   };
 
   watch = {
@@ -46,10 +45,11 @@ class HPageMixins {
     }
   }
 
-  computed = {
-    viewportHeight() {
-      return Math.floor(cml.cpx2px(this.viewport.viewportHeight - this.subtract))
-    }
+  data = {
+    navbarLoading: false,
+    viewport: defaultData,
+    status: '',
+    selfTitle: ''
   };
 
   async created() {
@@ -61,7 +61,7 @@ class HPageMixins {
 
   methods = {
     initNavigation() {
-      channelDifference('HP_MALL', async () => {
+      channelDifference('HP_MALL', () => {
         wxTools.setNavigationBarColor({
           frontColor: this.type === 'default' ? '#000000' : '#ffffff',
           backgroundColor: this.type === 'default' ? '#fafafa' : '#dd392e'
@@ -112,5 +112,3 @@ class HPageMixins {
     }
   }
 }
-
-export default HPageMixins

@@ -1,22 +1,20 @@
 import difference from '../../difference/difference.interface'
 export default class PullRefresh {
   onPullDownRefresh() {
-    const pageScroll = this.__getPageScroll__()
-    pageScroll && pageScroll.pulldown()
+    const scrolls = this.$getScrollComponents()
+    scrolls.forEach(item => item.onPulldown())
   }
   onReachBottom() {
-    const pageScroll = this.__getPageScroll__()
-    pageScroll && pageScroll.pullup()
+    const scrolls = this.$getScrollComponents()
+    scrolls.forEach(item => item.onPullup())
   }
-
   methods = {
-    __getPageScroll__() {
-      const pageScroll = difference.selectComponent(this, 'h-page')
-      if (!pageScroll) {
-        console.error('请给h-page-scroll组件添加id：h-page<h-page-scroll ref="h-page"></h-page-scroll>')
-        return null
+    $getScrollComponents(){
+      const scrolls = difference.selector(this, '.cml-h-scroll')
+      if(scrolls.length == 0){
+        console.error('请给h-scroll组件添加ref="h-scroll"属性')
       }
-      return pageScroll
+      return scrolls
     }
   }
 }
