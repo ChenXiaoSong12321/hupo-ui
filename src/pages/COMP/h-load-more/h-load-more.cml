@@ -1,5 +1,5 @@
 <template>
-  <h-page ref="h-page" title="h-load-more 演示">
+  <h-page title="h-load-more 演示">
     <view class="container">
       <h-load-more loading></h-load-more>
       <h-load-more loading="{{false}}"></h-load-more>

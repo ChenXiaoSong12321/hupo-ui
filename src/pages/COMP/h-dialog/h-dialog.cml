@@ -1,5 +1,5 @@
 <template>
-  <h-page ref="h-page" title="h-dialog 演示">
+  <h-page title="h-dialog 演示">
     <view class="container">
       <h-button class="btn" c-bind:onclick="showDialog('dialog')">show dialog</h-button>
       <h-button class="btn" c-bind:onclick="showDialog('alert')">show alert</h-button>

@@ -28,7 +28,7 @@ class App {
 export default new App();
 </script>
 
-<style>
+<style lang="scss">
 page {
   height: 100%;
 }

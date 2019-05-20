@@ -1,32 +1,17 @@
 <template>
-  <scroll-view
-    class="h-scroll-view"
-    lowerThreshold="{{bottomThreshold_px}}"
-    scroll-y
-    scroll-top="{{scrollTop}}"
-    scroll-with-animation
-    enable-back-to-top
-    c-bind:scroll="onScroll"
-    c-bind:touchend="onTouchEnd"
-    c-bind:scrolltolower="onPullup"
-    style="height: {{scrollHeight}}px;"
-  >
-    <view c-if="{{pulldown}}" class="h-scroll-pulldown" style="height: {{topThreshold_px}}px">
-      <h-scroll-pulldown
-        status="{{status}}"
-        c-show="{{status === 'PULLDOWN_RELEASE' || status === 'PULLINGDOWN'}}"
-      ></h-scroll-pulldown>
-    </view>
-    <view class="h-scroll-content">
+  <view class="h-scroll">
+    <block c-if="{{pulldown}}">
       <slot></slot>
-    </view>
-    <view class="h-scroll-pullup">
-      <h-scroll-pullup
-        status="{{status}}"
-        c-show="{{status === 'PULLINGUP_RELEASE' || status === 'PULLINGUP'}}"
-      ></h-scroll-pullup>
-    </view>
-  </scroll-view>
+      <view class="h-scroll-pullup" c-if="{{loadMore}}">
+        <h-scroll-pullup status="{{status}}"></h-scroll-pullup>
+      </view>
+    </block>
+    <block c-else>
+      <h-scroll-view ref="h-scroll-view" loadMore="{{loadMore}}" c-bind:pullup="onPullup">
+        <slot></slot>
+      </h-scroll-view>
+    </block>
+  </view>
 </template>
 <script>
 import cml from "chameleon-api";
@@ -36,63 +21,24 @@ import HScrollMixin from "./assets/js/h-scroll.mixin.js";
 import { INVISIABLE, PULLING, PULLDOWN_RELEASE, PULLINGUP_RELEASE, PULLINGDOWN, PULLINGUP, FINISH } from './assets/js/const.js'
 
 class HScroll {
-  data = {
-    scrollTop: 0
-  }
-  mounted() {
-    setTimeout(() => {
-      this.scrollTop = this.topThreshold_px
-      console.log(this.scrollTop)
-    }, 1000);
-  }
   methods = {
-    onScroll(event) {
-      const pos = {
-        x: event.detail.scrollLeft,
-        y: event.detail.scrollTop
-      }
-      this.$cmlEmit("scroll", pos);
-      if(this.status == PULLINGDOWN || this.status == PULLINGUP)return
-      switch (true) {
-        case (this.pulldown && pos.y >= this.topThreshold_px):
-          this.status = PULLDOWN_RELEASE
-          break;
-
-        case (this.pulldown && pos.y > 0 && pos.y < this.topThreshold_px):
-          this.status = PULLING
-          break;
-
-        default:
-          this.status = INVISIABLE
-          break;
-      }
-      // const status = this.data.pullDownStatus;
-      // if (status === 3 || status == 4) return;
-      // const height = this.properties.pullDownHeight;
-      // const scrollTop = e.detail.scrollTop;
-      // let targetStatus;
-      // if (scrollTop < -1 * height) {
-      //   targetStatus = 2;
-      // } else if (scrollTop < 0) {
-      //   targetStatus = 1;
-      // } else {
-      //   targetStatus = 0;
-      // }
-      // if (status != targetStatus) {
-      //   this.setData({
-      //     pullDownStatus: targetStatus,
-      //   })
-      // }
-    },
-    onPullup() {
+    onPullup(event){
       if(this.status == PULLINGDOWN || this.status == PULLINGUP)return
       this.status = PULLINGUP
+      this.$cmlEmit("pullup", this);
+    },
+    onPulldown(event){
+      if(this.status == PULLINGDOWN || this.status == PULLINGUP)return
+      this.status = PULLINGDOWN
       this.$cmlEmit("pulldown", this);
     },
     stop() {
+      const scrollView = difference.selectComponent(this, 'h-scroll-view')
+      if(scrollView)scrollView.stop()
       this.status = FINISH;
+      wx.stopPullDownRefresh();
     }
-  };
+  }
 }
 export default component(HScrollMixin, HScroll);
 </script>
@@ -103,7 +49,7 @@ export default component(HScrollMixin, HScroll);
 {
   "base": {
     "usingComponents": {
-      "h-scroll-pulldown": "./components/pulldown/pulldown",
+      "h-scroll-view": "./components/scroll-view/scroll-view",
       "h-scroll-pullup": "./components/pullup/pullup"
     },
     "component": true

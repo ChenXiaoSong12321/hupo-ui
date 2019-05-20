@@ -1,5 +1,5 @@
 <template>
-  <h-page ref="h-page" type="{{type}}" title="{{title}}" showHomeIcon="{{showHomeIcon}}">
+  <h-page type="{{type}}" title="{{title}}" showHomeIcon="{{showHomeIcon}}">
     <view class="container">
       <h-button
         class="btn"

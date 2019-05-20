@@ -1,5 +1,5 @@
 <template>
-  <h-page ref="h-page" title="h-button 演示" loadmore c-bind:pullup="onPullup">
+  <h-page title="h-button 演示" loadmore c-bind:pullup="onPullup">
     <view class="container">
       <h-button class="btn" c-bind:onclick="showLoading" size="max" type="primary" radius>max</h-button>
       <h-button class="btn" c-bind:onclick="showLoading" size="large">large</h-button>

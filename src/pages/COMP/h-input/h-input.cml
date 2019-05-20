@@ -1,5 +1,5 @@
 <template>
-  <h-page ref="h-page" title="h-icon 演示">
+  <h-page title="h-icon 演示">
     <view class="container">
 
       <text class="title-text" >focus聚焦 web端不支持</text>

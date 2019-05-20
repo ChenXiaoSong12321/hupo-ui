@@ -1,5 +1,5 @@
 <template>
-  <h-page ref="h-page" title="h-tab 演示">
+  <h-page title="h-tab 演示">
     <view>
       <!-- 单tab测试 -->
       <view class="title">

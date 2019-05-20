@@ -1,6 +1,6 @@
 <template>
   <view>
-    <h-page ref="h-page" title="h-popup 演示">
+    <h-page title="h-popup 演示">
       <view class="container">
         <h-button class="btn" c-bind:onclick="showPopup">open popup</h-button>
       </view>

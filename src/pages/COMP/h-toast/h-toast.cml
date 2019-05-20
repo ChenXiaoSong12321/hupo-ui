@@ -1,5 +1,5 @@
 <template>
-  <h-page ref="h-page" title="h-toast 演示">
+  <h-page title="h-toast 演示">
     <view class="container">
       <h-toast ref="h-toast"></h-toast>
       <h-button class="btn" c-bind:onclick="show$toast">this.$toast()</h-button>

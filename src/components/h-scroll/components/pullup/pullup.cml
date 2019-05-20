@@ -1,5 +1,5 @@
 <template>
-  <h-load-more loading></h-load-more>
+  <h-load-more loading="{{status === 'PULLINGUP'}}"></h-load-more>
 </template>
 <script>
 import Pullup from './pullup.js'

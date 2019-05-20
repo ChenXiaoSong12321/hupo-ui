@@ -1,5 +1,5 @@
 <template>
-  <h-page ref="h-page" title="h-tag 演示">
+  <h-page title="h-tag 演示">
     <view class="container">
       <h-tag class="h-tag-page">完美tag</h-tag>
       <h-tag class="h-tag-page" color="#dd392e">自定义颜色</h-tag>

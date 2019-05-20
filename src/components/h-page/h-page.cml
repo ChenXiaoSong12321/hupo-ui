@@ -8,6 +8,7 @@
         loading="{{navbarLoading}}"
         title="{{selfTitle}}"
         showHomeIcon="{{showHomeIcon}}"
+        fixed="{{fixed}}"
       ></h-navbar>
 
       <block c-if="{{loading}}">

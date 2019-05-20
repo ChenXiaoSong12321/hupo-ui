@@ -1,5 +1,5 @@
 <template>
-  <h-page ref="h-page" title="h-loading 演示">
+  <h-page title="h-loading 演示">
     <view class="container">
       <h-button class="btn" c-bind:onclick="showLoading">show loading</h-button>
       <h-popup-manager show="{{show}}" type="circular" c-bind:onclose="closePopup">

@@ -1,5 +1,5 @@
 <template>
-  <h-page ref="h-page" title="h-popup-manager 演示">
+  <h-page title="h-popup-manager 演示">
     <view class="container">
       <h-popup-manager show="{{show}}" mask="{{mask}}" c-bind:onclose="closePopup">
         <view style="background:#fff">hhhhhhh</view>

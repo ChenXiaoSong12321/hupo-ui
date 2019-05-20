@@ -1,5 +1,5 @@
 <template>
-  <h-page ref="h-page" title="h-icon 演示">
+  <h-page title="h-icon 演示">
     <view class="container">
       progress
       <h-progress percentage="3578" class="h-page-progress"></h-progress>

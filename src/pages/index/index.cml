@@ -1,6 +1,6 @@
 <template>
-<h-page ref="h-page" loading="{{loading}}" title="hupo-ui组件展示" background="BgC2">
-  <h-scroll pulldown c-bind:pulldown="onPulldown" c-bind:pullup="onPullup">
+<h-page fixed loading="{{loading}}" title="hupo-ui组件展示" background="BgC2">
+  <h-scroll pulldown loadMore="{{false}}" c-bind:pulldown="onPulldown" c-bind:pullup="onPullup">
     <view class="index-page">
       <view class="index-body" style="{{bodyComputedStyl}}">
         <view ref="index-content-wrap" class="index-content-wrap" style="{{computedStyle}}">
@@ -372,6 +372,9 @@ export default page(Demo);
       "h-page": "/components/h-page/h-page",
       "h-scroll": "/components/h-scroll/h-scroll"
     }
+  },
+  "wx": {
+    "enablePullDownRefresh": true
   }
 }
 </script>

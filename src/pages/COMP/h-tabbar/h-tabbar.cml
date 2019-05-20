@@ -1,6 +1,6 @@
 <template>
   <view>
-    <h-page ref="h-page" title="h-tabbar 演示" subtract="{{subtract}}">
+    <h-page title="h-tabbar 演示" subtract="{{subtract}}">
       <component is="{{currentComp}}"></component>
       <!-- <bar-index c-show="{{currentComp === 'bar-index'}}"></bar-index>
     <bar-trip c-show="{{currentComp === 'bar-trip'}}"></bar-trip>

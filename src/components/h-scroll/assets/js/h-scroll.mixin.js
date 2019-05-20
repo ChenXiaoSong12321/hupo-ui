@@ -23,6 +23,10 @@ export default class HScrollMixin{
     pulldown: {
       type: Boolean,
       default: false
+    },
+    loadMore: {
+      type: Boolean,
+      default: true
     }
   }
 

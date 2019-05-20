@@ -14,11 +14,8 @@
       <view class="h-scroll-content">
         <slot></slot>
       </view>
-      <view class="h-scroll-pullup">
-        <h-scroll-pullup
-          status="{{status}}"
-          c-show="{{status === 'PULLINGUP_RELEASE' || status === 'PULLINGUP'}}"
-        ></h-scroll-pullup>
+      <view class="h-scroll-pullup" c-if="{{loadMore}}">
+        <h-scroll-pullup status="{{status}}"></h-scroll-pullup>
       </view>
     </view>
   </view>
@@ -95,8 +92,6 @@ class HScroll {
       if(this.status == PULLDOWN_RELEASE){
         this.status = PULLINGDOWN
         this.$cmlEmit("pulldown", this);
-      }else{
-        this.status = INVISIABLE
       }
     });
     //滑动结束
@@ -105,8 +100,6 @@ class HScroll {
       if(this.status == PULLINGUP_RELEASE){
         this.status = PULLINGUP
         this.$cmlEmit("pullup", this);
-      }else{
-        this.status = INVISIABLE
       }
     });
   }

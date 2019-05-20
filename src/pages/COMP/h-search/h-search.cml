@@ -1,5 +1,5 @@
 <template>
-  <h-page ref="h-page" title="h-search 演示">
+  <h-page title="h-search 演示">
     <view class="container">
         <view class="h-search-page-wrap">
           <h-search c-model="{{searchData}}" c-bind:onclick="handleClick" width="220cpx" class="search"></h-search>

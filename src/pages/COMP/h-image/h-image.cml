@@ -1,5 +1,5 @@
 <template>
-  <h-page ref="h-page" title="h-image 演示">
+  <h-page title="h-image 演示">
     <view class="container">
       <h-image class="h-image" src="{{img[0]}}" mode="aspectFill"></h-image>
       <view style="width:320cpx;height:1500cpx"></view>

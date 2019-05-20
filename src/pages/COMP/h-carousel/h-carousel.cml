@@ -1,5 +1,5 @@
 <template>
-  <h-page ref="h-page" title="h-carousel 演示">
+  <h-page title="h-carousel 演示">
     <view class="container">
       <carousel
         indicator-dots="{{true}}"

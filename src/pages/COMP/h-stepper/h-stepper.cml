@@ -1,5 +1,5 @@
 <template>
-  <h-page ref="h-page" title="h-stepper 演示">
+  <h-page title="h-stepper 演示">
     <view class="container">stepper</view>
     <h-stepper></h-stepper>
   </h-page>

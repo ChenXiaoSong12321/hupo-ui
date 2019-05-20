@@ -29,6 +29,10 @@ export default class HPage {
     background: {
       type: String,
       default: 'BgC3'
+    },
+    fixed: {
+      type: Boolean,
+      default: false
     }
   };
 

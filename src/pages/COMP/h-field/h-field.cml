@@ -1,11 +1,17 @@
 <template>
-  <h-page ref="h-page" title="h-field 演示">
+  <h-page title="h-field 演示">
     <view class="container">
-      <h-field class="h-field-page" useSlot placeholder="空的什么都没有" label="坑得很" icon="el-icon-hp-chenggong" c-model="{{inputval}}">
+      <h-field
+        class="h-field-page"
+        useSlot
+        placeholder="空的什么都没有"
+        label="坑得很"
+        icon="el-icon-hp-chenggong"
+        c-model="{{inputval}}"
+      >
         <h-button size="small">烦烦烦</h-button>
       </h-field>
-      <h-field class="h-field-page" placeholder="空的什么都没有">
-      </h-field>
+      <h-field class="h-field-page" placeholder="空的什么都没有"></h-field>
       <h-field class="h-field-page" placeholder="空的什么都没有" useSlot label="坑得很" is-last>
         <h-button size="small">烦烦烦</h-button>
       </h-field>
@@ -28,7 +34,6 @@ class HPageField {
 export default page(HPageField);
 </script>
 <style scoped lang="scss">
-
 </style>
 <script cml-type="json">
 {

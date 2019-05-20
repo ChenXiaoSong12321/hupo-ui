@@ -1,5 +1,5 @@
 <template>
-  <h-page ref="h-page" title="h-rich-text 演示">
+  <h-page title="h-rich-text 演示">
       <h-rich-text class="rich-text" document="{{document}}"></h-rich-text>
   </h-page>
 </template>

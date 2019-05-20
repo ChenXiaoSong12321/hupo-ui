@@ -26,6 +26,22 @@ import getNetworkType from '../utils/getNetworkType'
     selectComponent(ctx,compName){
       return ctx?ctx.$refs[compName]:{}
     }
+    selector(ctx,selector){
+      if(!ctx || !ctx.$children || ctx.$children.length == 0){
+        return []
+      }
+      const selectors = selector.split('.')
+      selectors.shift()
+      const results = []
+      ctx.$children.forEach(child => {
+        // console.log(child.$el.className.split(' ').find(c => c === selector))
+        const classNames = child.$el.className.split(' ')
+        if(classNames.find(c => selectors.indexOf(c) > -1)){
+          results.push(child)
+        }
+      })
+      return results
+    }
     async nextTick(){
       Vue && await Vue.nextTick()
     }
@@ -61,6 +77,9 @@ import getNetworkType from '../utils/getNetworkType'
     }
     selectComponent(ctx,compName){
       return ctx?ctx.selectComponent('#'+compName):{}
+    }
+    selector(ctx,selector){
+      return ctx?ctx.selectAllComponents(selector):[]
     }
     async nextTick(delay = 500){
       if(wxTools.$nextTick){

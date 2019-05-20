@@ -1,5 +1,5 @@
 <template>
-  <h-page ref="h-page" title="h-button 演示">
+  <h-page title="h-button 演示">
     <view class="container">
       <view class="filter-name">h-compareVersion v1="11" v2="3"</view>
       <h-compareVersion v1="11" v2="3"></h-compareVersion>

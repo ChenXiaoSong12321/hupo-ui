@@ -1,6 +1,6 @@
 
 <template>
-  <h-page ref="h-page" title="h-checkbox 演示">
+  <h-page title="h-checkbox 演示">
     <view class="container">
       <h-checkbox
         checked="{{checkboxValue}}"

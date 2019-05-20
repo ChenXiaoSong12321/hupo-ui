@@ -18,6 +18,7 @@
 
   @include e(bottom) {
     height: 34px;
+    flex: 0 0 34px;
   }
 
   @include e(bottom-fixed) {
