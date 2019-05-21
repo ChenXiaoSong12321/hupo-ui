@@ -4,13 +4,12 @@ interface DifferenceInterface {}
 
 <script cml-type="web">
 import getNetworkType from '../utils/getNetworkType'
-  let app = {}
   class Difference implements DifferenceInterface {
     setApp(_app){
-      app = _app
+      window.__humall__ = _app
     }
     getApp() {
-      return app
+      return window.__humall__ || {}
     }
     getUrl(){
       return window.location.href
@@ -34,7 +33,6 @@ import getNetworkType from '../utils/getNetworkType'
       selectors.shift()
       const results = []
       ctx.$children.forEach(child => {
-        // console.log(child.$el.className.split(' ').find(c => c === selector))
         const classNames = child.$el.className.split(' ')
         if(classNames.find(c => selectors.indexOf(c) > -1)){
           results.push(child)

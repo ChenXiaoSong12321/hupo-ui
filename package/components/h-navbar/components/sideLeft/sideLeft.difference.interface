@@ -1,0 +1,20 @@
+<script cml-type="interface">
+interface sideLeftDifferenceInterface {}
+</script>
+
+<script cml-type="web">
+  class sideLeftDifference implements sideLeftDifferenceInterface {
+    getHistorys(){
+      return window.history.length
+    }
+  }
+  export default new sideLeftDifference();
+</script>
+<script cml-type="wx">
+  class sideLeftDifference implements sideLeftDifferenceInterface {
+    getHistorys(){
+      return getCurrentPages().length
+    }
+  }
+  export default new sideLeftDifference();
+</script>

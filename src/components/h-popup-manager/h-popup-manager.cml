@@ -83,7 +83,6 @@ class HPopupManager {
   async created(){
     const data = await calculate()
     this.viewport = data
-    console.log(this.viewport,viewportDiffrence,viewportDiffrence.setViewportTop(23))
   }
   methods = {
     closeevent() {

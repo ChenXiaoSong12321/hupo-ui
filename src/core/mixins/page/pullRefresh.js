@@ -9,9 +9,9 @@ export default class PullRefresh {
     scrolls.forEach(item => item.onPullup())
   }
   methods = {
-    $getScrollComponents(){
+    $getScrollComponents() {
       const scrolls = difference.selector(this, '.cml-h-scroll')
-      if(scrolls.length == 0){
+      if (scrolls.length == 0) {
         console.error('请给h-scroll组件添加ref="h-scroll"属性')
       }
       return scrolls

@@ -61,9 +61,6 @@
       height: 100
     }
     computed = {
-      useFixedLayout() {
-        return this.tabbar.useFixedLayout;
-      },
       top() {
         return this.tabbar.position === 'top';
       },
