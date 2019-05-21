@@ -1,59 +1,63 @@
 <template>
   <view class="demo-com">
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-index</view>
-    <view>comp-indexgggggggggggggggg</view>
+    <h-scroll height="{{height}}">
+      <view>comp-index1</view>
+      <view>comp-index2</view>
+      <view>comp-index3</view>
+      <view>comp-index4</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index</view>
+      <view>comp-index6</view>
+      <view>comp-index7</view>
+      <view>comp-index8</view>
+      <view>comp-index9</view>
+    </h-scroll>
   </view>
 </template>
 
 <script>
 import cml from 'chameleon-api';
+import calculate from '../../../core/viewport/calculate.js'
+import defaultData from '../../../core/viewport/defaultData.js'
 class DemoCom {
   props = {
     title: {
@@ -64,6 +68,20 @@ class DemoCom {
       type: String,
       default: ''
     }
+  }
+  data = {
+    viewport: defaultData
+  }
+  computed = {
+    height(){
+      const headerHeight = cml.px2cpx(this.viewport.headerHeight);
+      const bottomHeight = cml.px2cpx(this.viewport.bottomHeight);
+      return Math.floor( this.viewport.viewportHeight - headerHeight - bottomHeight - 100 );
+    }
+  }
+  async created() {
+    const data = await calculate()
+    this.viewport = data
   }
 }
 
@@ -92,7 +110,9 @@ export default new DemoCom();
 <script cml-type="json">
 {
   "base": {
-    "usingComponents": {}
+    "usingComponents": {
+      "h-scroll": "../../../components/h-scroll/h-scroll"
+    }
   }
 }
 </script>
