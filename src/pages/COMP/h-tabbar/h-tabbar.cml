@@ -1,15 +1,10 @@
 <template>
-  <view>
-    <h-page title="h-tabbar 演示" fixed>
-      <bar-index c-show="{{currentTabbarIndex === 0}}" c-if="{{tabbar[0].loaded}}"></bar-index>
-      <bar-trip c-show="{{currentTabbarIndex === 1}}" c-if="{{tabbar[1].loaded}}"></bar-trip>
-      <bar-my c-show="{{currentTabbarIndex === 2}}" c-if="{{tabbar[2].loaded}}"></bar-my>
-    </h-page>
-    <h-tabbar
-      c-bind:tabbarclick="handleTabbarClick"
-      tabbar="{{tabbar}}"
-    ></h-tabbar>
-  </view>
+  <h-page title="h-tabbar 演示" fixed>
+    <bar-index c-show="{{currentTabbarIndex === 0}}" c-if="{{tabbar[0].loaded}}"></bar-index>
+    <bar-trip c-show="{{currentTabbarIndex === 1}}" c-if="{{tabbar[1].loaded}}"></bar-trip>
+    <bar-my c-show="{{currentTabbarIndex === 2}}" c-if="{{tabbar[2].loaded}}"></bar-my>
+    <h-tabbar c-bind:tabbarclick="handleTabbarClick" tabbar="{{tabbar}}"></h-tabbar>
+  </h-page>
 </template>
 
 <script>
