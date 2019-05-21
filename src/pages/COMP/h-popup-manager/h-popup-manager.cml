@@ -9,6 +9,7 @@
         mask="{{mask}}"
         c-bind:onclose="closePopup"
         position="{{position}}"
+        bottom="80"
       >
         <view style="{{contentStyle}}">
           <text style="font-size: 28cpx;">content</text>

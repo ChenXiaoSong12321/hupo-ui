@@ -2,15 +2,15 @@
   <h-popup-manager show="{{ visible }}" c-bind:onclose="onclose">
     <view class="h-popup" c-catch:touchmove="empty">
       <view class="h-popup-close">
-        <h-button type="none" bind:onclick="onclose">
+        <h-button type="none" c-bind:onclick="onclose">
           <h-icon name="el-icon-hp-shanchu" class="h-popup-close-icon"></h-icon>
         </h-button>
       </view>
-      <view class="h-popup-box {{type?'h-popup-box'+type:''}}" style="{{customStyle}}">
+      <view class="h-popup-box" style="{{customStyle}}">
         <view class="h-popup-box-bg">
           <slot name="bg"></slot>
         </view>
-        <view class="h-popup-box-content {{type?'h-popup-box-content'+type:''}}">
+        <view class="h-popup-box-content">
           <slot></slot>
         </view>
       </view>
@@ -24,11 +24,10 @@ class HPopup {
       type: Boolean,
       default: false
     },
-    type: {
+    backgroundImg:{
       type: String,
-      default: "ad"
+      default: ''
     },
-    top: String,
     customStyle: {
       type: String,
       default: ""
@@ -39,7 +38,6 @@ class HPopup {
   }
   watch = {
     show(n) {
-      console.log(n,'popup')
       this.visible = n;
     }
   };

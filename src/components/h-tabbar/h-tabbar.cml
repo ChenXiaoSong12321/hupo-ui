@@ -1,7 +1,7 @@
 <template>
   <h-fixed position="{{useFixedLayout?'fixed':'absolute'}}" bottom="0" place-height="{{height}}cpx">
     <view class="h-tab-bar">
-      <view class="h-tab-bar-wrap " style="{{tabbarStyle || ';'}}">
+      <view class="h-tab-bar-wrap">
         <view c-for="{{tabbar}}" c-key="text" class="h-tab-bar-item-wrap">
           <view class="h-tab-bar-content" c-bind:click="onTabbarItemTap(index)">
             <view class="h-tab-bar-icon-wrap" c-if="{{!top && hasIcon}}">

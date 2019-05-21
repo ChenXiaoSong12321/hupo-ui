@@ -18,20 +18,6 @@
   @include e(box) {
     position: relative;
     width: 580cpx;
-    @include when(ad){
-      width: 500cpx;
-      height: 600cpx;
-    }
-  }
-
-  @include e(box-bg){
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
   }
 
   @include e(box-content){
@@ -39,9 +25,6 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    border-radius: 10cpx;
-    @include m(ad){
-      border-radius: 20cpx;
-    }
+    border-radius: 20cpx;
   }
 }

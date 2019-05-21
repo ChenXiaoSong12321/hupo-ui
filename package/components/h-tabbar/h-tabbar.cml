@@ -89,7 +89,6 @@
       }
       let width = 750 / this.tabbar.length; //line的总宽度；
       let leftOffset = this.selectedIndex * width;
-      this.tabLineStyle = `;width:${width}cpx;transform: translateX(${leftOffset}cpx);`;
     }
   }
 
