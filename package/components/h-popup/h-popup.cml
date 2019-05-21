@@ -7,9 +7,6 @@
         </h-button>
       </view>
       <view class="h-popup-box" style="{{customStyle}}">
-        <view class="h-popup-box-bg">
-          <slot name="bg"></slot>
-        </view>
         <view class="h-popup-box-content">
           <slot></slot>
         </view>
@@ -23,10 +20,6 @@ class HPopup {
     show: {
       type: Boolean,
       default: false
-    },
-    backgroundImg:{
-      type: String,
-      default: ''
     },
     customStyle: {
       type: String,
