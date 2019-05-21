@@ -49,7 +49,7 @@ export default component(HScrollMixin, HScroll);
 {
   "base": {
     "usingComponents": {
-      "h-scroll-view": "./components/scroll-view/scroll-view",
+      "h-scroll-view": "./components/h-scroll-view/h-scroll-view",
       "h-scroll-pullup": "./components/pullup/pullup"
     },
     "component": true

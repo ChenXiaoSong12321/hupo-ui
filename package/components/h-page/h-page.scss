@@ -21,6 +21,13 @@
     flex: 0 0 34px;
   }
 
+  @include e(container) {
+    @include when(disabled){
+      flex: 1;
+      overflow: hidden;
+    }
+  }
+
   @include e(bottom-fixed) {
     position: fixed;
     left: 0;

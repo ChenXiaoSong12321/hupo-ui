@@ -17,7 +17,7 @@
         </view>
       </block>
       <block c-else>
-        <view class="h-page-container">
+        <view class="h-page-container {{disabled ? 'is-disabled' : ''}}">
           <slot></slot>
         </view>
       </block>
