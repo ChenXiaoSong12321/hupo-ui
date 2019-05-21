@@ -7,7 +7,12 @@
       </view>
     </block>
     <block c-else>
-      <h-scroll-view ref="h-scroll-view" loadMore="{{loadMore}}" c-bind:pullup="onPullup">
+      <h-scroll-view
+        ref="h-scroll-view"
+        loadMore="{{loadMore}}"
+        state="{{status}}"
+        c-bind:pullup="onPullup"
+      >
         <slot></slot>
       </h-scroll-view>
     </block>
@@ -33,8 +38,6 @@ class HScroll {
       this.$cmlEmit("pulldown", this);
     },
     stop() {
-      const scrollView = difference.selectComponent(this, 'h-scroll-view')
-      if(scrollView)scrollView.stop()
       this.status = FINISH;
       wx.stopPullDownRefresh();
     }

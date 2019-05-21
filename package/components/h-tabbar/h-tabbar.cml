@@ -14,7 +14,6 @@
           </view>
         </view>
       </view>
-      <view c-if="{{top}}" class="h-tab-bar-line-wrap" style="{{_tabLineStyle}}"></view>
     </view>
   </h-fixed>
 </template>
@@ -26,10 +25,6 @@
       tabbar: {
         type: Array,
         default: []
-      },
-      tabbarStyle:{
-        type: String,
-        default: ''
       },
       tabLineStyle:{
         type: String,
@@ -61,20 +56,8 @@
       height: 100
     }
     computed = {
-      useFixedLayout() {
-        return this.tabbar.useFixedLayout;
-      },
       top() {
         return this.tabbar.position === 'top';
-      },
-      _tabLineStyle() {
-        if (!this.tabbar.length) {
-          return '';
-        }
-        let width = 750 / this.tabbar.length; //line的总宽度；
-        let leftOffset = this.tapedIndex * width;
-        let style = `;width:${width}cpx;transform: translateX(${leftOffset}cpx);${this.tabbar.tabLineStyle || 'background-color:#FC9153;height:2cpx;'}`;
-        return style;
       },
       //必须每个list中都配置icon,selectedIcon才展示icon,有一个不配置就不会展示
       hasIcon() {

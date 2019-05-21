@@ -3,10 +3,7 @@
 </template>
 
 <script>
-import dayjs from 'dayjs'
-import dayjsPluginUTC from 'dayjs-plugin-utc' // load on demand
-
-dayjs.extend(dayjsPluginUTC) // use plugin
+import dayjs from '../../core/utils/dayjs.js'
 class FormatDate {
   props = {
     time: {
@@ -20,10 +17,7 @@ class FormatDate {
   };
   computed = {
     formatDate() {
-      let {time,type} =this
-      console.log(time,type,dayjs(time))
-      if (isNaN(time)) return time;
-      return dayjs.utc(parseInt(time)).utcOffset(480).format(type)
+      return dayjs.formatDate(this.time,this.type)
     }
   }
 }

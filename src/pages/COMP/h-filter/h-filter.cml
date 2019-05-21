@@ -1,8 +1,8 @@
 <template>
   <h-page title="h-button 演示">
     <view class="container">
-      <view class="filter-name">h-compareVersion v1="11" v2="3"</view>
-      <h-compareVersion v1="11" v2="3"></h-compareVersion>
+      <view class="filter-name">h-compareVersion max="11" min="3"</view>
+      <h-compareVersion max="11" min="3"></h-compareVersion>
       <view class="filter-name">h-formatDate time="1555386496788" type="YYYY-MM-DD"</view>
       <h-formatDate time="1555386496788" type="YYYY-MM-DD hh:mm:ss"></h-formatDate>
       <view class="filter-name">h-formatDistance distance="2300"</view>

@@ -12,7 +12,7 @@
       <slot></slot>
     </view>
     <view class="h-scroll-view-pullup" c-if="{{loadMore}}">
-      <h-scroll-pullup status="{{status}}"></h-scroll-pullup>
+      <h-scroll-pullup status="{{state}}"></h-scroll-pullup>
     </view>
   </scroll-view>
 </template>

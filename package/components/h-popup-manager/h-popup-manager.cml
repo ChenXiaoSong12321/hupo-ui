@@ -74,8 +74,8 @@ class HPopupManager {
   computed = {
     caculateStyle(){
       if(!this.flexible || !this.viewport.headerHeight) return ''
-      if(this.position === 'top') return `top:${cml.px2cpx(viewportDiffrence.setViewportTop(this.viewport.headerHeight)+this.top)}cpx;`
-      if(this.position === 'bottom') return `bottom:${cml.px2cpx(this.viewport.bottomHeight + this.bottom)}cpx;`
+      if(this.position === 'top') return `top:${cml.px2cpx(viewportDiffrence.setViewportTop(this.viewport.headerHeight))+this.top}cpx;`
+      if(this.position === 'bottom') return `bottom:${cml.px2cpx(this.viewport.bottomHeight )+ this.bottom}cpx;`
       if(this.position === 'left') return `left:${cml.px2cpx(this.left)}cpx;`
       if(this.position === 'right') return `right:${cml.px2cpx(this.right)}cpx;`
     }
@@ -83,7 +83,6 @@ class HPopupManager {
   async created(){
     const data = await calculate()
     this.viewport = data
-    console.log(this.viewport,viewportDiffrence,viewportDiffrence.setViewportTop(23))
   }
   methods = {
     closeevent() {

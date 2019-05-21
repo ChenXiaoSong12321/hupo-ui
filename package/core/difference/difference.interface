@@ -33,6 +33,7 @@ import getNetworkType from '../utils/getNetworkType'
       selectors.shift()
       const results = []
       ctx.$children.forEach(child => {
+        if(!child || !child.$el || !child.$el.className) return
         const classNames = child.$el.className.split(' ')
         if(classNames.find(c => selectors.indexOf(c) > -1)){
           results.push(child)
