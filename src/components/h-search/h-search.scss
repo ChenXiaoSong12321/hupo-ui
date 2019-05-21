@@ -7,14 +7,7 @@
     align-items: center;
     display: flex;
     height: 100%;
-    margin: 0 30cpx;
   }
-  // @include e(detail-wrap){
-  //   width: 526cpx;
-  //   @include when(cancel){
-  //     width: 608cpx;
-  //   }
-  // }
   @include e(detail){
     box-sizing: border-box;
     height: 60cpx;
