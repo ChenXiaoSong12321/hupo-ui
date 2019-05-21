@@ -1,10 +1,7 @@
 <template>
-  <view class="h-search {{cancel?'is-cancel':''}}">
+  <view class="h-search">
     <view class="h-search-wrap">
-      <view c-if="{{!cancel}}" class="h-search-slot" >
-        <slot></slot>
-      </view>
-      <h-button type="none" c-bind:onclick="onclick" class="h-search-detail-wrap {{cancel?'is-cancel':''}}">
+      <h-button type="none" c-bind:onclick="onclick">
         <view class="h-search-detail {{cancel?'is-cancel':''}}">
           <h-icon name="el-icon-hp-search" class="h-search-icon"></h-icon>
            <input class="h-field-input" placeholder="{{placeholder}}" value="{{value}}" cStyle="{{inputStyle}}" c-bind:input="inputChanged"  type="{{type}}" disabled="{{disabled}}" focus="{{focus}}" maxlength="{{maxlength}}" returnKeyType="{{returnKeyType}}" placerHolderColor="{{placerHolderColor}}" maxValue="{{maxValue}}" minValue="{{minValue}}"/>
@@ -27,6 +24,10 @@ class HSearch {
       type:String,
       default:''
     },
+    width:{
+      type:String,
+      default:''
+    },
     cancel:{
       type:Boolean,
       default:false
@@ -46,13 +47,16 @@ class HSearch {
       font-size:26cpx;
       color:#666;
       padding:0;
-      width:${this.cancel?'526cpx':'446cpx'};
+      width:${this.inputWidth};
       border-radius: 0 56cpx 56cpx 0;
      `
+   },
+   inputWidth(){
+     return this.width?this.width:(this.cancel?'526cpx':'446cpx')
    }
   }
 
-  watch  = {
+  watch = {
     value(n,o){
       if(n!==o)this.$cmlEmit('onChanged',{value:n})
     }
@@ -80,6 +84,7 @@ export default component(HInputMixins, HSearch);
 {
   "base": {
     "usingComponents": {
+      "h-icon": "../h-icon/h-icon",
       "h-icon": "../h-icon/h-icon",
       "h-button": "../h-button/h-button"
     }

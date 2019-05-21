@@ -38,12 +38,6 @@ import component from "../../core/mixins/component.js";
 import wxTools from "../../core/utils/wxTools.js";
 import oprateUrl from '../../core/utils/url.js'
 class HImage implements ImageInterface {
-  watch = {
-    src() {
-      this.init();
-    }
-  };
-
   async created() {
     this.init();
     if (this.lazyLoad) {

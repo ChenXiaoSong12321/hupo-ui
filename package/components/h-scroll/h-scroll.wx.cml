@@ -1,0 +1,58 @@
+<template>
+  <view class="h-scroll">
+    <block c-if="{{pulldown}}">
+      <slot></slot>
+      <view class="h-scroll-pullup" c-if="{{loadMore}}">
+        <h-scroll-pullup status="{{status}}"></h-scroll-pullup>
+      </view>
+    </block>
+    <block c-else>
+      <h-scroll-view ref="h-scroll-view" loadMore="{{loadMore}}" c-bind:pullup="onPullup">
+        <slot></slot>
+      </h-scroll-view>
+    </block>
+  </view>
+</template>
+<script>
+import cml from "chameleon-api";
+import difference from "../../core/difference/difference.interface";
+import component from "../../core/mixins/component.js";
+import HScrollMixin from "./assets/js/h-scroll.mixin.js";
+import { INVISIABLE, PULLING, PULLDOWN_RELEASE, PULLINGUP_RELEASE, PULLINGDOWN, PULLINGUP, FINISH } from './assets/js/const.js'
+
+class HScroll {
+  methods = {
+    onPullup(event){
+      if(this.status == PULLINGDOWN || this.status == PULLINGUP)return
+      this.status = PULLINGUP
+      this.$cmlEmit("pullup", this);
+    },
+    onPulldown(event){
+      if(this.status == PULLINGDOWN || this.status == PULLINGUP)return
+      this.status = PULLINGDOWN
+      this.$cmlEmit("pulldown", this);
+    },
+    stop() {
+      const scrollView = difference.selectComponent(this, 'h-scroll-view')
+      if(scrollView)scrollView.stop()
+      this.status = FINISH;
+      wx.stopPullDownRefresh();
+    }
+  }
+}
+export default component(HScrollMixin, HScroll);
+</script>
+<style lang="scss">
+@import "./h-scroll.wx.scss";
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-scroll-view": "./components/scroll-view/scroll-view",
+      "h-scroll-pullup": "./components/pullup/pullup"
+    },
+    "component": true
+  }
+}
+</script>

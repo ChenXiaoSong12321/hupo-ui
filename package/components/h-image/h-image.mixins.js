@@ -25,6 +25,11 @@ export default class ImageMixins {
       default: false
     }
   }
+  watch = {
+    src() {
+      this.init()
+    }
+  }
   methods = {
     async init() {
       if (!this.src) return;
@@ -32,6 +37,7 @@ export default class ImageMixins {
       if (data.networkType == "none") {
         this.status = this.reload ? "load-refresh" : "load-fail";
       } else {
+        this.status = 'loading'
         this.url = this.src;
       }
     },
