@@ -9,7 +9,7 @@ export default class HTool {
     $getPageComponent() {
       const current = difference.getCurrentPage()
       if (!current) return null
-      const pages = difference.selector(this, '.cml-h-page')
+      const pages = difference.selector(current, '.cml-h-page')
       if (pages.length > 1 ){
         console.warn('一个页面只能使用一个h-page组件')
       }
