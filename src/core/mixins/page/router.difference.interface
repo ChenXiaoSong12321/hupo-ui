@@ -6,8 +6,8 @@ interface RouterInterface {}
   class RouterDifference implements RouterInterface {
     getRouter(ctx){
       return {
-        path: ctx.$route.fullPath,
-        route: ctx.$route.fullPath,
+        path: ctx.$route.path,
+        route: ctx.$route.path,
         params: ctx.$route.params,
         query: ctx.$route.query
       }
