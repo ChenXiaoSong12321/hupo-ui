@@ -1,8 +1,8 @@
-import cml from "chameleon-api";
+import cml from 'chameleon-api'
 import defaultData from '../../../../core/viewport/defaultData'
 import calculate from '../../../../core/viewport/calculate'
 import { INVISIABLE } from './const'
-export default class HScrollMixin{
+export default class HScrollMixin {
   props = {
     flexible: {
       type: Boolean,
@@ -36,17 +36,17 @@ export default class HScrollMixin{
   }
 
   computed = {
-    topThreshold_px(){
+    topThreshold_px() {
       return parseInt(cml.cpx2px(this.topThreshold))
     },
-    bottomThreshold_px(){
+    bottomThreshold_px() {
       return parseInt(cml.cpx2px(this.bottomThreshold))
     },
     scrollHeight() {
-      if(this.height == -1){
-        const viewportHeight = cml.cpx2px(this.viewport.viewportHeight);
-        return Math.floor( viewportHeight - this.viewport.headerHeight - this.viewport.bottomHeight );
-      }else{
+      if (this.height == -1) {
+        const viewportHeight = cml.cpx2px(this.viewport.viewportHeight)
+        return Math.floor(viewportHeight - this.viewport.headerHeight - this.viewport.bottomHeight)
+      } else {
         return cml.cpx2px(this.height)
       }
     }

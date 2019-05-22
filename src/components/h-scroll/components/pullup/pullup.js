@@ -1,4 +1,4 @@
-export default class Pullup{
+export default class Pullup {
   props = {
     status: {
       type: String,

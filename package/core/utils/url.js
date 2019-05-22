@@ -59,5 +59,14 @@ export default {
       }
     }
     return url
+  },
+  formatUrlParam(url){
+    // 使用正则来 两边的参数不可能是 &=? 所以去反集[^&=?]
+    const regex = /([^&=?]+)=([^&=?]+)/g
+    const param = {};
+    url.replace(regex, (...arg) => {
+      param[arg[1]] = arg[2];
+    });
+    return param
   }
 }

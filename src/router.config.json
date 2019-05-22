@@ -32,6 +32,11 @@
       "path": "/pages/COMP/h-search/h-search"
     },
     {
+      "name": "h-pagination",
+      "url": "/pages/COMP/h-pagination/h-pagination",
+      "path": "/pages/COMP/h-pagination/h-pagination"
+    },
+    {
       "name": "h-rich-text",
       "url": "/pages/COMP/h-rich-text/h-rich-text",
       "path": "/pages/COMP/h-rich-text/h-rich-text"

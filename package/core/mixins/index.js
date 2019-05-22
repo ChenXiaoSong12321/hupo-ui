@@ -48,7 +48,8 @@ export default function mix(...mixins) {
         }
       })
     }
-    async beforeCreate() {
+    async beforeCreate(params) {
+      this.__params__ = params
       await difference.nextTick()
       // beforeCreate -- 实例未生成，无法调用 _lifetimes 方法
       // const methodsList = lifetimes['beforeCreate']

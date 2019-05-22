@@ -1,0 +1,32 @@
+<template>
+  <view>
+    <block c-if="{{!empty}}">
+      <h-scroll pulldown loadMore="{{false}}" c-bind:pulldown="onPulldown" c-bind:pullup="onPullup">
+        <slot></slot>
+      </h-scroll>
+    </block>
+    <block c-else>
+      <slot name="empty"></slot>
+    </block>
+  </view>
+</template>
+
+<script>
+import CurrentComponent from './h-pagination.js';
+import component from "../../core/mixins/component.js";
+export default component(CurrentComponent);
+</script>
+
+<style lang="scss">
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-scroll":"../h-scroll/h-scroll"
+    },
+    "component": true
+  }
+}
+</script>

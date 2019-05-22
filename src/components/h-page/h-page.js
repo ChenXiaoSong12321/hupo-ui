@@ -40,6 +40,13 @@ export default class HPage {
     }
   };
 
+  computed = {
+    heightStyle() {
+      if (this.fixed) return `min-height: ${this.viewport.viewportHeight}cpx;`
+      else return `height: ${this.viewport.viewportHeight}cpx;`
+    }
+  }
+
   watch = {
     title(val) {
       this.selfTitle = val

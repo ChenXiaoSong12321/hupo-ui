@@ -1,0 +1,86 @@
+<template>
+  <h-page title="h-pagination 演示" fixed>
+    <view class="container">
+      <h-pagination c-bind:pulldown="pulldown" c-bind:pullup="pullup" start="{{start}}" step="{{step}}" pageCount="{{pageCount}}" currentPageLength="{{currentPageLength}}">
+        <view c-for="{{list}}" class="list-item">{{item}}</view>
+        <view slot="empty">empty</view>
+      </h-pagination>
+    </view>
+  </h-page>
+</template>
+<script>
+import page from "../../../core/mixins/page";
+class HPagePagination {
+  data = {
+    list: [],
+    start: 1231231231231,
+    step: 12312312,
+    pageCount: 20,
+    currentPageLength: 0
+  }
+
+  mounted(){
+    this.createList(20)
+  }
+
+  watch = {
+    list(n){console.log([...n])}
+  }
+
+  methods = {
+    pulldown(e){
+      console.log('pulldown',e)
+      this.list = []
+      this.createList(20)
+    },
+    pullup(e){
+      console.log('pullup',e)
+      let {start,step,pageCount,currentPageLength} = e.detail
+      this.$setTimeout(_=>{
+        this.createList(10)
+      },2000)
+    },
+    createList(len=20){
+      let list = []
+      for(let i = 0;i<len;i++){
+        list.push(Math.random())
+      }
+      this.currentPageLength = list.length
+      this.list = [...this.list,...list]
+    }
+  }
+}
+
+export default page(HPagePagination);
+</script>
+<style scoped lang="scss">
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  .list-item{
+    width: 730cpx;
+    height: 50cpx;
+    margin-top: 15cpx;
+    background-color: #e0e0e0;
+  }
+}
+
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-page": "/components/h-page/h-page",
+      "h-pagination": "/components/h-pagination/h-pagination"
+    },
+    "navigationBarTitleText": "h-pagination",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#E2E2E2"
+  },
+  "wx": {
+    "enablePullDownRefresh": true
+  }
+}
+</script>
