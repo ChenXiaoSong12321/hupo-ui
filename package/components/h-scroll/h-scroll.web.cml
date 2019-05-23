@@ -1,23 +1,30 @@
 <template>
   <view class="h-scroll" ref="scroll" style="height: {{scrollHeight}}px">
-    <view class="h-scroll-container" style="min-height: {{scrollHeight + 1}}px">
-      <view
-        c-if="{{pulldown}}"
-        class="h-scroll-pulldown"
-        style="top: -{{topThreshold_px}}px; height: {{topThreshold_px}}px"
-      >
-        <h-scroll-pulldown
-          status="{{status}}"
-          c-show="{{status === 'PULLDOWN_RELEASE' || status === 'PULLINGDOWN'}}"
-        ></h-scroll-pulldown>
+    <block c-if="{{loading}}">
+      <view class="h-scroll-loading">
+        <h-load-more loading></h-load-more>
       </view>
-      <view class="h-scroll-content">
-        <slot></slot>
+    </block>
+    <block c-else>
+      <view class="h-scroll-container" style="min-height: {{scrollHeight + 1}}px">
+        <view
+          c-if="{{pulldown}}"
+          class="h-scroll-pulldown"
+          style="top: -{{topThreshold_px}}px; height: {{topThreshold_px}}px"
+        >
+          <h-scroll-pulldown
+            status="{{status}}"
+            c-show="{{status === 'PULLDOWN_RELEASE' || status === 'PULLINGDOWN'}}"
+          ></h-scroll-pulldown>
+        </view>
+        <view class="h-scroll-content">
+          <slot></slot>
+        </view>
+        <view class="h-scroll-pullup" c-if="{{loadMore}}">
+          <h-scroll-pullup status="{{status}}"></h-scroll-pullup>
+        </view>
       </view>
-      <view class="h-scroll-pullup" c-if="{{loadMore}}">
-        <h-scroll-pullup status="{{status}}"></h-scroll-pullup>
-      </view>
-    </view>
+    </block>
   </view>
 </template>
 <script>
@@ -33,6 +40,9 @@ class HScroll {
     async scrollHeight(){
       await difference.nextTick();
       this.scroll && this.scroll.refresh();
+    },
+    loading(){
+      this.init()
     }
   }
 
@@ -51,6 +61,16 @@ class HScroll {
 
   async created() {
     await difference.nextTick();
+    this.init()
+  }
+
+  methods = {
+    init(){
+      if(this.loading)return
+      if(this.scroll){
+        this.scroll.destroy()
+        this.scroll = null
+      }
     this.scroll = new BScroll(this.$refs.scroll, {
       //初始化better-scroll
       probeType: 1, //1 滚动的时候会派发scroll事件，会截流。2滚动的时候实时派发scroll事件，不会截流。 3除了实时派发scroll事件，在swipe的情况下仍然能实时派发scroll事件
@@ -102,9 +122,7 @@ class HScroll {
         this.$cmlEmit("pullup", this);
       }
     });
-  }
-
-  methods = {
+    },
     stop() {
       this.status = FINISH;
       this.scroll && this.scroll.finishPullDown();
@@ -123,7 +141,8 @@ export default component(HScrollMixin, HScroll);
   "base": {
     "usingComponents": {
       "h-scroll-pulldown": "./components/pulldown/pulldown",
-      "h-scroll-pullup": "./components/pullup/pullup"
+      "h-scroll-pullup": "./components/pullup/pullup",
+      "h-load-more": "../h-load-more/h-load-more"
     },
     "component": true
   }

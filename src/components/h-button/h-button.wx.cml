@@ -50,19 +50,13 @@ class HButton implements ButtonInterface {
     },
     async handleFormSubmit(event) {
       const res = await cml.getSystemInfo()
-      
+      // todo: jerry == -> !=
       if (res.env === 'wx' && res.extraParams.platform == 'devtools') {
         const formId = event.detail.formId || ''
         console.log('formId:',formId)
         let app = difference.getApp()
         app.buttonFormIds = app.buttonFormIds || []
         app.buttonFormIds.push(formId)
-      //   const ctx = this.$viewportCommonGetCurrentPage()
-      //   const token = await ctx.$getToken()
-      //   await ctx.$api(api.user.apiPostFormId, {
-      //     token,
-      //     formId: JSON.stringify(formId)
-      //   })
       }
     }
   };

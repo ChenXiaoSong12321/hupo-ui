@@ -1,7 +1,7 @@
 <template>
   <h-page title="h-pagination 演示" fixed>
     <view class="container">
-      <h-pagination c-bind:pulldown="pulldown" c-bind:pullup="pullup" start="{{start}}" step="{{step}}" pageCount="{{pageCount}}" currentPageLength="{{currentPageLength}}">
+      <h-pagination c-bind:pulldown="pulldown" c-bind:pullup="pullup" start="{{start}}" step="{{step}}" pageCount="{{pageCount}}" total="{{list.length}}" ref="h-pagination">
         <view c-for="{{list}}" class="list-item">{{item}}</view>
         <view slot="empty">empty</view>
       </h-pagination>
@@ -10,9 +10,11 @@
 </template>
 <script>
 import page from "../../../core/mixins/page";
+import Pagination from '../../../core/mixins/common/pagination.js'
 class HPagePagination {
   data = {
     list: [],
+    len:0,
     start: 1231231231231,
     step: 12312312,
     pageCount: 20,
@@ -20,24 +22,28 @@ class HPagePagination {
   }
 
   mounted(){
-    this.createList(20)
+    this.createList(10)
   }
 
   watch = {
-    list(n){console.log([...n])}
+    list(n){
+      console.log('list:',[...n])
+    }
   }
 
   methods = {
     pulldown(e){
       console.log('pulldown',e)
       this.list = []
-      this.createList(20)
+      this.createList(15)
+      this.stop()
     },
     pullup(e){
       console.log('pullup',e)
       let {start,step,pageCount,currentPageLength} = e.detail
       this.$setTimeout(_=>{
-        this.createList(10)
+        this.createList(18)
+        this.stop()
       },2000)
     },
     createList(len=20){
@@ -51,7 +57,7 @@ class HPagePagination {
   }
 }
 
-export default page(HPagePagination);
+export default page(Pagination, HPagePagination);
 </script>
 <style scoped lang="scss">
 .container {
