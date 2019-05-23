@@ -2,6 +2,7 @@ import cml from 'chameleon-api'
 import difference from '../../difference/difference.interface'
 import channelDifference from '../../utils/channelDifference'
 import wxTools from '../../utils/wxTools'
+import url from '../../utils/url'
 let indexRoute = ''
 export default class Goto {
   created() {
@@ -75,19 +76,29 @@ export default class Goto {
       const {
         path = indexRoute, query = {}, redirect = false
       } = options
+      const param = url.formatUrlParam(path)
+      const queryMerge = Object.assign(param, query)
+      const pathFilter = path.split('?')[0]
+      console.groupCollapsed(`%cgoto debug: %c${pathFilter}`, 'color: #999', 'color: #0076ff')
+      console.log({
+        path: pathFilter,
+        query: queryMerge,
+        redirect: redirect
+      })
+      console.groupEnd()
       if (redirect) {
         const app = difference.getApp()
         if (app.router && app.router.historys) {
           app.router.historys.pop()
         }
         cml.redirectTo({
-          path,
-          query
+          path: pathFilter,
+          query: queryMerge
         })
       } else {
         cml.navigateTo({
-          path,
-          query
+          path: pathFilter,
+          query: queryMerge
         })
       }
     }

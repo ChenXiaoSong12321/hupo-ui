@@ -1,29 +1,19 @@
 <template>
-  <view style="{{customStyle}}" class="h-icon {{name}}"></view>
+  <view>
+    hhh
+  </view>
 </template>
 
 <script>
-class HIcon {
+class HPagination {
  props = {
-    name: {
-      type: String,
-      default: ''
-    },
-    customStyle: {
-      type: String,
-      default: ''
-    }
   }
 }
 
-export default new HIcon();
+export default new HPagination();
 </script>
 
 <style lang="scss">
-@import "../../assets/scss/common/iconfont.scss";
-.h-icon {
-  @include icon();
-}
 </style>
 
 <script cml-type="json">

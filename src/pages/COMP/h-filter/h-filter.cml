@@ -1,14 +1,14 @@
 <template>
   <h-page title="h-button 演示">
     <view class="container">
-      <view class="filter-name">h-compareVersion max="11" min="3"</view>
-      <h-compareVersion max="11" min="3"></h-compareVersion>
-      <view class="filter-name">h-formatDate time="1555386496788" type="YYYY-MM-DD"</view>
-      <h-formatDate time="1555386496788" type="YYYY-MM-DD hh:mm:ss"></h-formatDate>
-      <view class="filter-name">h-formatDistance distance="2300"</view>
-      <h-formatDistance distance="2300"></h-formatDistance>
-      <view class="filter-name">h-formatMoney money="3200"</view>
-      <h-formatMoney money="3200"></h-formatMoney>
+      <view class="filter-name">h-compare-version max="11" min="3"</view>
+      <h-compare-version max="11" min="3"></h-compare-version>
+      <view class="filter-name">h-format-date time="1555386496788" type="YYYY-MM-DD"</view>
+      <h-format-date time="1555386496788" type="YYYY-MM-DD hh:mm:ss"></h-format-date>
+      <view class="filter-name">h-format-distance distance="2300"</view>
+      <h-format-distance distance="2300"></h-format-distance>
+      <view class="filter-name">h-format-money money="3200"</view>
+      <h-format-money money="3200"></h-format-money>
     </view>
   </h-page>
 </template>
@@ -44,10 +44,10 @@ export default page(HPageButton);
   "base": {
     "usingComponents": {
       "h-page": "/components/h-page/h-page",
-      "h-compareVersion": "/components/h-filter/h-compareVersion",
-      "h-formatDate": "/components/h-filter/h-formatDate",
-      "h-formatDistance": "/components/h-filter/h-formatDistance",
-      "h-formatMoney": "/components/h-filter/h-formatMoney",
+      "h-compare-version": "/components/h-filter/h-compare-version",
+      "h-format-date": "/components/h-filter/h-format-date",
+      "h-format-distance": "/components/h-filter/h-format-distance",
+      "h-format-money": "/components/h-filter/h-format-money",
       "h-button": "/components/h-button/h-button"
     },
     "navigationBarTitleText": "h-button",

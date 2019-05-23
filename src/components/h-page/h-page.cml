@@ -2,7 +2,7 @@
   <page title="{{selfTitle}}">
     <h-dialog ref="h-dialog" c-bind:confirm="dialogConfirm" c-bind:cancel="dialogCancel"></h-dialog>
     <h-toast ref="h-toast"></h-toast>
-    <view class="h-page h-page--{{background}}" style="height: {{viewport.viewportHeight}}cpx;">
+    <view class="h-page h-page--{{background}}" style="{{heightStyle}}">
       <h-navbar
         type="{{type}}"
         loading="{{navbarLoading}}"

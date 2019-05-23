@@ -222,6 +222,7 @@ class Demo {
           routeObj["h-rich-text"],
           routeObj["h-load-more"],
           routeObj["h-tag"],
+          routeObj["h-pagination"],
           routeObj["h-progress"],
           routeObj["h-filter"],
           routeObj["h-carousel"]
