@@ -1,5 +1,5 @@
 <template>
-  <h-page title="h-button 演示" loadmore c-bind:pullup="onPullup">
+  <h-page title="h-button 演示" loadmore c-bind:pullup="onPullup" fixed>
     <view class="container">
       <h-button class="btn" c-bind:onclick="showLoading" size="max" type="primary" radius>max</h-button>
       <h-button class="btn" c-bind:onclick="showLoading" size="large">large</h-button>
@@ -22,10 +22,13 @@
 </template>
 <script>
 import page from "../../../core/mixins/page";
+import difference from '../../../core/difference/difference.interface'
 class HPageButton {
   methods = {
     showLoading() {
       console.log("onclick button");
+      let app = difference.getApp()
+      console.log(app.buttonFormIds)
     },
     onPullup(e){
       this.$setTimeout(() => {

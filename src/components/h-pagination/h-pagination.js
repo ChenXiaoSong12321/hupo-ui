@@ -20,14 +20,20 @@ export default class HPagination {
 
   data = {
     empty: true,
+    total: 0,
+    stop: _ => {},
     pageIndex: 1
   }
+
   watch = {
     currentPageLength(n, o) {
       console.log('currentPageLength', n, o)
-      if (n != 0) this.empty = false
+      if (n != 0) {
+        this.total = this.total + n
+      }
     }
   }
+
   computed = {
     loading() {
       return this.currentPageLength != this.pageCount
@@ -36,9 +42,10 @@ export default class HPagination {
 
   methods = {
     onPulldown(event) {
-      event.detail.stop()
       console.log('onPulldown')
+      this.stop = event.detail.stop
       this.pageIndex = 1
+      this.total = 0
       this.$cmlEmit('pulldown', {
         pageCount: this.pageCount,
         step: this.step,
@@ -46,8 +53,9 @@ export default class HPagination {
         pageIndex: this.pageIndex
       })
     },
-    onPullup() {
+    onPullup(event) {
       console.log('onPullup')
+      this.stop = event.detail.stop
       if (this.loading) {
         this.pageIndex = this.pageIndex + 1
         this.$cmlEmit('pullup', {
@@ -56,6 +64,8 @@ export default class HPagination {
           start: this.start,
           pageIndex: this.pageIndex - 1
         })
+      } else {
+        this.stop()
       }
     }
   }
