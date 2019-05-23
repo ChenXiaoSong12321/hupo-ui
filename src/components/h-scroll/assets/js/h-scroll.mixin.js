@@ -20,10 +20,6 @@ export default class HScrollMixin {
       type: Boolean,
       default: false
     },
-    loadMore: {
-      type: Boolean,
-      default: true
-    },
     loading: {
       type: Boolean,
       default: false

@@ -20,9 +20,6 @@
         <view class="h-scroll-content">
           <slot></slot>
         </view>
-        <view class="h-scroll-pullup" c-if="{{loadMore}}">
-          <h-scroll-pullup status="{{status}}"></h-scroll-pullup>
-        </view>
       </view>
     </block>
   </view>
