@@ -27,7 +27,6 @@ export default component(HScrollMixin, HScrollView);
 {
   "base": {
     "usingComponents": {
-      "h-scroll-pullup": "../pullup/pullup"
     },
     "component": true
   }
