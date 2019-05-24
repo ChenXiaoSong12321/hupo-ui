@@ -10,10 +10,10 @@ export default class HTool {
       const current = difference.getCurrentPage()
       if (!current) return null
       const pages = difference.selector(current, '.cml-h-page')
-      if (pages.length > 1 ){
+      if (pages.length > 1) {
         console.warn('一个页面只能使用一个h-page组件')
       }
-      if (pages.length == 0 ){
+      if (pages.length == 0) {
         console.warn('h-page组件还未加载')
         return null
       }

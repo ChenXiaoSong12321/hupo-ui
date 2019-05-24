@@ -1,9 +1,14 @@
 
+import difference from '../../core/difference/difference.interface'
 export default class HPagination {
   props = {
     start: {
       type: String,
       default: '1'
+    },
+    pulldown: {
+      type: Boolean,
+      default: true
     },
     step: {
       type: [String, Number],
@@ -15,16 +20,25 @@ export default class HPagination {
     },
     total: {
       type: Number,
-      default: -1
+      default: 0
+    },
+    list: {
+      type: Array,
+      default: []
     }
   }
 
   data = {
     empty: false,
-    status: 'init', // pulldowning pulluping finish init disabledPullup disabledPulldown
-    stop: {
+    loading: true,
+    status: 'INIT', // PULLDOWN_ING PULLUP_ING FINISH INIT PULLUP_DISABLED PULLDOWN_DISABLED
+    stopStatus: {
       pulldown: null,
       pullup: null
+    },
+    length: {
+      old: 0,
+      new: 0
     },
     pageIndex: 1
   }
@@ -35,22 +49,16 @@ export default class HPagination {
     },
     list(n, o) {
       console.log(n, o, 'list')
+      this.length.new = n.length
     }
-  }
-
-  computed = {
-
-  }
-
-  mounted() {
   }
 
   methods = {
     onPulldown(event) {
       console.log('onPulldown')
-      if (this.status !== 'disabledPulldown') {
-        this.stop.pulldown = event.detail.stop
-        this.status = 'pulldowning'
+      if (this.status !== 'PULLDOWN_DISABLED') {
+        this.stopStatus.pulldown = event.detail
+        this.status = 'PULLDOWN_ING'
         this.pageIndex = 1
         this.$cmlEmit('pulldown', {
           pageCount: this.pageCount,
@@ -63,24 +71,46 @@ export default class HPagination {
       }
     },
     onPullup(event) {
-      console.log('onPullup')
-      if (this.status !== 'disabledPullup') {
-        this.stop.pullup = event.detail.stop
-        this.status = 'pulluping'
+      console.log('onPullup', this.status)
+      if (this.status !== 'PULLUP_DISABLED') {
+        this.stopStatus.pullup = event.detail
+        this.status = 'PULLUP_ING'
+        this.loading = true
         this.pageIndex = this.pageIndex + 1
         this.$cmlEmit('pullup', {
           pageCount: this.pageCount,
           step: this.step,
           start: this.start,
-          pageIndex: this.pageIndex - 1
+          pageIndex: this.pageIndex
         })
       } else {
         event.detail.stop()
       }
     },
-    stop() {
-      this.stop.pullup()
-      this.status = 'finish'
+    async  stopRefresh() {
+      await difference.nextTick()
+      console.log('stopRefresh', this.length.new, this.total)
+      this.loading = false
+      ;['pullup', 'pulldown'].forEach(item => {
+        if (this.stopStatus[item]) {
+          this.stopStatus[item].stop()
+          this.stopStatus[item] = null
+        }
+      })
+      switch (true) {
+        case (this.status === 'PULLUP_ING' && (this.length.old === this.length.new || this.length.old % this.pageCount !== 0)):
+          this.status = 'PULLUP_DISABLED'
+          break
+        case (this.status === 'PULLDOWN_ING' && this.length.new === 0):
+          this.empty = true
+          break
+        case (this.status === 'INIT' && this.length.new === 0):
+          this.empty = true
+          break
+        default:
+          this.status = 'FINISH'
+      }
+      this.length.old = this.length.new
     }
   }
 }

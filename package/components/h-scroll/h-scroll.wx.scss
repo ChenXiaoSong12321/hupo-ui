@@ -8,11 +8,6 @@
     width: 100%;
     @include flexCenter();
   }
-  @include e(pullup) {
-    width: 100%;
-    height: 120cpx;
-    @include flexCenter();
-  }
   @include e(loading) {
     width: 100%;
     @include flexCenter();

@@ -7,14 +7,10 @@
     </block>
     <block c-else-if="{{pulldown}}">
       <slot></slot>
-      <view class="h-scroll-pullup" c-if="{{loadMore}}">
-        <h-scroll-pullup status="{{status}}"></h-scroll-pullup>
-      </view>
     </block>
     <block c-else>
       <h-scroll-view
         ref="h-scroll-view"
-        loadMore="{{loadMore}}"
         height="{{height}}"
         bottomThreshold="{{bottomThreshold}}"
         state="{{status}}"

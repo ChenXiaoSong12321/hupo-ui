@@ -20,9 +20,6 @@
         <view class="h-scroll-content">
           <slot></slot>
         </view>
-        <view class="h-scroll-pullup" c-if="{{loadMore}}">
-          <h-scroll-pullup status="{{status}}"></h-scroll-pullup>
-        </view>
       </view>
     </block>
   </view>
@@ -141,7 +138,6 @@ export default component(HScrollMixin, HScroll);
   "base": {
     "usingComponents": {
       "h-scroll-pulldown": "./components/pulldown/pulldown",
-      "h-scroll-pullup": "./components/pullup/pullup",
       "h-load-more": "../h-load-more/h-load-more"
     },
     "component": true

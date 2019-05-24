@@ -138,7 +138,6 @@ export default component(HScrollMixin, HScroll);
   "base": {
     "usingComponents": {
       "h-scroll-pulldown": "./components/pulldown/pulldown",
-      "h-scroll-pullup": "./components/pullup/pullup",
       "h-load-more": "../h-load-more/h-load-more"
     },
     "component": true
