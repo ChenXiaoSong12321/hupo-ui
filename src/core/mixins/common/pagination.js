@@ -4,7 +4,7 @@ export default class Pagination {
     $stopRefresh() {
       const paginationArr = difference.selector(this, '.cml-h-pagination')
       if (!paginationArr.length) {
-        console.warn('can not find the component of pagination')
+        console.warn('can not find component of pagination')
         return
       }
       const pagination = paginationArr[0]
