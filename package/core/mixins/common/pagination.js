@@ -1,10 +1,15 @@
 import difference from '../../difference/difference.interface'
 export default class Pagination {
+  data = {
+    pageCount: 20,
+    pageIndex: 1
+  }
+
   methods = {
-    stopRefresh() {
+    $stopRefresh() {
       const paginationArr = difference.selector(this, '.cml-h-pagination')
       if (!paginationArr.length) {
-        console.warn('can not find the component of pagination')
+        console.warn('can not find component of pagination')
         return
       }
       const pagination = paginationArr[0]
