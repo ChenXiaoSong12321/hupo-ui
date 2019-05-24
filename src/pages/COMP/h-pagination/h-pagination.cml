@@ -27,7 +27,7 @@ class HPagePagination {
   watch = {
     list(n){
       console.log('list:',[...n])
-      this.stopRefresh()
+      this.$stopRefresh()
     }
   }
 
