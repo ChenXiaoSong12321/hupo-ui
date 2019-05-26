@@ -48,7 +48,7 @@ export default class HPagination {
       console.log(n, o, 'total')
     },
     list(n, o) {
-      console.log(n, o, 'list')
+      console.log([...n], o, 'list')
       this.length.new = n.length
     }
   }
@@ -59,6 +59,7 @@ export default class HPagination {
       if (this.status !== 'PULLDOWN_DISABLED') {
         this.stopStatus.pulldown = event.detail
         this.status = 'PULLDOWN_ING'
+        this.loading = true
         this.pageIndex = 1
         this.$cmlEmit('pulldown', {
           pageCount: this.pageCount,
@@ -87,10 +88,13 @@ export default class HPagination {
         event.detail.stop()
       }
     },
-    async  stopRefresh() {
+    // refresh 既不是上拉也不是下拉刷新
+    async stopRefresh() {
       await difference.nextTick()
+      
       console.log('stopRefresh', this.length.new, this.total)
       this.loading = false
+      this.empty = false
       ;['pullup', 'pulldown'].forEach(item => {
         if (this.stopStatus[item]) {
           this.stopStatus[item].stop()
@@ -101,10 +105,7 @@ export default class HPagination {
         case (this.status === 'PULLUP_ING' && (this.length.old === this.length.new || this.length.old % this.pageCount !== 0)):
           this.status = 'PULLUP_DISABLED'
           break
-        case (this.status === 'PULLDOWN_ING' && this.length.new === 0):
-          this.empty = true
-          break
-        case (this.status === 'INIT' && this.length.new === 0):
+        case (this.status !== 'PULLUP_ING' && this.length.new === 0):
           this.empty = true
           break
         default:
