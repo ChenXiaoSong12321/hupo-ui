@@ -54,135 +54,6 @@
     <view style="font-size:20cpx;">
       以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
     </view>
-<<<<<<< HEAD
-=======
-    <view style="font-size:22cpx;">
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view style="font-size:24cpx;">
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view style="font-size:26cpx;">
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view style="font-size:28cpx;">
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view style="font-size:30cpx;">
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view style="font-size:32cpx;">
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view style="font-size:34cpx;">
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
-    <view>
-      以下将演示chameleon接口能力，具体属性参数详见chameleon开发文档。
-    </view>
->>>>>>> ed1301a794992a3d707a21c055b7737a59d14b6f
   </h-scroll>
 </h-page>
 </template>
@@ -321,17 +192,12 @@ class Demo {
       let dataset = tar.dataset;
       let url = dataset.routeurl;
       let path = dataset.routepath;
-<<<<<<< HEAD
       this.$goto({
         path: path
       })
       // cml.navigateTo({
       //   path: path
       // });
-=======
-      
-      this.$goto({path})
->>>>>>> ed1301a794992a3d707a21c055b7737a59d14b6f
     },
     onPulldown(e){
       this.$setTimeout(() => {
