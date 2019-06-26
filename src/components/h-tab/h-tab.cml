@@ -72,6 +72,7 @@ export default new HTabs();
     display:flex;
     flex-direction:row;
     justify-content:space-around;
+    background-color:#fff;
   }
   @include e(bottom){
     width: 100%;

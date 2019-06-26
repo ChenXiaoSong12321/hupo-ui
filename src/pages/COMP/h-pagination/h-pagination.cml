@@ -1,7 +1,7 @@
 <template>
   <h-page title="h-pagination 演示" fixed>
     <view class="container">
-      <h-pagination c-bind:pulldown="pulldown" c-bind:pullup="pullup" start="{{start}}" step="{{step}}" pageCount="{{pageCount}}" currentPageLength="{{currentPageLength}}">
+      <h-pagination c-bind:pulldown="pulldown" c-bind:pullup="pullup" start="{{start}}" step="{{step}}" pageCount="{{pageCount}}" total="{{list.length}}" list="{{list}}">
         <view c-for="{{list}}" class="list-item">{{item}}</view>
         <view slot="empty">empty</view>
       </h-pagination>
@@ -10,13 +10,14 @@
 </template>
 <script>
 import page from "../../../core/mixins/page";
+import Pagination from '../../../core/mixins/common/pagination.js'
+i=0
 class HPagePagination {
   data = {
     list: [],
     start: 1231231231231,
     step: 12312312,
-    pageCount: 20,
-    currentPageLength: 0
+    pageCount: 20
   }
 
   mounted(){
@@ -24,34 +25,42 @@ class HPagePagination {
   }
 
   watch = {
-    list(n){console.log([...n])}
+    list(n){
+      console.log('list:',[...n])
+      this.$stopRefresh()
+    }
   }
 
   methods = {
     pulldown(e){
-      console.log('pulldown',e)
+      console.log('pulldown',e.detail)
       this.list = []
       this.createList(20)
+      i=0
     },
     pullup(e){
-      console.log('pullup',e)
-      let {start,step,pageCount,currentPageLength} = e.detail
-      this.$setTimeout(_=>{
-        this.createList(10)
-      },2000)
+      console.log('pullup',e.detail)
+      setTimeout(() => {
+        if(i<2){
+          this.createList(20)
+          i++
+        }
+        if(i===2){
+          this.createList(1)
+        }
+      }, 1000);
     },
     createList(len=20){
       let list = []
       for(let i = 0;i<len;i++){
         list.push(Math.random())
       }
-      this.currentPageLength = list.length
-      this.list = [...this.list,...list]
+      this.list = this.list.concat(list)
     }
   }
 }
 
-export default page(HPagePagination);
+export default page(Pagination, HPagePagination);
 </script>
 <style scoped lang="scss">
 .container {

@@ -1,15 +1,18 @@
 <template>
   <view class="h-scroll">
-    <block c-if="{{pulldown}}">
-      <slot></slot>
-      <view class="h-scroll-pullup" c-if="{{loadMore}}">
-        <h-scroll-pullup status="{{status}}"></h-scroll-pullup>
+    <block c-if="{{loading}}">
+      <view class="h-scroll-loading" style="height: {{scrollHeight}}px;">
+        <h-load-more loading></h-load-more>
       </view>
+    </block>
+    <block c-else-if="{{pulldown}}">
+      <slot></slot>
     </block>
     <block c-else>
       <h-scroll-view
         ref="h-scroll-view"
-        loadMore="{{loadMore}}"
+        height="{{height}}"
+        bottomThreshold="{{bottomThreshold}}"
         state="{{status}}"
         c-bind:pullup="onPullup"
       >
@@ -28,12 +31,12 @@ import { INVISIABLE, PULLING, PULLDOWN_RELEASE, PULLINGUP_RELEASE, PULLINGDOWN, 
 class HScroll {
   methods = {
     onPullup(event){
-      if(this.status == PULLINGDOWN || this.status == PULLINGUP)return
+      if(this.loading || this.status == PULLINGDOWN || this.status == PULLINGUP)return
       this.status = PULLINGUP
       this.$cmlEmit("pullup", this);
     },
     onPulldown(event){
-      if(this.status == PULLINGDOWN || this.status == PULLINGUP)return
+      if(this.loading || this.status == PULLINGDOWN || this.status == PULLINGUP)return
       this.status = PULLINGDOWN
       this.$cmlEmit("pulldown", this);
     },
@@ -52,8 +55,7 @@ export default component(HScrollMixin, HScroll);
 {
   "base": {
     "usingComponents": {
-      "h-scroll-view": "./components/h-scroll-view/h-scroll-view",
-      "h-scroll-pullup": "./components/pullup/pullup"
+      "h-scroll-view": "./components/h-scroll-view/h-scroll-view"
     },
     "component": true
   }

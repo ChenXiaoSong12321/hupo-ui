@@ -13,8 +13,8 @@
       </view>
       <view class="h-dialog-content {{ title ? 'is-has-title' : '' }}">
         <view class="h-dialog-content--message">
-          <!-- <h-rich-text document="{{html}}"></h-rich-text> -->
-          {{message}}
+          <h-rich-text document="{{message}}"></h-rich-text>
+          <!-- {{message}} -->
         </view>
       </view>
       <view class="h-dialog-footer">
@@ -155,6 +155,7 @@ export default new HDialog();
     "usingComponents": {
       "h-popup-manager": "../h-popup-manager/h-popup-manager",
       "h-icon": "../h-icon/h-icon",
+      "h-rich-text": "../h-rich-text/h-rich-text",
       "h-button": "../h-button/h-button"
     },
     "component": true

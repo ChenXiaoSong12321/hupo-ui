@@ -4,10 +4,6 @@ import calculate from '../../../../core/viewport/calculate'
 import { INVISIABLE } from './const'
 export default class HScrollMixin {
   props = {
-    flexible: {
-      type: Boolean,
-      default: true
-    },
     height: {
       type: [String, Number],
       default: -1
@@ -24,9 +20,9 @@ export default class HScrollMixin {
       type: Boolean,
       default: false
     },
-    loadMore: {
+    loading: {
       type: Boolean,
-      default: true
+      default: false
     }
   }
 
