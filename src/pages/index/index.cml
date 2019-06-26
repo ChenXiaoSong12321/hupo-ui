@@ -270,7 +270,7 @@ class Demo {
     tabList: [],
     activeTab: "component",
     arrowIcon: "https://gw.alicdn.com/tfs/TB11zBUpwMPMeJjy1XbXXcwxVXa-22-22.png",
-    loading: true
+    loading: false
   }
 
   computed = {
@@ -318,9 +318,8 @@ class Demo {
       let dataset = tar.dataset;
       let url = dataset.routeurl;
       let path = dataset.routepath;
-      cml.navigateTo({
-        path: path
-      });
+      
+      this.$goto({path})
     },
     onPulldown(e){
       this.$setTimeout(() => {
