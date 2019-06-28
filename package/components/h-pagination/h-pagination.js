@@ -16,11 +16,15 @@ export default class HPagination {
     },
     pageCount: {
       type: [String, Number],
-      default: 20
+      default: 10
     },
     total: {
       type: Number,
       default: 0
+    },
+    value: {
+      type: Boolean,
+      default: false
     },
     list: {
       type: Array,
@@ -45,17 +49,29 @@ export default class HPagination {
 
   watch = {
     total(n, o) {
-      console.log(n, o, 'total')
+      console.log(this.total, 'total')
+      this.length.new = n
+    },
+    value(n) {
+      if (n) {
+        this.empty = false
+        this.loading = true
+      }
+    },
+    loading(n) {
+      if (!n) {
+        this.value = false
+        this.$cmlEmit('input', { value: false })
+      }
     },
     list(n, o) {
-      console.log([...n], o, 'list')
+      console.log(this.list.length, 'list')
       this.length.new = n.length
     }
   }
 
   methods = {
     onPulldown(event) {
-      console.log('onPulldown')
       if (this.status !== 'PULLDOWN_DISABLED') {
         this.stopStatus.pulldown = event.detail
         this.status = 'PULLDOWN_ING'
@@ -72,7 +88,6 @@ export default class HPagination {
       }
     },
     onPullup(event) {
-      console.log('onPullup', this.status)
       if (this.status !== 'PULLUP_DISABLED') {
         this.stopStatus.pullup = event.detail
         this.status = 'PULLUP_ING'

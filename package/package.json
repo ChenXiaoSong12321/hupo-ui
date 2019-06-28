@@ -1,6 +1,6 @@
 {
   "name": "hupo-ui",
-  "version": "0.0.70",
+  "version": "0.0.71",
   "description": "the ui component Library for hupo mall by chameleon",
   "main": "/components",
   "scripts": {
@@ -13,11 +13,7 @@
   "author": "hupo-front-end-team",
   "license": "Apache",
   "dependencies": {
-    "chameleon-api": "0.4.3",
-    "chameleon-bridge": "0.1.2",
-    "chameleon-runtime": "0.1.4",
-    "chameleon-store": "0.0.3",
-    "chameleon-ui-builtin": "^0.2.0",
+    "better-scroll": "^1.15.2",
     "dayjs": "^1.8.12",
     "dayjs-plugin-utc": "^0.1.0",
     "lozad": "^1.9.0"
