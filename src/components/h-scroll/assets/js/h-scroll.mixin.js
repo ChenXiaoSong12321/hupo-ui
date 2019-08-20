@@ -43,7 +43,7 @@ export default class HScrollMixin {
         const viewportHeight = cml.cpx2px(this.viewport.viewportHeight)
         return Math.floor(viewportHeight - this.viewport.headerHeight - this.viewport.bottomHeight)
       } else {
-        return cml.cpx2px(this.height)
+        return cml.cpx2px(parseInt(this.height))
       }
     }
   }
