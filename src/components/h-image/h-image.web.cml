@@ -36,7 +36,7 @@ import HImageMixins from "./h-image.mixins.js";
 import difference from '../../core/difference/difference.interface'
 import component from "../../core/mixins/component.js";
 import lozad from "lozad";
-class HImage implements ImageInterface {
+class HImage implements HImageInterface {
   async mounted() {
     this.init();
     if (this.lazyLoad) {

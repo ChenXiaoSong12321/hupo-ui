@@ -36,7 +36,7 @@ export default new HRichTextParseVideo();
 
 <style lang="scss">
 @import "../common.scss";
-.wxParse-iframe-video{
+.wxParse-iframe-video {
   width: 100%;
 }
 </style>

@@ -1,27 +1,24 @@
 <template>
-  <textarea 
-      value="{{value}}"
-      placeholder="{{placeholder}}"
-      disabled="{{disabled}}"
-      maxlength="{{maxlength}}"
-      style="{{wxStyle}}"
-
-      c-bind:input="inputEvent"
-      c-bind:blur="blurEvent"
-      c-bind:focus="focusEvent"
-      c-bind:confirm="confirmEvent"
-
-      focus="{{focus}}"
-      confirm-type="{{returnKeyType}}"
-      placeholder-style="{{wxPlaceHolderStyle}}"
-  >
-  </textarea>
+  <textarea
+    value="{{value}}"
+    placeholder="{{placeholder}}"
+    disabled="{{disabled}}"
+    maxlength="{{maxlength}}"
+    style="{{wxStyle}}"
+    c-bind:input="inputEvent"
+    c-bind:blur="blurEvent"
+    c-bind:focus="focusEvent"
+    c-bind:confirm="confirmEvent"
+    focus="{{focus}}"
+    confirm-type="{{returnKeyType}}"
+    placeholder-style="{{wxPlaceHolderStyle}}"
+  ></textarea>
 </template>
 <script>
 /*
 event: cinput cblur cfocus cconfirm
 */
- class Textarea implements TextareaInterface {
+ class Textarea implements HTextareaInterface {
     props = {
       //textarea的内容
       value: {

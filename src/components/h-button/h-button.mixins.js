@@ -34,7 +34,10 @@ class HButtonMixins {
       type: String,
       default: 'primary'
     },
-    openType: String,
+    openType: {
+      type: String,
+      default: ''
+    },
     opacity: {
       type: Boolean,
       default: false
@@ -61,7 +64,9 @@ class HButtonMixins {
       if (this.throttle > 0) {
         await this.$throttleButton(this.throttle)
       }
+
       this.$cmlEmit(type, data)
+      this.$cmlEmit('test', data)
     }
   }
 }

@@ -10,6 +10,9 @@ cml.config.merge({
     web: false,
     wx: false
   },
+  check: {
+    enable: false
+  },
   cmlComponents: [
   ],
   buildInfo: {

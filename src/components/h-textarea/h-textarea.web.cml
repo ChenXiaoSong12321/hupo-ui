@@ -1,5 +1,5 @@
 <template>
-<view>ss</view>
+  <view>ss</view>
   <!-- <inputable 
       :value="value"
       :placeholder="placeholder"
@@ -16,13 +16,13 @@
       @blur="blurEvent"
       @focus="focusEvent"
       @confirm="keyupEvent"
-  ></inputable> -->
+  ></inputable>-->
 </template>
 <script>
 /*
 event: cinput cblur cfocus cconfirm
 */
- class Textarea implements TextareaInterface {
+ class Textarea implements HTextareaInterface {
     props = {
       rows: {
         type: Number,

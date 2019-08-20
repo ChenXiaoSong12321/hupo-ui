@@ -31,7 +31,7 @@ import difference from "../../core/difference/difference.interface";
 import component from "../../core/mixins/component.js";
 import HScrollMixin from "./assets/js/h-scroll.mixin.js";
 import { INVISIABLE, PULLING, PULLDOWN_RELEASE, PULLINGUP_RELEASE, PULLINGDOWN, PULLINGUP, FINISH } from './assets/js/const.js'
-class HScroll {
+class HScroll implements HScrollInterface{
 
   watch = {
     async scrollHeight(){
