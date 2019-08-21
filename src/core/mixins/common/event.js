@@ -1,18 +1,15 @@
-import difference from '../../difference/difference.interface'
+import {global} from '../../utils/hupo-core'
 
 export default class Event {
   methods = {
     $eventbusOn(event, fn) {
-      const app = difference.getApp()
-      app.$eventbus.on(event, fn)
+      global.$eventbus.on(event, fn)
     },
     $eventbusEmit(event, ...params) {
-      const app = difference.getApp()
-      app.$eventbus.emit(event, ...params)
+      global.$eventbus.emit(event, ...params)
     },
     $eventbusOff(event, fn) {
-      const app = difference.getApp()
-      app.$eventbus.off(event, fn)
+      global.$eventbus.off(event, fn)
     }
   }
 }

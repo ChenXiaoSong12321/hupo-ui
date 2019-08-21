@@ -14,6 +14,9 @@
   "author": "Hupo-Team",
   "license": "Apache",
   "dependencies": {
+    "@hupo/core-global": "^0.0.3",
+    "@hupo/core-promise": "^0.0.3",
+    "@hupo/core-wx-app-tools": "^0.0.2",
     "better-scroll": "^1.15.2",
     "chameleon-api": "^0.5.3",
     "chameleon-runtime": "^0.3.1",

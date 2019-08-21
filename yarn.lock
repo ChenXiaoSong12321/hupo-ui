@@ -811,6 +811,23 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@hupo/core-global@^0.0.3":
+  version "0.0.3"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-global/-/core-global-0.0.3.tgz#f065990ee9bf4a64958372e36547e11bb1d6365f"
+  integrity sha512-lZpeM/Sa+qvQGt62uD/xYNLRzcIlUwNEx0Bf6nAU3bcmmbh/qvpD7+QvKfGxgy+cjfT/R6yBz8uip8mDWo8t+w==
+
+"@hupo/core-promise@^0.0.3":
+  version "0.0.3"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-promise/-/core-promise-0.0.3.tgz#8349edbeefe5cc2cc82c33c58e0b500aa00a2038"
+  integrity sha512-QMVOtXyeJzhbiJusV+txwZeaX59z1nnre/tjaGgtO0+v60zle6XUHH0UrcGk/5ocY/JmA4MfHCOTK/FAMgEErA==
+  dependencies:
+    "@hupo/core-global" "^0.0.3"
+
+"@hupo/core-wx-app-tools@^0.0.2":
+  version "0.0.2"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-wx-app-tools/-/core-wx-app-tools-0.0.2.tgz#603deef102aa2a4082249f3cbd6ea1ab76c001ea"
+  integrity sha512-Ad2nJXSt4cVU9ryFUBKLP6QFiMXKTsu1R69On42aMzzDutDOwmAGwj/MukWbDoZXO76XNmgQSMiKI2+Lms0Wxg==
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.npmjs.org/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"

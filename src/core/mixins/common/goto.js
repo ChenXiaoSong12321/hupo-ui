@@ -1,15 +1,15 @@
 import cml from 'chameleon-api'
 import difference from '../../difference/difference.interface'
 import channelDifference from '../../utils/channelDifference'
-import wxTools from '../../utils/wxTools'
+import {wxTools} from '../../utils/hupo-core'
 import url from '../../utils/url'
+import {global} from '../../utils/hupo-core'
+
 let indexRoute = ''
 export default class Goto {
   created() {
     if (!indexRoute) {
-      const app = difference.getApp()
-      const data = app.data || app
-      indexRoute = data.routerConfig.routes[0].path
+      indexRoute = global.$routerConfig.routes[0].path
     }
   }
   methods = {
@@ -19,10 +19,9 @@ export default class Goto {
     },
     // 返回
     $back(backPageNum = -1) {
-      const app = difference.getApp()
-      if (app.router && app.router.historys) {
-        const historys = app.router.historys
-        app.router.historys = historys.splice(0, historys.length - Math.abs(backPageNum))
+      if (global.router && global.router.historys) {
+        const historys = global.router.historys
+        global.router.historys = historys.splice(0, historys.length - Math.abs(backPageNum))
       }
       cml.navigateBack(backPageNum)
     },
@@ -32,9 +31,8 @@ export default class Goto {
     */
     $backToHome() {
       const reLaunch = () => {
-        const app = difference.getApp()
-        if (app.router && app.router.historys) {
-          app.router.historys = []
+        if (global.router && global.router.historys) {
+          global.router.historys = []
         }
         this.$goto({
           path: indexRoute,
@@ -87,9 +85,8 @@ export default class Goto {
       })
       console.groupEnd()
       if (redirect) {
-        const app = difference.getApp()
-        if (app.router && app.router.historys) {
-          app.router.historys.pop()
+        if (global.router && global.router.historys) {
+          global.router.historys.pop()
         }
         cml.redirectTo({
           path: pathFilter,

@@ -27,7 +27,7 @@
   </h-page>
 </template>
 <script>
-import promise from "../../../core/utils/promise";
+import {promise} from "../../../core/utils/hupo-core.js";
 import page from "../../../core/mixins/page";
 class HPageNavbar {
   data = {

@@ -1,5 +1,6 @@
 // 设置静态资源的线上路径
 const publicPath = 'https://beatles-chameleon.github.io/cml-ui/dist'
+const path = require('path')
 // 设置api请求前缀
 const apiPrefix = 'https://api.chameleon.com'
 cml.config.merge({
@@ -26,6 +27,7 @@ cml.config.merge({
       apiPrefix
     }
   },
+  babelPath: [path.resolve(__dirname, `node_modules/@hupo/`)],
   web: {
     dev: {
       hash: true,

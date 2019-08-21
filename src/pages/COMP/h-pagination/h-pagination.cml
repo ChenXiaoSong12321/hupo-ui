@@ -1,7 +1,15 @@
 <template>
   <h-page title="h-pagination 演示" fixed>
     <view class="container">
-      <h-pagination c-bind:pulldown="pulldown" c-bind:pullup="pullup" start="{{start}}" step="{{step}}" pageCount="{{pageCount}}" total="{{list.length}}" list="{{list}}">
+      <h-pagination
+        c-bind:pulldown="pulldown"
+        c-bind:pullup="pullup"
+        start="{{start}}"
+        step="{{step}}"
+        pageCount="{{pageCount}}"
+        total="{{list.length}}"
+        list="{{list}}"
+      >
         <view c-for="{{list}}" class="list-item">{{item}}</view>
         <view slot="empty">empty</view>
       </h-pagination>
@@ -11,7 +19,7 @@
 <script>
 import page from "../../../core/mixins/page";
 import Pagination from '../../../core/mixins/common/pagination.js'
-i=0
+let i=0
 class HPagePagination {
   data = {
     list: [],
@@ -68,14 +76,13 @@ export default page(Pagination, HPagePagination);
   flex-direction: column;
   flex: 1;
   align-items: center;
-  .list-item{
+  .list-item {
     width: 730cpx;
     height: 50cpx;
     margin-top: 15cpx;
     background-color: #e0e0e0;
   }
 }
-
 </style>
 <script cml-type="json">
 {
