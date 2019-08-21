@@ -3,6 +3,10 @@
   display: flex;
   flex-direction: column;
 
+  @include m(BgC1){
+    background: $--background-color-BgC1;
+  }
+
   @include m(BgC2){
     background: $--background-color-BgC2;
   }
