@@ -15,7 +15,8 @@
 <script>
 import wxParse from './wxParse/index.js'
 import difference from '../../core/difference/difference.interface'
-import promise from "@hupo/core-promise";
+import {promise} from "../../core/utils/hupo-core.js";
+
 class HRichText {
   props = {
     document: {

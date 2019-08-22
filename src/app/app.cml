@@ -8,16 +8,16 @@ import Eventbus from '../core/utils/eventbus'
 import difference from '../core/difference/difference.interface'
 import getChannel from '../core/utils/channel'
 import loadScript from '../core/utils/loadScript'
+import {global} from '../core/utils/hupo-core.js'
 
 class App {
   data = {
     routerConfig
   };
   async beforeCreate(){
-    difference.setApp(this)
     const network = await difference.getNetworkType()
-    console.log(network)
-    this.$eventbus = new Eventbus()
+    global.$routerConfig = this.routerConfig
+    global.$eventbus = new Eventbus()
     const channel = await getChannel()
     if(channel == 'HP_WECHAT'){
       await loadScript('https://res2.wx.qq.com/open/js/jweixin-1.4.0.js')

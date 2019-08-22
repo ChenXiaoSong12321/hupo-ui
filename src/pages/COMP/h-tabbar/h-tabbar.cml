@@ -10,7 +10,8 @@
 <script>
 import cml from "chameleon-api";
 import page from "../../../core/mixins/page";
-import difference from '../../../core/difference/difference.interface'
+import {global} from '../../../core/utils/hupo-core.js'
+
 let preIndex = 0;
 class HTabbar {
   data = {
@@ -38,8 +39,7 @@ class HTabbar {
   };
   watch = {
     currentTabbarIndex(n){
-      let app = difference.getApp()
-      app.currentTabbarIndex = n
+      global.currentTabbarIndex = n
       console.log(n)
     }
   }
@@ -51,8 +51,7 @@ class HTabbar {
     }
   }
   mounted(){
-    let app = difference.getApp()
-    this.currentTabbarIndex = app.currentTabbarIndex || 0
+    this.currentTabbarIndex = global.currentTabbarIndex || 0
   }
 }
 

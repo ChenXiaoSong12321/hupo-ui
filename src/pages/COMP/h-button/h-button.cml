@@ -22,13 +22,13 @@
 </template>
 <script>
 import page from "../../../core/mixins/page";
-import difference from '../../../core/difference/difference.interface'
+import {global} from '../../../core/utils/hupo-core.js'
+
 class HPageButton {
   methods = {
     showLoading() {
       console.log("onclick button");
-      let app = difference.getApp()
-      console.log(app.buttonFormIds)
+      console.log(global.buttonFormIds)
     },
     onPullup(e){
       this.$setTimeout(() => {

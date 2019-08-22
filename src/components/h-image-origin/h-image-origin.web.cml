@@ -11,7 +11,7 @@
 
 <script>
 import loadImage from './assets/js/image.load.js'
-class HImageOrigin implements ImageModeInterface {
+class HImageOrigin implements HImageOriginInterface {
   props = {
     src: {
       type: String,

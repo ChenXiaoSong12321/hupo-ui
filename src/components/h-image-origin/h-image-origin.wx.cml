@@ -9,7 +9,7 @@
 </template>
 
 <script>
-class HImageOrigin implements ImageModeInterface {
+class HImageOrigin implements HImageOriginInterface {
   props = {
     src: {
       type: String,
