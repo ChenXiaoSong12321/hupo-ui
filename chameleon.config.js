@@ -1,3 +1,4 @@
+const path = require('path')
 // 设置静态资源的线上路径
 const publicPath = 'https://beatles-chameleon.github.io/cml-ui/dist'
 // 设置api请求前缀
@@ -5,6 +6,9 @@ const apiPrefix = 'https://api.chameleon.com'
 cml.config.merge({
   cmlNpm: [
   ],
+  check: {
+    enable: false
+  },
   platforms: ['web', 'wx'],
   baseStyle: {
     web: false,
@@ -34,7 +38,8 @@ cml.config.merge({
       publicPath: `${publicPath}/web/`,
       apiPrefix
     }
-  }
+  },
+  babelPath: [path.resolve(__dirname, `node_modules/@hupo/`)],
 })
 
 cml.utils.plugin('webpackConfig', function({ type, media, webpackConfig }, cb) {
@@ -62,7 +67,7 @@ cml.utils.plugin('webpackConfig', function({ type, media, webpackConfig }, cb) {
     webpackConfig.module.rules[cmlFile.index] = cmlFile.rule
   }
 
-  
+
   if(type === 'wx') {
     webpackConfig.plugins.push({
       apply(compiler) {
@@ -75,7 +80,7 @@ cml.utils.plugin('webpackConfig', function({ type, media, webpackConfig }, cb) {
           return callback();
 
         })
-      } 
+      }
     })
   }
 

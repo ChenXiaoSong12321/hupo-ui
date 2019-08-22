@@ -2,7 +2,7 @@ import defaultData from '../../core/viewport/defaultData'
 import calculate from '../../core/viewport/calculate'
 import difference from '../../core/difference/difference.interface'
 import channelDifference from '../../core/utils/channelDifference'
-import wxTools from '../../core/utils/wxTools'
+import wxTools from '@hupo/core-wx-app-tools'
 const promise = {}
 export default class HPage {
   props = {
@@ -68,6 +68,8 @@ export default class HPage {
     this.initNavigation()
     const data = await calculate()
     this.viewport = data
+    console.log(this, this.getPageId())
+    console.log(getCurrentPages())
   }
 
   methods = {

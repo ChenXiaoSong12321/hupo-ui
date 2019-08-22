@@ -25,7 +25,7 @@
 <script>
 import defaultData from "../../core/viewport/defaultData";
 import calculate from "../../core/viewport/calculate";
-import promise from "../../core/utils/promise";
+import promise from "@hupo/core-promise";
 class HNavbar {
   props = {
     loading: {

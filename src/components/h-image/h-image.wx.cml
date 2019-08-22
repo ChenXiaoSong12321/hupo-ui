@@ -35,7 +35,7 @@
 <script>
 import HImageMixins from "./h-image.mixins.js";
 import component from "../../core/mixins/component.js";
-import wxTools from "../../core/utils/wxTools.js";
+import wxTools from "@hupo/core-wx-app-tools";
 import oprateUrl from '../../core/utils/url.js'
 class HImage implements ImageInterface {
   async created() {

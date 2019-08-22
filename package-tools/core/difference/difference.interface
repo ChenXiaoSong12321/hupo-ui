@@ -40,8 +40,8 @@ import getNetworkType from '../utils/getNetworkType'
   export default new Difference();
 </script>
 <script cml-type="wx">
-  import wxTools from '../utils/wxTools.js'
-  import promise from '../utils/promise.js'
+  import wxTools from '@hupo/core-wx-app-tools'
+  import promise from '@hupo/core-promise'
   class Difference implements DifferenceInterface {
     setApp(){
     }

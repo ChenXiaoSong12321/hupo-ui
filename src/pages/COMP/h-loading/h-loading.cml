@@ -10,7 +10,7 @@
 </template>
 <script>
 import page from "../../../core/mixins/page";
-import promise from "../../../core/utils/promise.js";
+import promise from "@hupo/core-promise";
 class HDialogPage {
   data={
     show:false

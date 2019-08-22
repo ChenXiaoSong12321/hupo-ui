@@ -1,5 +1,5 @@
 import cml from 'chameleon-api'
-import promise from './promise'
+import promise from '@hupo/core-promise'
 
 let __lastTapTime__ = null
 export default {

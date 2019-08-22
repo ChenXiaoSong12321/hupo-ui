@@ -1,7 +1,7 @@
 import cml from 'chameleon-api'
 import difference from '../../difference/difference.interface'
 import channelDifference from '../../utils/channelDifference'
-import wxTools from '../../utils/wxTools'
+import wxTools from '@hupo/core-wx-app-tools'
 import url from '../../utils/url'
 let indexRoute = ''
 export default class Goto {
