@@ -1,11 +1,11 @@
 import difference from '../../difference/difference.interface'
-export default class HTool {
+export default {
   beforeDestroy() {
     (this.__setTimeout__ || []).forEach(item => {
       clearTimeout(item)
     })
-  }
-  methods = {
+  },
+  methods: {
     $getPageComponent() {
       const current = difference.getCurrentPage()
       if (!current) return null
