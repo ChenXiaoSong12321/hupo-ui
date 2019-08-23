@@ -25,6 +25,8 @@ import component from "../../core/mixins/component.js";
 import cml from "chameleon-api";
 import {global} from '../../core/utils/hupo-core.js'
 
+
+
 class HButton implements HButtonInterface {
   methods = {
     getuserinfo(e) {

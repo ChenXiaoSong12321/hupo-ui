@@ -3,17 +3,24 @@
     <view class="h-checkbox-wrap" c-bind:tap="changeCheck">
       <view class="h-checkbox-check" style="{{ checkStyle }}">
         <view class="{{ checkClass }}">
-          <h-icon c-if="{{innerChecked}}" name="el-icon-hp-xuanzekuangxuanzhong" customStyle="color:{{primaryColor}};font-size:32cpx;"></h-icon>
+          <h-icon
+            c-if="{{innerChecked}}"
+            name="el-icon-hp-xuanzekuangxuanzhong"
+            customStyle="color:{{primaryColor}};font-size:32cpx;"
+          ></h-icon>
         </view>
       </view>
-      <text class="h-checkbox-label" >{{ label }}</text>
+      <text class="h-checkbox-label">{{ label }}</text>
     </view>
   </view>
 </template>
 <script>
 import { primaryColor } from "../../assets/config/style.var.js";
-class HCheckbox {
-  props = {
+import ComponentStackMixin from '../../core/pageStack/mixins/component.js'
+
+export default {
+  mixins: [ComponentStackMixin],
+  props: {
     checked: {
       type: Boolean,
       default: false
@@ -33,13 +40,14 @@ class HCheckbox {
       type: Number,
       default: -1
     }
-  }
-  data = {
-    innerChecked:false,
-    primaryColor
-  }
-
-  computed = {
+  },
+  data() {
+    return {
+      innerChecked:false,
+      primaryColor
+    }
+  },
+  computed: {
     checkStyle () {
       let style = '';
       if (this.disabled) {
@@ -57,15 +65,13 @@ class HCheckbox {
       clazz += ' h-checkbox-disabled'
       return clazz
     },
-  }
-
-  watch  = {
+  },
+  watch: {
     checked(newChecked) {
       this.innerChecked = newChecked;
     }
-  }
-
-  methods = {
+  },
+  methods: {
     changeCheck () {
       if (this.disabled) return;
       this.innerChecked = !this.innerChecked
@@ -78,18 +84,16 @@ class HCheckbox {
       this.$cmlEmit('changeevent', value);
       this.$cmlEmit('change', value);
     }
-  }
-
-  created() {
-    let { checked } = this
+  },
+  created () {
+     let { checked } = this
     this.innerChecked = checked
-  }
+  },
 }
 
-export default new HCheckbox();
 </script>
 <style lang="scss">
-@import './h-checkbox.scss';
+@import "./h-checkbox.scss";
 </style>
 
 <script cml-type="json">

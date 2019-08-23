@@ -45,12 +45,13 @@
 import { primaryColor, fontColorC1 } from "../../assets/config/style.var.js";
 import component from "../../core/mixins/component.js";
 import authorize from "./authorize.interface";
+import ComponentStackMixin from '../../core/pageStack/mixins/component.js'
 
 const needResponseOpenTypes = ["getUserInfo", "getPhoneNumber", "openSetting"];
 
-class HDialog {
-  props = {};
-  data = {
+export default {
+  mixins: [ComponentStackMixin],
+  data : {
     // 标题
     title: "",
     // 自定义 btn 列表
@@ -77,8 +78,8 @@ class HDialog {
     icon: "",
     iconColor: "",
     show: false
-  };
-  methods = {
+  },
+  methods : {
     handleButtclick(event) {
       // 获取当次弹出框的信息
       const { type = "", openType = "" } = event;
@@ -143,8 +144,6 @@ class HDialog {
   };
 }
 
-// export default component(HDialog)
-export default new HDialog();
 </script>
 <style lang="scss">
 @import "./h-dialog.scss";
