@@ -3,8 +3,8 @@ const parseOptions = options => typeof options === 'string' ? {
   message: options
 } : options
 
-export default class HDialog {
-  methods = {
+export default {
+  methods: {
     __dialogSet__(options) {
       const page = this.$getPageComponent()
       if (!page) return

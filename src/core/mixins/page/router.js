@@ -1,7 +1,7 @@
 import routerDifference from './router.difference.interface'
 import {global} from '../../utils/hupo-core'
 
-export default class Router {
+export default {
   created() {
     if (!global.router) global.router = {}
     const route = routerDifference.getRouter(this)
@@ -9,7 +9,7 @@ export default class Router {
     global.router.historys.push(route)
     global.router.current = this
     console.log(global)
-  }
+  },
   beforeDestroy() {
     if (global.router.historys && global.router.historys.length > 1) {
       const route = routerDifference.getRouter(this)

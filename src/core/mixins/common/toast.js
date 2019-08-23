@@ -13,13 +13,8 @@ const defaultOptions = {
 
 const toastOptions = options => Object.assign({}, defaultOptions, options)
 
-export default class HToast {
-  methods = {
-    __toastSet__(options) {
-      const page = this.$getPageComponent()
-      if (!page) return
-      return page.toastSet(options)
-    },
+export default {
+  methods: {
     $toast(options = {}) {
       options = parseOptions(options)
       options = toastOptions({

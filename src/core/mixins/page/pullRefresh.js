@@ -1,14 +1,14 @@
 import difference from '../../difference/difference.interface'
-export default class PullRefresh {
+export default {
   onPullDownRefresh() {
     const scrolls = this.$getScrollComponents()
     scrolls.forEach(item => item.onPulldown())
-  }
+  },
   onReachBottom() {
     const scrolls = this.$getScrollComponents()
     scrolls.forEach(item => item.onPullup())
-  }
-  methods = {
+  },
+  methods: {
     $getScrollComponents() {
       const scrolls = difference.selector(this, '.cml-h-scroll')
       if (scrolls.length == 0) {

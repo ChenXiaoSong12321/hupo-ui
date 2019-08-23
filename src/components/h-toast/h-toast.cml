@@ -16,10 +16,10 @@
   </h-popup-manager>
 </template>
 <script>
-import ComponentStackMixin from '../../core/pageStack/mixins/component.js'
+import componentMixin from '../../core/mixins/component/index.js'
 export default {
   componentName: 'h-toast',
-  mixins: [ComponentStackMixin],
+  mixins: [componentMixin],
   data: {
     type: "loading",
     message: "",

@@ -6,13 +6,13 @@ import url from '../../utils/url'
 import {global} from '../../utils/hupo-core'
 
 let indexRoute = ''
-export default class Goto {
+export default {
   created() {
     if (!indexRoute && global.$routerConfig) {
       indexRoute = global.$routerConfig.routes[0].path
     }
-  }
-  methods = {
+  },
+  methods: {
     // 判断 route 是否是首页
     $isHomeRoute(route) {
       return indexRoute.indexOf(route) > -1 || route === '/'
