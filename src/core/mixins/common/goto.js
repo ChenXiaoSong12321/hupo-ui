@@ -8,7 +8,7 @@ import {global} from '../../utils/hupo-core'
 let indexRoute = ''
 export default class Goto {
   created() {
-    if (!indexRoute) {
+    if (!indexRoute && global.$routerConfig) {
       indexRoute = global.$routerConfig.routes[0].path
     }
   }

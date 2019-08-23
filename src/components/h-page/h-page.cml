@@ -30,6 +30,8 @@
 <script>
 import HPage from "./h-page.js";
 import component from "../../core/mixins/component.js";
+console.log(component(HPage));
+
 export default component(HPage);
 </script>
 <style lang="scss">

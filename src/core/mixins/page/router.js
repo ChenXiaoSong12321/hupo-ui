@@ -8,6 +8,7 @@ export default class Router {
     if (!global.router.historys || this.$isHomeRoute(route.path)) global.router.historys = []
     global.router.historys.push(route)
     global.router.current = this
+    console.log(global)
   }
   beforeDestroy() {
     if (global.router.historys && global.router.historys.length > 1) {

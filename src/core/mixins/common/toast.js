@@ -30,28 +30,28 @@ export default class HToast {
         mask: options.mask || false,
         needIcon: options.needIcon || false
       })
-      return this.__toastSet__(options)
+      return this._broadcast('h-toast', 'show', options)
     },
     $loadingToast(options = {}) {
       options = parseOptions(options)
       options = Object.assign({ message: '加载中...', duration: -1 }, options, { needIcon: true, type: 'loading' })
-      return this.$toast(options)
+      return this._broadcast('h-toast', 'show', options)
     },
     $clearToast() {
       const options = {
         show: false
       }
-      return this.__toastSet__(options)
+      return this._broadcast('h-toast', 'show', options)
     },
     $failToast(options = {}) {
       options = parseOptions(options)
       options = Object.assign(options, { needIcon: true, type: 'warn' })
-      return this.$toast(options)
+      return this._broadcast('h-toast', 'show', options)
     },
     $successToast(options = {}) {
       options = parseOptions(options)
       options = Object.assign(options, { needIcon: true, type: 'success' })
-      return this.$toast(options)
+      return this._broadcast('h-toast', 'show', options)
     }
   }
 }

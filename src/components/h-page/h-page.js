@@ -5,6 +5,7 @@ import channelDifference from '../../core/utils/channelDifference'
 import {wxTools} from '../../core/utils/hupo-core'
 const promise = {}
 export default class HPage {
+  componentName = 'h-page'
   props = {
     loading: {
       type: Boolean,
@@ -68,8 +69,6 @@ export default class HPage {
     this.initNavigation()
     const data = await calculate()
     this.viewport = data
-    console.log(this, this.getPageId())
-    console.log(getCurrentPages())
   }
 
   methods = {

@@ -9,6 +9,9 @@ import difference from '../core/difference/difference.interface'
 import getChannel from '../core/utils/channel'
 import loadScript from '../core/utils/loadScript'
 import {global} from '../core/utils/hupo-core.js'
+import PageStack from '../core/pageStack/PageStack.js'
+global.$pageStack = new PageStack()
+global.$eventbus = new Eventbus()
 
 class App {
   data = {
@@ -17,7 +20,6 @@ class App {
   async beforeCreate(){
     const network = await difference.getNetworkType()
     global.$routerConfig = this.routerConfig
-    global.$eventbus = new Eventbus()
     const channel = await getChannel()
     if(channel == 'HP_WECHAT'){
       await loadScript('https://res2.wx.qq.com/open/js/jweixin-1.4.0.js')

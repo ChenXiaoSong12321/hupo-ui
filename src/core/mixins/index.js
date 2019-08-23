@@ -29,6 +29,8 @@ export default function mix(...mixins) {
       const properties = ['data', 'methods', 'computed', 'watch', 'props']
       for (const Mixin of mixins) {
         const mixin = new Mixin()
+        // todo
+        if(mixin.componentName)this.componentName = mixin.componentName
         this.composeLifetimes(mixin) // 合并生命周期
         properties.forEach(propertie => {
           if (mixin[propertie]) {
