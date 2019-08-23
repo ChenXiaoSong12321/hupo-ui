@@ -63,17 +63,16 @@
   </h-page>
 </template>
 <script>
-import page from "../../../core/mixins/page";
-class HPageInput {
-  data = {
+import pageMixin from '../../../core/mixins/page/index.js'
+export default {
+  mixins: [pageMixin],
+  data: {
     isfocus: false,
     inputValue: '',
     eventName: '触发的事件名称',
     winHeight: 0
-  }
-  computed = {}
-  watch = {}
-  methods = {
+  },
+  methods: {
     inputEvent(e) {
       this.inputValue = e.detail.value;
     },
@@ -84,7 +83,7 @@ class HPageInput {
       console.log('blur')
       this.isfocus = false;
     }
-  }
+  },
   mounted(res) {
     console.log('mounted')
     this.$setTimeout(() => {
@@ -92,8 +91,6 @@ class HPageInput {
     }, 300);
   }
 }
-
-export default page(HPageInput);
 </script>
 <style scoped>
 .page-demo {

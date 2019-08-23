@@ -12,12 +12,13 @@
   </view>
 </template>
 <script>
-import page from "../../../core/mixins/page";
-class HPopup {
-  data = {
+import pageMixin from '../../../core/mixins/page/index.js'
+export default {
+  mixins: [pageMixin],
+  data: {
     show: false
-  };
-  methods = {
+  },
+  methods: {
     showPopup() {
       console.log(this.show, "page");
       this.show = true;
@@ -25,10 +26,9 @@ class HPopup {
     closePopup() {
       this.show = false;
     }
-  };
+  }
 }
 
-export default page(HPopup);
 </script>
 <style scoped lang="scss">
 @import "../../../assets/scss/_output.scss";

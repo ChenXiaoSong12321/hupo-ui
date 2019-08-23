@@ -27,15 +27,16 @@
   </h-page>
 </template>
 <script>
+import pageMixin from '../../../core/mixins/page/index.js'
 import {promise} from "../../../core/utils/hupo-core.js";
-import page from "../../../core/mixins/page";
-class HPageNavbar {
-  data = {
+export default {
+  mixins: [pageMixin],
+  data: {
     type: "default",
     title: "h-navabr 演示",
     showHomeIcon: true
-  };
-  methods = {
+  },
+  methods: {
     async toggleLoading() {
       this.$loadingNavbar()
       await promise.delay(5000);
@@ -56,10 +57,9 @@ class HPageNavbar {
       await promise.delay(5000);
       this.showHomeIcon = !this.showHomeIcon;
     }
-  };
+  }
 }
 
-export default page(HPageNavbar);
 </script>
 <style scoped>
 .container {

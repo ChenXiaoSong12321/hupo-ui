@@ -7,11 +7,12 @@
   </h-page>
 </template>
 <script>
-import page from "../../../core/mixins/page";
+import pageMixin from '../../../core/mixins/page/index.js'
 import {promise} from "../../../core/utils/hupo-core.js";
 
-class HDialogPage {
-  methods = {
+export default {
+  mixins: [pageMixin],
+  methods: {
     async showDialog(e) {
       if (e === "dialog") {
         await this.$confirm({
@@ -27,7 +28,7 @@ class HDialogPage {
         });
       }
     }
-  };
+  }
 }
 
 export default page(HDialogPage);

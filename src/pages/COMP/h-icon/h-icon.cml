@@ -19,10 +19,10 @@
   </h-page>
 </template>
 <script>
-import page from "../../../core/mixins/page";
-class HPageIcon {}
-
-export default page(HPageIcon);
+import pageMixin from '../../../core/mixins/page/index.js'
+export default {
+  mixins: [pageMixin]
+}
 </script>
 <style scoped>
 .container {

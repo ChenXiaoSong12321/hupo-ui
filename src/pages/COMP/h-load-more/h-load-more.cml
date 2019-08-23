@@ -8,13 +8,11 @@
   </h-page>
 </template>
 <script>
-import page from "../../../core/mixins/page";
-class HPageIcon {
-  data={
+import pageMixin from '../../../core/mixins/page/index.js'
 
-  }
-}
-export default page(HPageIcon);
+export default {
+  mixins: [pageMixin]
+};
 </script>
 <style scoped>
 .container {

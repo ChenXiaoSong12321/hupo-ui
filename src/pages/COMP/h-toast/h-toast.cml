@@ -13,9 +13,10 @@
   </h-page>
 </template>
 <script>
-import page from "../../../core/mixins/page";
-class HToast {
-  methods = {
+import pageMixin from '../../../core/mixins/page/index.js'
+export default {
+  mixins: [pageMixin],
+  methods: {
     // type: "loading",
     // message: "",
     // duration: 3000,
@@ -53,9 +54,8 @@ class HToast {
     successToast(){
       this.$successToast('成功提示')
     }
-  };
+  }
 }
-export default page(HToast);
 </script>
 <style scoped lang="scss">
 .container {

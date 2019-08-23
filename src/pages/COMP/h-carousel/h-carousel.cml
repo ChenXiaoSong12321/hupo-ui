@@ -22,12 +22,11 @@
   </h-page>
 </template>
 <script>
-import page from "../../../core/mixins/page";
-class HPageCarousel {
+import pageMixin from '../../../core/mixins/page/index.js'
 
-}
-
-export default page(HPageCarousel);
+export default {
+  mixins: [pageMixin]
+};
 </script>
 <style scoped>
 .container {

@@ -13,18 +13,18 @@
   </h-page>
 </template>
 <script>
-import page from "../../../core/mixins/page";
-class Index {
-  data = {
+import pageMixin from '../../../core/mixins/page/index.js'
+export default {
+  mixins: [pageMixin],
+  data: {
     radioValue: false
-  };
-  methods = {
+  },
+  methods: {
     valueChange(e) {
       this.radioValue = e.detail.value;
     }
-  };
+  }
 }
-export default page(Index);
 </script>
 <style lang="scss">
 .container {

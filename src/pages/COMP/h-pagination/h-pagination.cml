@@ -17,29 +17,27 @@
   </h-page>
 </template>
 <script>
-import page from "../../../core/mixins/page";
+import pageMixin from '../../../core/mixins/page/index.js'
 import Pagination from '../../../core/mixins/common/pagination.js'
 let i=0
-class HPagePagination {
-  data = {
+export default {
+  mixins: [pageMixin],
+  data: {
     list: [],
     start: 1231231231231,
     step: 12312312,
     pageCount: 20
-  }
-
-  mounted(){
-    this.createList(20)
-  }
-
-  watch = {
+  },
+  watch: {
     list(n){
       console.log('list:',[...n])
       this.$stopRefresh()
     }
-  }
-
-  methods = {
+  },
+  mounted(){
+    this.createList(20)
+  },
+  methods: {
     pulldown(e){
       console.log('pulldown',e.detail)
       this.list = []
@@ -67,8 +65,6 @@ class HPagePagination {
     }
   }
 }
-
-export default page(Pagination, HPagePagination);
 </script>
 <style scoped lang="scss">
 .container {

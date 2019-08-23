@@ -9,12 +9,13 @@
 
 <script>
 import cml from "chameleon-api";
-import page from "../../../core/mixins/page";
+import pageMixin from '../../../core/mixins/page/index.js'
 import {global} from '../../../core/utils/hupo-core.js'
 
 let preIndex = 0;
-class HTabbar {
-  data = {
+export default {
+  mixins: [pageMixin],
+  data: {
     currentTabbarIndex:0,
     tabbar: [
         {
@@ -36,26 +37,24 @@ class HTabbar {
           selectedIcon: require("../../../assets/images/my-active.png")
         }
       ]
-  };
-  watch = {
+  },
+  watch: {
     currentTabbarIndex(n){
       global.currentTabbarIndex = n
       console.log(n)
     }
-  }
-  methods = {
+  },
+  methods: {
     handleTabbarClick(e) {
       let {index} = e.detail
       this.currentTabbarIndex = index
       this.tabbar[index].loaded = true
     }
-  }
+  },
   mounted(){
     this.currentTabbarIndex = global.currentTabbarIndex || 0
   }
 }
-
-export default page(HTabbar);
 </script>
 <script cml-type="json">
 {
