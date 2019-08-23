@@ -18,8 +18,8 @@ import componentMixin from '../../core/mixins/component/index.js'
 
 export default {
   componentName:'h-load-more',
-  mixins: [componentMixin],
-  props = {
+  mixins: [...componentMixin],
+  props: {
     loading: {
       type: Boolean,
       default: false

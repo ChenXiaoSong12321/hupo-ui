@@ -19,7 +19,7 @@
 import componentMixin from '../../core/mixins/component/index.js'
 export default {
   componentName: 'h-toast',
-  mixins: [componentMixin],
+  mixins: [...componentMixin],
   data: {
     type: "loading",
     message: "",
@@ -33,12 +33,11 @@ export default {
     }
   },
   mounted () {
-    console.log(this)
-    // this._on('show', (options = {}) => {
-    //   Object.keys(options).forEach(key => {
-    //     this[key] = options[key]
-    //   })
-    // })
+    this._on('toggle', (options = {}) => {
+      Object.keys(options).forEach(key => {
+        this[key] = options[key]
+      })
+    })
   }
 }
 </script>

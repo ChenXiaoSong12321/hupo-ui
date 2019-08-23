@@ -14,7 +14,7 @@ import {global} from '../../../core/utils/hupo-core.js'
 
 let preIndex = 0;
 export default {
-  mixins: [pageMixin],
+  mixins: [...pageMixin],
   data: {
     currentTabbarIndex:0,
     tabbar: [

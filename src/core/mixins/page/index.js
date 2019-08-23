@@ -8,7 +8,7 @@ import PullRefresh from './pullRefresh.js'
 import {global} from '../../utils/hupo-core'
 
 const PageStackMixin = {
-  beforeCreate() {
+  created() {
     global.$pageStack.addPage(this)
   },
   beforeDestroy() {
@@ -28,6 +28,4 @@ const PageStackMixin = {
 }
 
 
-export default {
-  mixins: [HTool, Event, Goto, HDialog, HToast, PullRefresh, PageStackMixin]
-}
+export default [PageStackMixin, HTool, Goto, HDialog, HToast, PullRefresh]

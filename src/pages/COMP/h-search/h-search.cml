@@ -24,7 +24,7 @@
 <script>
 import pageMixin from '../../../core/mixins/page/index.js'
 export default {
-  mixins: [pageMixin],
+  mixins: [...pageMixin],
   data: {
     searchData:''
   },
@@ -37,8 +37,6 @@ export default {
     }
   }
 }
-
-export default page(HPageSearch);
 </script>
 <style scoped lang="scss">
 .container {

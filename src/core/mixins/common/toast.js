@@ -25,28 +25,28 @@ export default {
         mask: options.mask || false,
         needIcon: options.needIcon || false
       })
-      return this._broadcast('h-toast', 'show', options)
+      return this._broadcast('h-toast', 'toggle', options)
     },
     $loadingToast(options = {}) {
       options = parseOptions(options)
       options = Object.assign({ message: '加载中...', duration: -1 }, options, { needIcon: true, type: 'loading' })
-      return this._broadcast('h-toast', 'show', options)
+      return this._broadcast('h-toast', 'toggle', options)
     },
     $clearToast() {
       const options = {
         show: false
       }
-      return this._broadcast('h-toast', 'show', options)
+      return this._broadcast('h-toast', 'toggle', options)
     },
     $failToast(options = {}) {
       options = parseOptions(options)
       options = Object.assign(options, { needIcon: true, type: 'warn' })
-      return this._broadcast('h-toast', 'show', options)
+      return this._broadcast('h-toast', 'toggle', options)
     },
     $successToast(options = {}) {
       options = parseOptions(options)
       options = Object.assign(options, { needIcon: true, type: 'success' })
-      return this._broadcast('h-toast', 'show', options)
+      return this._broadcast('h-toast', 'toggle', options)
     }
   }
 }

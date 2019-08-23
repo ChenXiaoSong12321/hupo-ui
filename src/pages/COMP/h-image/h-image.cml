@@ -12,7 +12,7 @@
 <script>
 import pageMixin from '../../../core/mixins/page/index.js'
 export default {
-  mixins: [pageMixin],
+  mixins: [...pageMixin],
   data: {
     img: ["https://cdn.hupovip.cn//ueditor/jsp/upload/image/20190424/1556092045330017810.jpg","https://cdn.hupovip.cn/cdn/miniProgram/assets/images/hp-user-default-avatar.png","https://cdn.hupovip.cn//resource/images/businessmen/113812_1d18f2d4-dafd-46c2-a366-904955d5da2b.JPG?x-oss-process=image/format,jpg/quality,q_70/resize,w_1125"]
   }

@@ -69,9 +69,10 @@ routes.forEach(route => {
   routeObj[route['name']] = route
 })
 
-class Demo {
-  mixins = [pageMixin]
-  data = {
+
+export default {
+  mixins: [...pageMixin],
+  data: {
     comList: [
       {
         cid: "content1",
@@ -146,9 +147,8 @@ class Demo {
     activeTab: "component",
     arrowIcon: "https://gw.alicdn.com/tfs/TB11zBUpwMPMeJjy1XbXXcwxVXa-22-22.png",
     loading: false
-  }
-
-  computed = {
+  },
+  computed: {
     computedStyle() {
       let transVal = this.activeTab === "api" ? "-750" : "0";
       let styl = `transform: translateX(${transVal}cpx)`;
@@ -160,12 +160,8 @@ class Demo {
 
       return styl;
     }
-  }
-
-  watch  = {
-  }
-
-  methods = {
+  },
+  methods: {
     kindToggle: function(e) {
       let id = e.currentTarget.id;
       let list = this.activeTab === "component" ? this.comList : this.apiList;
@@ -212,18 +208,11 @@ class Demo {
         e.detail.stop()
       }, 2000);
     }
-  }
+  },
 
-  beforeCreate() {
-  }
-
-  created() {
-
-  }
-
-  beforeMount() {
-  }
-
+  beforeCreate () {
+    console.log(this)
+  },
   async mounted() {
     const info = await cml.getSystemInfo()
     this.winHeight = info.viewportHeight
@@ -231,15 +220,7 @@ class Demo {
       this.loading = false
     }, 2000)
   }
-
-  beforeDestroy() {
-  }
-
-  destroyed() {
-  }
 }
-
-export default new Demo;
 </script>
 <style lang="scss">
 @import './index.scss';

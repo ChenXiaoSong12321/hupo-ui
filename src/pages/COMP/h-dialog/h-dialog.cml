@@ -11,7 +11,7 @@ import pageMixin from '../../../core/mixins/page/index.js'
 import {promise} from "../../../core/utils/hupo-core.js";
 
 export default {
-  mixins: [pageMixin],
+  mixins: [...pageMixin],
   methods: {
     async showDialog(e) {
       if (e === "dialog") {
@@ -30,8 +30,6 @@ export default {
     }
   }
 }
-
-export default page(HDialogPage);
 </script>
 <style scoped>
 .container {

@@ -15,14 +15,13 @@
 <script>
 import pageMixin from '../../../core/mixins/page/index.js'
 export default {
-  mixins: [pageMixin],
+  mixins: [...pageMixin],
   methods: {
     showLoading() {
       console.log("onclick button");
     }
   }
 }
-export default page(HPageButton);
 </script>
 <style scoped>
 .container {

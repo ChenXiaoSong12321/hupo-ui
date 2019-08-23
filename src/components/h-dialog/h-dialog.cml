@@ -43,7 +43,6 @@
 </template>
 <script>
 import { primaryColor, fontColorC1 } from "../../assets/config/style.var.js";
-import component from "../../core/mixins/component.js";
 import authorize from "./authorize.interface";
 import componentMixin from '../../core/mixins/component/index.js'
 
@@ -51,7 +50,7 @@ const needResponseOpenTypes = ["getUserInfo", "getPhoneNumber", "openSetting"];
 
 export default {
   componentName:'h-dialog',
-  mixins: [componentMixin],
+  mixins: [...componentMixin],
   data : {
     // 标题
     title: "",
@@ -142,7 +141,7 @@ export default {
       const data = options.data || {};
       this.selfEmit(type, data);
     }
-  };
+  }
 }
 
 </script>

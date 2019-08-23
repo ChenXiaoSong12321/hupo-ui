@@ -35,7 +35,7 @@ export default class PageStack {
     }
     const viewId = getViewId(component)
     const page = this.pages[viewId]
-    if(page){
+    if(page && page._children[componentName]){
       page._children[componentName].splice(page._children[componentName].indexOf(component) >>> 0, 1);
     }
   }

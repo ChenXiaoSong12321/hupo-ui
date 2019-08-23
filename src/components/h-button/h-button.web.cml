@@ -16,7 +16,7 @@ import HButtonMixins from "./h-button.mixins.js";
 import componentMixin from "../../core/mixins/component/index.js";
 
 class HButton implements HButtonInterface {
-  mixins = [HButtonMixins, componentMixin]
+  mixins = [HButtonMixins, ...componentMixin]
   methods = {
     getuserinfo(e) {
       this.btnEmit("getuserinfo", e);

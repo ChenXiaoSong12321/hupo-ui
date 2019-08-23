@@ -30,7 +30,7 @@
 import pageMixin from '../../../core/mixins/page/index.js'
 import {promise} from "../../../core/utils/hupo-core.js";
 export default {
-  mixins: [pageMixin],
+  mixins: [...pageMixin],
   data: {
     type: "default",
     title: "h-navabr 演示",

@@ -21,7 +21,7 @@
 <script>
 import pageMixin from '../../../core/mixins/page/index.js'
 export default {
-  mixins: [pageMixin]
+  mixins: [...pageMixin]
 }
 </script>
 <style scoped>

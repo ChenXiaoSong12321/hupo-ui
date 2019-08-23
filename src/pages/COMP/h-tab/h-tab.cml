@@ -49,7 +49,7 @@ import pageMixin from '../../../core/mixins/page/index.js'
  * prefixStyle  suffixStyle 可以用来放置图标
  */
 export default {
-  mixins: [pageMixin],
+  mixins: [...pageMixin],
   data: {
     headerTitle: "h-tabs",
     tabsAlone: [

@@ -21,7 +21,7 @@ import pageMixin from '../../../core/mixins/page/index.js'
 import Pagination from '../../../core/mixins/common/pagination.js'
 let i=0
 export default {
-  mixins: [pageMixin],
+  mixins: [...pageMixin],
   data: {
     list: [],
     start: 1231231231231,

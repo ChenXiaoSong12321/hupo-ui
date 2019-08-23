@@ -36,14 +36,14 @@ import componentMixin from '../../core/mixins/component/index.js'
 
 export default {
   componentName: 'h-field',
-  mixins: [HInput, componentMixin],
+  mixins: [HInput, ...componentMixin],
   props : {
     icon:{
-      type: String, 
+      type: String,
       default:''
     },
     label:{
-      type: String,  
+      type: String,
       default:''
     },
     value:{

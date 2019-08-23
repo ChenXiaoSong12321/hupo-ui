@@ -16,7 +16,7 @@
 import pageMixin from '../../../core/mixins/page/index.js'
 
 export default {
-  mixins: [pageMixin],
+  mixins: [...pageMixin],
   data: {
     checkboxValue: true
   },
@@ -26,7 +26,6 @@ export default {
     }
   }
 }
-export default page(Checkbox);
 </script>
 <script cml-type="json">
 {

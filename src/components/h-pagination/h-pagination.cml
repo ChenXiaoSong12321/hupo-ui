@@ -18,7 +18,7 @@ import componentMixin from '../../core/mixins/component/index.js'
 
 export default {
   componentName:'h-pagination',
-  mixins: [CurrentComponent, componentMixin]
+  mixins: [CurrentComponent, ...componentMixin]
 }
 </script>
 

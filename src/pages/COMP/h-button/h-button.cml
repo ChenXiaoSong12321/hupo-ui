@@ -25,7 +25,7 @@ import pageMixin from '../../../core/mixins/page/index.js'
 import {global} from '../../../core/utils/hupo-core.js'
 
 export default {
-  mixins: [pageMixin],
+  mixins: [...pageMixin],
   methods: {
     showLoading() {
       console.log("onclick button");
@@ -37,7 +37,7 @@ export default {
         console.log(e.detail)
       }, 2000);
     }
-  };
+  }
 }
 </script>
 <style >
