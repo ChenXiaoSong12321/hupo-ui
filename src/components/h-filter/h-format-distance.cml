@@ -3,15 +3,19 @@
 </template>
 
 <script>
-class FormatDistance {
-  props = {
+import componentMixin from '../../core/mixins/component/index.js'
+
+export default {
+  componentName:'h-format-distance',
+  mixins: [componentMixin],
+  props : {
     distance: {
       type: [String,Number],
       default: ""
     }
-  };
+  },
 
-  computed = {
+  computed : {
     formatDistance() {
       let distance = this.distance;
       const onehundred = "100";
@@ -23,10 +27,8 @@ class FormatDistance {
       if (f < 5 * parseInt(onehundred) * 10 * parseInt(onehundred)) return `${kilometers.toFixed(1)}km`;
       return "500km以外";
     }
-  };
+  }
 }
-
-export default new FormatDistance();
 </script>
 <style lang="scss">
 </style>

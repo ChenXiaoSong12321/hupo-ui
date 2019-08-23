@@ -4,8 +4,12 @@
 
 <script>
 import dayjs from '../../core/utils/dayjs.js'
-class FormatDate {
-  props = {
+import componentMixin from '../../core/mixins/component/index.js'
+
+export default {
+  componentName:'h-format-date',
+  mixins: [componentMixin],
+  props: {
     time: {
       type: [String,Number],
       default: ""
@@ -14,15 +18,13 @@ class FormatDate {
       type: [String,Number],
       default: "YYYY-MM-DD"
     }
-  };
-  computed = {
+  },
+  computed : {
     formatDate() {
       return dayjs.formatDate(this.time,this.type)
     }
   }
 }
-
-export default new FormatDate()
 </script>
 <style lang="scss">
 </style>

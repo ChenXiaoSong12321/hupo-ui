@@ -1,7 +1,8 @@
 import { throttle } from '../../core/utils/throttle'
 
-class HButtonMixins {
-  props = {
+export default {
+  componentName:'h-button',
+  props: {
     customClass: {
       type: String,
       default: ''
@@ -42,9 +43,9 @@ class HButtonMixins {
       type: Boolean,
       default: false
     }
-  }
+  },
 
-  computed = {
+  computed: {
     stateClass() {
       const classes = ['group', 'plain', 'disabled', 'opacity']
       let stateClass = ''
@@ -55,11 +56,11 @@ class HButtonMixins {
       })
       return stateClass
     }
-  }
+  },
   mounted() {
     this.$throttleButton = throttle()
-  }
-  methods = {
+  },
+  methods: {
     async btnEmit(type, data = {}) {
       if (this.throttle > 0) {
         await this.$throttleButton(this.throttle)
@@ -70,5 +71,3 @@ class HButtonMixins {
     }
   }
 }
-
-export default HButtonMixins

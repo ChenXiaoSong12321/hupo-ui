@@ -1,12 +1,6 @@
 <template>
-  <view
-    class="h-loading"
-    style="width: {{ size }}; height: {{ size }}"
-  >
-    <view
-      class="h-loading-spinner h-loading-spinner--{{ type }}"
-      style="color: {{ color }};"
-    >
+  <view class="h-loading" style="width: {{ size }}; height: {{ size }}">
+    <view class="h-loading-spinner h-loading-spinner--{{ type }}" style="color: {{ color }};">
       <view
         c-if="{{ type === 'spinner' }}"
         c-for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}}"
@@ -18,8 +12,12 @@
 </template>
 
 <script>
-class HLoading {
- props = {
+import componentMixin from '../../core/mixins/component/index.js'
+
+export default {
+  componentName:'h-loading',
+  mixins: [componentMixin],
+  props: {
     size: {
       type: String,
       default: '60cpx'
@@ -34,8 +32,6 @@ class HLoading {
     }
   }
 }
-
-export default new HLoading();
 </script>
 
 <style lang="scss">

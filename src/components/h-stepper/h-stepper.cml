@@ -30,8 +30,12 @@
 
 <script>
 const MAX = 2147483647;
-class HStepper {
-  props = {
+import componentMixin from '../../core/mixins/component/index.js'
+
+export default {
+  componentName:'h-stepper',
+  mixins: [componentMixin],
+  props: {
     integer: Boolean,
     disabled: Boolean,
     disableInput: Boolean,
@@ -51,13 +55,11 @@ class HStepper {
       type: null,
       default: 1
     }
-  }
-
-  data={
+  },
+  data: {
     stepValue:'1'
-  }
-
-  watch = {
+  },
+  watch: {
     value(n){
       debugger
       this.stepValue = n
@@ -65,8 +67,8 @@ class HStepper {
     stepValue(n){
       this.$cmlEmit('changed',n)
     }
-  }
-  computed = {
+  },
+  computed: {
    inputStyle(){
      return `
       border: none;
@@ -78,8 +80,8 @@ class HStepper {
       width: 42px;
      `
    }
-  }
-  methods = {
+  },
+  methods: {
     inputChanged(e){
       this.$cmlEmit('input',e.detail)
     },
@@ -96,8 +98,6 @@ class HStepper {
     }
   }
 }
-
-export default new HStepper();
 </script>
 
 <style lang="scss">

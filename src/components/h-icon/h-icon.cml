@@ -3,8 +3,12 @@
 </template>
 
 <script>
-class HIcon {
- props = {
+import componentMixin from '../../core/mixins/component/index.js'
+
+export default {
+  componentName:'h-icon',
+  mixins: [componentMixin],
+  props : {
     name: {
       type: String,
       default: ''
@@ -16,7 +20,6 @@ class HIcon {
   }
 }
 
-export default new HIcon();
 </script>
 
 <style lang="scss">

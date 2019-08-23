@@ -4,7 +4,21 @@
       <h-icon name="{{icon}}" c-if="{{icon}}" class="h-field-icon"></h-icon>
       <view class="h-field-label {{icon?'is-has-icon':''}}" c-if="{{label}}">{{label}}</view>
       <view class="h-field-input-wrap {{label?'':'is-no-label'}}">
-        <input class="h-field-input" placeholder="{{placeholder}}" value="{{value}}" cStyle="{{inputStyle}}" c-bind:input="inputChanged"  type="{{type}}" disabled="{{disabled}}" focus="{{focus}}" maxlength="{{maxlength}}" returnKeyType="{{returnKeyType}}" placerHolderColor="{{placerHolderColor}}" maxValue="{{maxValue}}" minValue="{{minValue}}"/>
+        <input
+          class="h-field-input"
+          placeholder="{{placeholder}}"
+          value="{{value}}"
+          cStyle="{{inputStyle}}"
+          c-bind:input="inputChanged"
+          type="{{type}}"
+          disabled="{{disabled}}"
+          focus="{{focus}}"
+          maxlength="{{maxlength}}"
+          returnKeyType="{{returnKeyType}}"
+          placerHolderColor="{{placerHolderColor}}"
+          maxValue="{{maxValue}}"
+          minValue="{{minValue}}"
+        />
       </view>
       <view c-if="{{useSlot}}" class="h-field-slot">
         <slot class="h-field-slot"></slot>
@@ -18,9 +32,12 @@
 
 <script>
 import HInput from './h-input.mixins.js'
-import component from "../../core/mixins/component.js";
-class HField {
-  props = {
+import componentMixin from '../../core/mixins/component/index.js'
+
+export default {
+  componentName: 'h-field',
+  mixins: [HInput, componentMixin],
+  props : {
     icon:{
       type: String, 
       default:''
@@ -45,9 +62,8 @@ class HField {
       type: Boolean,
       default:false
     }
-  }
-  
-  computed = {
+  },
+  computed: {
    inputStyle(){
      return `
       border: none;
@@ -56,18 +72,16 @@ class HField {
       margin-top: 1px;
      `
    }
-  }
-
-  methods = {
+  },
+  methods: {
     inputChanged(e){
       this.$cmlEmit('input',e.detail)
     }
   }
 }
-export default component(HInput, HField) 
 </script>
 <style lang="scss">
-@import './h-field.scss';
+@import "./h-field.scss";
 </style>
 <script cml-type="json">
 {

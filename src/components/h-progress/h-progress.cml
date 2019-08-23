@@ -5,8 +5,12 @@
 </template>
 
 <script>
-class HProgress {
-  props= {
+import componentMixin from '../../core/mixins/component/index.js'
+
+export default {
+  componentName:'h-progress',
+  mixins: [componentMixin],
+  props: {
     percentage: {
       type: [String, Number],
       default: 40
@@ -27,8 +31,8 @@ class HProgress {
       type: String,
       default: '#FFE0E4'
     }
-  }
-  computed= {
+  },
+  computed: {
     progressStyle(){
       return `border-color:${this.borderColor};background-color:${this.backgroundColor};height: ${this.height}cpx;`
     },
@@ -37,12 +41,10 @@ class HProgress {
     }
   }
 }
-
-export default new HProgress();
 </script>
 
 <style lang="scss">
-@import '../../assets/scss/_output.scss';
+@import "../../assets/scss/_output.scss";
 
 @include b(progress) {
   height: 10cpx;

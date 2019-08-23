@@ -45,12 +45,13 @@
 import { primaryColor, fontColorC1 } from "../../assets/config/style.var.js";
 import component from "../../core/mixins/component.js";
 import authorize from "./authorize.interface";
-import ComponentStackMixin from '../../core/pageStack/mixins/component.js'
+import componentMixin from '../../core/mixins/component/index.js'
 
 const needResponseOpenTypes = ["getUserInfo", "getPhoneNumber", "openSetting"];
 
 export default {
-  mixins: [ComponentStackMixin],
+  componentName:'h-dialog',
+  mixins: [componentMixin],
   data : {
     // 标题
     title: "",

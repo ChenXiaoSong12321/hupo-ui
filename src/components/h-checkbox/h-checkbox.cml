@@ -16,10 +16,11 @@
 </template>
 <script>
 import { primaryColor } from "../../assets/config/style.var.js";
-import ComponentStackMixin from '../../core/pageStack/mixins/component.js'
+import componentMixin from '../../core/mixins/component/index.js'
 
 export default {
-  mixins: [ComponentStackMixin],
+  componentName:'h-checkbox',
+  mixins: [componentMixin],
   props: {
     checked: {
       type: Boolean,
@@ -88,7 +89,7 @@ export default {
   created () {
      let { checked } = this
     this.innerChecked = checked
-  },
+  }
 }
 
 </script>

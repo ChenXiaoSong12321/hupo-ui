@@ -3,8 +3,12 @@
 </template>
 
 <script>
-class CompareVersion {
-  props = {
+import componentMixin from '../../core/mixins/component/index.js'
+
+export default {
+  componentName:'h-compare-version',
+  mixins: [componentMixin],
+  props : {
     min: {
       type: [String, Number],
       default: ""
@@ -13,9 +17,9 @@ class CompareVersion {
       type: [String, Number],
       default: ""
     }
-  };
+  },
 
-  computed = {
+  computed : {
     compareVersion() {
       let { min, max } = this;
       min = min.split(".");
@@ -37,10 +41,8 @@ class CompareVersion {
       }
       return true;
     }
-  };
+  }
 }
-
-export default new CompareVersion();
 </script>
 <style lang="scss">
 </style>

@@ -8,8 +8,12 @@
 </template>
 
 <script>
-class HTag {
-  props = {
+import componentMixin from '../../core/mixins/component/index.js'
+
+export default {
+  componentName:'h-tag',
+  mixins: [componentMixin],
+  props: {
     customClass: String,
     customStyle: {
       type:String,
@@ -27,15 +31,14 @@ class HTag {
       type: String,
       default: ""
     }
-  }
-  computed={
+  },
+  computed: {
     style(){
       let color = this.color?`color:${this.color};border:1px solid ${this.hex2rgba(this.color)};`:''
       return color + this.customStyle
     }
-  }
-
-  methods = {
+  },
+  methods: {
     /**
      * 16进制颜色转换成rgba
      */
@@ -52,11 +55,9 @@ class HTag {
     }
   }
 }
-
-export default new HTag();
 </script>
 <style lang="scss">
-@import './h-tag.scss';
+@import "./h-tag.scss";
 </style>
 <script cml-type="json">
 {

@@ -4,9 +4,8 @@ import difference from '../../core/difference/difference.interface'
 import channelDifference from '../../core/utils/channelDifference'
 import {wxTools} from '../../core/utils/hupo-core'
 const promise = {}
-export default class HPage {
-  componentName = 'h-page'
-  props = {
+export default {
+  props: {
     loading: {
       type: Boolean,
       default: false
@@ -39,39 +38,34 @@ export default class HPage {
       type: Boolean,
       default: false
     }
-  };
-
-  computed = {
+  },
+  computed: {
     heightStyle() {
       if (this.fixed) return `min-height: ${this.viewport.viewportHeight}cpx;`
       else return `height: ${this.viewport.viewportHeight}cpx;`
     }
-  }
-
-  watch = {
+  },
+  watch : {
     title(val) {
       this.selfTitle = val
     },
     type() {
       this.initNavigation()
     }
-  }
-
-  data = {
+  },
+  data: {
     navbarLoading: false,
     viewport: defaultData,
     status: '',
     selfTitle: ''
-  };
-
+  },
   async created() {
     this.selfTitle = this.title
     this.initNavigation()
     const data = await calculate()
     this.viewport = data
-  }
-
-  methods = {
+  },
+  methods: {
     initNavigation() {
       channelDifference('HP_MALL', () => {
         wxTools.setNavigationBarColor({

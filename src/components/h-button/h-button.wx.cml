@@ -21,13 +21,12 @@
 
 <script>
 import HButtonMixins from "./h-button.mixins.js";
-import component from "../../core/mixins/component.js";
+import componentMixin from "../../core/mixins/component/index.js";
 import cml from "chameleon-api";
 import {global} from '../../core/utils/hupo-core.js'
 
-
-
 class HButton implements HButtonInterface {
+  mixins = [HButtonMixins, componentMixin]
   methods = {
     getuserinfo(e) {
       console.log(e, "getuserinfo");
@@ -63,8 +62,8 @@ class HButton implements HButtonInterface {
     }
   };
 }
+export default new HButton()
 
-export default component(HButtonMixins, HButton);
 </script>
 
 <style lang="scss">

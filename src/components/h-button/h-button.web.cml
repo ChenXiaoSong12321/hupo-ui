@@ -13,9 +13,10 @@
 
 <script>
 import HButtonMixins from "./h-button.mixins.js";
-import component from "../../core/mixins/component.js";
+import componentMixin from "../../core/mixins/component/index.js";
 
 class HButton implements HButtonInterface {
+  mixins = [HButtonMixins, componentMixin]
   methods = {
     getuserinfo(e) {
       this.btnEmit("getuserinfo", e);
@@ -47,7 +48,7 @@ class HButton implements HButtonInterface {
     }
   };
 }
-export default component(HButtonMixins, HButton);
+export default new HButton()
 </script>
 
 <style lang="scss">

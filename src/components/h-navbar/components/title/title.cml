@@ -9,6 +9,7 @@
     <view class="h-navbar-title-side"></view>
   </view>
 </template>
+
 <script>
 class HNavbarTitle {
   props = {

@@ -4,15 +4,17 @@
   </view>
 </template>
 <script>
-class HTabPaneItem {
+import componentMixin from '../../core/mixins/component/index.js'
 
+export default {
+  componentName:'h-tab-pane-item',
+  mixins: [componentMixin],
 }
-export default new HTabPaneItem();
 </script>
 <style lang="scss">
-@import '../../assets/scss/output';
-@include b(pane-item){
-  width:750cpx;
+@import "../../assets/scss/output";
+@include b(pane-item) {
+  width: 750cpx;
 }
 </style>
 <script cml-type="json">

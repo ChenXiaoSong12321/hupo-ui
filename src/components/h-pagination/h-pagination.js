@@ -1,7 +1,7 @@
 
 import difference from '../../core/difference/difference.interface'
-export default class HPagination {
-  props = {
+export default {
+  props: {
     start: {
       type: String,
       default: '1'
@@ -30,9 +30,8 @@ export default class HPagination {
       type: Array,
       default: []
     }
-  }
-
-  data = {
+  },
+  data: {
     empty: false,
     loading: true,
     status: 'INIT', // PULLDOWN_ING PULLUP_ING FINISH INIT PULLUP_DISABLED PULLDOWN_DISABLED
@@ -45,9 +44,8 @@ export default class HPagination {
       new: 0
     },
     pageIndex: 1
-  }
-
-  watch = {
+  },
+  watch: {
     total(n, o) {
       console.log(this.total, 'total')
       this.length.new = n
@@ -68,9 +66,8 @@ export default class HPagination {
       console.log(this.list.length, 'list')
       this.length.new = n.length
     }
-  }
-
-  methods = {
+  },
+  methods: {
     onPulldown(event) {
       if (this.status !== 'PULLDOWN_DISABLED') {
         this.stopStatus.pulldown = event.detail
