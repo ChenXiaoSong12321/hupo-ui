@@ -19,12 +19,13 @@
   </h-page>
 </template>
 <script>
-import page from "../../../core/mixins/page";
-class HPageField {
-  data={
+import pageMixin from '../../../core/mixins/page/index.js'
+export default {
+  mixins: [pageMixin],
+  data: {
     inputval:''
-  }
-  watch = {
+  },
+  watch: {
     inputval(n){
       console.log(n)
     }

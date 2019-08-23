@@ -60,7 +60,7 @@
 <script>
 import cml from "chameleon-api"
 import routerConfig from '../../router.config.json'
-import page from '../../core/mixins/page'
+import pageMixin from '../../core/mixins/page/index.js'
 
 let routes = routerConfig.routes;
 
@@ -70,6 +70,7 @@ routes.forEach(route => {
 })
 
 class Demo {
+  mixins = [pageMixin]
   data = {
     comList: [
       {
@@ -238,7 +239,7 @@ class Demo {
   }
 }
 
-export default page(Demo);
+export default new Demo;
 </script>
 <style lang="scss">
 @import './index.scss';

@@ -21,22 +21,22 @@
       <h-button c-bind:onclick="showPopup2('right')" class="btn">right</h-button>
       <h-button c-bind:onclick="showPopup2('bottom')" class="btn">bottom</h-button>
       <h-button c-bind:onclick="showPopup2('center')" class="btn">center</h-button>
-      
     </view>
   </h-page>
 </template>
 <script>
-import page from "../../../core/mixins/page";
-class PopupManager {
-  data = {
+import pageMixin from '../../../core/mixins/page/index.js'
+export default {
+  mixins: [pageMixin],
+  data: {
     mask: true,
     show: false,
     show2: false,
     position: "",
     pos: ["left", "top", "right", "bottom", ""],
     posi: 0
-  };
-  computed = {
+  },
+  computed: {
     contentStyle() {
       let style;
       switch (this.position) {
@@ -59,12 +59,12 @@ class PopupManager {
       }
       return style;
     }
-  };
-  methods = {
+  },
+  methods: {
     showPopup() {
       this.show = true;
     },
-    
+
     showPopup2(e) {
       this.position = e;
       console.log(e);
@@ -74,9 +74,8 @@ class PopupManager {
       this.show = false;
       this.show2 = false;
     }
-  };
+  }
 }
-export default page(PopupManager);
 </script>
 <style scoped lang="scss">
 .container {

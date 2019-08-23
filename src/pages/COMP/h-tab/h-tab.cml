@@ -44,12 +44,13 @@
 </template>
 
 <script>
-import page from "../../../core/mixins/page";
+import pageMixin from '../../../core/mixins/page/index.js'
 /***
  * prefixStyle  suffixStyle 可以用来放置图标
  */
-class HTab {
-  data = {
+export default {
+  mixins: [pageMixin],
+  data: {
     headerTitle: "h-tabs",
     tabsAlone: [
       {
@@ -75,8 +76,8 @@ class HTab {
       }
     ],
     activeLabel: "label3"
-  };
-  methods = {
+  },
+  methods: {
     handleTabTap(e) {
       this.activeLabel = e.detail.label;
     },
@@ -84,9 +85,8 @@ class HTab {
       console.log(this.tabsAlone, this.activeLabelAlone, e);
       this.activeLabelAlone = e.detail.label;
     }
-  };
+  }
 }
-export default page(HTab);
 </script>
 <script cml-type="json">
 {

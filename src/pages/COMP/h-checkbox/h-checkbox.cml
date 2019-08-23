@@ -13,17 +13,18 @@
   </h-page>
 </template>
 <script>
-import page from "../../../core/mixins/page";
+import pageMixin from '../../../core/mixins/page/index.js'
 
-class Checkbox {
-  data = {
+export default {
+  mixins: [pageMixin],
+  data: {
     checkboxValue: true
-  };
-  methods = {
+  },
+  methods: {
     valueChange(e) {
       this.checkboxValue = e.detail.value;
     }
-  };
+  }
 }
 export default page(Checkbox);
 </script>

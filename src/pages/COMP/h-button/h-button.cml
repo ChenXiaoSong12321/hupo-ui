@@ -21,11 +21,12 @@
   </h-page>
 </template>
 <script>
-import page from "../../../core/mixins/page";
+import pageMixin from '../../../core/mixins/page/index.js'
 import {global} from '../../../core/utils/hupo-core.js'
 
-class HPageButton {
-  methods = {
+export default {
+  mixins: [pageMixin],
+  methods: {
     showLoading() {
       console.log("onclick button");
       console.log(global.buttonFormIds)
@@ -38,7 +39,6 @@ class HPageButton {
     }
   };
 }
-export default page(HPageButton);
 </script>
 <style >
 .container {

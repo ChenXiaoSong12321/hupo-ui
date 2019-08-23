@@ -9,14 +9,15 @@
   </h-page>
 </template>
 <script>
-import page from "../../../core/mixins/page";
+import pageMixin from '../../../core/mixins/page/index.js'
 import {promise} from "../../../core/utils/hupo-core.js";
 
-class HDialogPage {
-  data={
+export default {
+  mixins: [pageMixin],
+  data: {
     show:false
-  }
-  methods = {
+  },
+  methods: {
     showLoading(){
       this.show = true
       // setTimeout(() => {
@@ -28,8 +29,6 @@ class HDialogPage {
     }
   }
 }
-
-export default page(HDialogPage);
 </script>
 <style scoped>
 .container {
