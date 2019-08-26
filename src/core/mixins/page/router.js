@@ -1,5 +1,5 @@
 import routerDifference from './router.difference.interface'
-import {global} from '../../utils/hupo-core'
+import {global} from '@hupo/core'
 
 export default {
   created() {

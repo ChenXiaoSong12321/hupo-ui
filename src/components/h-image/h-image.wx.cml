@@ -34,7 +34,7 @@
 
 <script>
 import HImageMixins from "./h-image.mixins.js";
-import {wxTools} from "../../core/utils/hupo-core.js";
+import {wxTools} from "@hupo/core";
 import oprateUrl from '../../core/utils/url.js'
 import componentMixin from "../../core/mixins/component/index.js";
 

@@ -28,7 +28,7 @@
 </template>
 <script>
 import pageMixin from '../../../core/mixins/page/index.js'
-import {promise} from "../../../core/utils/hupo-core.js";
+import {promise} from "@hupo/core";
 export default {
   mixins: [...pageMixin],
   data: {

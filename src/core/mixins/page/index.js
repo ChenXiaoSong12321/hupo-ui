@@ -5,7 +5,7 @@ import HToast from '../common/toast'
 
 import PullRefresh from './pullRefresh.js'
 
-import {global} from '../../utils/hupo-core'
+import {global} from '@hupo/core'
 
 const PageStackMixin = {
   created() {

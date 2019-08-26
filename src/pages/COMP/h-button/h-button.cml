@@ -22,7 +22,7 @@
 </template>
 <script>
 import pageMixin from '../../../core/mixins/page/index.js'
-import {global} from '../../../core/utils/hupo-core.js'
+import {global} from '@hupo/core'
 
 export default {
   mixins: [...pageMixin],

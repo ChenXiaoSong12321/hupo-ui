@@ -4,7 +4,7 @@ interface DifferenceInterface {}
 
 <script cml-type="web">
 import getNetworkType from '../utils/getNetworkType'
-import {global} from '../utils/hupo-core.js'
+import {global} from '@hupo/core'
 
   class Difference implements DifferenceInterface {
     getUrl(){
@@ -49,8 +49,7 @@ import {global} from '../utils/hupo-core.js'
   export default new Difference();
 </script>
 <script cml-type="wx">
-import {wxTools} from '../utils/hupo-core.js'
-import {promise} from "../utils/hupo-core.js";
+import {wxTools, promise} from '@hupo/core'
 
   class Difference implements DifferenceInterface {
     getUrl(){

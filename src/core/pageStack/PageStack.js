@@ -39,7 +39,4 @@ export default class PageStack {
       page._children[componentName].splice(page._children[componentName].indexOf(component) >>> 0, 1);
     }
   }
-  trigger(route, methods, params){
-
-  }
 }

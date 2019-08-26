@@ -2,7 +2,7 @@ import defaultData from '../../core/viewport/defaultData'
 import calculate from '../../core/viewport/calculate'
 import difference from '../../core/difference/difference.interface'
 import channelDifference from '../../core/utils/channelDifference'
-import {wxTools} from '../../core/utils/hupo-core'
+import {wxTools} from '@hupo/core'
 const promise = {}
 export default {
   props: {
