@@ -32,10 +32,12 @@
 </template>
 <script>
 import difference from "../../../../core/difference/difference.interface";
-import componentMixin from '../../../../core/mixins/component/index.js'
+import {componentBaseTreeMixin, componentEventMixin} from '@hupo/core'
+import Goto from '../../../../core/mixins/common/goto.js'
 import sideLeftDifference from './sideLeft.difference.interface'
 export default {
-  mixins: [...componentMixin],
+  componentName:'h-navbar-side-left',
+  mixins: [componentBaseTreeMixin, componentEventMixin, Goto],
   props: {
     showHomeIcon: {
       type: Boolean,
@@ -52,9 +54,8 @@ export default {
   },
   mounted() {
     const historys = sideLeftDifference.getHistorys()
-    const pages = difference.getCurrentPages();
-    const currentPage = pages[pages.length - 1];
-    const isHomeRoute = this.$isHomeRoute(currentPage.route)
+    const route = difference.getRouter(this._page)
+    const isHomeRoute = this.$isHomeRoute(route.route)
     this.selfShowBackIcon = historys > 1 && !isHomeRoute;
     this.selfShowHomeIcon = !isHomeRoute;
   },

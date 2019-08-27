@@ -5,27 +5,6 @@ import HToast from '../common/toast'
 
 import PullRefresh from './pullRefresh.js'
 
-import {global} from '@hupo/core'
+import {pageBaseTreeMixin, pageEventMixin} from '@hupo/core'
 
-const PageStackMixin = {
-  created() {
-    global.$pageStack.addPage(this)
-  },
-  beforeDestroy() {
-    global.$pageStack.removePage(this)
-  },
-  methods: {
-    _getCurrentPageComponents(componentName){
-      return this._children[componentName] || []
-    },
-    _broadcast(componentName, ...arg){
-      const components = this._getCurrentPageComponents(componentName)
-      components.forEach(item => {
-        item._event.emit(...arg)
-      })
-    }
-  }
-}
-
-
-export default [PageStackMixin, HTool, Goto, HDialog, HToast, PullRefresh]
+export default [pageBaseTreeMixin, pageEventMixin, HTool, Goto, HDialog, HToast, PullRefresh]

@@ -7,8 +7,8 @@ import url from '../../utils/url'
 let indexRoute = ''
 export default {
   created() {
-    if (!indexRoute && global.$routerConfig) {
-      indexRoute = global.$routerConfig.routes[0].path
+    if (!indexRoute && global._routerConfig) {
+      indexRoute = global._routerConfig.routes[0].path
     }
   },
   methods: {
@@ -18,9 +18,9 @@ export default {
     },
     // 返回
     $back(backPageNum = -1) {
-      if (global.router && global.router.historys) {
-        const historys = global.router.historys
-        global.router.historys = historys.splice(0, historys.length - Math.abs(backPageNum))
+      if (global._router && global._router.historys) {
+        const historys = global._router.historys
+        global._router.historys = historys.splice(0, historys.length - Math.abs(backPageNum))
       }
       cml.navigateBack(backPageNum)
     },
@@ -30,8 +30,8 @@ export default {
     */
     $backToHome() {
       const reLaunch = () => {
-        if (global.router && global.router.historys) {
-          global.router.historys = []
+        if (global._router && global._router.historys) {
+          global._router.historys = []
         }
         this.$goto({
           path: indexRoute,
@@ -84,8 +84,8 @@ export default {
       })
       console.groupEnd()
       if (redirect) {
-        if (global.router && global.router.historys) {
-          global.router.historys.pop()
+        if (global._router && global._router.historys) {
+          global._router.historys.pop()
         }
         cml.redirectTo({
           path: pathFilter,

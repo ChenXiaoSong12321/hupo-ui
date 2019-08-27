@@ -10,11 +10,13 @@ import {global} from '@hupo/core'
     getUrl(){
       return window.location.href
     }
-    getCurrentPages() {
-      return (global.router && global.router.historys) ? JSON.parse(JSON.stringify(global.router.historys)) : []
-    }
-    getCurrentPage() {
-      return (global.router && global.router.current) ? global.router.current : {}
+    getRouter(ctx){
+      return {
+        path: ctx.$route.path,
+        route: ctx.$route.path,
+        params: ctx.$route.params,
+        query: ctx.$route.query
+      }
     }
     selectComponent(ctx,compName){
       return ctx?ctx.$refs[compName]:{}
@@ -56,12 +58,13 @@ import {wxTools, promise} from '@hupo/core'
       const page = this.getCurrentPage()
       return ''
     }
-    getCurrentPages(){
-      return getCurrentPages()
-    }
-    getCurrentPage() {
-      const pages = getCurrentPages()
-      return pages[pages.length - 1]
+    getRouter(ctx){
+      return {
+        path: ctx.route,
+        route: ctx.route,
+        params: ctx.options,
+        query: ctx.options
+      }
     }
     selectComponent(ctx,compName){
       return ctx?ctx.selectComponent('#'+compName):{}

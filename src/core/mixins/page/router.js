@@ -3,21 +3,21 @@ import {global} from '@hupo/core'
 
 export default {
   created() {
-    if (!global.router) global.router = {}
+    if (!global._router) global._router = {}
     const route = routerDifference.getRouter(this)
-    if (!global.router.historys || this.$isHomeRoute(route.path)) global.router.historys = []
-    global.router.historys.push(route)
-    global.router.current = this
+    if (!global._router.historys || this.$isHomeRoute(route.path)) global._router.historys = []
+    global._router.historys.push(route)
+    global._router.current = this
     console.log(global)
   },
   beforeDestroy() {
-    if (global.router.historys && global.router.historys.length > 1) {
+    if (global._router.historys && global._router.historys.length > 1) {
       const route = routerDifference.getRouter(this)
-      const prev = global.router.historys[global.router.historys.length - 2]
+      const prev = global._router.historys[global._router.historys.length - 2]
       if (JSON.stringify(route) == JSON.stringify(prev)) {
-        global.router.historys.pop()
+        global._router.historys.pop()
       }
     }
-    global.router.current = null
+    global._router.current = null
   }
 }
