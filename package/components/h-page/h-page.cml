@@ -1,7 +1,7 @@
 <template>
   <page title="{{selfTitle}}">
-    <h-dialog ref="h-dialog" c-bind:confirm="dialogConfirm" c-bind:cancel="dialogCancel"></h-dialog>
-    <h-toast ref="h-toast"></h-toast>
+    <h-dialog></h-dialog>
+    <h-toast></h-toast>
     <view class="h-page h-page--{{background}}" style="{{heightStyle}}">
       <h-navbar
         type="{{type}}"
@@ -29,9 +29,14 @@
 </template>
 <script>
 import HPage from "./h-page.js";
-import component from "../../core/mixins/component.js";
-export default component(HPage);
+import componentMixin from '../../core/mixins/component/index.js'
+
+export default {
+  componentName:'h-page',
+  mixins: [HPage, ...componentMixin],
+}
 </script>
+
 <style lang="scss">
 @import "./h-page.scss";
 </style>
@@ -40,8 +45,8 @@ export default component(HPage);
   "base": {
     "usingComponents": {
       "h-navbar": "../h-navbar/h-navbar",
-      "h-load-more": "../h-load-more/h-load-more",
       "h-dialog": "../h-dialog/h-dialog",
+      "h-load-more": "../h-load-more/h-load-more",
       "h-toast": "../h-toast/h-toast"
     },
     "component": true

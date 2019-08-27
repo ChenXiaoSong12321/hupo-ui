@@ -197,13 +197,13 @@ export default {
       // });
     },
     onPulldown(e){
-      this.$setTimeout(() => {
+      this._setTimeout(() => {
         console.log(111)
         e.detail.stop()
       }, 3000);
     },
     onPullup(e){
-      this.$setTimeout(() => {
+      this._setTimeout(() => {
         console.log(222)
         e.detail.stop()
       }, 2000);
@@ -216,7 +216,7 @@ export default {
   async mounted() {
     const info = await cml.getSystemInfo()
     this.winHeight = info.viewportHeight
-    this.$setTimeout(() => {
+    this._setTimeout(() => {
       this.loading = false
     }, 2000)
   }

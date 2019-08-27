@@ -1,13 +1,17 @@
 <template>
-<view class="h-tab-pane">
-  <view class="h-tab-pane-wrap" style="{{paneWrap}}">
-    <slot></slot>
+  <view class="h-tab-pane">
+    <view class="h-tab-pane-wrap" style="{{paneWrap}}">
+      <slot></slot>
+    </view>
   </view>
-</view>
 </template>
 <script>
-class HTabPane {
-  props = {
+import componentMixin from '../../core/mixins/component/index.js'
+
+export default {
+  componentName:'h-tab-pane',
+  mixins: [...componentMixin],
+  props: {
     tabs:{ 
       type:Array,
       default(){
@@ -18,9 +22,8 @@ class HTabPane {
       type:[Number,String],
       required:true,
     },
-    
-  }
-  computed = {
+  },
+  computed: {
     paneWrap(){
       let width = this.tabs.length * 750;//总宽度；
       //findIndex找不到返回 -1
@@ -37,20 +40,19 @@ class HTabPane {
     }
   }
 }
-export default new HTabPane();
 </script>
 <style lang="scss">
-@import '../../assets/scss/output';
-@include b(tab-pane){
-  width:750cpx;
-  overflow-x:hidden;
-  overflow-y:hidden;
-  @include e(wrap){
-    display:flex;
-    flex-direction:row;
+@import "../../assets/scss/output";
+@include b(tab-pane) {
+  width: 750cpx;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  @include e(wrap) {
+    display: flex;
+    flex-direction: row;
     transition-duration: 0.5s;
-    transition-timing-function:ease-in-out;
-    transition-property:transform;
+    transition-timing-function: ease-in-out;
+    transition-property: transform;
   }
 }
 </style>

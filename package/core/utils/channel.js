@@ -1,5 +1,5 @@
 import cml from 'chameleon-api'
-import promise from '@hupo/core-promise'
+import {promise} from "@hupo/core";
 
 function isWechat() {
   var ua = window.navigator.userAgent.toLowerCase()

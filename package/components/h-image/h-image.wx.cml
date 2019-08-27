@@ -34,10 +34,12 @@
 
 <script>
 import HImageMixins from "./h-image.mixins.js";
-import component from "../../core/mixins/component.js";
-import wxTools from "@hupo/core-wx-app-tools";
+import {wxTools} from "@hupo/core";
 import oprateUrl from '../../core/utils/url.js'
-class HImage implements ImageInterface {
+import componentMixin from "../../core/mixins/component/index.js";
+
+class HImage implements HImageInterface {
+  mixins = [componentMixin,HImageMixins]
   async created() {
     this.init();
     if (this.lazyLoad) {
@@ -70,7 +72,7 @@ class HImage implements ImageInterface {
   }
 }
 
-export default component(HImageMixins, HImage);
+export default new HImage()
 </script>
 
 <style lang="scss">

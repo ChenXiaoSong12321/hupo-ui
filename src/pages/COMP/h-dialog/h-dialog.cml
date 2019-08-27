@@ -18,6 +18,7 @@ export default {
         await this.$confirm({
           message: "您的账号已在其他地方登录，请重新验证身份。"
         });
+        console.log(111)
       } else {
         await this.$alert({
           message: `<p>您的账号已在其他地方登录，请重新验证身份。</p>
@@ -26,6 +27,7 @@ export default {
           title: "alert",
           confirmButtonText: "perfect"
         });
+        console.log(222)
       }
     }
   }

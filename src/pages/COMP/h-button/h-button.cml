@@ -32,7 +32,7 @@ export default {
       console.log(global.buttonFormIds)
     },
     onPullup(e){
-      this.$setTimeout(() => {
+      this._setTimeout(() => {
         e.detail.stop()
         console.log(e.detail)
       }, 2000);

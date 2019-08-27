@@ -1,17 +1,41 @@
 <template>
   <view class="h-stepper">
-    <h-button throttle="0" class="h-stepper-subtract {{disabled || (stepValue<=min) ? 'is-disabled':''}}" type="none" c-bind:onclick="onChange('subtract')"><view class="text">-</view></h-button>
+    <h-button
+      throttle="{{0}}"
+      class="h-stepper-subtract {{disabled || (stepValue<=min) ? 'is-disabled':''}}"
+      type="none"
+      c-bind:onclick="onChange('subtract')"
+    >
+      <view class="text">-</view>
+    </h-button>
     <view class="h-stepper-input-wrap">
-      <input class="h-stepper-input" placeholder="" value="{{stepValue}}" cStyle="{{inputStyle}}" c-bind:input="inputChanged"/>
+      <input
+        class="h-stepper-input"
+        placeholder
+        value="{{stepValue}}"
+        cStyle="{{inputStyle}}"
+        c-bind:input="inputChanged"
+      />
     </view>
-    <h-button throttle="0" class="h-stepper-add {{disabled || (stepValue >= max) ? 'is-disabled':''}}" type="none" c-bind:onclick="onChange('add')"><view class="text">+</view></h-button>
+    <h-button
+      throttle="{{0}}"
+      class="h-stepper-add {{disabled || (stepValue >= max) ? 'is-disabled':''}}"
+      type="none"
+      c-bind:onclick="onChange('add')"
+    >
+      <view class="text">+</view>
+    </h-button>
   </view>
 </template>
 
 <script>
 const MAX = 2147483647;
-class HStepper {
-  props = {
+import componentMixin from '../../core/mixins/component/index.js'
+
+export default {
+  componentName:'h-stepper',
+  mixins: [...componentMixin],
+  props: {
     integer: Boolean,
     disabled: Boolean,
     disableInput: Boolean,
@@ -31,13 +55,11 @@ class HStepper {
       type: null,
       default: 1
     }
-  }
-
-  data={
+  },
+  data: {
     stepValue:'1'
-  }
-
-  watch = {
+  },
+  watch: {
     value(n){
       debugger
       this.stepValue = n
@@ -45,8 +67,8 @@ class HStepper {
     stepValue(n){
       this.$cmlEmit('changed',n)
     }
-  }
-  computed = {
+  },
+  computed: {
    inputStyle(){
      return `
       border: none;
@@ -58,8 +80,8 @@ class HStepper {
       width: 42px;
      `
    }
-  }
-  methods = {
+  },
+  methods: {
     inputChanged(e){
       this.$cmlEmit('input',e.detail)
     },
@@ -76,12 +98,10 @@ class HStepper {
     }
   }
 }
-
-export default new HStepper();
 </script>
 
 <style lang="scss">
-@import './h-stepper.scss';
+@import "./h-stepper.scss";
 </style>
 
 <script cml-type="json">

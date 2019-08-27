@@ -15,8 +15,12 @@
   </h-popup-manager>
 </template>
 <script>
-class HPopup {
-  props = {
+import componentMixin from '../../core/mixins/component/index.js'
+
+export default {
+  componentName:'h-popup',
+  mixins: [...componentMixin],
+  props: {
     show: {
       type: Boolean,
       default: false
@@ -25,29 +29,26 @@ class HPopup {
       type: String,
       default: ""
     }
-  };
-  data={
+  },
+  data: {
     visible:false
-  }
-  watch = {
+  },
+  watch: {
     show(n) {
       this.visible = n;
     }
-  };
-
-  methods = {
+  },
+  methods: {
     onclose() {
       this.visible = false;
       this.$cmlEmit("onclose", false);
     },
     empty(){}
-  };
+  }
 }
-
-export default new HPopup();
 </script>
 <style scoped lang="scss">
-@import './h-popup.scss';
+@import "./h-popup.scss";
 </style>
 <script cml-type="json">
 {

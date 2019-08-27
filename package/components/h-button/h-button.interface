@@ -1,3 +1,4 @@
-<script cml-type="interface">
-
+<script cml-type='interface'>
+interface HButtonInterface{
+}
 </script>

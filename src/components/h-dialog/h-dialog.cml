@@ -24,7 +24,6 @@
           size="medium"
           type="none"
           class="h-dialog-footer-button-no-type {{item.type!=='confirm'?'is-cancel':''}}"
-          customStyle="{{buttons.length!==2?'width:480cpx':''}}"
           data-open-type="{{ item.openType }}"
           data-type="{{ item.type }}"
           open-type="{{ item.openType }}"
@@ -47,6 +46,7 @@ import authorize from "./authorize.interface";
 import componentMixin from '../../core/mixins/component/index.js'
 
 const needResponseOpenTypes = ["getUserInfo", "getPhoneNumber", "openSetting"];
+const promise = {}
 
 export default {
   componentName:'h-dialog',
@@ -79,6 +79,15 @@ export default {
     iconColor: "",
     show: false
   },
+  mounted () {
+    this._on('setDialogOptions', (options = {}) => {
+      Object.keys(options).forEach(key => {
+        this[key] = options[key]
+        promise.resolve = options.promise ? options.promise.resolve : null
+        promise.reject = options.promise ? options.promise.reject : null
+      })
+    })
+  },
   methods : {
     handleButtclick(event) {
       // 获取当次弹出框的信息
@@ -107,6 +116,12 @@ export default {
     selfEmit(type, data) {
       this.show = false;
       this.$cmlEmit(type, data);
+      if (type==='confirm'&&promise.resolve) {
+        promise.resolve(data)
+      }
+      if (type==='cancel'&&promise.reject) {
+        promise.reject(data)
+      }
     },
 
     // 以下为处理微信按钮开放能力的逻辑

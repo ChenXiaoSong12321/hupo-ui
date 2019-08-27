@@ -21,10 +21,12 @@
 
 <script>
 import HButtonMixins from "./h-button.mixins.js";
-import component from "../../core/mixins/component.js";
+import componentMixin from "../../core/mixins/component/index.js";
 import cml from "chameleon-api";
-import difference from '../../core/difference/difference.interface'
-class HButton implements ButtonInterface {
+import {global} from '@hupo/core'
+
+class HButton implements HButtonInterface {
+  mixins = [HButtonMixins, ...componentMixin]
   methods = {
     getuserinfo(e) {
       console.log(e, "getuserinfo");
@@ -51,18 +53,17 @@ class HButton implements ButtonInterface {
     async handleFormSubmit(event) {
       const res = await cml.getSystemInfo()
       // todo: jerry == -> !=
-      if (res.env === 'wx' && res.extraParams.platform == 'devtools') {
+      if (res.env === 'wx' && res.extraParams.platform != 'devtools') {
         const formId = event.detail.formId || ''
         console.log('formId:',formId)
-        let app = difference.getApp()
-        app.buttonFormIds = app.buttonFormIds || []
-        app.buttonFormIds.push(formId)
+        global.buttonFormIds = global.buttonFormIds || []
+        global.buttonFormIds.push(formId)
       }
     }
   };
 }
+export default new HButton()
 
-export default component(HButtonMixins, HButton);
 </script>
 
 <style lang="scss">

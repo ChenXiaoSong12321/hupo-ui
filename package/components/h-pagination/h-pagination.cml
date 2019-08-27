@@ -14,8 +14,12 @@
 
 <script>
 import CurrentComponent from './h-pagination.js';
-import component from "../../core/mixins/component.js";
-export default component(CurrentComponent);
+import componentMixin from '../../core/mixins/component/index.js'
+
+export default {
+  componentName:'h-pagination',
+  mixins: [CurrentComponent, ...componentMixin]
+}
 </script>
 
 <style lang="scss">

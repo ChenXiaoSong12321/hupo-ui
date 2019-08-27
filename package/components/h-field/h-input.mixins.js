@@ -1,5 +1,5 @@
-export default class HInput {
-  props = {
+export default {
+  props: {
     value: {
       type: String,
       default: ''

@@ -4,10 +4,29 @@
       <h-button type="none" c-bind:onclick="onclick">
         <view class="h-search-detail {{cancel?'is-cancel':''}}">
           <h-icon name="el-icon-hp-search" class="h-search-icon"></h-icon>
-           <input class="h-field-input" placeholder="{{placeholder}}" value="{{value}}" cStyle="{{inputStyle}}" c-bind:input="inputChanged"  type="{{type}}" disabled="{{disabled}}" focus="{{focus}}" maxlength="{{maxlength}}" returnKeyType="{{returnKeyType}}" placerHolderColor="{{placerHolderColor}}" maxValue="{{maxValue}}" minValue="{{minValue}}"/>
+          <input
+            class="h-field-input"
+            placeholder="{{placeholder}}"
+            value="{{value}}"
+            cStyle="{{inputStyle}}"
+            c-bind:input="inputChanged"
+            type="{{type}}"
+            disabled="{{disabled}}"
+            focus="{{focus}}"
+            maxlength="{{maxlength}}"
+            returnKeyType="{{returnKeyType}}"
+            placerHolderColor="{{placerHolderColor}}"
+            maxValue="{{maxValue}}"
+            minValue="{{minValue}}"
+          />
         </view>
       </h-button>
-      <h-button type="none" c-bind:onclick="oncancel" c-if="{{cancel}}" class="h-search-cancel-wrap">
+      <h-button
+        type="none"
+        c-bind:onclick="oncancel"
+        c-if="{{cancel}}"
+        class="h-search-cancel-wrap"
+      >
         <view class="h-search-cancel">取消</view>
       </h-button>
     </view>
@@ -15,11 +34,13 @@
 </template>
 
 <script>
-import component from "../../core/mixins/component.js";
 import HInputMixins from '../h-field/h-input.mixins.js'
-class HSearch {
+import componentMixin from '../../core/mixins/component/index.js'
 
-  props = {
+export default {
+  componentName:'h-search',
+  mixins: [HInputMixins, ...componentMixin],
+  props: {
     value:{
       type:String,
       default:''
@@ -36,9 +57,8 @@ class HSearch {
       type:String,
       default:'请输入搜索关键字'
     }
-  }
-
-  computed = {
+  },
+  computed: {
    inputStyle(){
      return `
       border: none;
@@ -54,15 +74,13 @@ class HSearch {
    inputWidth(){
      return this.width?this.width:(this.cancel?'526cpx':'446cpx')
    }
-  }
-
-  watch = {
+  },
+  watch: {
     value(n,o){
       if(n!==o)this.$cmlEmit('onChanged',{value:n})
     }
-  }
-
-  methods = {
+  },
+  methods: {
     onclick(){
       this.$cmlEmit('onclick',{value:this.value})
     },
@@ -75,10 +93,9 @@ class HSearch {
   }
 }
 
-export default component(HInputMixins, HSearch);
 </script>
 <style lang="scss">
-@import './h-search.scss';
+@import "./h-search.scss";
 </style>
 <script cml-type="json">
 {

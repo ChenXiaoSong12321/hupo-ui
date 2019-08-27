@@ -102,13 +102,13 @@ export default {
       zindexManager=zindexManager+2
       this.zIndex = zindexManager
       this.visible = true;
-      this.$setTimeout(() => {
+      this._setTimeout(() => {
         this.transitionIn = true;
       }, 50);
     },
     hideMask() {
       this.transitionIn = false;
-      this.$setTimeout(() => {
+      this._setTimeout(() => {
         this.visible = false;
       }, 300);
     }

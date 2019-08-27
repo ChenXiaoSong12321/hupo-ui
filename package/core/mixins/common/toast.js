@@ -13,13 +13,8 @@ const defaultOptions = {
 
 const toastOptions = options => Object.assign({}, defaultOptions, options)
 
-export default class HToast {
-  methods = {
-    __toastSet__(options) {
-      const page = this.$getPageComponent()
-      if (!page) return
-      return page.toastSet(options)
-    },
+export default {
+  methods: {
     $toast(options = {}) {
       options = parseOptions(options)
       options = toastOptions({
@@ -30,28 +25,28 @@ export default class HToast {
         mask: options.mask || false,
         needIcon: options.needIcon || false
       })
-      return this.__toastSet__(options)
+      return this._broadcast('h-toast', 'toggle', options)
     },
     $loadingToast(options = {}) {
       options = parseOptions(options)
       options = Object.assign({ message: '加载中...', duration: -1 }, options, { needIcon: true, type: 'loading' })
-      return this.$toast(options)
+      return this._broadcast('h-toast', 'toggle', options)
     },
     $clearToast() {
       const options = {
         show: false
       }
-      return this.__toastSet__(options)
+      return this._broadcast('h-toast', 'toggle', options)
     },
     $failToast(options = {}) {
       options = parseOptions(options)
       options = Object.assign(options, { needIcon: true, type: 'warn' })
-      return this.$toast(options)
+      return this._broadcast('h-toast', 'toggle', options)
     },
     $successToast(options = {}) {
       options = parseOptions(options)
       options = Object.assign(options, { needIcon: true, type: 'success' })
-      return this.$toast(options)
+      return this._broadcast('h-toast', 'toggle', options)
     }
   }
 }

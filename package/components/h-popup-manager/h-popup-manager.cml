@@ -23,13 +23,16 @@
 </template>
 <script>
 let zindexManager = 1000
-import component from "../../core/mixins/component.js";
 import calculate from '../../core/viewport/calculate';
 import defaultData from '../../core/viewport/defaultData.js'
 import cml from "chameleon-api";
 import viewportDiffrence from './diffrence.interface'
-class HPopupManager {
-  props = {
+import componentMixin from '../../core/mixins/component/index.js'
+
+export default {
+  componentName:'h-popup-manager',
+  mixins: [...componentMixin],
+  props: {
     mask: {
       type: Boolean,
       default: true
@@ -62,20 +65,19 @@ class HPopupManager {
       type: [String,Number],
       default: 0
     }
-  };
-
-  data = {
+  },
+  data: {
     transitionIn: false,
     visible:false,
     viewport:defaultData,
     zIndex:1000
-  };
-  watch = {
+  },
+  watch: {
     show(n) {
       n ? this.showMask() : this.hideMask();
     }
-  };
-  computed = {
+  },
+  computed: {
     caculateStyle(){
       if(!this.flexible || !this.viewport.headerHeight) return ''
       let positions = {
@@ -87,12 +89,12 @@ class HPopupManager {
       }
       return positions[this.position||'default'] || positions.default
     }
-  }
+  },
   async created(){
     const data = await calculate()
     this.viewport = data
-  }
-  methods = {
+  },
+  methods: {
     closeevent() {
       this.$cmlEmit("onclose");
     },
@@ -100,25 +102,24 @@ class HPopupManager {
       zindexManager=zindexManager+2
       this.zIndex = zindexManager
       this.visible = true;
-      this.$setTimeout(() => {
+      this._setTimeout(() => {
         this.transitionIn = true;
       }, 50);
     },
     hideMask() {
       this.transitionIn = false;
-      this.$setTimeout(() => {
+      this._setTimeout(() => {
         this.visible = false;
       }, 300);
     }
-  };
+  }
 }
-
-export default component(HPopupManager)
 </script>
 
 <style lang="scss">
 @import "./h-popup-manager.scss";
 </style>
+
 <script cml-type="json">
 {
   "base": {

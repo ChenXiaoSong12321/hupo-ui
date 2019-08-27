@@ -34,13 +34,15 @@
 <script>
 import HImageMixins from "./h-image.mixins.js";
 import difference from '../../core/difference/difference.interface'
-import component from "../../core/mixins/component.js";
 import lozad from "lozad";
-class HImage implements ImageInterface {
+import componentMixin from "../../core/mixins/component/index.js";
+
+class HImage implements HImageInterface {
+  mixins = [componentMixin,HImageMixins]
   async mounted() {
     this.init();
     if (this.lazyLoad) {
-      const el = difference.selectComponent(this, 'image')
+      const el = this.$refs.image.$el
       await this.$relativeToViewport(el)
     }
     this.show = true;
@@ -59,7 +61,7 @@ class HImage implements ImageInterface {
   }
 }
 
-export default component(HImageMixins, HImage);
+export default new HImage()
 </script>
 
 <style lang="scss">

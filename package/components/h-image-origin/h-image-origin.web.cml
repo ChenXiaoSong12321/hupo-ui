@@ -11,7 +11,10 @@
 
 <script>
 import loadImage from './assets/js/image.load.js'
-class HImageOrigin implements ImageModeInterface {
+import componentMixin from "../../core/mixins/component/index.js";
+
+class HImageOrigin implements HImageOriginInterface {
+  mixins = [componentMixin]
   props = {
     src: {
       type: String,

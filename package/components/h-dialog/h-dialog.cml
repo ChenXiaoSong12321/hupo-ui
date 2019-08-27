@@ -24,7 +24,6 @@
           size="medium"
           type="none"
           class="h-dialog-footer-button-no-type {{item.type!=='confirm'?'is-cancel':''}}"
-          customStyle="{{buttons.length!==2?'width:480cpx':''}}"
           data-open-type="{{ item.openType }}"
           data-type="{{ item.type }}"
           open-type="{{ item.openType }}"
@@ -43,14 +42,16 @@
 </template>
 <script>
 import { primaryColor, fontColorC1 } from "../../assets/config/style.var.js";
-import component from "../../core/mixins/component.js";
 import authorize from "./authorize.interface";
+import componentMixin from '../../core/mixins/component/index.js'
 
 const needResponseOpenTypes = ["getUserInfo", "getPhoneNumber", "openSetting"];
+const promise = {}
 
-class HDialog {
-  props = {};
-  data = {
+export default {
+  componentName:'h-dialog',
+  mixins: [...componentMixin],
+  data : {
     // 标题
     title: "",
     // 自定义 btn 列表
@@ -77,8 +78,17 @@ class HDialog {
     icon: "",
     iconColor: "",
     show: false
-  };
-  methods = {
+  },
+  mounted () {
+    this._on('setDialogOptions', (options = {}) => {
+      Object.keys(options).forEach(key => {
+        this[key] = options[key]
+        promise.resolve = options.promise ? options.promise.resolve : null
+        promise.reject = options.promise ? options.promise.reject : null
+      })
+    })
+  },
+  methods : {
     handleButtclick(event) {
       // 获取当次弹出框的信息
       const { type = "", openType = "" } = event;
@@ -106,6 +116,12 @@ class HDialog {
     selfEmit(type, data) {
       this.show = false;
       this.$cmlEmit(type, data);
+      if (type==='confirm'&&promise.resolve) {
+        promise.resolve(data)
+      }
+      if (type==='cancel'&&promise.reject) {
+        promise.reject(data)
+      }
     },
 
     // 以下为处理微信按钮开放能力的逻辑
@@ -140,11 +156,9 @@ class HDialog {
       const data = options.data || {};
       this.selfEmit(type, data);
     }
-  };
+  }
 }
 
-// export default component(HDialog)
-export default new HDialog();
 </script>
 <style lang="scss">
 @import "./h-dialog.scss";

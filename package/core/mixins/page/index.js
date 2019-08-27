@@ -1,8 +1,11 @@
 import Goto from '../common/goto'
-import Event from '../common/event'
 import HDialog from '../common/dialog'
 import HTool from '../common/tools'
 import HToast from '../common/toast'
+import HTimer from '../common/timer'
 
 import PullRefresh from './pullRefresh.js'
-export default [HTool, Event, Goto, HDialog, HToast, PullRefresh]
+
+import {pageBaseTreeMixin, pageEventMixin} from '@hupo/core'
+
+export default [pageBaseTreeMixin, pageEventMixin, HTool, Goto, HDialog, HTimer, HToast, PullRefresh]

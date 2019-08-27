@@ -21,17 +21,17 @@ import pageMixin from '../../../core/mixins/page/index.js'
 import Pagination from '../../../core/mixins/common/pagination.js'
 let i=0
 export default {
-  mixins: [...pageMixin],
+  mixins: [...pageMixin, Pagination],
   data: {
     list: [],
-    start: 1231231231231,
+    start: '1231231231231',
     step: 12312312,
     pageCount: 20
   },
   watch: {
     list(n){
       console.log('list:',[...n])
-      this.$stopRefresh()
+      this._stopRefresh()
     }
   },
   mounted(){

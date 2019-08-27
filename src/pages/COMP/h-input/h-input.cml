@@ -86,7 +86,7 @@ export default {
   },
   mounted(res) {
     console.log('mounted')
-    this.$setTimeout(() => {
+    this._setTimeout(() => {
       this.isfocus = true;
     }, 300);
   }

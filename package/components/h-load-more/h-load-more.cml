@@ -14,8 +14,12 @@
 </template>
 
 <script>
-class HLoadMore {
-  props = {
+import componentMixin from '../../core/mixins/component/index.js'
+
+export default {
+  componentName:'h-load-more',
+  mixins: [...componentMixin],
+  props: {
     loading: {
       type: Boolean,
       default: false
@@ -28,13 +32,11 @@ class HLoadMore {
       type: Boolean,
       default: false
     }
-  }
-  data={
+  },
+  data: {
     nodataImg: require('./nodata.png')
   }
 }
-
-export default new HLoadMore();
 </script>
 
 <style lang="scss">

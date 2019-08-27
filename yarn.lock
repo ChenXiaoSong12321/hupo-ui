@@ -811,22 +811,54 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@hupo/core-global@^0.0.3":
-  version "0.0.3"
-  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-global/-/core-global-0.0.3.tgz#f065990ee9bf4a64958372e36547e11bb1d6365f"
-  integrity sha512-lZpeM/Sa+qvQGt62uD/xYNLRzcIlUwNEx0Bf6nAU3bcmmbh/qvpD7+QvKfGxgy+cjfT/R6yBz8uip8mDWo8t+w==
-
-"@hupo/core-promise@^0.0.3":
-  version "0.0.3"
-  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-promise/-/core-promise-0.0.3.tgz#8349edbeefe5cc2cc82c33c58e0b500aa00a2038"
-  integrity sha512-QMVOtXyeJzhbiJusV+txwZeaX59z1nnre/tjaGgtO0+v60zle6XUHH0UrcGk/5ocY/JmA4MfHCOTK/FAMgEErA==
+"@hupo/core-cml-base-tree@^0.1.3":
+  version "0.1.3"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-cml-base-tree/-/core-cml-base-tree-0.1.3.tgz#7cfccd4d79bdffb954499b972f30ebaf12ba81ed"
+  integrity sha512-Wf8KaBRzGRNnPIjeBqtea74mqYN2ws2ObTQ+h5jWv9XDG1tflXBEf84kgDCJ91In4H6V30pLAqXWjOxn0icD2A==
   dependencies:
-    "@hupo/core-global" "^0.0.3"
+    "@hupo/core-global" "^0.1.1"
 
-"@hupo/core-wx-app-tools@^0.0.2":
-  version "0.0.2"
-  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-wx-app-tools/-/core-wx-app-tools-0.0.2.tgz#603deef102aa2a4082249f3cbd6ea1ab76c001ea"
-  integrity sha512-Ad2nJXSt4cVU9ryFUBKLP6QFiMXKTsu1R69On42aMzzDutDOwmAGwj/MukWbDoZXO76XNmgQSMiKI2+Lms0Wxg==
+"@hupo/core-cml-event@^0.1.1":
+  version "0.1.1"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-cml-event/-/core-cml-event-0.1.1.tgz#b0f8b50bb0c3b89efe3c82385983a91c0d67d02b"
+  integrity sha512-TwASAXTtVIE3LkszaY2dXY7j/th4xv2sI8AYLmDmomcZ/ZZiymhh8inDNyB7iucV6RQY2YK/H7aUjXNjh2Dcdw==
+
+"@hupo/core-dayjs@^0.1.1":
+  version "0.1.1"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-dayjs/-/core-dayjs-0.1.1.tgz#13f8bc370128aebdf12b7b2fe76abd7895f64fe6"
+  integrity sha512-XtoOPiP3oI6v6Tg4i/trxKYkH/lD8N0ebSKYjuMFEXPRdxx3Pr9nF5WYr4LnU0WfpI2289bH4y8oGbgYKZo9gw==
+  dependencies:
+    dayjs "^1.8.15"
+    dayjs-plugin-utc "^0.1.2"
+
+"@hupo/core-global@^0.1.1":
+  version "0.1.1"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-global/-/core-global-0.1.1.tgz#e9cf9b89cfc1d9e029cff6927a4eec1afefddd15"
+  integrity sha512-f8PoLxs+XSXmX03COJY2RJ5SpOedlZQhQazT5hfUs77dMm7fAh/uH9SeK6BlZ387DGnDi591v0El+Jyxmj/MSQ==
+
+"@hupo/core-promise@^0.1.1":
+  version "0.1.1"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-promise/-/core-promise-0.1.1.tgz#920e0ca9bd440ea10242828d81007cd3ae98cf99"
+  integrity sha512-qvdM0vwLcL0MkeDYxWTFWx8wQWSudM0GcuaFPR25kiNLsVHGrpgIiAYtTBVrKk0PQfblM43Xt7Z+pUP0yNvTCg==
+  dependencies:
+    "@hupo/core-global" "^0.1.1"
+
+"@hupo/core-wx-app-tools@^0.1.1":
+  version "0.1.1"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-wx-app-tools/-/core-wx-app-tools-0.1.1.tgz#19b87533b5dc638d5f70995dbe5202a0193153a8"
+  integrity sha512-iAE+N5r99JZI90RSGDIsK/2MB62ROiQq8XWUfz/wBg8+VIMQsDqVsIhQNrvF6FoPtpefv3QzGliFF825btdSlA==
+
+"@hupo/core@^0.1.3":
+  version "0.1.3"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core/-/core-0.1.3.tgz#d3b3e46f17dbed6c4469d4be314402088e2e7a2a"
+  integrity sha512-GCJM7Rv8yCV5n2TBI598acHVZVzwNvrEeOb3PKSIR1VRZauarBKLLDpz9+03RzCDNgGoviVnEklpo82fpslbhA==
+  dependencies:
+    "@hupo/core-cml-base-tree" "^0.1.3"
+    "@hupo/core-cml-event" "^0.1.1"
+    "@hupo/core-dayjs" "^0.1.1"
+    "@hupo/core-global" "^0.1.1"
+    "@hupo/core-promise" "^0.1.1"
+    "@hupo/core-wx-app-tools" "^0.1.1"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -2591,10 +2623,20 @@ dayjs-plugin-utc@^0.1.0:
   resolved "https://registry.npmjs.org/dayjs-plugin-utc/-/dayjs-plugin-utc-0.1.0.tgz#7d6a91d713fda7545dc78bbe045b4286a62dcad5"
   integrity sha512-4pBTndU5Atn7NM+geW7/vb6eXJIjxkj+zS/wpRyA6laJDEbgUMdnPaa1cpxX2Pg1p6Dgbr9J0qJPKLM6Q0XaiA==
 
+dayjs-plugin-utc@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.npmjs.org/dayjs-plugin-utc/-/dayjs-plugin-utc-0.1.2.tgz#48e552407024143922d6499a40f6c765f8c93d03"
+  integrity sha512-ExERH5o3oo6jFOdkvMP3gytTCQ9Ksi5PtylclJWghr7k7m3o2U5QrwtdiJkOxLOH4ghr0EKhpqGefzGz1VvVJg==
+
 dayjs@^1.8.12:
   version "1.8.14"
   resolved "https://registry.npmjs.org/dayjs/-/dayjs-1.8.14.tgz#43e4f62830c2c3342c3fcd25934dc9162dbe6f38"
   integrity sha512-AVhDmRTe541iWirnoeFSSDDGvCT6HWaNQ4z2WmmzXMGZj6ph6ydao2teKq/eUtR43GPJXlYFD+C/SotG1P9wUQ==
+
+dayjs@^1.8.15:
+  version "1.8.16"
+  resolved "https://registry.npmjs.org/dayjs/-/dayjs-1.8.16.tgz#2a3771de537255191b947957af2fd90012e71e64"
+  integrity sha512-XPmqzWz/EJiaRHjBqSJ2s6hE/BUoCIHKgdS2QPtTQtKcS9E4/Qn0WomoH1lXanWCzri+g7zPcuNV4aTZ8PMORQ==
 
 de-indent@^1.0.2:
   version "1.0.2"

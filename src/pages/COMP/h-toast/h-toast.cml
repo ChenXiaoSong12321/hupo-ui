@@ -43,7 +43,7 @@ export default {
     },
     show$loadingToast(){
       this.$loadingToast()
-      this.$setTimeout(() => {this.$clearToast()}, 3000);
+      this._setTimeout(() => {this.$clearToast()}, 3000);
     },
     wori(){
       console.log('wori')

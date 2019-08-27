@@ -1,7 +1,8 @@
 import cml from 'chameleon-api'
 import defaultData from './defaultData'
 import getChannel from '../utils/channel'
-import promise from '@hupo/core-promise'
+import {promise} from "@hupo/core";
+
 async function calculate() {
   const data = JSON.parse(JSON.stringify(defaultData))
   const system = await cml.getSystemInfo()

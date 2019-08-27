@@ -67,6 +67,11 @@ export default {
       this.length.new = n.length
     }
   },
+  mounted () {
+    this._on('stop', (options = {}) => {
+      this.stopRefresh()
+    })
+  },
   methods: {
     onPulldown(event) {
       if (this.status !== 'PULLDOWN_DISABLED') {

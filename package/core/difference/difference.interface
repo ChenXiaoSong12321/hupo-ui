@@ -4,23 +4,19 @@ interface DifferenceInterface {}
 
 <script cml-type="web">
 import getNetworkType from '../utils/getNetworkType'
+import {global} from '@hupo/core'
+
   class Difference implements DifferenceInterface {
-    setApp(_app){
-      window.__humall__ = _app
-    }
-    getApp() {
-      return window.__humall__ || {}
-    }
     getUrl(){
       return window.location.href
     }
-    getCurrentPages() {
-      const app = this.getApp()
-      return (app.router && app.router.historys) ? JSON.parse(JSON.stringify(app.router.historys)) : []
-    }
-    getCurrentPage() {
-      const app = this.getApp()
-      return (app.router && app.router.current) ? app.router.current : {}
+    getRouter(ctx){
+      return {
+        path: ctx.$route.path,
+        route: ctx.$route.path,
+        params: ctx.$route.params,
+        query: ctx.$route.query
+      }
     }
     selectComponent(ctx,compName){
       return ctx?ctx.$refs[compName]:{}
@@ -55,24 +51,20 @@ import getNetworkType from '../utils/getNetworkType'
   export default new Difference();
 </script>
 <script cml-type="wx">
-  import wxTools from '@hupo/core-wx-app-tools'
-  import promise from '@hupo/core-promise'
+import {wxTools, promise} from '@hupo/core'
+
   class Difference implements DifferenceInterface {
-    setApp(){
-    }
-    getApp() {
-      return getApp()
-    }
     getUrl(){
       const page = this.getCurrentPage()
       return ''
     }
-    getCurrentPages(){
-      return getCurrentPages()
-    }
-    getCurrentPage() {
-      const pages = getCurrentPages()
-      return pages[pages.length - 1]
+    getRouter(ctx){
+      return {
+        path: ctx.route,
+        route: ctx.route,
+        params: ctx.options,
+        query: ctx.options
+      }
     }
     selectComponent(ctx,compName){
       return ctx?ctx.selectComponent('#'+compName):{}

@@ -21,7 +21,7 @@ class DemoCom {
     a: 1
   }
   mounted(){
-    this.$setTimeout(() => {
+    this._setTimeout(() => {
       this.a = 2
     }, 2000);
   }

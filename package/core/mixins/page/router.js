@@ -1,23 +1,23 @@
-import difference from '../../difference/difference.interface'
 import routerDifference from './router.difference.interface'
-export default class Router {
+import {global} from '@hupo/core'
+
+export default {
   created() {
-    const app = difference.getApp()
-    if (!app.router) app.router = {}
+    if (!global._router) global._router = {}
     const route = routerDifference.getRouter(this)
-    if (!app.router.historys || this.$isHomeRoute(route.path)) app.router.historys = []
-    app.router.historys.push(route)
-    app.router.current = this
-  }
+    if (!global._router.historys || this.$isHomeRoute(route.path)) global._router.historys = []
+    global._router.historys.push(route)
+    global._router.current = this
+    console.log(global)
+  },
   beforeDestroy() {
-    const app = difference.getApp()
-    if (app.router.historys && app.router.historys.length > 1) {
+    if (global._router.historys && global._router.historys.length > 1) {
       const route = routerDifference.getRouter(this)
-      const prev = app.router.historys[app.router.historys.length - 2]
+      const prev = global._router.historys[global._router.historys.length - 2]
       if (JSON.stringify(route) == JSON.stringify(prev)) {
-        app.router.historys.pop()
+        global._router.historys.pop()
       }
     }
-    app.router.current = null
+    global._router.current = null
   }
 }

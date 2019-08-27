@@ -65,6 +65,13 @@ export default {
     const data = await calculate()
     this.viewport = data
   },
+  mounted () {
+    this._on('toggleLoading', (options = {}) => {
+      Object.keys(options).forEach(key => {
+        this[key] = options[key]
+      })
+    })
+  },
   methods: {
     initNavigation() {
       channelDifference('HP_MALL', () => {
@@ -72,48 +79,6 @@ export default {
           frontColor: this.type === 'default' ? '#000000' : '#ffffff',
           backgroundColor: this.type === 'default' ? '#fafafa' : '#dd392e'
         })
-      })
-    },
-    dialogConfirm(e) {
-      if (promise.resolve) {
-        promise.resolve(e.detail || {})
-      }
-      delete promise.resolve
-      delete promise.reject
-    },
-    dialogCancel(e) {
-      if (promise.reject) {
-        promise.reject(e.detail || {})
-      }
-      delete promise.resolve
-      delete promise.reject
-    },
-    dialogSet(options) {
-      const dialog = difference.selectComponent(this, 'h-dialog')
-      if (!dialog) return
-      Object.keys(options).forEach(key => {
-        dialog[key] = options[key]
-      })
-      return new Promise((resolve, reject) => {
-        promise.resolve = resolve
-        promise.reject = reject
-      })
-    },
-    toastSet(options) {
-      const toast = difference.selectComponent(this, 'h-toast')
-      if (!toast) return
-      Object.keys(options).forEach(key => {
-        toast[key] = options[key]
-      })
-      return new Promise((resolve, reject) => {
-        if (options.duration > 0) {
-          this.$setTimeout(() => {
-            toast.show = false
-            resolve()
-          }, options.duration)
-        } else {
-          reject()
-        }
       })
     }
   }

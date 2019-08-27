@@ -1,28 +1,26 @@
 import cml from 'chameleon-api'
 import difference from '../../difference/difference.interface'
 import channelDifference from '../../utils/channelDifference'
-import wxTools from '@hupo/core-wx-app-tools'
+import {global, wxTools} from '@hupo/core'
 import url from '../../utils/url'
+
 let indexRoute = ''
-export default class Goto {
+export default {
   created() {
-    if (!indexRoute) {
-      const app = difference.getApp()
-      const data = app.data || app
-      indexRoute = data.routerConfig.routes[0].path
+    if (!indexRoute && global._routerConfig) {
+      indexRoute = global._routerConfig.routes[0].path
     }
-  }
-  methods = {
+  },
+  methods: {
     // 判断 route 是否是首页
     $isHomeRoute(route) {
       return indexRoute.indexOf(route) > -1 || route === '/'
     },
     // 返回
     $back(backPageNum = -1) {
-      const app = difference.getApp()
-      if (app.router && app.router.historys) {
-        const historys = app.router.historys
-        app.router.historys = historys.splice(0, historys.length - Math.abs(backPageNum))
+      if (global._router && global._router.historys) {
+        const historys = global._router.historys
+        global._router.historys = historys.splice(0, historys.length - Math.abs(backPageNum))
       }
       cml.navigateBack(backPageNum)
     },
@@ -32,9 +30,8 @@ export default class Goto {
     */
     $backToHome() {
       const reLaunch = () => {
-        const app = difference.getApp()
-        if (app.router && app.router.historys) {
-          app.router.historys = []
+        if (global._router && global._router.historys) {
+          global._router.historys = []
         }
         this.$goto({
           path: indexRoute,
@@ -87,9 +84,8 @@ export default class Goto {
       })
       console.groupEnd()
       if (redirect) {
-        const app = difference.getApp()
-        if (app.router && app.router.historys) {
-          app.router.historys.pop()
+        if (global._router && global._router.historys) {
+          global._router.historys.pop()
         }
         cml.redirectTo({
           path: pathFilter,
