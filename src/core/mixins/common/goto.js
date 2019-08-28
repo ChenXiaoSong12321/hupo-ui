@@ -18,10 +18,6 @@ export default {
     },
     // 返回
     $back(backPageNum = -1) {
-      if (global._router && global._router.historys) {
-        const historys = global._router.historys
-        global._router.historys = historys.splice(0, historys.length - Math.abs(backPageNum))
-      }
       cml.navigateBack(backPageNum)
     },
     /*
@@ -30,9 +26,6 @@ export default {
     */
     $backToHome() {
       const reLaunch = () => {
-        if (global._router && global._router.historys) {
-          global._router.historys = []
-        }
         this.$goto({
           path: indexRoute,
           redirect: true
@@ -84,9 +77,6 @@ export default {
       })
       console.groupEnd()
       if (redirect) {
-        if (global._router && global._router.historys) {
-          global._router.historys.pop()
-        }
         cml.redirectTo({
           path: pathFilter,
           query: queryMerge
