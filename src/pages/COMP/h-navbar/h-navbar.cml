@@ -38,9 +38,9 @@ export default {
   },
   methods: {
     async toggleLoading() {
-      this.$loadingNavbar()
+      this._loadingNavbar()
       await promise.delay(5000);
-      this.$clearLoadingNavbar()
+      this._clearLoadingNavbar()
     },
     async toggleTitle() {
       this.title = "琥珀亲子";

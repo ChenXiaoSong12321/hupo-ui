@@ -15,12 +15,12 @@ export default {
   methods: {
     async showDialog(e) {
       if (e === "dialog") {
-        await this.$confirm({
+        await this._confirm({
           message: "您的账号已在其他地方登录，请重新验证身份。"
         });
         console.log(111)
       } else {
-        await this.$alert({
+        await this._alert({
           message: `<p>您的账号已在其他地方登录，请重新验证身份。</p>
                    <p>您的账号已在其他地方登录，请重新验证身份。</p>
           `,

@@ -1,15 +1,15 @@
 export default {
   methods: {
-    $loadingNavbar() {
+    _loadingNavbar() {
       return this._broadcast('h-page', 'toggleLoading', { navbarLoading: true })
     },
-    $clearLoadingNavbar() {
+    _clearLoadingNavbar() {
       return this._broadcast('h-page', 'toggleLoading', { navbarLoading: false })
     },
-    $getPageTitle() {
+    _getPageTitle() {
       return this._getCurrentPageComponents('h-page')[0].title
     },
-    $setPageTitle(title) {
+    _setPageTitle(title) {
       return this._broadcast('h-page', 'toggleLoading', { selfTitle: title })
     }
   }

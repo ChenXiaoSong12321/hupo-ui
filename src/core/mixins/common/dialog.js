@@ -5,7 +5,7 @@ const parseOptions = options => typeof options === 'string' ? {
 
 export default {
   methods: {
-    $alert(options) {
+    _alert(options) {
       return new Promise((resolve,reject)=>{
         options = parseOptions(options)
         options = dialogOptions({
@@ -21,7 +21,7 @@ export default {
         this._broadcast('h-dialog', 'setDialogOptions', options)
       })
     },
-    $confirm(options) {
+    _confirm(options) {
       return new Promise((resolve,reject)=>{
         options = parseOptions(options)
         options = dialogOptions({
