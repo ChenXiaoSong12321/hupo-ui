@@ -18,9 +18,6 @@ import {global} from '@hupo/core'
         query: ctx.$route.query
       }
     }
-    selectComponent(ctx,compName){
-      return ctx?ctx.$refs[compName]:{}
-    }
     selector(ctx,selector){
       if(!ctx || !ctx.$children || ctx.$children.length == 0){
         return []
@@ -65,9 +62,6 @@ import {wxTools, promise} from '@hupo/core'
         params: ctx.options,
         query: ctx.options
       }
-    }
-    selectComponent(ctx,compName){
-      return ctx?ctx.selectComponent('#'+compName):{}
     }
     selector(ctx,selector){
       return ctx?ctx.selectAllComponents(selector):[]
