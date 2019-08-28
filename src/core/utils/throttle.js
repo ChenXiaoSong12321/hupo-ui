@@ -10,7 +10,8 @@ export const throttle = () => {
     }
   })
 }
-
+// npm i --save lodash.debounce
+// npm i --save lodash.throttle
 export const debounce = () => new Promise((resolve, reject) => {
   if (debounceCache.timeId) {
     clear()

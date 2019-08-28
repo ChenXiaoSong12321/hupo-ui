@@ -15,7 +15,7 @@ const toastOptions = options => Object.assign({}, defaultOptions, options)
 
 export default {
   methods: {
-    $toast(options = {}) {
+    _toast(options = {}) {
       options = parseOptions(options)
       options = toastOptions({
         type: options.type || 'text',
@@ -27,23 +27,23 @@ export default {
       })
       return this._broadcast('h-toast', 'toggle', options)
     },
-    $loadingToast(options = {}) {
+    _loadingToast(options = {}) {
       options = parseOptions(options)
       options = Object.assign({ message: '加载中...', duration: -1 }, options, { needIcon: true, type: 'loading' })
       return this._broadcast('h-toast', 'toggle', options)
     },
-    $clearToast() {
+    _clearToast() {
       const options = {
         show: false
       }
       return this._broadcast('h-toast', 'toggle', options)
     },
-    $failToast(options = {}) {
+    _failToast(options = {}) {
       options = parseOptions(options)
       options = Object.assign(options, { needIcon: true, type: 'warn' })
       return this._broadcast('h-toast', 'toggle', options)
     },
-    $successToast(options = {}) {
+    _successToast(options = {}) {
       options = parseOptions(options)
       options = Object.assign(options, { needIcon: true, type: 'success' })
       return this._broadcast('h-toast', 'toggle', options)
