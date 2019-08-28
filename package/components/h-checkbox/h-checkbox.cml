@@ -20,6 +20,7 @@ import componentMixin from '../../core/mixins/component/index.js'
 
 export default {
   componentName:'h-checkbox',
+  name:'h-checkbox',
   mixins: [...componentMixin],
   props: {
     checked: {

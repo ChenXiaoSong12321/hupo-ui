@@ -50,6 +50,7 @@ const promise = {}
 
 export default {
   componentName:'h-dialog',
+  name:'h-dialog',
   mixins: [...componentMixin],
   data : {
     // 标题

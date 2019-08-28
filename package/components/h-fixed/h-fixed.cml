@@ -15,6 +15,7 @@ import componentMixin from '../../core/mixins/component/index.js'
 
 export default {
   componentName:'h-fixed',
+  name:'h-fixed',
   mixins: [...componentMixin],
   props: {
     position: {
