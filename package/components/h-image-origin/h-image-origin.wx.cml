@@ -1,0 +1,57 @@
+<template>
+  <origin-image
+    class="h-image-mode h-image-mode-{{mode}}"
+    src="{{src}}"
+    mode="{{mode}}"
+    c-bind:load="onload"
+    c-bind:error="onerror"
+  ></origin-image>
+</template>
+
+<script>
+import componentMixin from "../../core/mixins/component/index.js";
+
+class HImageOrigin implements HImageOriginInterface {
+  name = 'h-image-origin'
+  mixins = [componentMixin]
+  props = {
+    src: {
+      type: String,
+      default: ""
+    },
+    mode: {
+      type: String,
+      default: "scaleToFill"
+    }
+  }
+  methods = {
+    onload(){
+      this.$cmlEmit("onload");
+    },
+    onerror(){
+      this.$cmlEmit("onerror");
+    }
+  }
+}
+
+export default new HImageOrigin();
+</script>
+
+<style lang="scss">
+@import "../../assets/scss/output";
+@include b(image-mode) {
+  width: 100%;
+  height: 100%;
+  @include e(widthFix) {
+    height: 0;
+  }
+}
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "component": true
+  }
+}
+</script>

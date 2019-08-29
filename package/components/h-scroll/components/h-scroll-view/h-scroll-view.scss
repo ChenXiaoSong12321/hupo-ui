@@ -1,0 +1,7 @@
+@import '../../../../assets/scss/output';
+
+@include b(scroll-view) {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}

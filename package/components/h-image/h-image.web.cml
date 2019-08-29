@@ -1,0 +1,82 @@
+<template>
+  <view class="h-image" ref="image">
+    <block c-if="{{status == 'load-complete'}}">
+      <view class="h-image-loaded">
+        <h-image-origin class="h-image-loaded-image" src="{{url}}" mode="{{mode}}"></h-image-origin>
+      </view>
+    </block>
+    <block c-else-if="{{status == 'load-refresh'}}">
+      <view class="h-image-load-fail" c-bind:tap="reloadImage">
+        <h-icon name="el-icon-hp-shuaxin"></h-icon>
+      </view>
+    </block>
+    <block c-else-if="{{status == 'load-fail'}}">
+      <view class="h-image-loading h-image-loading--{{mode}}">
+        <h-image-origin class="h-image-loading-image" src="{{unloadImg}}" mode="widthFix"></h-image-origin>
+      </view>
+    </block>
+    <block c-else>
+      <view class="h-image-loading h-image-loading--{{mode}}">
+        <h-image-origin class="h-image-loading-image" src="{{unloadImg}}" mode="widthFix"></h-image-origin>
+      </view>
+      <!-- 隐藏的image，用于隐士加载 -->
+      <h-image-origin
+        class="h-image-hidden"
+        c-if="{{show || !lazyLoad}}"
+        src="{{url}}"
+        c-bind:onload="__imageOnLoad"
+        c-bind:onerror="__imageOnLoadError"
+      ></h-image-origin>
+    </block>
+  </view>
+</template>
+
+<script>
+import HImageMixins from "./h-image.mixins.js";
+import difference from '../../core/difference/difference.interface'
+import lozad from "lozad";
+import componentMixin from "../../core/mixins/component/index.js";
+
+class HImage implements HImageInterface {
+  name = 'h-image'
+  mixins = [componentMixin,HImageMixins]
+  async mounted() {
+    this.init();
+    if (this.lazyLoad) {
+      const el = this.$refs.image.$el
+      await this.$relativeToViewport(el)
+    }
+    this.show = true;
+  }
+  methods = {
+    async $relativeToViewport(selector) {
+      return new Promise((resolve, reject) => {
+        if (!selector) reject("no selector");
+        const observer = lozad(selector, {
+          threshold: 0.1,
+          load: resolve
+        })
+        observer.observe();
+      });
+    }
+  }
+}
+
+export default new HImage()
+</script>
+
+<style lang="scss">
+@import "./h-image.scss";
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-icon": "../h-icon/h-icon",
+      "h-image-origin": "../h-image-origin/h-image-origin"
+    },
+    "component": true
+  }
+}
+</script>

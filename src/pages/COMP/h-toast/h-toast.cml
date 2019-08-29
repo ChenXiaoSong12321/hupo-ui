@@ -26,7 +26,7 @@ export default {
     show_toastHasMask(){
       this._toast({
         message:'很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的提示',
-        duration: 20000,
+        duration: 2000,
         mask:true
       })
     },

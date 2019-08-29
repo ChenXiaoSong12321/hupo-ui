@@ -1,0 +1,38 @@
+<template>
+  <text>{{formatDate}}</text>
+</template>
+
+<script>
+import dayjs from '../../core/utils/dayjs.js'
+import componentMixin from '../../core/mixins/component/index.js'
+
+class HFormatDate implements HFormatDateInterface {
+  name = 'h-format-date'
+  mixins = [...componentMixin]
+  props = {
+    time: {
+      type: [String,Number],
+      default: ""
+    },
+    type: {
+      type: [String,Number],
+      default: "YYYY-MM-DD"
+    }
+  }
+  computed = {
+    formatDate() {
+      return dayjs.formatDate(this.time,this.type)
+    }
+  }
+}
+export default new HFormatDate()
+</script>
+<style lang="scss">
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "component": true
+  }
+}
+</script>

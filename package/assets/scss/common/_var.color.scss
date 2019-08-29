@@ -1,0 +1,82 @@
+
+$--black: #000;
+$--white: #fff;
+
+// 主色 a1 red
+$--primary-color-CM1: #dd392e;
+
+$--primary-color-CM1-9: rgba($color: $--primary-color-CM1, $alpha: .9);
+$--primary-color-CM1-8: rgba($color: $--primary-color-CM1, $alpha: .8);
+$--primary-color-CM1-7: rgba($color: $--primary-color-CM1, $alpha: .7);
+$--primary-color-CM1-6: rgba($color: $--primary-color-CM1, $alpha: .6);
+$--primary-color-CM1-5: rgba($color: $--primary-color-CM1, $alpha: .5);
+$--primary-color-CM1-4: rgba($color: $--primary-color-CM1, $alpha: .4);
+$--primary-color-CM1-3: rgba($color: $--primary-color-CM1, $alpha: .3);
+$--primary-color-CM1-2: rgba($color: $--primary-color-CM1, $alpha: .2);
+$--primary-color-CM1-1: rgba($color: $--primary-color-CM1, $alpha: .1);
+
+// 辅色-yellow
+$--secondary-color-CA1: #fcd20e;
+
+$--secondary-color-CA1-9: rgba($color: $--secondary-color-CA1, $alpha: .9);
+$--secondary-color-CA1-8: rgba($color: $--secondary-color-CA1, $alpha: .8);
+$--secondary-color-CA1-7: rgba($color: $--secondary-color-CA1, $alpha: .7);
+$--secondary-color-CA1-6: rgba($color: $--secondary-color-CA1, $alpha: .6);
+$--secondary-color-CA1-5: rgba($color: $--secondary-color-CA1, $alpha: .5);
+$--secondary-color-CA1-4: rgba($color: $--secondary-color-CA1, $alpha: .4);
+$--secondary-color-CA1-3: rgba($color: $--secondary-color-CA1, $alpha: .3);
+$--secondary-color-CA1-2: rgba($color: $--secondary-color-CA1, $alpha: .2);
+$--secondary-color-CA1-1: rgba($color: $--secondary-color-CA1, $alpha: .1);
+
+$--secondary-color-CA2: #008aff;
+
+$--secondary-color-CA2-9: mix($--white, $--secondary-color-CA2, .9);
+$--secondary-color-CA2-8: mix($--white, $--secondary-color-CA2, .8);
+$--secondary-color-CA2-7: mix($--white, $--secondary-color-CA2, .7);
+$--secondary-color-CA2-6: mix($--white, $--secondary-color-CA2, .6);
+$--secondary-color-CA2-5: mix($--white, $--secondary-color-CA2, .5);
+$--secondary-color-CA2-4: mix($--white, $--secondary-color-CA2, .4);
+$--secondary-color-CA2-3: mix($--white, $--secondary-color-CA2, .3);
+$--secondary-color-CA2-2: mix($--white, $--secondary-color-CA2, .2);
+$--secondary-color-CA2-1: mix($--white, $--secondary-color-CA2, .1);
+
+// 字体
+$--font-color-FC1:#333333;
+$--font-color-FC2:#666666;
+$--font-color-FC3:#999999;
+
+// border
+$--border-color-PC1:#d7d7d7;
+$--splitline-color-FgxC1:#e5e5e5;
+
+// background
+$--background-color-BgC1:#efefef;
+$--background-color-BgC2:#fafafa;
+$--background-color-BgC3:#ffffff;
+
+// old 不甜
+// 灰色字体
+$--primary-font-grey-2:#b3b3b3;
+$--primary-font-grey-3:#e0e0e0;
+
+// 白色字体
+$--primary-font-write-2:#f8f8f8;
+
+// 背景色
+$--primary-background-write-1: #F2F2F2;
+
+// 游玩酒店剧场
+$--play-color:#ffb82f;
+$--hotel-color:#f35367;
+
+// 预热
+$--preheat-color:#51B94A;
+
+// 优惠券
+$--coupon-color:#F83543;
+$--coupon-font:#FFE597;
+
+// 会员
+$--member-color-MCM1:#EEDDB7;
+$--member-font-color-MFC1:#ffe9af;
+$--member-background-color-MBGC1:#f6f1e6;

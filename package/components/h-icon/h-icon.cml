@@ -1,0 +1,39 @@
+<template>
+  <view style="{{customStyle}}" class="h-icon {{name}}"></view>
+</template>
+
+<script>
+import componentMixin from '../../core/mixins/component/index.js'
+
+class HIcon implements HIconInterface {
+  name = 'h-icon'
+  mixins = [...componentMixin]
+  props = {
+    name: {
+      type: String,
+      default: ''
+    },
+    customStyle: {
+      type: String,
+      default: ''
+    }
+  }
+}
+export default new HIcon()
+</script>
+
+<style lang="scss">
+@import "../../assets/scss/common/iconfont.scss";
+.h-icon {
+  @include icon();
+}
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {},
+    "component": true
+  }
+}
+</script>

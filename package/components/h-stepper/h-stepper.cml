@@ -1,0 +1,117 @@
+<template>
+  <view class="h-stepper">
+    <h-button
+      throttle="{{0}}"
+      class="h-stepper-subtract {{disabled || (stepValue<=min) ? 'is-disabled':''}}"
+      type="none"
+      c-bind:onclick="onChange('subtract')"
+    >
+      <view class="text">-</view>
+    </h-button>
+    <view class="h-stepper-input-wrap">
+      <input
+        class="h-stepper-input"
+        placeholder
+        value="{{stepValue}}"
+        cStyle="{{inputStyle}}"
+        c-bind:input="inputChanged"
+      />
+    </view>
+    <h-button
+      throttle="{{0}}"
+      class="h-stepper-add {{disabled || (stepValue >= max) ? 'is-disabled':''}}"
+      type="none"
+      c-bind:onclick="onChange('add')"
+    >
+      <view class="text">+</view>
+    </h-button>
+  </view>
+</template>
+
+<script>
+const MAX = 2147483647;
+import componentMixin from '../../core/mixins/component/index.js'
+
+class HStepper implements HStepperInterface{
+  name = 'h-stepper' 
+  mixins = [...componentMixin]
+  props = {
+    integer: Boolean,
+    disabled: Boolean,
+    disableInput: Boolean,
+    value:{
+      type: String,
+      default: '1'
+    },
+    min: {
+      type: null,
+      default: 1
+    },
+    max: {
+      type: null,
+      default: MAX
+    },
+    step: {
+      type: null,
+      default: 1
+    }
+  }
+  data = {
+    stepValue:'1'
+  }
+  watch = {
+    value(n){
+      debugger
+      this.stepValue = n
+    },
+    stepValue(n){
+      this.$cmlEmit('changed',n)
+    }
+  }
+  computed = {
+   inputStyle(){
+     return `
+      border: none;
+      height: 80cpx;
+      line-height: 80cpx;
+      margin-top: 1px;
+      text-align:center;
+      padding:0 5cpx;
+      width: 42px;
+     `
+   }
+  }
+  methods = {
+    inputChanged(e){
+      this.$cmlEmit('input',e.detail)
+    },
+    onChange(type) {
+      if ((this.stepValue<=this.min && type==='subtract') || (this.stepValue >= this.max && type==='add') ) {
+        this.$cmlEmit('overlimit', type);
+        return;
+      }
+
+      const diff = type === 'subtract' ? -this.step : +this.step;
+      let stepValue = Math.round((Number(this.stepValue) + diff) * 100) / 100;
+      this.stepValue = stepValue.toString()
+      this.$cmlEmit(type);
+    }
+  }
+}
+export default new HStepper()
+</script>
+
+<style lang="scss">
+@import "./h-stepper.scss";
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-button": "../h-button/h-button"
+    },
+    "component": true
+  }
+}
+</script>

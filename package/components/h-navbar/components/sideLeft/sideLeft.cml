@@ -1,0 +1,83 @@
+<template>
+  <view class="h-navbar-left">
+    <h-button
+      class="h-navbar-left-button"
+      type="none"
+      customStyle="height: 100%;"
+      c-if="{{selfShowBackIcon}}"
+      c-bind:onclick="back"
+    >
+      <view class="h-navbar-left-button-slot">
+        <h-icon
+          name="el-icon-hp-shouye-jiantou"
+          class="h-navbar-left-button-icon h-navbar-left-button-icon--{{type}}"
+        ></h-icon>
+      </view>
+    </h-button>
+    <h-button
+      class="h-navbar-left-button"
+      type="none"
+      customStyle="height: 100%;"
+      c-if="{{showHomeIcon && selfShowHomeIcon}}"
+      c-bind:onclick="$backToHome"
+    >
+      <view class="h-navbar-left-button-slot">
+        <h-icon
+          name="el-icon-hp-shouye"
+          class="h-navbar-left-button-icon h-navbar-left-button-icon--{{type}}"
+        ></h-icon>
+      </view>
+    </h-button>
+  </view>
+</template>
+<script>
+import difference from "../../../../core/difference/difference.interface";
+import {componentBaseTreeMixin, componentEventMixin} from '@hupo/core'
+import Goto from '../../../../core/mixins/common/goto.js'
+import sideLeftDifference from './sideLeft.difference.interface'
+class HNavbarSideLeft implements HNavbarSideLeftInterface {
+  name = 'h-navbar-side-left'
+  mixins = [componentBaseTreeMixin, componentEventMixin, Goto]
+  props = {
+    showHomeIcon: {
+      type: Boolean,
+      default: true
+    },
+    type: {
+      type: String,
+      default: "default"
+    }
+  }
+  data = {
+    selfShowBackIcon: true,
+    selfShowHomeIcon: true
+  }
+  mounted() {
+    const historys = sideLeftDifference.getHistorys()
+    const route = difference.getRouter(this._page)
+    const isHomeRoute = this.$isHomeRoute(route.route)
+    this.selfShowBackIcon = historys > 1 && !isHomeRoute;
+    this.selfShowHomeIcon = !isHomeRoute;
+  }
+  methods = {
+    back() {
+      this.$back();
+    }
+  }
+}
+export default new HNavbarSideLeft()
+</script>
+<style lang="scss">
+@import "./sideLeft.scss";
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-button": "../../../h-button/h-button",
+      "h-icon": "../../../h-icon/h-icon"
+    },
+    "component": true
+  }
+}
+</script>

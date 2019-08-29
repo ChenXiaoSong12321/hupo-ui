@@ -1,0 +1,14 @@
+@import './var.color';
+@import './var.size';
+
+/* 
+ * UI命名规范
+ * $--模块-功能-类别-程度-编号
+ * 模块: [ primary / secondary / play / hotel / theatre / coupon / member / group / seckill ]
+ * 功能: [ color / font / background / border / title / text / desc / button]
+ * 类别(可省略): [ black / write / grey / width / height / size ]
+ * 程度(可省略): [ light / regular / dark / medium / small / mini ]
+ * 编号(可省略): [ 1 / 2 / 3... ]
+ *
+ **/
+ $--z-index-max: 999999;
