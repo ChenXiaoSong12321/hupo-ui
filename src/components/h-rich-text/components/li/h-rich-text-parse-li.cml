@@ -12,7 +12,7 @@
 </template>
 <script>
 import recursion from '../../recursion.interface'
-class HRichTextParseLi {
+class HRichTextParseLi implements HRichTextParseLiInterface{
   name = 'h-rich-text-parse-li'
 
   beforeCreate () {

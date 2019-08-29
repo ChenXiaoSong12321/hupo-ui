@@ -17,7 +17,7 @@
 import HScrollMixin from "../../assets/js/h-scroll.mixin.js";
 import HScrollViewMixin from './h-scroll-view.js'
 
-class HScrollView {
+class HScrollView implements HScrollViewInterface{
   name = 'h-scroll-view'
   mixins = [HScrollMixin, HScrollViewMixin]
 }

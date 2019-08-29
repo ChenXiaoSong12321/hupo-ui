@@ -5,7 +5,7 @@
 </template>
 <script>
 import recursion from '../../recursion.interface'
-class HRichTextParseTable {
+class HRichTextParseTable implements HRichTextParseTableInterface{
   name = 'h-rich-text-parse-table'
 
   beforeCreate () {
