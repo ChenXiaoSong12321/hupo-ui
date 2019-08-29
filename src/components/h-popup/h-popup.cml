@@ -17,10 +17,10 @@
 <script>
 import componentMixin from '../../core/mixins/component/index.js'
 
-export default {
-  name:'h-popup',
-  mixins: [...componentMixin],
-  props: {
+class HPopup {
+  name = 'h-popup'
+  mixins = [...componentMixin]
+  props = {
     show: {
       type: Boolean,
       default: false
@@ -29,16 +29,16 @@ export default {
       type: String,
       default: ""
     }
-  },
-  data: {
+  }
+  data = {
     visible:false
-  },
-  watch: {
+  }
+  watch = {
     show(n) {
       this.visible = n;
     }
-  },
-  methods: {
+  }
+  methods = {
     onclose() {
       this.visible = false;
       this.$cmlEmit("onclose", false);
@@ -46,6 +46,7 @@ export default {
     empty(){}
   }
 }
+export default new HPopup()
 </script>
 <style scoped lang="scss">
 @import "./h-popup.scss";

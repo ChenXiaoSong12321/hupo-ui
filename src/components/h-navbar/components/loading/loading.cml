@@ -6,10 +6,10 @@
 </template>
 <script>
 import {componentBaseTreeMixin, componentEventMixin} from '@hupo/core'
-export default {
-  name:'h-navbar-side-left',
-  mixins: [componentBaseTreeMixin, componentEventMixin],
-  props: {
+class HNavbarLoading {
+  name ='h-navbar-loading'
+  mixins = [componentBaseTreeMixin, componentEventMixin]
+  props = {
     show: {
       type: Boolean,
       default: false
@@ -18,14 +18,15 @@ export default {
       type: String,
       default: 'default'
     }
-  },
-  data: {
+  }
+  data = {
     image: {
       loadingBlack: require('../../assets/images/loading-black.png'),
       loadingWhite: require('../../assets/images/loading-white.png')
     }
   }
 }
+export default new HNavbarLoading()
 </script>
 <style lang="scss">
 @import "./loading.scss";

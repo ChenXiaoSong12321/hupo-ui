@@ -12,10 +12,10 @@
 
 <script>
 import {componentBaseTreeMixin, componentEventMixin} from '@hupo/core'
-export default {
-  name:'h-navbar-title',
-  mixins: [componentBaseTreeMixin, componentEventMixin],
-  props: {
+class HNavbarTitle {
+  name = 'h-navbar-title'
+  mixins = [componentBaseTreeMixin, componentEventMixin]
+  props = {
     title: {
       type: String,
       default: '琥珀亲子'
@@ -30,6 +30,7 @@ export default {
     }
   }
 }
+export default new HNavbarTitle()
 </script>
 <style lang="scss">
 @import "./title.scss";

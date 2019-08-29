@@ -6,10 +6,10 @@
 import dayjs from '../../core/utils/dayjs.js'
 import componentMixin from '../../core/mixins/component/index.js'
 
-export default {
-  name:'h-format-date',
-  mixins: [...componentMixin],
-  props: {
+class HFormatDate {
+  name = 'h-format-date'
+  mixins = [...componentMixin]
+  props = {
     time: {
       type: [String,Number],
       default: ""
@@ -18,13 +18,14 @@ export default {
       type: [String,Number],
       default: "YYYY-MM-DD"
     }
-  },
-  computed : {
+  }
+  computed = {
     formatDate() {
       return dayjs.formatDate(this.time,this.type)
     }
   }
 }
+export default new HFormatDate()
 </script>
 <style lang="scss">
 </style>

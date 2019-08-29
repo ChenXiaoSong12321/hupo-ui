@@ -28,13 +28,14 @@
   </page>
 </template>
 <script>
-import HPage from "./h-page.js";
+import HPageMixin from "./h-page.js";
 import componentMixin from '../../core/mixins/component/index.js'
 
-export default {
-  name:'h-page',
-  mixins: [HPage, ...componentMixin],
+class HPage {
+  name = 'h-page'
+  mixins = [...componentMixin, HPageMixin]
 }
+export default new HPage()
 </script>
 
 <style lang="scss">

@@ -13,10 +13,10 @@ import defaultData from '../../core/viewport/defaultData';
 import calculate from '../../core/viewport/calculate';
 import componentMixin from '../../core/mixins/component/index.js'
 
-export default {
-  name:'h-fixed',
-  mixins: [...componentMixin],
-  props: {
+class HFixed {
+  name = 'h-fixed'
+  mixins = [...componentMixin]
+  props = {
     position: {
       type: String,
       default: 'fixed'
@@ -49,11 +49,11 @@ export default {
       type: String,
       default: ''
     }
-  },
-  data: {
+  }
+  data = {
     viewport: defaultData
-  },
-  computed : {
+  }
+  computed = {
     wrapperLeft(){
       let left = ''
       if (this.right === '') {
@@ -131,12 +131,13 @@ export default {
         return 'auto'
       }
     }
-  },
+  }
   async created(){
     const data = await calculate()
     this.viewport = data
   }
 }
+export default new HFixed()
 </script>
 <style lang="scss">
 @import "./h-fixed.scss";
