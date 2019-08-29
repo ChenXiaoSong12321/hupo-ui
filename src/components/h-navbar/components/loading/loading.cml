@@ -6,7 +6,7 @@
 </template>
 <script>
 import {componentBaseTreeMixin, componentEventMixin} from '@hupo/core'
-class HNavbarLoading {
+class HNavbarLoading implements HNavbarLoadingInterface {
   name ='h-navbar-loading'
   mixins = [componentBaseTreeMixin, componentEventMixin]
   props = {

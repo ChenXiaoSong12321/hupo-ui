@@ -6,7 +6,7 @@
 <script>
 import componentMixin from '../../core/mixins/component/index.js'
 
-class HFormatMoney {
+class HFormatMoney implements HFormatMoneyInterface {
   name = 'h-format-money'
   mixins = [...componentMixin]
   props = {

@@ -12,7 +12,7 @@
 
 <script>
 import {componentBaseTreeMixin, componentEventMixin} from '@hupo/core'
-class HNavbarTitle {
+class HNavbarTitle implements HNavbarTitleInterface {
   name = 'h-navbar-title'
   mixins = [componentBaseTreeMixin, componentEventMixin]
   props = {

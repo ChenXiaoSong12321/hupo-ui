@@ -1,0 +1,4 @@
+<script cml-type='interface'>
+interface HRichTextParseButtonInterface{}
+</script>
+<script cml-type="web,wx" src="./h-rich-text-parse-button.cml"></script>

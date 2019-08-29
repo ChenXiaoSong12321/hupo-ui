@@ -29,7 +29,7 @@ import cml from "chameleon-api";
 import viewportDiffrence from './diffrence.interface'
 import componentMixin from '../../core/mixins/component/index.js'
 
-class HPopupManager {
+class HPopupManager implements HPopupManagerInterface {
   name = 'h-popup-manager'
   mixins = [...componentMixin]
   props = {

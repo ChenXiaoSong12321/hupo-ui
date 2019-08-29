@@ -7,7 +7,7 @@
 <script>
 import componentMixin from '../../core/mixins/component/index.js'
 
-class HProgress {
+class HProgress implements HProgressInterface {
   name ='h-progress'
   mixins = [...componentMixin]
   props = {

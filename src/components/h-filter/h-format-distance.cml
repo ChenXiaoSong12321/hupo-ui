@@ -4,7 +4,7 @@
 
 <script>
 import componentMixin from '../../core/mixins/component/index.js'
-class HFormatDistance {
+class HFormatDistance implements HFormatDistanceInterface {
   name = 'h-format-distance'
   mixins = [...componentMixin]
   props = {

@@ -12,7 +12,7 @@
 import { primaryColor } from "../../assets/config/style.var.js";
 import componentMixin from '../../core/mixins/component/index.js'
 
-class HRadio {
+class HRadio implements HRadioInterface {
   name = 'h-radio'
   mixins = [...componentMixin]
   props = {
@@ -61,7 +61,7 @@ class HRadio {
       if (this.innerChecked) {
         style += `border:10cpx solid ${this.color};`
       }
-      
+
       return style;
     },
     radioClass () {

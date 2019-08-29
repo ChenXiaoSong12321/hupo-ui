@@ -13,7 +13,7 @@ import defaultData from '../../core/viewport/defaultData';
 import calculate from '../../core/viewport/calculate';
 import componentMixin from '../../core/mixins/component/index.js'
 
-class HFixed {
+class HFixed implements HFixedInterface {
   name = 'h-fixed'
   mixins = [...componentMixin]
   props = {

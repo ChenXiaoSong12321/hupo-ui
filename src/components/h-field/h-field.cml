@@ -34,7 +34,7 @@
 import HInput from './h-input.mixins.js'
 import componentMixin from '../../core/mixins/component/index.js'
 
-class HField {
+class HField implements HFieldInterface {
   name = 'h-field'
   mixins = [HInput, ...componentMixin]
   props = {

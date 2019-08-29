@@ -1,0 +1,4 @@
+<script cml-type='interface'>
+interface HRichTextParseImgInterface{}
+</script>
+<script cml-type="web,wx" src="./h-rich-text-parse-img.cml"></script>
