@@ -19,10 +19,10 @@
 import { primaryColor } from "../../assets/config/style.var.js";
 import componentMixin from '../../core/mixins/component/index.js'
 
-export default {
-  name:'h-tab',
-  mixins: [...componentMixin],
-  props: {
+class HTab {
+  name = 'h-tab'
+  mixins = [...componentMixin]
+  props = {
     tabs:{
       type:Array,
       default(){
@@ -40,8 +40,8 @@ export default {
       type:String,
       default:`color:${primaryColor};border-bottom:4cpx solid ${primaryColor}`
     }
-  },
-  methods: {
+  }
+  methods = {
     handleTabTap(e){
       let label = e.detail.label;
       let activeIndex = this.tabs.findIndex(item => item.label === label);
@@ -49,8 +49,8 @@ export default {
       this.$cmlEmit('tabclick',{label,activeIndex})
     }
   }
-  
 }
+export default new HTab()
 </script>
 <script cml-type="json">
 {

@@ -37,7 +37,7 @@
 import HInputMixins from '../h-field/h-input.mixins.js'
 import componentMixin from '../../core/mixins/component/index.js'
 
-class HSearch {
+class HSearch implements HSearchInterface{
   name = 'h-search'
   mixins = [HInputMixins, ...componentMixin]
   props = {

@@ -22,7 +22,7 @@
 import componentMixin from '../../core/mixins/component/index.js'
 import {primaryColor,fontColorC3} from '../../assets/config/style.var.js'
 
-class HTabbar{
+class HTabbar implements HTabbarInterface{
   name = 'h-tabbar'
   mixins = [...componentMixin]
   props = {

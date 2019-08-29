@@ -8,10 +8,10 @@
 <script>
 import componentMixin from '../../core/mixins/component/index.js'
 
-export default {
-  name:'h-tab-pane',
-  mixins: [...componentMixin],
-  props: {
+class HTabPane {
+  name = 'h-tab-pane'
+  mixins = [...componentMixin]
+  props = {
     tabs:{ 
       type:Array,
       default(){
@@ -22,8 +22,8 @@ export default {
       type:[Number,String],
       required:true,
     },
-  },
-  computed: {
+  }
+  computed = {
     paneWrap(){
       let width = this.tabs.length * 750;//总宽度；
       //findIndex找不到返回 -1
@@ -40,6 +40,7 @@ export default {
     }
   }
 }
+export default new HTabPane()
 </script>
 <style lang="scss">
 @import "../../assets/scss/output";

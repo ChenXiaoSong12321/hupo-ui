@@ -15,11 +15,13 @@
 </template>
 <script>
 import HScrollMixin from "../../assets/js/h-scroll.mixin.js";
-import HScrollView from './h-scroll-view.js'
+import HScrollViewMixin from './h-scroll-view.js'
 
-export default {
-  mixins: [HScrollMixin, HScrollView]
-};
+class HScrollView {
+  name = 'h-scroll-view'
+  mixins = [HScrollMixin, HScrollViewMixin]
+}
+export default new HScrollView()
 </script>
 <style lang="scss">
 @import "./h-scroll-view.scss";

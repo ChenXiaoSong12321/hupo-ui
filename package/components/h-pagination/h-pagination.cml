@@ -16,10 +16,11 @@
 import CurrentComponent from './h-pagination.js';
 import componentMixin from '../../core/mixins/component/index.js'
 
-export default {
-  name:'h-pagination',
-  mixins: [CurrentComponent, ...componentMixin]
+class HPagination {
+  name = 'h-pagination'
+  mixins = [CurrentComponent, ...componentMixin]
 }
+export default new HPagination()
 </script>
 
 <style lang="scss">

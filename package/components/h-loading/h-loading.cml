@@ -14,10 +14,10 @@
 <script>
 import componentMixin from '../../core/mixins/component/index.js'
 
-export default {
-  name:'h-loading',
-  mixins: [...componentMixin],
-  props: {
+class HLoading {
+  name = 'h-loading'
+  mixins = [...componentMixin]
+  props = {
     size: {
       type: String,
       default: '60cpx'
@@ -32,6 +32,7 @@ export default {
     }
   }
 }
+export default new HLoading()
 </script>
 
 <style lang="scss">

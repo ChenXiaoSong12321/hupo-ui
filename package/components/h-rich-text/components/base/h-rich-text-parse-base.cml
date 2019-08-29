@@ -30,6 +30,8 @@
 </template>
 <script>
 class HRichTextParseBase {
+  name = 'h-rich-text-parse-base'
+
   props= {
     nodes: {
       type: Object,

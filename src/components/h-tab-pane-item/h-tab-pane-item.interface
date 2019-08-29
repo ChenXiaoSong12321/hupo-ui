@@ -1,0 +1,6 @@
+
+<script cml-type='interface'>
+interface HTabPaneItemInterface{
+}
+</script>
+<script cml-type="web,wx" src="./h-tab-pane-item.cml"></script>

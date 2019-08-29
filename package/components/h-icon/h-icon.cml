@@ -5,10 +5,10 @@
 <script>
 import componentMixin from '../../core/mixins/component/index.js'
 
-export default {
-  name:'h-icon',
-  mixins: [...componentMixin],
-  props : {
+class HIcon {
+  name = 'h-icon'
+  mixins = [...componentMixin]
+  props = {
     name: {
       type: String,
       default: ''
@@ -19,7 +19,7 @@ export default {
     }
   }
 }
-
+export default new HIcon()
 </script>
 
 <style lang="scss">

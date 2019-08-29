@@ -22,10 +22,10 @@
 import componentMixin from '../../core/mixins/component/index.js'
 import {primaryColor,fontColorC3} from '../../assets/config/style.var.js'
 
-export default {
-  name:'h-tabbar',
-  mixins: [...componentMixin],
-  props: {
+class HTabbar{
+  name = 'h-tabbar'
+  mixins = [...componentMixin]
+  props = {
     tabbar: {
       type: Array,
       default: []
@@ -54,12 +54,12 @@ export default {
       type: Number,
       default: 0,
     },
-  },
-  data: {
+  }
+  data = {
     tapedIndex: 0,
     height: 100
-  },
-  computed: {
+  }
+  computed = {
     top() {
       return this.tabbar.position === 'top';
     },
@@ -70,20 +70,20 @@ export default {
         return necessaryKeys.every((key) => Object.keys(item).includes(key))
       })
     }
-  },
-  watch: {
+  }
+  watch = {
     selectedIndex() {
       this.tapedIndex = this.selectedIndex;
     }
-  },
-  methods: {
+  }
+  methods = {
     onTabbarItemTap(index) {
       this.tapedIndex = index;
       this.$cmlEmit('tabbarclick', {
         index
       })
     }
-  },
+  }
   mounted() {
     this.tapedIndex = this.selectedIndex;
     console.log(this)
@@ -94,7 +94,7 @@ export default {
     let leftOffset = this.selectedIndex * width;
   }
 }
-
+export default new HTabbar()
 </script>
 <style lang="scss">
  @import './h-tabbar.scss';

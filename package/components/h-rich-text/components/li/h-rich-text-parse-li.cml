@@ -13,6 +13,8 @@
 <script>
 import recursion from '../../recursion.interface'
 class HRichTextParseLi {
+  name = 'h-rich-text-parse-li'
+
   beforeCreate () {
     recursion.beforeCreate(this)
   }

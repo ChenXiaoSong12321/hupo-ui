@@ -2,7 +2,16 @@
   <h-navbar-loading show></h-navbar-loading>
 </template>
 <script>
-import Pulldown from './pulldown.js'
+
+class Pulldown implements PulldownInterface{
+  props = {
+    status: {
+      type: String,
+      default: ''
+    }
+  }
+}
+
 export default new Pulldown()
 </script>
 <style lang="scss">

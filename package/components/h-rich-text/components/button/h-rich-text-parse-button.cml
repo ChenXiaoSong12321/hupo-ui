@@ -6,6 +6,8 @@
 <script>
 import recursion from '../../recursion.interface'
 class HRichTextParseButton {
+  name = 'h-rich-text-parse-button'
+
   beforeCreate () {
     recursion.beforeCreate(this)
   }

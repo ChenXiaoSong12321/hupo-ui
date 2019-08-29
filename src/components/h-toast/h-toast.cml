@@ -17,7 +17,7 @@
 </template>
 <script>
 import componentMixin from '../../core/mixins/component/index.js'
-class HToast {
+class HToast implements HToastInterface {
   name = 'h-toast'
   mixins = [...componentMixin]
   data = {

@@ -8,7 +8,7 @@
 <script>
 import componentMixin from '../../core/mixins/component/index.js'
 
-class HTabPane {
+class HTabPane implements HTabPaneInterface{
   name = 'h-tab-pane'
   mixins = [...componentMixin]
   props = {

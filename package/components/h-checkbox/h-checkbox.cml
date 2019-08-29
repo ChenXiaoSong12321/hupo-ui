@@ -18,10 +18,10 @@
 import { primaryColor } from "../../assets/config/style.var.js";
 import componentMixin from '../../core/mixins/component/index.js'
 
-export default {
-  name:'h-checkbox',
-  mixins: [...componentMixin],
-  props: {
+class HCheckbox {
+  name = 'h-checkbox'
+  mixins = [...componentMixin]
+  props = {
     checked: {
       type: Boolean,
       default: false
@@ -41,14 +41,12 @@ export default {
       type: Number,
       default: -1
     }
-  },
-  data() {
-    return {
-      innerChecked:false,
-      primaryColor
-    }
-  },
-  computed: {
+  }
+  data = {
+    innerChecked:false,
+    primaryColor
+  }
+  computed = {
     checkStyle () {
       let style = '';
       if (this.disabled) {
@@ -66,13 +64,13 @@ export default {
       clazz += ' h-checkbox-disabled'
       return clazz
     },
-  },
-  watch: {
+  }
+  watch = {
     checked(newChecked) {
       this.innerChecked = newChecked;
     }
-  },
-  methods: {
+  }
+  methods = {
     changeCheck () {
       if (this.disabled) return;
       this.innerChecked = !this.innerChecked
@@ -85,13 +83,13 @@ export default {
       this.$cmlEmit('changeevent', value);
       this.$cmlEmit('change', value);
     }
-  },
+  }
   created () {
      let { checked } = this
     this.innerChecked = checked
   }
 }
-
+export default new HCheckbox()
 </script>
 <style lang="scss">
 @import "./h-checkbox.scss";
