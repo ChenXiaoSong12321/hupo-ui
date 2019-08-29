@@ -1,0 +1,5 @@
+<script cml-type='interface'>
+interface HFormatMoneyInterface{
+}
+</script>
+<script cml-type="web,wx" src="./h-format-money.cml"></script>

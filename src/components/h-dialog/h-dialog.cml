@@ -48,7 +48,7 @@ import componentMixin from '../../core/mixins/component/index.js'
 const needResponseOpenTypes = ["getUserInfo", "getPhoneNumber", "openSetting"];
 const promise = {}
 
-class HDialog {
+class HDialog implements HDialogInterface {
   name = 'h-dialog'
   mixins = [...componentMixin]
   data = {

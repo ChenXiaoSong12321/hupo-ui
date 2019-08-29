@@ -35,7 +35,7 @@ import difference from "../../../../core/difference/difference.interface";
 import {componentBaseTreeMixin, componentEventMixin} from '@hupo/core'
 import Goto from '../../../../core/mixins/common/goto.js'
 import sideLeftDifference from './sideLeft.difference.interface'
-class HNavbarSideLeft {
+class HNavbarSideLeft implements HNavbarSideLeftInterface {
   name = 'h-navbar-side-left'
   mixins = [componentBaseTreeMixin, componentEventMixin, Goto]
   props = {

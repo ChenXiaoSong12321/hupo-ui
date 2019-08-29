@@ -18,7 +18,7 @@
 import { primaryColor } from "../../assets/config/style.var.js";
 import componentMixin from '../../core/mixins/component/index.js'
 
-class HCheckbox {
+class HCheckbox implements HCheckboxInterface {
   name = 'h-checkbox'
   mixins = [...componentMixin]
   props = {
