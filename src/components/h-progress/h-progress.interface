@@ -1,4 +1,4 @@
 <script cml-type='interface'>
-interface HPopupManagerInterface{}
+interface HProgressInterface{}
 </script>
-<script cml-type="web,wx" src="./h-popup-manager.cml"></script>
+<script cml-type="web,wx" src="./h-progress.cml"></script>

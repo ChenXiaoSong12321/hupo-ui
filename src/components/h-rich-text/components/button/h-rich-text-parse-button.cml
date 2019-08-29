@@ -5,7 +5,7 @@
 </template>
 <script>
 import recursion from '../../recursion.interface'
-class HRichTextParseButton {
+class HRichTextParseButton implements HRichTextParseButtonInterface {
   name = 'h-rich-text-parse-button'
 
   beforeCreate () {
