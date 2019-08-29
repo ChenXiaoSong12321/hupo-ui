@@ -32,10 +32,10 @@
 const MAX = 2147483647;
 import componentMixin from '../../core/mixins/component/index.js'
 
-export default {
-  name:'h-stepper',
-  mixins: [...componentMixin],
-  props: {
+class HStepper implements HStepperInterface{
+  name = 'h-stepper' 
+  mixins = [...componentMixin]
+  props = {
     integer: Boolean,
     disabled: Boolean,
     disableInput: Boolean,
@@ -55,11 +55,11 @@ export default {
       type: null,
       default: 1
     }
-  },
-  data: {
+  }
+  data = {
     stepValue:'1'
-  },
-  watch: {
+  }
+  watch = {
     value(n){
       debugger
       this.stepValue = n
@@ -67,8 +67,8 @@ export default {
     stepValue(n){
       this.$cmlEmit('changed',n)
     }
-  },
-  computed: {
+  }
+  computed = {
    inputStyle(){
      return `
       border: none;
@@ -80,8 +80,8 @@ export default {
       width: 42px;
      `
    }
-  },
-  methods: {
+  }
+  methods = {
     inputChanged(e){
       this.$cmlEmit('input',e.detail)
     },
@@ -98,6 +98,7 @@ export default {
     }
   }
 }
+export default new HStepper()
 </script>
 
 <style lang="scss">

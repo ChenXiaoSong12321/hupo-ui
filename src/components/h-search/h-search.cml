@@ -37,10 +37,10 @@
 import HInputMixins from '../h-field/h-input.mixins.js'
 import componentMixin from '../../core/mixins/component/index.js'
 
-export default {
-  name:'h-search',
-  mixins: [HInputMixins, ...componentMixin],
-  props: {
+class HSearch implements HSearchInterface{
+  name = 'h-search'
+  mixins = [HInputMixins, ...componentMixin]
+  props = {
     value:{
       type:String,
       default:''
@@ -57,8 +57,8 @@ export default {
       type:String,
       default:'请输入搜索关键字'
     }
-  },
-  computed: {
+  }
+  computed = {
    inputStyle(){
      return `
       border: none;
@@ -74,13 +74,13 @@ export default {
    inputWidth(){
      return this.width?this.width:(this.cancel?'526cpx':'446cpx')
    }
-  },
-  watch: {
+  }
+  watch = {
     value(n,o){
       if(n!==o)this.$cmlEmit('onChanged',{value:n})
     }
-  },
-  methods: {
+  }
+  methods = {
     onclick(){
       this.$cmlEmit('onclick',{value:this.value})
     },
@@ -92,7 +92,7 @@ export default {
     }
   }
 }
-
+export default new HSearch()
 </script>
 <style lang="scss">
 @import "./h-search.scss";

@@ -5,6 +5,8 @@
 </template>
 <script>
 class HRichTextParseText {
+  name = 'h-rich-text-parse-text'
+
   props= {
     nodes: {
       type: Object,

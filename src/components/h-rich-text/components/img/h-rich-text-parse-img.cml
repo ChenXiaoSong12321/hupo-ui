@@ -12,6 +12,8 @@
 </template>
 <script>
 class HRichTextParseImg {
+  name = 'h-rich-text-parse-img'
+
   props= {
     nodes: {
       type: Object,

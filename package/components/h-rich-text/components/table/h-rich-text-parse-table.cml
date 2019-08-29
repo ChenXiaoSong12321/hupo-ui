@@ -6,6 +6,8 @@
 <script>
 import recursion from '../../recursion.interface'
 class HRichTextParseTable {
+  name = 'h-rich-text-parse-table'
+
   beforeCreate () {
     recursion.beforeCreate(this)
   }

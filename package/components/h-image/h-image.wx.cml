@@ -39,6 +39,7 @@ import oprateUrl from '../../core/utils/url.js'
 import componentMixin from "../../core/mixins/component/index.js";
 
 class HImage implements HImageInterface {
+  name = 'h-image'
   mixins = [componentMixin,HImageMixins]
   async created() {
     this.init();

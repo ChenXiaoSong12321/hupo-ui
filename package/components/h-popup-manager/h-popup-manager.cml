@@ -29,10 +29,10 @@ import cml from "chameleon-api";
 import viewportDiffrence from './diffrence.interface'
 import componentMixin from '../../core/mixins/component/index.js'
 
-export default {
-  name:'h-popup-manager',
-  mixins: [...componentMixin],
-  props: {
+class HPopupManager {
+  name = 'h-popup-manager'
+  mixins = [...componentMixin]
+  props = {
     mask: {
       type: Boolean,
       default: true
@@ -65,19 +65,19 @@ export default {
       type: [String,Number],
       default: 0
     }
-  },
-  data: {
+  }
+  data = {
     transitionIn: false,
     visible:false,
     viewport:defaultData,
     zIndex:1000
-  },
-  watch: {
+  }
+  watch = {
     show(n) {
       n ? this.showMask() : this.hideMask();
     }
-  },
-  computed: {
+  }
+  computed = {
     caculateStyle(){
       if(!this.flexible || !this.viewport.headerHeight) return ''
       let positions = {
@@ -89,12 +89,12 @@ export default {
       }
       return positions[this.position||'default'] || positions.default
     }
-  },
+  }
   async created(){
     const data = await calculate()
     this.viewport = data
-  },
-  methods: {
+  }
+  methods = {
     closeevent() {
       this.$cmlEmit("onclose");
     },
@@ -114,6 +114,7 @@ export default {
     }
   }
 }
+export default new HPopupManager()
 </script>
 
 <style lang="scss">

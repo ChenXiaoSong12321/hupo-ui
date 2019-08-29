@@ -4,18 +4,16 @@
 
 <script>
 import componentMixin from '../../core/mixins/component/index.js'
-
-export default {
-  name:'h-format-distance',
-  mixins: [...componentMixin],
-  props : {
+class HFormatDistance {
+  name = 'h-format-distance'
+  mixins = [...componentMixin]
+  props = {
     distance: {
       type: [String,Number],
       default: ""
     }
-  },
-
-  computed : {
+  }
+  computed = {
     formatDistance() {
       let distance = this.distance;
       const onehundred = "100";
@@ -29,6 +27,7 @@ export default {
     }
   }
 }
+export default new HFormatDistance()
 </script>
 <style lang="scss">
 </style>

@@ -12,6 +12,7 @@
 import componentMixin from "../../core/mixins/component/index.js";
 
 class HImageOrigin implements HImageOriginInterface {
+  name = 'h-image-origin'
   mixins = [componentMixin]
   props = {
     src: {

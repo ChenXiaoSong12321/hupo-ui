@@ -5,10 +5,10 @@
 <script>
 import componentMixin from '../../core/mixins/component/index.js'
 
-export default {
-  name:'h-compare-version',
-  mixins: [...componentMixin],
-  props : {
+class HCompareVersion {
+  name = 'h-compare-version'
+  mixins = [...componentMixin]
+  props = {
     min: {
       type: [String, Number],
       default: ""
@@ -17,9 +17,9 @@ export default {
       type: [String, Number],
       default: ""
     }
-  },
+  }
 
-  computed : {
+  computed = {
     compareVersion() {
       let { min, max } = this;
       min = min.split(".");
@@ -43,6 +43,7 @@ export default {
     }
   }
 }
+export default new HCompareVersion()
 </script>
 <style lang="scss">
 </style>

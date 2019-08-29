@@ -17,10 +17,10 @@
 </template>
 <script>
 import componentMixin from '../../core/mixins/component/index.js'
-export default {
-  name: 'h-toast',
-  mixins: [...componentMixin],
-  data: {
+class HToast implements HToastInterface {
+  name = 'h-toast'
+  mixins = [...componentMixin]
+  data = {
     type: "loading",
     message: "",
     duration: 3000,
@@ -31,7 +31,7 @@ export default {
       warn: 'el-icon-hp-shibai',
       success: 'el-icon-hp-chenggong'
     }
-  },
+  }
   mounted () {
     this._on('toggle', (options = {}) => {
       Object.keys(options).forEach(key => {
@@ -40,6 +40,7 @@ export default {
     })
   }
 }
+export default new HToast()
 </script>
 <style lang="scss">
 @import "../../assets/scss/output";

@@ -12,10 +12,10 @@
 import { primaryColor } from "../../assets/config/style.var.js";
 import componentMixin from '../../core/mixins/component/index.js'
 
-export default {
-  name: 'h-radio',
-  mixins: [...componentMixin],
-  props: {
+class HRadio {
+  name = 'h-radio'
+  mixins = [...componentMixin]
+  props = {
     checked: {
       type: Boolean,
       default: false
@@ -39,11 +39,11 @@ export default {
       type: String,
       default: primaryColor
     }
-  },
-  data: {
+  }
+  data = {
     innerChecked: false
-  },
-  computed: {
+  }
+  computed = {
     radioStyle () {
       let style = '';
       if (this.disabled) {
@@ -70,13 +70,13 @@ export default {
       }
       return this.innerChecked? 'h-radio-selected': 'h-radio-unselect';
     }
-  },
-  watch: {
+  }
+  watch = {
     checked (val) {
       this.innerChecked = val;
     }
-  },
-  methods: {
+  }
+  methods = {
     changeSelect () {
       if (this.disabled) return;
       this.innerChecked = !this.innerChecked
@@ -88,11 +88,12 @@ export default {
       }
       this.$cmlEmit('change', value);
     }
-  },
+  }
   mounted() {
     this.innerChecked = this.checked;
   }
 }
+export default new HRadio()
 </script>
 
 <style lang="scss">
