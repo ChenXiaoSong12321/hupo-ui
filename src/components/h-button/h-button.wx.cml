@@ -26,6 +26,7 @@ import cml from "chameleon-api";
 import {global} from '@hupo/core'
 
 class HButton implements HButtonInterface {
+  name = 'h-button'
   mixins = [HButtonMixins, ...componentMixin]
   methods = {
     getuserinfo(e) {

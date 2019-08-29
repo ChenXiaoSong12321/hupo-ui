@@ -6,16 +6,16 @@
 <script>
 import componentMixin from '../../core/mixins/component/index.js'
 
-export default {
-  name:'h-format-money',
-  mixins: [...componentMixin],
-  props: {
+class HFormatMoney {
+  name = 'h-format-money'
+  mixins = [...componentMixin]
+  props = {
     money: {
       type: [String,Number],
       default: ""
     }
-  },
-  computed : {
+  }
+  computed = {
     formatMoney() {
       let money = this.money;
       if (!money) return "0";
@@ -29,7 +29,7 @@ export default {
     }
   }
 }
-
+export default new HFormatMoney()
 </script>
 <style lang="scss">
 </style>

@@ -34,10 +34,10 @@
 import HInput from './h-input.mixins.js'
 import componentMixin from '../../core/mixins/component/index.js'
 
-export default {
-  name: 'h-field',
-  mixins: [HInput, ...componentMixin],
-  props : {
+class HField {
+  name = 'h-field'
+  mixins = [HInput, ...componentMixin]
+  props = {
     icon:{
       type: String,
       default:''
@@ -62,8 +62,8 @@ export default {
       type: Boolean,
       default:false
     }
-  },
-  computed: {
+  }
+  computed = {
    inputStyle(){
      return `
       border: none;
@@ -72,13 +72,14 @@ export default {
       margin-top: 1px;
      `
    }
-  },
-  methods: {
+  }
+  methods = {
     inputChanged(e){
       this.$cmlEmit('input',e.detail)
     }
   }
 }
+export default new HField()
 </script>
 <style lang="scss">
 @import "./h-field.scss";
