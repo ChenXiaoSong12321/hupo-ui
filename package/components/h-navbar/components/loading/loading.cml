@@ -7,7 +7,7 @@
 <script>
 import {componentBaseTreeMixin, componentEventMixin} from '@hupo/core'
 export default {
-  componentName:'h-navbar-side-left',
+  name:'h-navbar-side-left',
   mixins: [componentBaseTreeMixin, componentEventMixin],
   props: {
     show: {

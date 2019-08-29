@@ -11,7 +11,7 @@
 import componentMixin from '../../core/mixins/component/index.js'
 
 export default {
-  componentName:'h-tag',
+  name:'h-tag',
   mixins: [...componentMixin],
   props: {
     customClass: String,

@@ -9,7 +9,7 @@
 import componentMixin from '../../core/mixins/component/index.js'
 
 export default {
-  componentName:'h-tab-pane',
+  name:'h-tab-pane',
   mixins: [...componentMixin],
   props: {
     tabs:{ 

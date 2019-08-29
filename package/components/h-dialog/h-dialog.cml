@@ -49,7 +49,6 @@ const needResponseOpenTypes = ["getUserInfo", "getPhoneNumber", "openSetting"];
 const promise = {}
 
 export default {
-  componentName:'h-dialog',
   name:'h-dialog',
   mixins: [...componentMixin],
   data : {

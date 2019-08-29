@@ -18,7 +18,7 @@
 import componentMixin from '../../core/mixins/component/index.js'
 
 export default {
-  componentName:'h-popup',
+  name:'h-popup',
   mixins: [...componentMixin],
   props: {
     show: {

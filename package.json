@@ -14,7 +14,7 @@
   "author": "Hupo-Team",
   "license": "Apache",
   "dependencies": {
-    "@hupo/core": "^0.1.10",
+    "@hupo/core": "^0.1.11",
     "better-scroll": "^1.15.2",
     "chameleon-api": "^0.5.3",
     "chameleon-runtime": "^0.3.1",

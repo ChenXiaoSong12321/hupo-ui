@@ -38,7 +38,7 @@ import HInputMixins from '../h-field/h-input.mixins.js'
 import componentMixin from '../../core/mixins/component/index.js'
 
 export default {
-  componentName:'h-search',
+  name:'h-search',
   mixins: [HInputMixins, ...componentMixin],
   props: {
     value:{

@@ -13,7 +13,7 @@ import { primaryColor } from "../../assets/config/style.var.js";
 import componentMixin from '../../core/mixins/component/index.js'
 
 export default {
-  componentName: 'h-radio',
+  name: 'h-radio',
   mixins: [...componentMixin],
   props: {
     checked: {

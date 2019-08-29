@@ -32,7 +32,7 @@ import HPage from "./h-page.js";
 import componentMixin from '../../core/mixins/component/index.js'
 
 export default {
-  componentName:'h-page',
+  name:'h-page',
   mixins: [HPage, ...componentMixin],
 }
 </script>

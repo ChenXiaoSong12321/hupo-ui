@@ -30,7 +30,7 @@ import viewportDiffrence from './diffrence.interface'
 import componentMixin from '../../core/mixins/component/index.js'
 
 export default {
-  componentName:'h-popup-manager',
+  name:'h-popup-manager',
   mixins: [...componentMixin],
   props: {
     mask: {

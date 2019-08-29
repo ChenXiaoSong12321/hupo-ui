@@ -7,7 +7,7 @@
 import componentMixin from '../../core/mixins/component/index.js'
 
 export default {
-  componentName:'h-tab-pane-item',
+  name:'h-tab-pane-item',
   mixins: [...componentMixin],
 }
 </script>

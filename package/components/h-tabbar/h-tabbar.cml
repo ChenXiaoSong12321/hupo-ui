@@ -23,7 +23,7 @@ import componentMixin from '../../core/mixins/component/index.js'
 import {primaryColor,fontColorC3} from '../../assets/config/style.var.js'
 
 export default {
-  componentName:'h-tabbar',
+  name:'h-tabbar',
   mixins: [...componentMixin],
   props: {
     tabbar: {

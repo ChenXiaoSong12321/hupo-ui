@@ -8,7 +8,7 @@ import { primaryColor } from "../../assets/config/style.var.js";
 import componentMixin from '../../core/mixins/component/index.js'
 
 export default {
-  componentName:'h-tab-item',
+  name:'h-tab-item',
   mixins: [...componentMixin],
   props: {
     tab:{

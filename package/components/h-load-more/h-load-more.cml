@@ -17,7 +17,7 @@
 import componentMixin from '../../core/mixins/component/index.js'
 
 export default {
-  componentName:'h-load-more',
+  name:'h-load-more',
   mixins: [...componentMixin],
   props: {
     loading: {

@@ -35,7 +35,7 @@ import HInput from './h-input.mixins.js'
 import componentMixin from '../../core/mixins/component/index.js'
 
 export default {
-  componentName: 'h-field',
+  name: 'h-field',
   mixins: [HInput, ...componentMixin],
   props : {
     icon:{

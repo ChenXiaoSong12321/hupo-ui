@@ -1,7 +1,7 @@
 import { throttle } from '../../core/utils/throttle'
 
 export default {
-  componentName:'h-button',
+  name:'h-button',
   props: {
     customClass: {
       type: String,

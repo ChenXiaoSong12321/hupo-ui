@@ -13,7 +13,7 @@
 <script>
 import {componentBaseTreeMixin, componentEventMixin} from '@hupo/core'
 export default {
-  componentName:'h-navbar-title',
+  name:'h-navbar-title',
   mixins: [componentBaseTreeMixin, componentEventMixin],
   props: {
     title: {

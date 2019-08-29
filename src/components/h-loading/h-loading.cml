@@ -15,7 +15,7 @@
 import componentMixin from '../../core/mixins/component/index.js'
 
 export default {
-  componentName:'h-loading',
+  name:'h-loading',
   mixins: [...componentMixin],
   props: {
     size: {

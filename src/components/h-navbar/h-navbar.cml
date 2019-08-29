@@ -29,7 +29,7 @@ import {promise} from "@hupo/core";
 import componentMixin from '../../core/mixins/component/index.js'
 
 export default {
-  componentName:'h-navbar',
+  name:'h-navbar',
   mixins: [...componentMixin],
   props: {
     loading: {

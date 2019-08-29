@@ -36,7 +36,7 @@ import {componentBaseTreeMixin, componentEventMixin} from '@hupo/core'
 import Goto from '../../../../core/mixins/common/goto.js'
 import sideLeftDifference from './sideLeft.difference.interface'
 export default {
-  componentName:'h-navbar-side-left',
+  name:'h-navbar-side-left',
   mixins: [componentBaseTreeMixin, componentEventMixin, Goto],
   props: {
     showHomeIcon: {
