@@ -33,6 +33,7 @@ import { INVISIABLE, PULLING, PULLDOWN_RELEASE, PULLINGUP_RELEASE, PULLINGDOWN, 
 import componentMixin from "../../core/mixins/component/index.js";
 
 class HScroll implements HScrollInterface{
+  name = 'h-scroll'
   mixins = [...componentMixin, HScrollMixin]
   watch = {
     async scrollHeight(){
