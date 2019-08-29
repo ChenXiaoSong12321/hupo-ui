@@ -32,7 +32,7 @@
 const MAX = 2147483647;
 import componentMixin from '../../core/mixins/component/index.js'
 
-class HStepper {
+class HStepper implements HStepperInterface{
   name = 'h-stepper' 
   mixins = [...componentMixin]
   props = {

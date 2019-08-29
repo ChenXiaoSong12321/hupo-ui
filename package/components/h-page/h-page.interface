@@ -1,0 +1,4 @@
+<script cml-type='interface'>
+interface HPageInterface{}
+</script>
+<script cml-type="web,wx" src="./h-page.cml"></script>

@@ -1,0 +1,4 @@
+<script cml-type='interface'>
+interface HNavbarInterface{}
+</script>
+<script cml-type="web,wx" src="./h-navbar.cml"></script>

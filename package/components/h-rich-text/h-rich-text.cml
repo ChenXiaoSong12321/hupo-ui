@@ -18,7 +18,7 @@ import difference from '../../core/difference/difference.interface'
 import {promise} from "@hupo/core";
 import componentMixin from '../../core/mixins/component/index.js'
 
-class HRichText {
+class HRichText implements HRichTextInterface{
   name = 'h-rich-text'
   mixins = [...componentMixin]
   props = {

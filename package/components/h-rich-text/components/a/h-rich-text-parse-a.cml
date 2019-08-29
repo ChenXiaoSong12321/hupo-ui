@@ -10,7 +10,7 @@
 </template>
 <script>
 import recursion from '../../recursion.interface'
-class HRichTextParseA {
+class HRichTextParseA implements HRichTextParseA {
   name = 'h-rich-text-parse-a'
   beforeCreate () {
     recursion.beforeCreate(this)

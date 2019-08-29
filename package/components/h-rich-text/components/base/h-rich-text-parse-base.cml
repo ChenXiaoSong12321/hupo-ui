@@ -29,9 +29,8 @@
   </view>
 </template>
 <script>
-class HRichTextParseBase {
+class HRichTextParseBase implements HRichTextParseBaseInterface {
   name = 'h-rich-text-parse-base'
-
   props= {
     nodes: {
       type: Object,

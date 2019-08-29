@@ -7,7 +7,7 @@
 </template>
 <script>
 import recursion from '../../recursion.interface'
-class HRichTextParseBlock {
+class HRichTextParseBlock implements HRichTextParseBlockInterface {
   name = 'h-rich-text-parse-block'
 
   beforeCreate () {

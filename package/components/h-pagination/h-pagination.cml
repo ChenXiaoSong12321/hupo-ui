@@ -16,7 +16,7 @@
 import CurrentComponent from './h-pagination.js';
 import componentMixin from '../../core/mixins/component/index.js'
 
-class HPagination {
+class HPagination implements HPaginationInterface {
   name = 'h-pagination'
   mixins = [CurrentComponent, ...componentMixin]
 }

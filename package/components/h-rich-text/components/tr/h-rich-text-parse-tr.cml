@@ -14,7 +14,7 @@
 </template>
 <script>
 import recursion from '../../recursion.interface'
-class HRichTextParseTr {
+class HRichTextParseTr implements HRichTextParseTrInterface{
   name = 'h-rich-text-parse-tr'
 
   beforeCreate () {

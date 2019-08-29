@@ -11,7 +11,7 @@
   ></h-image>
 </template>
 <script>
-class HRichTextParseImg {
+class HRichTextParseImg implements HRichTextParseImgInterface {
   name = 'h-rich-text-parse-img'
 
   props= {

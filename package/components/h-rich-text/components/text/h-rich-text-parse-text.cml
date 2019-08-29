@@ -4,7 +4,7 @@
   </view>
 </template>
 <script>
-class HRichTextParseText {
+class HRichTextParseText implements HRichTextParseTextInterface{
   name = 'h-rich-text-parse-text'
 
   props= {

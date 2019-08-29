@@ -8,7 +8,7 @@
 </template>
 <script>
 import recursion from '../../recursion.interface'
-class HRichTextParseInline {
+class HRichTextParseInline implements HRichTextParseInlineInterface {
   name = 'h-rich-text-parse-inline'
 
   beforeCreate () {
