@@ -811,10 +811,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@hupo/core-cml-base-tree@^0.1.11":
-  version "0.1.11"
-  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-cml-base-tree/-/core-cml-base-tree-0.1.11.tgz#a4990ab15828d631b853ac9c037599e91a99d6d4"
-  integrity sha512-gJXyUhSopxbHNeo2R+iMHZ90jt7PHtjRzaXLhI6BSMRx5/k6H8Q6nyDSU8C2h8I1g1fPw8Uplc5XxpCqcbWvPA==
+"@hupo/core-cml-base-tree@^0.1.12":
+  version "0.1.12"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-cml-base-tree/-/core-cml-base-tree-0.1.12.tgz#66413c5c34c28aea12992da88f060718d8f3c7cd"
+  integrity sha512-USZ87nWmJeTDlrQEhUtf+3IdCiFzTF5FuQ3KosrV9RRqYYF0Nj7AMomjmd0FH6Ueo3R6c0Yc1LL2ogXz2iuj2g==
   dependencies:
     "@hupo/core-global" "^0.1.9"
 
@@ -853,12 +853,12 @@
   resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-wx-app-tools/-/core-wx-app-tools-0.1.9.tgz#c554bc5ba1a8da71141222b68bd13834bd88fe84"
   integrity sha512-nWkTPiZygIidaHTS8fa7zfOzHknAe5lCxI5SAftbEkDHMjSg57bioa8PsJpxjdcDAO70XUfgh8I6ischnWm9Wg==
 
-"@hupo/core@^0.1.11":
-  version "0.1.11"
-  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core/-/core-0.1.11.tgz#70a1712cba91129a0177acb7020aaa902d5765da"
-  integrity sha512-HX4VAH742Cjuh7Z4jLszc6UWCwz3ae7L63APgjhtcooQq+QLQ5ytAS5N5piVT44RDsmukUzaRB3LgVLexgIwTA==
+"@hupo/core@^0.1.12":
+  version "0.1.12"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core/-/core-0.1.12.tgz#3be7f1fff31b79d43279cbe80f85042c0cbaaf96"
+  integrity sha512-5EigEUwy3nY4jx/l4yLvo+dOzO2kUujDYGNsmPZoxMwQadwkywf7NZkX1dmQi776dSVNPtfsSnwXrmILqMBY6w==
   dependencies:
-    "@hupo/core-cml-base-tree" "^0.1.11"
+    "@hupo/core-cml-base-tree" "^0.1.12"
     "@hupo/core-cml-event" "^0.1.9"
     "@hupo/core-dayjs" "^0.1.9"
     "@hupo/core-global" "^0.1.9"

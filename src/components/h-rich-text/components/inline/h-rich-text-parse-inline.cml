@@ -9,6 +9,8 @@
 <script>
 import recursion from '../../recursion.interface'
 class HRichTextParseInline {
+  name = 'h-rich-text-parse-inline'
+
   beforeCreate () {
     recursion.beforeCreate(this)
   }

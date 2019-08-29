@@ -6,10 +6,11 @@
 <script>
 import componentMixin from '../../core/mixins/component/index.js'
 
-export default {
-  name:'h-tab-pane-item',
-  mixins: [...componentMixin],
+class HTabPaneItem {
+  name = 'h-tab-pane-item'
+  mixins = [...componentMixin]
 }
+export default new HTabPaneItem()
 </script>
 <style lang="scss">
 @import "../../assets/scss/output";

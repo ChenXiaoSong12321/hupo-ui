@@ -15,6 +15,8 @@
 <script>
 import recursion from '../../recursion.interface'
 class HRichTextParseTr {
+  name = 'h-rich-text-parse-tr'
+
   beforeCreate () {
     recursion.beforeCreate(this)
   }
