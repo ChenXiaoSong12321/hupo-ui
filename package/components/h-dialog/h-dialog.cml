@@ -14,7 +14,6 @@
       <view class="h-dialog-content {{ title ? 'is-has-title' : '' }}">
         <view class="h-dialog-content--message">
           <h-rich-text document="{{message}}"></h-rich-text>
-          <!-- {{message}} -->
         </view>
       </view>
       <view class="h-dialog-footer">

@@ -13,8 +13,8 @@ let timer = null
 
 export default {
   methods: {
-    _toast(options = {}) {
-      this.__handleToastBroadcast(options)
+    async _toast(options = {}) {
+      await this.__handleToastBroadcast(options)
     },
     _loadingToast(options = {}) {
       this.__handleToastBroadcast(options, { message: '加载中...', duration: -1 ,needIcon: true, type: 'loading' })
@@ -29,11 +29,18 @@ export default {
       this.__handleToastBroadcast(options,{ needIcon: true, type: 'success' })
     },
     __handleToastBroadcast(options, typeOptions){
-      clearTimeout(timer)
-      options = parseOptions(options)
-      options = toastOptions({ ...typeOptions, ...options })
-      this._broadcast('h-toast', 'toggle', options)
-      if (options.duration > 0) timer = this._setTimeout(_=> this._clearToast() ,options.duration)
+      return new Promise((resolve,reject)=>{
+        clearTimeout(timer)
+        options = parseOptions(options)
+        options = toastOptions({ ...typeOptions, ...options })
+        this._broadcast('h-toast', 'toggle', options)
+        if (options.duration > 0){
+          timer = this._setTimeout(_=> {
+            this._clearToast() 
+            resolve()
+          },options.duration)
+        } 
+      })
     }
   }
 }
