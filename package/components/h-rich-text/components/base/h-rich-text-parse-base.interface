@@ -1,4 +1,0 @@
-<script cml-type='interface'>
-interface HRichTextParseBaseInterface{}
-</script>
-<script cml-type="web,wx" src="./h-rich-text-parse-base.cml"></script>

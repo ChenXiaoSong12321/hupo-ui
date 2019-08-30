@@ -1,5 +1,0 @@
-<script cml-type='interface'>
-interface HFixedInterface{
-}
-</script>
-<script cml-type="web,wx" src="./h-fixed.cml"></script>

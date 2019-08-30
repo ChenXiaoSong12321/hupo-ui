@@ -1,6 +1,0 @@
-
-<script cml-type='interface'>
-interface HTabItemInterface{
-}
-</script>
-<script cml-type="web,wx" src="./h-tab-item.cml"></script>

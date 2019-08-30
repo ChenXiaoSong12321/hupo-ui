@@ -1,4 +1,0 @@
-<script cml-type='interface'>
-interface HProgressInterface{}
-</script>
-<script cml-type="web,wx" src="./h-progress.cml"></script>
