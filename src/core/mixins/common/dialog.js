@@ -14,14 +14,14 @@ const hanleDialogOptions = (options,typeOptions) => {
 
 export default {
   methods: {
-    async _alert(options) {
-      await this.__handleDialogBroadcast(options, {
+    _alert(options) {
+      return this.__handleDialogBroadcast(options, {
         showCancelButton: false,
         confirmButtonText: options.confirmButtonText || '好的',
       })
     },
-    async _confirm(options) {
-      await this.__handleDialogBroadcast(options, {
+    _confirm(options) {
+      return this.__handleDialogBroadcast(options, {
         showCancelButton: options.showCancelButton !== undefined ? options.showCancelButton : true,
         confirmButtonText: options.confirmButtonText || '确定',
         cancelButtonText: options.cancelButtonText || '取消',
