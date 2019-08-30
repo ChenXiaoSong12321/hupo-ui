@@ -811,60 +811,60 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@hupo/core-cml-base-tree@^0.1.13":
-  version "0.1.13"
-  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-cml-base-tree/-/core-cml-base-tree-0.1.13.tgz#3eaabf13250f73adcdd02abf119ab9a81d99b5a2"
-  integrity sha512-AV2LrqctjBEVTbmcKAnIz5NX5jC/w7ZrIhsxONTIy3RKN2c4tzQIho7Znd564cVO4+SOa+6Crrp09Q9LoWyOkQ==
+"@hupo/core-cml-base-tree@^0.1.16":
+  version "0.1.16"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-cml-base-tree/-/core-cml-base-tree-0.1.16.tgz#a56b738be5a26670a8b6c84d083d40bad98f884a"
+  integrity sha512-04rs4Yl7BB2b9rMwcYJt4f9/quYtcd0wlH+gRvFKbpZMfsAESH28GZnb12I2N/gc8WajTW6mRBUhI5GSCBJ4HQ==
   dependencies:
-    "@hupo/core-global" "^0.1.13"
+    "@hupo/core-global" "^0.1.16"
 
-"@hupo/core-cml-event@^0.1.13":
-  version "0.1.13"
-  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-cml-event/-/core-cml-event-0.1.13.tgz#c764061dcaeb46ee2a2e970cb32c4a00885bffa3"
-  integrity sha512-A/gnxjjBSPQ7Fa52JqiYuwNn1R/M5TC2MZ9/ftDIXbHWHveULuK0i4X36NxPCgMujEaLe9p5p5gWuyWrPJVlrQ==
+"@hupo/core-cml-event@^0.1.16":
+  version "0.1.16"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-cml-event/-/core-cml-event-0.1.16.tgz#a023379a63e6dbe820b0102d5c9b94a751830808"
+  integrity sha512-US8b2SDC8IACfeYHQr54SkuTkgSb9VMzyhBGA8JhPN0PYgC+UJbBRR65bcYxdpO9DdERfiFCAmQ3vdFnH0hNLA==
 
-"@hupo/core-dayjs@^0.1.13":
-  version "0.1.13"
-  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-dayjs/-/core-dayjs-0.1.13.tgz#1ca0dc406bd24ecb1f094eada77480f2e5bbddc8"
-  integrity sha512-7OAuYt8A9yjMHA4tqzDyXFNp4S/VgAK8mn7O7hIhIlXyAelBTKe/rSzXXmD6qrAN7tStKAud5oNuc9/ySK/4aQ==
+"@hupo/core-dayjs@^0.1.16":
+  version "0.1.16"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-dayjs/-/core-dayjs-0.1.16.tgz#6a314959fb382a8a45100f34515b13012a9eda7f"
+  integrity sha512-dy4SZOmWg4571A5Lf5H+RaHv9J22LNG9Ir6O8T43QAFq0/wUeAP2fKIbd7WJsWGm6c6vIH7/ga8JE+WgVF0U+w==
   dependencies:
     dayjs "^1.8.15"
     dayjs-plugin-utc "^0.1.2"
 
-"@hupo/core-global@^0.1.13":
-  version "0.1.13"
-  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-global/-/core-global-0.1.13.tgz#939a22a42384bf9d61fd85f073befb9ceed42de3"
-  integrity sha512-pTQ7yxHZeA98Z1VjgQ/kQ4OqxaH0ICU6vjYuTe4HG6zYLylMXps2jKKELxVZOct0Hcv4uSNm9sfxXvR9BW204Q==
+"@hupo/core-global@^0.1.16":
+  version "0.1.16"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-global/-/core-global-0.1.16.tgz#7e57f9c1951be2ebf88b7c593f7932e0eaec4beb"
+  integrity sha512-T8QGSQ8dgUw+VrhKWwH95wmP3V9gerxpc2NP5NBqtLwTjPUcq9TAru1pudX5934m2QDEkDFl8IHsfh1EqM0Ngw==
 
-"@hupo/core-promise@^0.1.13":
-  version "0.1.13"
-  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-promise/-/core-promise-0.1.13.tgz#e914a7643cd15150cf828b26f7b67d06718cf8f8"
-  integrity sha512-wBR4fxGFASaYYoWi5+1GnPJ/5DUmw3DFksz0+KAOeYVF/iC0oMZIAXFdwXQMOfLLTAUEGyZ1/8Tfk3QsVVpMPQ==
+"@hupo/core-promise@^0.1.16":
+  version "0.1.16"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-promise/-/core-promise-0.1.16.tgz#12cb294e95c8bf0db7449588eda21cfbc4559d19"
+  integrity sha512-Go522niZlTfmUmlGE4qTmJ5R+msdfcdlV/fKtJT56k4UyWX5ebt032Ii3rmsx82ehEAYsTE6nVQk27iDQ6IWAQ==
   dependencies:
-    "@hupo/core-global" "^0.1.13"
+    "@hupo/core-global" "^0.1.16"
 
-"@hupo/core-timer@^0.1.13":
-  version "0.1.13"
-  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-timer/-/core-timer-0.1.13.tgz#aacb89f98128aad54b68ab785ab499a2529aa0df"
-  integrity sha512-XOsQ6RbkB117ywOHiVC8VfqEYgqqUlJwC9ZLLll24q6LjmCdrMEC6+mVv2ezlgNCb/knAvBJ5hoCvZHi304gbA==
+"@hupo/core-timer@^0.1.16":
+  version "0.1.16"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-timer/-/core-timer-0.1.16.tgz#dd8d9d249422326aa4f07bad05ec8395fa14421a"
+  integrity sha512-1FPPurPoqjR88OvXb+OD3dtceSUNui2F3Ipi4qCUx82FCxNryVbpxOJCbIjUwQoAypxeNQseGfiOWZsSf3I1tw==
 
-"@hupo/core-wx-app-tools@^0.1.13":
-  version "0.1.13"
-  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-wx-app-tools/-/core-wx-app-tools-0.1.13.tgz#3aeeaf641f3201a0dbea1b6daf5f36dade781fa8"
-  integrity sha512-vctRclrRKr7JcWoh4M5ukaonE5/IDBJMgwJEUvULRHp+twwvTiyPOYfTnlxCCAqOApiZNI6O2XhYF5D9tbBX7Q==
+"@hupo/core-wx-app-tools@^0.1.16":
+  version "0.1.16"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-wx-app-tools/-/core-wx-app-tools-0.1.16.tgz#9f0e99a5308c466cbfc09cd8354141c614b01fd3"
+  integrity sha512-gLad6HGI3SCPt3n2vyiGvQo6j9o8mQ5UZCFAZz20WQ+X7glhQsGXhSn1nqTpbyVYvQm0wiH40iM69l5MX7EGXQ==
 
-"@hupo/core@^0.1.15":
-  version "0.1.13"
-  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core/-/core-0.1.13.tgz#2f7858594b17956a4e72f803eef7476c83c13602"
-  integrity sha512-9NcdcUNnIKtY7DXo+Fx2C3rCD8GP3Y7d6jw6XNXJYHaOJ7FesvdUg5k7aMzrEjCDnNp5SsmUKXYF3mpiw50RCQ==
+"@hupo/core@^0.1.16":
+  version "0.1.16"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core/-/core-0.1.16.tgz#d3df05626d750d4c54da2fbd00f3f527766f7b62"
+  integrity sha512-GTYJz8LefbXjFiO3qEkL5COX59lS+EHNvTDPpp7tW1VPKtTD56VeCdEnrkcKg4PiNq5lCsOvho9NKxS5+o5Glg==
   dependencies:
-    "@hupo/core-cml-base-tree" "^0.1.13"
-    "@hupo/core-cml-event" "^0.1.13"
-    "@hupo/core-dayjs" "^0.1.13"
-    "@hupo/core-global" "^0.1.13"
-    "@hupo/core-promise" "^0.1.13"
-    "@hupo/core-timer" "^0.1.13"
-    "@hupo/core-wx-app-tools" "^0.1.13"
+    "@hupo/core-cml-base-tree" "^0.1.16"
+    "@hupo/core-cml-event" "^0.1.16"
+    "@hupo/core-dayjs" "^0.1.16"
+    "@hupo/core-global" "^0.1.16"
+    "@hupo/core-promise" "^0.1.16"
+    "@hupo/core-timer" "^0.1.16"
+    "@hupo/core-wx-app-tools" "^0.1.16"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
