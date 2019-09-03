@@ -5,40 +5,67 @@ $--white: #fff;
 // 主色 a1 red
 $--primary-color-CM1: #dd392e;
 
-$--primary-color-CM1-9: rgba($color: $--primary-color-CM1, $alpha: .9);
-$--primary-color-CM1-8: rgba($color: $--primary-color-CM1, $alpha: .8);
-$--primary-color-CM1-7: rgba($color: $--primary-color-CM1, $alpha: .7);
-$--primary-color-CM1-6: rgba($color: $--primary-color-CM1, $alpha: .6);
-$--primary-color-CM1-5: rgba($color: $--primary-color-CM1, $alpha: .5);
-$--primary-color-CM1-4: rgba($color: $--primary-color-CM1, $alpha: .4);
-$--primary-color-CM1-3: rgba($color: $--primary-color-CM1, $alpha: .3);
-$--primary-color-CM1-2: rgba($color: $--primary-color-CM1, $alpha: .2);
-$--primary-color-CM1-1: rgba($color: $--primary-color-CM1, $alpha: .1);
+// e04d43
+$--primary-color-CM1-9: mix($--white, $--primary-color-CM1, 10%);
+// e46158
+$--primary-color-CM1-8: mix($--white, $--primary-color-CM1, 20%);
+// e7746d
+$--primary-color-CM1-7: mix($--white, $--primary-color-CM1, 30%);
+// eb8882
+$--primary-color-CM1-6: mix($--white, $--primary-color-CM1, 40%);
+// ee9c97
+$--primary-color-CM1-5: mix($--white, $--primary-color-CM1, 50%);
+// f1b0ab
+$--primary-color-CM1-4: mix($--white, $--primary-color-CM1, 60%);
+// f5c4c0
+$--primary-color-CM1-3: mix($--white, $--primary-color-CM1, 70%);
+// f8d7d5
+$--primary-color-CM1-2: mix($--white, $--primary-color-CM1, 80%);
+// fcebea
+$--primary-color-CM1-1: mix($--white, $--primary-color-CM1, 90%);
 
 // 辅色-yellow
 $--secondary-color-CA1: #fcd20e;
 
-$--secondary-color-CA1-9: rgba($color: $--secondary-color-CA1, $alpha: .9);
-$--secondary-color-CA1-8: rgba($color: $--secondary-color-CA1, $alpha: .8);
-$--secondary-color-CA1-7: rgba($color: $--secondary-color-CA1, $alpha: .7);
-$--secondary-color-CA1-6: rgba($color: $--secondary-color-CA1, $alpha: .6);
-$--secondary-color-CA1-5: rgba($color: $--secondary-color-CA1, $alpha: .5);
-$--secondary-color-CA1-4: rgba($color: $--secondary-color-CA1, $alpha: .4);
-$--secondary-color-CA1-3: rgba($color: $--secondary-color-CA1, $alpha: .3);
-$--secondary-color-CA1-2: rgba($color: $--secondary-color-CA1, $alpha: .2);
-$--secondary-color-CA1-1: rgba($color: $--secondary-color-CA1, $alpha: .1);
+// fcd726
+$--secondary-color-CA1-9: mix($--white, $--secondary-color-CA1, 10%);
+// fddb3e
+$--secondary-color-CA1-8: mix($--white, $--secondary-color-CA1, 20%);
+// fde056
+$--secondary-color-CA1-7: mix($--white, $--secondary-color-CA1, 30%);
+// fde46e
+$--secondary-color-CA1-6: mix($--white, $--secondary-color-CA1, 40%);
+// fee987
+$--secondary-color-CA1-5: mix($--white, $--secondary-color-CA1, 50%);
+// feed9f
+$--secondary-color-CA1-4: mix($--white, $--secondary-color-CA1, 60%);
+// fef2b7
+$--secondary-color-CA1-3: mix($--white, $--secondary-color-CA1, 70%);
+// fef6cf
+$--secondary-color-CA1-2: mix($--white, $--secondary-color-CA1, 80%);
+// fffbe7
+$--secondary-color-CA1-1: mix($--white, $--secondary-color-CA1, 90%);
 
 $--secondary-color-CA2: #008aff;
 
-$--secondary-color-CA2-9: mix($--white, $--secondary-color-CA2, .9);
-$--secondary-color-CA2-8: mix($--white, $--secondary-color-CA2, .8);
-$--secondary-color-CA2-7: mix($--white, $--secondary-color-CA2, .7);
-$--secondary-color-CA2-6: mix($--white, $--secondary-color-CA2, .6);
-$--secondary-color-CA2-5: mix($--white, $--secondary-color-CA2, .5);
-$--secondary-color-CA2-4: mix($--white, $--secondary-color-CA2, .4);
-$--secondary-color-CA2-3: mix($--white, $--secondary-color-CA2, .3);
-$--secondary-color-CA2-2: mix($--white, $--secondary-color-CA2, .2);
-$--secondary-color-CA2-1: mix($--white, $--secondary-color-CA2, .1);
+// 1a96ff
+$--secondary-color-CA2-9: mix($--white, $--secondary-color-CA2, 10%);
+// 33a1ff
+$--secondary-color-CA2-8: mix($--white, $--secondary-color-CA2, 20%);
+// 4dadff
+$--secondary-color-CA2-7: mix($--white, $--secondary-color-CA2, 30%);
+// 66b9ff
+$--secondary-color-CA2-6: mix($--white, $--secondary-color-CA2, 40%);
+// 80c5ff
+$--secondary-color-CA2-5: mix($--white, $--secondary-color-CA2, 50%);
+// 99d0ff
+$--secondary-color-CA2-4: mix($--white, $--secondary-color-CA2, 60%);
+// b3dcff
+$--secondary-color-CA2-3: mix($--white, $--secondary-color-CA2, 70%);
+// cce8ff
+$--secondary-color-CA2-2: mix($--white, $--secondary-color-CA2, 80%);
+// e6f3ff
+$--secondary-color-CA2-1: mix($--white, $--secondary-color-CA2, 90%);
 
 // 字体
 $--font-color-FC1:#333333;
