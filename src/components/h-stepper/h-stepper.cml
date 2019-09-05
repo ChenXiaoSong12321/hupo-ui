@@ -79,6 +79,7 @@ class HStepper implements HStepperInterface{
       padding:0 2cpx;
       width: 42cpx;
       color: #666666;
+      outline: none;
      `
    }
   }
