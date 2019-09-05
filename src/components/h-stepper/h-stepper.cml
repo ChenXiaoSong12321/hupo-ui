@@ -72,12 +72,12 @@ class HStepper implements HStepperInterface{
    inputStyle(){
      return `
       border: none;
-      height: 80cpx;
-      line-height: 80cpx;
-      margin-top: 1px;
+      font-size: 22cpx;
+      height: 40cpx;
+      line-height: 40cpx;
       text-align:center;
-      padding:0 5cpx;
-      width: 42px;
+      padding:0 2cpx;
+      width: 42cpx;
      `
    }
   }
