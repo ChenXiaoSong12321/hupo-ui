@@ -44,11 +44,7 @@ build/Release
 node_modules/
 jspm_packages/
 
-<<<<<<< HEAD
-# Typescript v1 declaration files
-=======
 # TypeScript v1 declaration files
->>>>>>> a8e7d142d48b717d68a8cf042d30ea6e3a822d5e
 typings/
 
 # Optional npm cache directory
@@ -69,14 +65,12 @@ typings/
 # dotenv environment variables file
 .env
 
-<<<<<<< HEAD
 # ///////////////////////////
 
 dist
 output/
+package
 .temp
 node_modules
-=======
 # next.js build output
 .next
->>>>>>> a8e7d142d48b717d68a8cf042d30ea6e3a822d5e

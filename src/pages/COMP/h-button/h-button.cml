@@ -10,6 +10,7 @@
       <h-button class="btn" c-bind:onclick="showLoading" type="primary" radius="{{false}}">no-radius</h-button>
       <h-button class="btn" c-bind:onclick="showLoading" type="primary" disabled>disabled</h-button>
       <h-button class="btn" c-bind:onclick="showLoading" type="primary">primary</h-button>
+      <h-button class="btn" c-bind:onclick="showLoading" type="secondary">secondary</h-button>
       <h-button class="btn" c-bind:onclick="showLoading" type="preheat">preheat</h-button>
       <h-button class="btn" c-bind:onclick="showLoading" type="muted">muted</h-button>
       <h-button class="btn" c-bind:onclick="showLoading" type="forbidden">forbidden</h-button>

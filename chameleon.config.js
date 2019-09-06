@@ -57,13 +57,25 @@ cml.utils.plugin('webpackConfig', function({ type, media, webpackConfig }, cb) {
     })
     return rules
   }
-
+  const alias = {
+    // '@': path.join(__dirname, './src'),
+    // '@api': path.join(__dirname, './src/common/api'),
+    // '@core': path.join(__dirname, './src/core'),
+    // '@mixin': path.join(__dirname, './src/core/mixins'),
+    // '@components': path.join(__dirname, './src/components'),
+    '~@output': path.join(__dirname, './src/assets/scss/_output.scss')
+  }
+  webpackConfig.resolve.alias = { ...webpackConfig.resolve.alias, ...alias }
   // 支持scss
   const cmlFile = findRule('.cml')
   if (cmlFile) {
     cmlFile.rule.use = cmlFile.rule.use.map(use => {
       use.options.loaders.scss = JSON.parse(JSON.stringify(use.options.loaders.less)).map(item => {
-        if (item.loader === 'less-loader') item.loader = 'sass-loader'
+        if (item.loader === 'less-loader'){
+          item.loader = 'sass-loader'
+          if(webpackConfig.resolve.alias['~@output'])item.options.data = '@import "~@output";'
+          else console.warn('请添加 ~@output 别名指向 _output.scss 文件')
+        } 
         return item
       })
       return use
