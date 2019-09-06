@@ -1,13 +1,13 @@
 import difference from '../../core/difference/difference.interface'
-export default class ImageMixins {
-  data = {
+export default {
+  data: {
     unloadImg: require("./assets/images/image-load-background.png"),
     show: false,
     url: "",
     i: 0,
     status: "loading"
-  };
-  props = {
+  },
+  props: {
     src: {
       type: String,
       default: ""
@@ -24,13 +24,13 @@ export default class ImageMixins {
       type: Boolean,
       default: false
     }
-  }
-  watch = {
+  },
+  watch: {
     src() {
       this.init()
     }
-  }
-  methods = {
+  },
+  methods: {
     async init() {
       if (!this.src) return;
       const data = await difference.getNetworkType()

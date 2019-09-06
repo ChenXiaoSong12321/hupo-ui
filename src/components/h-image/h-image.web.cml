@@ -43,7 +43,7 @@ class HImage implements HImageInterface {
   async mounted() {
     this.init();
     if (this.lazyLoad) {
-      const el = this.$refs.image.$el
+      const el = this.$refs.image
       await this.$relativeToViewport(el)
     }
     this.show = true;

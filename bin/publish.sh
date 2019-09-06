@@ -1,4 +1,5 @@
 #!/bin/bash
+
 rm -rf ./package/components
 rm -rf ./package/assets
 rm -rf ./package/core
