@@ -27,9 +27,9 @@ class HToast implements HToastInterface {
     show: false,
     mask: false,
     iconMap: {
-      loading: 'el-icon-hp-jiazai1',
-      warn: 'el-icon-hp-shibai',
-      success: 'el-icon-hp-chenggong'
+      loading: 'iconjiazaizhong',
+      warn: 'iconjuxing',
+      success: 'iconjiazaichenggong'
     }
   }
   mounted () {

@@ -3,7 +3,7 @@
     <view class="h-search-wrap">
       <h-button type="none" c-bind:onclick="onclick">
         <view class="h-search-detail {{cancel?'is-cancel':''}}">
-          <h-icon name="el-icon-hp-search" class="h-search-icon"></h-icon>
+          <h-icon name="iconsousuocopybeifen" class="h-search-icon"></h-icon>
           <input
             class="h-field-input"
             placeholder="{{placeholder}}"

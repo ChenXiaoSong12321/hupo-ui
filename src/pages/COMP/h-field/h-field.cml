@@ -6,7 +6,7 @@
         useSlot
         placeholder="空的什么都没有"
         label="坑得很"
-        icon="el-icon-hp-chenggong"
+        icon="iconjiazaichenggong"
         c-model="{{inputval}}"
       >
         <h-button size="small">烦烦烦</h-button>
