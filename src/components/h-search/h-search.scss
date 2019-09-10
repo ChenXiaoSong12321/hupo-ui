@@ -11,6 +11,7 @@
   @include e(detail){
     box-sizing: border-box;
     height: 60cpx;
+    padding: 16cpx 0;
     display: flex;
     align-items: center;
     border-radius: 60cpx;
@@ -32,6 +33,7 @@
   }
   @include e(input){
     flex: 1;
+    line-height: 28cpx;
   }
   @include e(cancel-wrap){
     width: 82cpx;
