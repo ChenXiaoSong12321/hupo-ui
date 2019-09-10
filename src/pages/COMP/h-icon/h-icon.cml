@@ -2,18 +2,22 @@
   <h-page title="h-icon 演示">
     <view class="container">
       <view class="icon-wrap">
-        <h-icon name="el-icon-hp-tuikuan2" customStyle="color:red;"></h-icon>
-        <h-icon name="el-icon-hp-iconfontpinglun"></h-icon>
-        <h-icon name="el-icon-hp-search"></h-icon>
-        <h-icon name="el-icon-hp-home"></h-icon>
-        <h-icon name="el-icon-hp-shanchu"></h-icon>
+        <h-icon name="iconshibai" customStyle="color:red;"></h-icon>
+        <h-icon name="iconjiazaizhong"></h-icon>
+        <h-icon name="iconjiazaichenggong"></h-icon>
+        <h-icon name="iconjuxing"></h-icon>
+        <h-icon name="iconsousuocopybeifen"></h-icon>
       </view>
       <view class="icon-wrap">
-        <h-icon name="el-icon-hp-tuikuan2" customStyle="color:red;"></h-icon>
-        <h-icon name="el-icon-hp-iconfontpinglun"></h-icon>
-        <h-icon name="el-icon-hp-search"></h-icon>
-        <h-icon name="el-icon-hp-shibai"></h-icon>
-        <h-icon name="el-icon-hp-chenggong"></h-icon>
+        <h-icon name="iconshouyecopybeifen"></h-icon>
+        <h-icon name="iconfanhuicopybeifen"></h-icon>
+        <h-icon name="iconyigouxuanbeifen" customStyle="color:red;"></h-icon>
+        <h-icon name="icondahaobeifen" customStyle="color:red;"></h-icon>
+        <h-icon name="iconicon-test"></h-icon>
+        <h-icon name="icondianjibeifen" customStyle="color:#999;"></h-icon>
+      </view>
+      <view class="icon-wrap">
+        <h-icon name="iconmorengouxuanbeifen"></h-icon>
       </view>
     </view>
   </h-page>

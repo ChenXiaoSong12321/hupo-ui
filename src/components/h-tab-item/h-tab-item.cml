@@ -70,7 +70,7 @@ export default new HTabItem()
   }
   @include e(text) {
     line-height: 90cpx;
-    font-size: 24cpx;
+    font-size: 30cpx;
     text-align: center;
     height: 90cpx;
     padding-left: 5cpx;

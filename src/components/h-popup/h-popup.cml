@@ -3,7 +3,7 @@
     <view class="h-popup" c-catch:touchmove="empty">
       <view class="h-popup-close">
         <h-button type="none" c-bind:onclick="onclose">
-          <h-icon name="el-icon-hp-shanchu" class="h-popup-close-icon"></h-icon>
+          <h-icon name="iconicon-test" class="h-popup-close-icon"></h-icon>
         </h-button>
       </view>
       <view class="h-popup-box" style="{{customStyle}}">

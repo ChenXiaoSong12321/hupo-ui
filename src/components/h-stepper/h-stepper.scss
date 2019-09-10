@@ -3,13 +3,14 @@
 @include b(stepper){
   border: 1px solid $--splitline-color-FgxC1;
   display: flex;
-  width: 260cpx;
+  width: 130cpx;
   box-sizing: border-box;
-  height: 43px;
+  height: 42cpx;
+  overflow: hidden;
   @include e(subtract){
     @include flexCenter;
     .text{
-      font-size: 44cpx;
+      font-size: $--font-size-weak-medium-FW2;
       color: $--font-color-FC2;
     }
     @include when(disabled){
@@ -18,9 +19,10 @@
         color: #d7d7d7;
       }
     }
-    width: 84cpx;
+    width: 42cpx;
   }
   @include e(input-wrap){
+    font-size: $--font-size-weak-medium-FW2;
     flex: 1;
     border-left: 1px solid $--splitline-color-FgxC1;
     border-right: 1px solid $--splitline-color-FgxC1;
@@ -28,7 +30,7 @@
   @include e(add){
     @include flexCenter;
     .text{
-      font-size: 44cpx;
+      font-size: $--font-size-weak-medium-FW2;
       color: $--font-color-FC2;
     }
     @include when(disabled){
@@ -37,6 +39,6 @@
         color: #d7d7d7;
       }
     }
-    width: 84cpx;
+    width: 42cpx;
   }
 }

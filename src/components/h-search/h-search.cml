@@ -3,9 +3,9 @@
     <view class="h-search-wrap">
       <h-button type="none" c-bind:onclick="onclick">
         <view class="h-search-detail {{cancel?'is-cancel':''}}">
-          <h-icon name="el-icon-hp-search" class="h-search-icon"></h-icon>
+          <h-icon name="iconsousuocopybeifen" class="h-search-icon"></h-icon>
           <input
-            class="h-field-input"
+            class="h-search-input"
             placeholder="{{placeholder}}"
             value="{{value}}"
             cStyle="{{inputStyle}}"
@@ -62,13 +62,15 @@ class HSearch implements HSearchInterface{
    inputStyle(){
      return `
       border: none;
-      height: 56cpx;
-      line-height: 56cpx;
+      height: 28cpx;
+      line-height: 28cpx;
       font-size:26cpx;
       color:#666;
       padding:0;
       width:${this.inputWidth};
       border-radius: 0 56cpx 56cpx 0;
+      vertical-align: bottom;
+      outline: none;
      `
    },
    inputWidth(){
