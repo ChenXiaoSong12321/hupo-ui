@@ -5,7 +5,7 @@
         <view class="{{ checkClass }}">
           <h-icon
             c-if="{{innerChecked}}"
-            name="el-icon-hp-xuanzekuangxuanzhong"
+            name="iconyigouxuanbeifen1"
             customStyle="color:{{primaryColor}};font-size:32cpx;"
           ></h-icon>
         </view>

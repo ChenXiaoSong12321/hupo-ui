@@ -9,7 +9,7 @@
     >
       <view class="h-navbar-left-button-slot">
         <h-icon
-          name="el-icon-hp-shouye-jiantou"
+          name="iconfanhuicopybeifen"
           class="h-navbar-left-button-icon h-navbar-left-button-icon--{{type}}"
         ></h-icon>
       </view>
@@ -23,7 +23,7 @@
     >
       <view class="h-navbar-left-button-slot">
         <h-icon
-          name="el-icon-hp-shouye"
+          name="iconshouyecopybeifen"
           class="h-navbar-left-button-icon h-navbar-left-button-icon--{{type}}"
         ></h-icon>
       </view>
