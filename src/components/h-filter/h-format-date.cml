@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import dayjs from '../../core/utils/dayjs.js'
+import {dayjs} from '@hupo/core'
 import componentMixin from '../../core/mixins/component/index.js'
 
 class HFormatDate implements HFormatDateInterface {
