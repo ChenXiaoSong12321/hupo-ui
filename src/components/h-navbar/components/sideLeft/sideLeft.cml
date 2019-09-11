@@ -19,7 +19,7 @@
       type="none"
       customStyle="height: 100%;"
       c-if="{{showHomeIcon && selfShowHomeIcon}}"
-      c-bind:onclick="$backToHome"
+      c-bind:onclick="_backToHome"
     >
       <view class="h-navbar-left-button-slot">
         <h-icon
@@ -55,13 +55,13 @@ class HNavbarSideLeft implements HNavbarSideLeftInterface {
   mounted() {
     const historys = sideLeftDifference.getHistorys()
     const route = difference.getRouter(this._page)
-    const isHomeRoute = this.$isHomeRoute(route.route)
+    const isHomeRoute = this._isHomeRoute(route.route)
     this.selfShowBackIcon = historys > 1 && !isHomeRoute;
     this.selfShowHomeIcon = !isHomeRoute;
   }
   methods = {
     back() {
-      this.$back();
+      this._back();
     }
   }
 }
