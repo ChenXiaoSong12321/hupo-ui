@@ -26,7 +26,7 @@ export default {
     */
     _backToHome() {
       const reLaunch = () => {
-        this.$goto({
+        this._goto({
           path: indexRoute,
           redirect: true
         })
@@ -54,7 +54,7 @@ export default {
       const {
         path = '/'
       } = dataset
-      this.$goto({
+      this._goto({
         path,
         query,
         redirect
