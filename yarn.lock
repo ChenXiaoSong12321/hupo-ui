@@ -885,84 +885,84 @@
     unique-filename "^1.1.1"
     which "^1.3.1"
 
-"@hupo/core-cml-base-tree@^0.2.6":
-  version "0.2.6"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-cml-base-tree/-/core-cml-base-tree-0.2.6.tgz#1226e3a521d7c136bd3e4803353fb3e129eeeadf"
-  integrity sha512-lcFXLSg75AT3w3bFJVxK/2/WxrXUga6atJIidb16R1i/81bW9VJrdjOG/J/ZCOdNJLBJdf0t5DNgOlGgL4ok1A==
+"@hupo/core-cml-base-tree@^0.2.7":
+  version "0.2.7"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-cml-base-tree/-/core-cml-base-tree-0.2.7.tgz#1a9eb2eb3ed24796c9aa2f27b2cc121f5fbb5278"
+  integrity sha512-LB3xRPhMmz/6MyrE1eB/1u9chhbwY6iUxhE720atUH7hYhserLLATSY4quP7p4Lg71/C2GBbDFfCLYJqe0YeJQ==
   dependencies:
-    "@hupo/core-global" "^0.2.6"
+    "@hupo/core-global" "^0.2.7"
 
-"@hupo/core-cml-event@^0.2.6":
-  version "0.2.6"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-cml-event/-/core-cml-event-0.2.6.tgz#c1097598307546ac2d26238ea5ca3a41dcb0df6e"
-  integrity sha512-UWC9SLRMAfB1hhkNDydJd197QgoouOQdpV2mPdNyb0f3hlMt+hGRH7A8F2g8yOMpVeV6WGhRsQL5BBowCwZl4w==
+"@hupo/core-cml-event@^0.2.7":
+  version "0.2.7"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-cml-event/-/core-cml-event-0.2.7.tgz#31fd140b0c76b251fead1ca8100b94c8b03c1fb5"
+  integrity sha512-Jc4kKqTwHQpaVhzJ1d8WyY09t1EzEhRQOHRzgiyNAPDVjnZOpJL+HBHb/gjQVz4i/JNZ3jSSo1b7aia3/vKu7Q==
 
-"@hupo/core-dayjs@^0.2.6":
-  version "0.2.6"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-dayjs/-/core-dayjs-0.2.6.tgz#0a0d0d68d21b931e3573bd2b9e82f0dfa032b7f2"
-  integrity sha512-L6gNghtDDQ0H0rLnmxCdg0zUVFt/K4JUUp7W6MM9d0PcL22MBE2qkzyczK73mGa8Y3r0ALJa/R6IHrBdtqQYww==
+"@hupo/core-dayjs@^0.2.7":
+  version "0.2.7"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-dayjs/-/core-dayjs-0.2.7.tgz#8230e05783acc692618b4f1146e7b68b36d64b94"
+  integrity sha512-sPmyMyIlCZA7EF0a5tYdFwWir0vIAOVpiCm4cazjGa16DYI5Uoh2KlEY/1ILYV25yqWVj48UnR8p+cUaSsI7oQ==
   dependencies:
     dayjs "^1.8.16"
     dayjs-plugin-utc "^0.1.2"
 
-"@hupo/core-global@^0.2.6":
-  version "0.2.6"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-global/-/core-global-0.2.6.tgz#fca0dcf8ff10fc999133bf4b39a1a75b1e0c30be"
-  integrity sha512-EwC+mdVKTUG3NiMb/yK3/q6XC8zKjA11fzvasi4Qnowsf/uzG5JrfXyEo7BeiD+l91cNxgY4YNrJuMnLYy3ZFg==
+"@hupo/core-global@^0.2.7":
+  version "0.2.7"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-global/-/core-global-0.2.7.tgz#41b33a7f21ecb1d63de676767955e270d1d8b0fd"
+  integrity sha512-PLXuBr97VkvFr4Jm6kZ7i+nQ6vwEzgGnYShkJZ2aMoBQdHnVPJwlTdRjEADWCWoOE3rYWHru6Ql+j7oX/5qmGA==
 
-"@hupo/core-promise@^0.2.6":
-  version "0.2.6"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-promise/-/core-promise-0.2.6.tgz#cd30c78390b3edd0f612d2ca41e9fe5292e0c598"
-  integrity sha512-mhYf6GAmHD7sDAJOSvK9d+y5yPxa8ZGY/khErfn0xNrWpuKVcA9t8YRIlT/6rz3p3zlIX6B05T/hjtg2yYsUug==
+"@hupo/core-promise@^0.2.7":
+  version "0.2.7"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-promise/-/core-promise-0.2.7.tgz#3f0bbc0575d9d50f1d0f01db63b16583e416625a"
+  integrity sha512-u70jIJ5ZL43OfNLBW3lejZRLjN6D6Wexhi0mS/kDS1VVeUMFu0oVo7vnHPl1wxN1mg5aJGRZHwN0yRk9BtNoDA==
 
-"@hupo/core-request-base@^0.2.6":
-  version "0.2.6"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-request-base/-/core-request-base-0.2.6.tgz#e762f82f87454aec35c79aff1843359c440cb9f8"
-  integrity sha512-/CXhS2HwC8FN0bI64YaKQ3b49V2kyoHF73E8vaOfdncTZ4+fwoE+pJzRcbeqssWjV6S0ghLDNadXQ38285idJA==
+"@hupo/core-request-base@^0.2.7":
+  version "0.2.7"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-request-base/-/core-request-base-0.2.7.tgz#d59299c0a36f195ffbaa846ba16bd42a1a77f2e5"
+  integrity sha512-1MmWiOfdIFoa7OSoc/ij/lHXREcjGS1FoiM6fAwrloYF+bnJZq8+5Cucw/Fp5G1tlo+chIxjetda/TPWY2wcyw==
 
-"@hupo/core-request-web@^0.2.6":
-  version "0.2.6"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-request-web/-/core-request-web-0.2.6.tgz#fffe73a9261d09e7b510b47070c9bdca059394de"
-  integrity sha512-jIV6YyV5gsZuddqT/f2aXJT1xTAB9jOuCVz/xoJBhragSxeAFLO/KT558IK5diyXrkwfR/6IhR4/rgg9kJldFw==
+"@hupo/core-request-web@^0.2.7":
+  version "0.2.7"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-request-web/-/core-request-web-0.2.7.tgz#72e804919910dfad297736bc427a80a7d3a95cb5"
+  integrity sha512-dwJrM5zrrfp2Fy+vFOTTADOLOjMXfgMfbp2pZgaajtEeTCKTaU47AIJ1DrNNbOqDoyVzJR2dDH8zJ7n4vRuVvw==
   dependencies:
     axios "^0.19.0"
 
-"@hupo/core-request-wx-app@^0.2.6":
-  version "0.2.6"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-request-wx-app/-/core-request-wx-app-0.2.6.tgz#4b72bd5284f6216fb82679ac57101bf532deb0b8"
-  integrity sha512-0VzTwZQuY30OwFMWzCC10mjwip1MdJDO9v1AXSVJB92DZMGDkvyzn2WGWKHUHdYj35eaqlZS1k0TaJleMgO6Nw==
+"@hupo/core-request-wx-app@^0.2.7":
+  version "0.2.7"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-request-wx-app/-/core-request-wx-app-0.2.7.tgz#e372e65d00ece1143c45e29dd3f7c6da19992775"
+  integrity sha512-VmLb9ndaPV9QBbniHUaniVPPUsXmY1IpPyVtE/JUEaTWy8+ETHSJ5FxblE/Yt0KicILyuWfG/HqRBwWa9yVN5w==
 
-"@hupo/core-timer@^0.2.6":
-  version "0.2.6"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-timer/-/core-timer-0.2.6.tgz#dce2a9767677804b5d5551b699e4de8b9ad06b75"
-  integrity sha512-s6MP67Dw60xJuN2C1js5OWV28ZmAcgY44hWK090zVQn2q95TsVN1kUUlsxAw/UMkqeOd/YxuBblJZvdZDaQ4dQ==
+"@hupo/core-timer@^0.2.7":
+  version "0.2.7"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-timer/-/core-timer-0.2.7.tgz#f24944241a85c9268780b20c3771178ff8752b5f"
+  integrity sha512-/8ktpxtKB9iZaPosGPhV5FfEJ/d2Luf0VsOUnkweVCHPK/6YRaBX3L4aj0VwVbGtHmSHasO9Vi7c6DrFEjjAwg==
 
-"@hupo/core-url@^0.2.6":
-  version "0.2.6"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-url/-/core-url-0.2.6.tgz#25a760fe36bae721029e64bfd5bf985938b665fd"
-  integrity sha512-xXrGgc0eaSHI++Dlgg8ydAnPo8IhAAn2wsq8JlFGXIHC28n3A7/CT1Lyc4/XF9/SxVKnS/nObvxpia7SaxBR6w==
+"@hupo/core-url@^0.2.7":
+  version "0.2.7"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-url/-/core-url-0.2.7.tgz#17ca07c6de40db3c0516a43a78dd28560f5a1032"
+  integrity sha512-7JXBG4m/6qUP4nZg0yI52AkmY5Cmu5MZnBdyFWG/FNDuT17DmNVSm0FlfV7tQCxJ//9PT11pxQU78RDYqMTK3Q==
 
-"@hupo/core-wx-app-tools@^0.2.6":
-  version "0.2.6"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-wx-app-tools/-/core-wx-app-tools-0.2.6.tgz#ae152b5aa08b47157be032416b0b3c23200672f5"
-  integrity sha512-EhlSmoPtOesjCEQzH952psTFwYl+36T2mLg8WOqdRDorBqWoME9hH/hH8F9jAsZR9QlHAwf+uscgsq/omCf2cA==
+"@hupo/core-wx-app-tools@^0.2.7":
+  version "0.2.7"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-wx-app-tools/-/core-wx-app-tools-0.2.7.tgz#4745564ba60668cc556787740382d9649ac3e312"
+  integrity sha512-xYod9sDikXN95RmgUyXcQRKM0mCcYzXAp+ZoyNq9MYavdF5p+ih2X3QlIwgmbx1YIFTCKYs7knZQU/qik6AjPw==
 
-"@hupo/core@^0.2.6":
-  version "0.2.6"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core/-/core-0.2.6.tgz#d3f35d7e1be2d2349876e3b4194d2a03a3f51fda"
-  integrity sha512-oGzmVGU5n4Ba6o6FXzN2A2/mwB+Ckb3IcduBe1OWDboK9xGCgv8Qen//NXA3GS0FoOVRKP3+Fckw/Hh7wBpaAA==
+"@hupo/core@latest":
+  version "0.2.7"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core/-/core-0.2.7.tgz#096c9bb717d8f15595055adc277e4ee55d653801"
+  integrity sha512-mMLLbQGcjlVdpGHF808wvbbcFIde9Uo3/jqEY1bmmcP6fM7GjogQVJfjbpTJ2NXM0ZpyBrDy4p23CeAS/ixEjw==
   dependencies:
-    "@hupo/core-cml-base-tree" "^0.2.6"
-    "@hupo/core-cml-event" "^0.2.6"
-    "@hupo/core-dayjs" "^0.2.6"
-    "@hupo/core-global" "^0.2.6"
-    "@hupo/core-promise" "^0.2.6"
-    "@hupo/core-request-base" "^0.2.6"
-    "@hupo/core-request-web" "^0.2.6"
-    "@hupo/core-request-wx-app" "^0.2.6"
-    "@hupo/core-timer" "^0.2.6"
-    "@hupo/core-url" "^0.2.6"
-    "@hupo/core-wx-app-tools" "^0.2.6"
+    "@hupo/core-cml-base-tree" "^0.2.7"
+    "@hupo/core-cml-event" "^0.2.7"
+    "@hupo/core-dayjs" "^0.2.7"
+    "@hupo/core-global" "^0.2.7"
+    "@hupo/core-promise" "^0.2.7"
+    "@hupo/core-request-base" "^0.2.7"
+    "@hupo/core-request-web" "^0.2.7"
+    "@hupo/core-request-wx-app" "^0.2.7"
+    "@hupo/core-timer" "^0.2.7"
+    "@hupo/core-url" "^0.2.7"
+    "@hupo/core-wx-app-tools" "^0.2.7"
 
 "@lerna/add@3.16.2":
   version "3.16.2"
