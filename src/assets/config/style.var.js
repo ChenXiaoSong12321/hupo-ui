@@ -1,5 +1,4 @@
 export const primaryColor = '#dd392e'
-
 // 字体
 export const fontColorC1 = '#333333'
 export const fontColorC2 = '#666666'
