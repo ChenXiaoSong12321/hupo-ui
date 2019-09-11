@@ -1,0 +1,19 @@
+@import '../../assets/scss/output';
+
+@include b(scroll) {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  @include e(pulldown) {
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    @include flexCenter();
+  }
+  @include e(loading) {
+    width: 100%;
+    height: 100%;
+    @include flexCenter();
+  }
+}

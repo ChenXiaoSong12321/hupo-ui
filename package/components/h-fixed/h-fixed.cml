@@ -1,0 +1,151 @@
+<template>
+  <view class="h-fixed" style="height: {{height}}">
+    <view class="h-fixed-wrap" style="z-index: {{zIndex}}; {{wrapperStyle}}">
+      <view class="h-fixed-content" style="z-index: {{zIndex}}; {{style}}">
+        <slot></slot>
+      </view>
+    </view>
+  </view>
+</template>
+<script>
+import cml from 'chameleon-api'
+import defaultData from '../../core/viewport/defaultData';
+import calculate from '../../core/viewport/calculate';
+import componentMixin from '../../core/mixins/component/index.js'
+
+class HFixed implements HFixedInterface {
+  name = 'h-fixed'
+  mixins = [...componentMixin]
+  props = {
+    position: {
+      type: String,
+      default: 'fixed'
+    },
+    top: {
+      type: String,
+      default: ''
+    },
+    bottom: {
+      type: String,
+      default: ''
+    },
+    left: {
+      type: String,
+      default: ''
+    },
+    right: {
+      type: String,
+      default: ''
+    },
+    width: {
+      type: String,
+      default: '100%'
+    },
+    zIndex: {
+      type: String,
+      default: '12'
+    },
+    placeHeight: {
+      type: String,
+      default: ''
+    }
+  }
+  data = {
+    viewport: defaultData
+  }
+  computed = {
+    wrapperLeft(){
+      let left = ''
+      if (this.right === '') {
+        left = `left: 0;`
+      }
+      return left
+    },
+    wrapperRight(){
+      let right = ''
+      if (this.right !== '') {
+        right = `right: 0;`
+      }
+      return right
+    },
+    wrapperTop(){
+      let top = ''
+      if (this.top !== '') {
+        top = `top: ${this.viewport.headerHeight}px;`
+      }
+      return top
+    },
+    wrapperBottom(){
+      let bottom = ''
+      if (this.bottom !== '') {
+        bottom = `bottom: ${this.viewport.bottomHeight}px;`
+      }
+      return bottom
+    },
+    wrapperStyle() {
+      return `position: ${this.position};width: ${this.width};${this.wrapperLeft}${this.wrapperRight}${this.wrapperTop}${this.wrapperBottom}`
+    },
+    selfLeft() {
+      let left = ''
+      if (this.left !== '') {
+        const px = cml.cpx2px(parseInt(this.left))
+        left = `left: ${px}px;`
+      }else if(!this.right){
+        left = `left: 0;`
+      }
+      return left
+    },
+    selfRight() {
+      let right = ''
+      if (this.right !== '') {
+        const px = cml.cpx2px(parseInt(this.right))
+        right = `right: ${px}px;`
+      }
+      return right
+    },
+    selfTop() {
+      let top = ''
+      if (this.top !== '') {
+        const px = cml.cpx2px(parseInt(this.top))
+        top = `top: ${px}px;`
+      }else if(!this.bottom){
+        top = `top: 0;`
+      }
+      return top
+    },
+    selfBottom() {
+      let bottom = ''
+      if (this.bottom !== '') {
+        const px = cml.cpx2px(parseInt(this.bottom))
+        bottom = `bottom: ${px}px;`
+      }
+      return bottom
+    },
+    style() {
+      return `${this.selfLeft}${this.selfRight}${this.selfTop}${this.selfBottom}`
+    },
+    height() {
+      if (this.placeHeight !== '') {
+        return `${cml.cpx2px(parseInt(this.placeHeight))}px`
+      }else{
+        return 'auto'
+      }
+    }
+  }
+  async created(){
+    const data = await calculate()
+    this.viewport = data
+  }
+}
+export default new HFixed()
+</script>
+<style lang="scss">
+@import "./h-fixed.scss";
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "component": true
+  }
+}
+</script>

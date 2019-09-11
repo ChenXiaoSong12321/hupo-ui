@@ -1,0 +1,130 @@
+<template>
+  <view
+    c-if="{{visible}}"
+    class="h-popup-manager {{position?'is-not-center':''}} {{ visible ? 'h-popup-manager--show' : '' }}"
+  >
+    <view
+      c-if="{{mask}}"
+      class="h-popup-manager-mask is-transition {{ transitionIn ? 'is-in' : 'is-leave' }}"
+      style="z-index:{{zIndex}};"
+      c-bind:tap="closeevent"
+    ></view>
+    <!-- c-catch禁止事件冒泡 -->
+    <view
+      class="h-popup-manager-content is-transition {{ transitionIn ? 'is-in' : 'is-leave' }} {{ position ? 'h-popup-manager-content--' + position : 'h-popup-manager-content--center' }}"
+      style="z-index:{{zIndex+1}};{{caculateStyle}}"
+      c-bind:tap="closeevent"
+    >
+      <view c-catch:tap="contentTap">
+        <slot></slot>
+      </view>
+    </view>
+  </view>
+</template>
+<script>
+let zindexManager = 1000
+import calculate from '../../core/viewport/calculate';
+import defaultData from '../../core/viewport/defaultData.js'
+import cml from "chameleon-api";
+import viewportDiffrence from './diffrence.interface'
+import componentMixin from '../../core/mixins/component/index.js'
+
+class HPopupManager implements HPopupManagerInterface {
+  name = 'h-popup-manager'
+  mixins = [...componentMixin]
+  props = {
+    mask: {
+      type: Boolean,
+      default: true
+    },
+    show: {
+      type: Boolean,
+      default: false
+    },
+    flexible: {
+      type: Boolean,
+      default: true
+    },
+    position: {
+      type: String,
+      default: ""
+    },
+    top: {
+      type: [String,Number],
+      default: 0
+    },
+    left: {
+      type: [String,Number],
+      default: 0
+    },
+    bottom: {
+      type: [String,Number],
+      default: 0
+    },
+    right: {
+      type: [String,Number],
+      default: 0
+    }
+  }
+  data = {
+    transitionIn: false,
+    visible:false,
+    viewport:defaultData,
+    zIndex:1000
+  }
+  watch = {
+    show(n) {
+      n ? this.showMask() : this.hideMask();
+    }
+  }
+  computed = {
+    caculateStyle(){
+      if(!this.flexible || !this.viewport.headerHeight) return ''
+      let positions = {
+        top:`top:${cml.px2cpx(viewportDiffrence.setViewportTop(this.viewport.headerHeight))+ parseInt(this.top)}cpx;`,
+        bottom:`bottom:${cml.px2cpx(this.viewport.bottomHeight ) + parseInt(this.bottom)}cpx;`,
+        left:`left:${cml.px2cpx(this.left)}cpx;`,
+        right:`right:${cml.px2cpx(this.right)}cpx;`,
+        default:''
+      }
+      return positions[this.position||'default'] || positions.default
+    }
+  }
+  async created(){
+    const data = await calculate()
+    this.viewport = data
+  }
+  methods = {
+    closeevent() {
+      this.$cmlEmit("onclose");
+    },
+    showMask() {
+      zindexManager=zindexManager+2
+      this.zIndex = zindexManager
+      this.visible = true;
+      this._setTimeout(() => {
+        this.transitionIn = true;
+      }, 50);
+    },
+    hideMask() {
+      this.transitionIn = false;
+      this._setTimeout(() => {
+        this.visible = false;
+      }, 300);
+    }
+  }
+}
+export default new HPopupManager()
+</script>
+
+<style lang="scss">
+@import "./h-popup-manager.scss";
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "component": true
+  }
+}
+</script>

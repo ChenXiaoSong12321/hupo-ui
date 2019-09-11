@@ -1,0 +1,20 @@
+<script cml-type="interface">
+interface AuthorizeInterface {}
+</script>
+
+<script cml-type="web">
+  class Authorize implements AuthorizeInterface {
+    filterType(data, type){
+      return 'confirm'
+    }
+  }
+  export default new Authorize();
+</script>
+<script cml-type="wx">
+  class Authorize implements AuthorizeInterface {
+    filterType(data, type){
+      return data.errMsg === `${type}:ok` ? 'confirm' : 'cancel'
+    }
+  }
+  export default new Authorize();
+</script>

@@ -1,0 +1,4 @@
+<script cml-type='interface'>
+interface HNavbarSideLeftInterface{}
+</script>
+<script cml-type="web,wx" src="./sideLeft.cml"></script>

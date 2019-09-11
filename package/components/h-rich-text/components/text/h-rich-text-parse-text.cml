@@ -1,0 +1,30 @@
+<template>
+  <view class="{{nodes.classStr}} wxParse-inline" style="{{nodes.styleStr || ''}}">
+    <block c-if="{{nodes.node == 'text'}}">{{nodes.text}}</block>
+  </view>
+</template>
+<script>
+class HRichTextParseText implements HRichTextParseTextInterface{
+  name = 'h-rich-text-parse-text'
+
+  props= {
+    nodes: {
+      type: Object,
+      default(){return {}}
+    }
+  }
+}
+export default new HRichTextParseText();
+</script>
+
+<style lang="scss">
+@import "../common.scss";
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "component": true
+  }
+}
+</script>
