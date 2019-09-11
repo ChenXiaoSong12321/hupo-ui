@@ -1,0 +1,6 @@
+
+<script cml-type='interface'>
+interface HRichTextInterface{
+}
+</script>
+<script cml-type="web,wx" src="./h-rich-text.cml"></script>

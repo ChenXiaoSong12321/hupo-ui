@@ -1,0 +1,21 @@
+<template>
+  <view>
+    <br></br>
+  </view>
+</template>
+<script>
+class HRichTextParseBr implements HRichTextParseBrInterface {
+}
+export default new HRichTextParseBr();
+</script>
+
+<style lang="scss">
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "component": true
+  }
+}
+</script>

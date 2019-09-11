@@ -1,0 +1,4 @@
+<script cml-type='interface'>
+interface HPopupManagerInterface{}
+</script>
+<script cml-type="web,wx" src="./h-popup-manager.cml"></script>

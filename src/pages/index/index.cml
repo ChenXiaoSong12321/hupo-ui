@@ -189,7 +189,7 @@ export default {
       let dataset = tar.dataset;
       let url = dataset.routeurl;
       let path = dataset.routepath;
-      this.$goto({
+      this._goto({
         path: path
       })
       // cml.navigateTo({

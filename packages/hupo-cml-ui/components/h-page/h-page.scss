@@ -1,0 +1,46 @@
+@import '../../assets/scss/output';
+@include b(page) {
+  display: flex;
+  flex-direction: column;
+
+  @include m(BgC1){
+    background: $--background-color-BgC1;
+  }
+
+  @include m(BgC2){
+    background: $--background-color-BgC2;
+  }
+
+  @include m(BgC3){
+    background: $--background-color-BgC3;
+  }
+
+  @include e(loading) {
+    flex: 1;
+    @include flexCenter()
+  }
+
+  @include e(bottom) {
+    height: 34px;
+    flex: 0 0 34px;
+  }
+
+  @include e(container) {
+    @include when(disabled){
+      flex: 1;
+      overflow: hidden;
+    }
+  }
+
+  @include e(bottom-fixed) {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 34px;
+    z-index: $--z-index-max;
+    background: $--white;
+  }
+
+}

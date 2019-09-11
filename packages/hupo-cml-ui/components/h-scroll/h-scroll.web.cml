@@ -1,0 +1,148 @@
+<template>
+  <view class="h-scroll" ref="scroll" style="height: {{scrollHeight}}px">
+    <block c-if="{{loading}}">
+      <view class="h-scroll-loading">
+        <h-load-more loading></h-load-more>
+      </view>
+    </block>
+    <block c-else>
+      <view class="h-scroll-container" style="min-height: {{scrollHeight + 1}}px">
+        <view
+          c-if="{{pulldown}}"
+          class="h-scroll-pulldown"
+          style="top: -{{topThreshold_px}}px; height: {{topThreshold_px}}px"
+        >
+          <h-scroll-pulldown
+            status="{{status}}"
+            c-show="{{status === 'PULLDOWN_RELEASE' || status === 'PULLINGDOWN'}}"
+          ></h-scroll-pulldown>
+        </view>
+        <view class="h-scroll-content">
+          <slot></slot>
+        </view>
+      </view>
+    </block>
+  </view>
+</template>
+<script>
+import cml from "chameleon-api";
+import BScroll from "better-scroll";
+import difference from "../../core/difference/difference.interface";
+import HScrollMixin from "./assets/js/h-scroll.mixin.js";
+import { INVISIABLE, PULLING, PULLDOWN_RELEASE, PULLINGUP_RELEASE, PULLINGDOWN, PULLINGUP, FINISH } from './assets/js/const.js'
+import componentMixin from "../../core/mixins/component/index.js";
+
+class HScroll implements HScrollInterface{
+  name = 'h-scroll'
+  mixins = [...componentMixin, HScrollMixin]
+  watch = {
+    async scrollHeight(){
+      await difference.nextTick();
+      this.scroll && this.scroll.refresh();
+    },
+    loading(){
+      this.init()
+    }
+  }
+
+  computed = {
+    pulldownOptions(){
+      if(this.pulldown){
+        return {
+          threshold: this.topThreshold_px,
+          stop: this.topThreshold_px
+        }
+      }else{
+        return false
+      }
+    }
+  }
+
+  async created() {
+    await difference.nextTick();
+    this.init()
+  }
+
+  methods = {
+    init(){
+      if(this.loading)return
+      if(this.scroll){
+        this.scroll.destroy()
+        this.scroll = null
+      }
+    this.scroll = new BScroll(this.$refs.scroll, {
+      //初始化better-scroll
+      probeType: 1, //1 滚动的时候会派发scroll事件，会截流。2滚动的时候实时派发scroll事件，不会截流。 3除了实时派发scroll事件，在swipe的情况下仍然能实时派发scroll事件
+      click: true, //是否派发click事件
+      bounce: {
+        bottom: true,
+        top: true
+      },
+      pullDownRefresh: this.pulldownOptions,
+      pullUpLoad: {
+        threshold: this.bottomThreshold_px
+      }
+    });
+    //滑动中
+    this.scroll.on("scroll", pos => {
+      this.$cmlEmit("scroll", pos);
+      if(this.status == PULLINGDOWN || this.status == PULLINGUP)return
+      switch (true) {
+        case (this.pulldown && pos.y >= this.topThreshold_px):
+          this.status = PULLDOWN_RELEASE
+          break;
+
+        case (this.pulldown && pos.y > 0 && pos.y < this.topThreshold_px):
+          this.status = PULLING
+          break;
+
+        case (pos.y < 0 && pos.y < this.scroll.maxScrollY + this.bottomThreshold_px):
+          this.status = PULLINGUP_RELEASE
+          break;
+
+        default:
+          this.status = INVISIABLE
+          break;
+      }
+    });
+    //滑动结束
+    this.scroll.on("touchEnd", pos => {
+      if(this.status == PULLINGDOWN || this.status == PULLINGUP)return
+      if(this.status == PULLDOWN_RELEASE){
+        this.status = PULLINGDOWN
+        this.$cmlEmit("pulldown", this);
+      }
+    });
+    //滑动结束
+    this.scroll.on("scrollEnd", pos => {
+      if(this.status == PULLINGDOWN || this.status == PULLINGUP)return
+      if(this.status == PULLINGUP_RELEASE){
+        this.status = PULLINGUP
+        this.$cmlEmit("pullup", this);
+      }
+    });
+    },
+    stop() {
+      this.status = FINISH;
+      this.scroll && this.scroll.finishPullDown();
+      this.scroll && this.scroll.finishPullUp();
+      this.scroll && this.scroll.refresh();
+    }
+  };
+}
+export default new HScroll()
+</script>
+<style lang="scss">
+@import "./h-scroll.web.scss";
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-scroll-pulldown": "./components/pulldown/pulldown",
+      "h-load-more": "../h-load-more/h-load-more"
+    },
+    "component": true
+  }
+}
+</script>

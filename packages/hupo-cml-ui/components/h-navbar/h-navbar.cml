@@ -1,0 +1,79 @@
+<template>
+  <view class="h-navbar" c-if="{{viewport.headerHeight > 0}}">
+    <view class="h-navbar-place" c-if="{{fixed}}" style="height: {{viewport.headerHeight}}px"></view>
+    <view
+      class="h-navbar-box h-navbar-box--{{type}} {{fixed ? 'is-fixed' : ''}}"
+      style="height: {{viewport.capsuleHeight}}px; padding-top: {{viewport.statusBarHeight}}px;"
+    >
+      <view class="h-navbar-box-side">
+        <!-- <slot name="left"></slot> -->
+        <h-navbar-side-left
+          class="h-navbar-box-side-full"
+          showHomeIcon="{{showHomeIcon}}"
+          type="{{type}}"
+        ></h-navbar-side-left>
+      </view>
+      <view class="h-navbar-box-middle">
+        <h-navbar-title title="{{title}}" loading="{{loading}}" type="{{type}}"></h-navbar-title>
+      </view>
+      <view class="h-navbar-box-side">
+        <!-- <slot name="right"></slot> -->
+      </view>
+    </view>
+  </view>
+</template>
+<script>
+import defaultData from "../../core/viewport/defaultData";
+import calculate from "../../core/viewport/calculate";
+import {promise} from "@hupo/core";
+import componentMixin from '../../core/mixins/component/index.js'
+
+class HNavbar implements HNavbarInterface {
+  name = 'h-navbar'
+  mixins = [...componentMixin]
+  props = {
+    loading: {
+      type: Boolean,
+      default: false
+    },
+    title: {
+      type: String,
+      default: "琥珀亲子"
+    },
+    showHomeIcon: {
+      type: Boolean,
+      default: true
+    },
+    type: {
+      type: String,
+      default: "default"
+    },
+    fixed: {
+      type: Boolean,
+      default: false
+    }
+  }
+  data = {
+    viewport: defaultData
+  }
+  async created() {
+    const data = await calculate();
+    this.viewport = data;
+  }
+}
+export default new HNavbar()
+</script>
+<style lang="scss">
+@import "./h-navbar.scss";
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-navbar-title": "./components/title/title",
+      "h-navbar-side-left": "./components/sideLeft/sideLeft"
+    },
+    "component": true
+  }
+}
+</script>
