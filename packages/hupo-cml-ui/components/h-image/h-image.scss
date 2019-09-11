@@ -1,0 +1,53 @@
+@import '../../assets/scss/output';
+
+@include b(image) {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+
+  @include e(loading) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: $--background-color-BgC2;
+    @include m(widthFix){
+      height: 240cpx;
+    }
+  }
+  @include e(loading-image){
+    width: 160cpx;
+    max-width: 50%;
+    height: auto;
+  }
+
+  @include e(loaded) {
+    width: 100%;
+    height: 100%;
+    // animation: fadeIn 1s both ease-in-out;
+  }
+  
+  @include e(loaded-image){
+    width: 100%;
+    height: 100%;
+  }
+
+  @include e(load-fail) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $--white;
+    width: 100%;
+    height: 100%;
+    font-size: 40cpx;
+    color: $--primary-font-grey-3;
+  }
+
+  @include e(hidden) {
+    width: 0cpx;
+    height: 0cpx;
+    opacity: 0;
+  }
+}

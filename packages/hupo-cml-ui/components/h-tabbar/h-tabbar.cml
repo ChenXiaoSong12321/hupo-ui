@@ -1,0 +1,112 @@
+<template>
+  <h-fixed position="{{useFixedLayout?'fixed':'absolute'}}" bottom="0" place-height="{{height}}cpx">
+    <view class="h-tab-bar">
+      <view class="h-tab-bar-wrap">
+        <view c-for="{{tabbar}}" c-key="text" class="h-tab-bar-item-wrap">
+          <view class="h-tab-bar-content" c-bind:click="onTabbarItemTap(index)">
+            <view class="h-tab-bar-icon-wrap" c-if="{{!top && hasIcon}}">
+              <image c-if="{{!(index === tapedIndex)}}" class="tab-icon" src="{{item.icon}}" style="{{!(index === tapedIndex) ? (item.iconStyle || '') : ';'}}"></image>
+              <image c-if="{{index === tapedIndex}}" class="tab-icon" src="{{item.selectedIcon || item.icon}}" style="{{(index === tapedIndex) ? (item.selectedIconStyle || '') : ''}}"></image>
+            </view>
+            <view class='tab-title'>
+              <text class="tab-text" style="color:{{index === tapedIndex ? selectedTextStyle:textStyle}}">{{item.text}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </h-fixed>
+</template>
+
+<script>
+import componentMixin from '../../core/mixins/component/index.js'
+import {primaryColor,fontColorC3} from '../../assets/config/style.var.js'
+
+class HTabbar implements HTabbarInterface{
+  name = 'h-tabbar'
+  mixins = [...componentMixin]
+  props = {
+    tabbar: {
+      type: Array,
+      default: []
+    },
+    tabLineStyle:{
+      type: String,
+      default: ''
+    },
+    textStyle:{
+      type: String,
+      default: fontColorC3
+    },
+    selectedTextStyle:{
+      type: String,
+      default: primaryColor
+    },
+    position:{
+      type: String,
+      default: ''
+    },
+    useFixedLayout:{
+      type: Boolean,
+      default: true
+    },
+    selectedIndex: { // 默认选中那个tabbbar
+      type: Number,
+      default: 0,
+    },
+  }
+  data = {
+    tapedIndex: 0,
+    height: 100
+  }
+  computed = {
+    top() {
+      return this.tabbar.position === 'top';
+    },
+    //必须每个list中都配置icon,selectedIcon才展示icon,有一个不配置就不会展示
+    hasIcon() {
+      let necessaryKeys = ['icon'];
+      return (this.tabbar || []).every((item) => {
+        return necessaryKeys.every((key) => Object.keys(item).includes(key))
+      })
+    }
+  }
+  watch = {
+    selectedIndex() {
+      this.tapedIndex = this.selectedIndex;
+    }
+  }
+  methods = {
+    onTabbarItemTap(index) {
+      this.tapedIndex = index;
+      this.$cmlEmit('tabbarclick', {
+        index
+      })
+    }
+  }
+  mounted() {
+    this.tapedIndex = this.selectedIndex;
+    console.log(this)
+    if (!this.tabbar.length) {
+      return '';
+    }
+    let width = 750 / this.tabbar.length; //line的总宽度；
+    let leftOffset = this.selectedIndex * width;
+  }
+}
+export default new HTabbar()
+</script>
+<style lang="scss">
+ @import './h-tabbar.scss';
+</style>
+<script cml-type="json">
+  {
+    "base": {
+      "usingComponents": {
+        "h-fixed": "../h-fixed/h-fixed"
+      },
+      "component": true
+    }
+  }
+
+</script>

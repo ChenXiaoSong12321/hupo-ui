@@ -1,0 +1,27 @@
+<template>
+  <view class="h-pane-item">
+    <slot></slot>
+  </view>
+</template>
+<script>
+import componentMixin from '../../core/mixins/component/index.js'
+
+class HTabPaneItem implements HTabPaneItemInterface{
+  name = 'h-tab-pane-item'
+  mixins = [...componentMixin]
+}
+export default new HTabPaneItem()
+</script>
+<style lang="scss">
+@import "../../assets/scss/output";
+@include b(pane-item) {
+  width: 750cpx;
+}
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "component": true
+  }
+}
+</script>

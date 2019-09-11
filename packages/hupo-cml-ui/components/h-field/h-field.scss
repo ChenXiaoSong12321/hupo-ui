@@ -1,0 +1,42 @@
+@import '../../assets/scss/output';
+
+@include b(field){
+  @include flexCenter(vertical);
+  height: 88cpx;
+  width: 100%;
+  @include e(wrap){
+    height: 88cpx;
+    width: 100%;
+  }
+  @include e(icon){
+    font-size: 34cpx;
+    margin-left: 30cpx;
+    width: 44cpx;
+  }
+  @include e(label){
+    font-size: $--font-size-desc-large-FS1;
+    color: $--font-color-FC1;
+    width: 124cpx;
+    margin-left: 30cpx;
+    @include when(has-icon){
+      margin-left: 10cpx;
+    }
+  }
+  @include e(input-wrap){
+    flex: 1;
+    height: 88cpx; 
+    @include when(no-label){
+      margin-left: 10cpx;
+    }
+  }
+  @include e(slot){
+    padding-right: 30cpx;
+  }
+  @include e(bottom-line-wrap){
+    padding: 0 30cpx;
+  }
+  @include e(bottom-line){
+    width: 100%;
+    border-bottom: 1px solid $--splitline-color-FgxC1;
+  }
+}

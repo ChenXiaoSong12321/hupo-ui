@@ -1,0 +1,84 @@
+<script cml-type="interface">
+interface DifferenceInterface {}
+</script>
+
+<script cml-type="web">
+import getNetworkType from '../utils/getNetworkType'
+import {global} from '@hupo/core'
+
+  class Difference implements DifferenceInterface {
+    getUrl(){
+      return window.location.href
+    }
+    getRouter(ctx){
+      return {
+        path: ctx.$route.path,
+        route: ctx.$route.path,
+        params: ctx.$route.params,
+        query: ctx.$route.query
+      }
+    }
+    selector(ctx,selector){
+      if(!ctx || !ctx.$children || ctx.$children.length == 0){
+        return []
+      }
+      const selectors = selector.split('.')
+      selectors.shift()
+      const results = []
+      ctx.$children.forEach(child => {
+        if(!child || !child.$el || !child.$el.className) return
+        const classNames = child.$el.className.split(' ')
+        if(classNames.find(c => selectors.indexOf(c) > -1)){
+          results.push(child)
+        }
+      })
+      return results
+    }
+    async nextTick(){
+      Vue && await Vue.nextTick()
+    }
+    getNetworkType(){
+      return getNetworkType()
+    }
+    getDataset(event){
+      const currentTarget = event.currentTarget || event.detail.currentTarget
+      return currentTarget.dataset
+    }
+  }
+  export default new Difference();
+</script>
+<script cml-type="wx">
+import {wxTools, promise} from '@hupo/core'
+
+  class Difference implements DifferenceInterface {
+    getUrl(){
+      const page = this.getCurrentPage()
+      return ''
+    }
+    getRouter(ctx){
+      return {
+        path: ctx.route,
+        route: ctx.route,
+        params: ctx.options,
+        query: ctx.options
+      }
+    }
+    selector(ctx,selector){
+      return ctx?ctx.selectAllComponents(selector):[]
+    }
+    async nextTick(delay = 500){
+      if(wxTools.$nextTick){
+        await wxTools.$nextTick()
+      }else{
+        await promise.delay(delay)
+      }
+    }
+    getNetworkType(){
+      return wxTools.getNetworkType()
+    }
+    getDataset(event){
+      return event.currentTarget.dataset
+    }
+  }
+  export default new Difference();
+</script>

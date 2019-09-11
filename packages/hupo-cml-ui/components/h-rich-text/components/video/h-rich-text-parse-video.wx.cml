@@ -1,0 +1,40 @@
+<template>
+  <view class="{{nodes.classStr}} wxParse-{{nodes.tag}}" style="{{nodes.styleStr || ''}}">
+    <block c-if="{{video.type == 'tencentvideo'}}">
+      <txv-video vid="{{video.vid}}" playerid="{{video.vid}}" width="100%" height="auto"></txv-video>
+    </block>
+  </view>
+</template>
+<script>
+class HRichTextParseVideo implements HRichTextParseVideoInterface {
+  props= {
+    nodes: {
+      type: Object,
+      default: {}
+    }
+  }
+  computed = {
+    video(){
+      const video = {}
+      if (this.nodes.attr && this.nodes.attr.src && this.nodes.attr.src.indexOf('qq.com') > -1) {
+        video.type = 'tencentvideo'
+        video.vid = this.nodes.attr.src.split('/').pop().replace(/\.html/, '')
+      }
+      return video
+    }
+  }
+}
+export default new HRichTextParseVideo();
+</script>
+
+<style lang="scss">
+@import "../common.scss";
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "component": true
+  }
+}
+</script>

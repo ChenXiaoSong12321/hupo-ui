@@ -1,15 +1,16 @@
 {
   "name": "hupo-ui",
-  "version": "0.0.2",
+  "version": "0.2.5",
   "description": "hupo ui基础组件库&接口能力",
   "scripts": {
     "build": "cml wx build && cml web build",
     "build-web": "cml web build",
     "commit": "sh ./bin/commit.sh",
-    "publish": "node ./bin/changeVersion.js && sh ./bin/publish.sh && cd package && npm publish",
+    "publish": "sh ./bin/publish.sh && lerna publish",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
+  "main": "package/components",
   "author": "Hupo-Team",
   "license": "Apache",
   "dependencies": {
@@ -27,6 +28,7 @@
     "eslint-config-standard": "^12.0.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.1.2",
+    "lerna": "^3.16.4",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "vuepress": "^0.14.11"

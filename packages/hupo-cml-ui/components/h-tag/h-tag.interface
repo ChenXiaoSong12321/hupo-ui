@@ -1,0 +1,6 @@
+
+<script cml-type='interface'>
+interface HTagInterface{
+}
+</script>
+<script cml-type="web,wx" src="./h-tag.cml"></script>

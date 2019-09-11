@@ -1,0 +1,47 @@
+<template>
+  <view class="h-navbar-title">
+    <view class="h-navbar-title-side">
+      <h-navbar-loading show="{{loading}}" type="{{type}}"></h-navbar-loading>
+    </view>
+    <view class="h-navbar-title-text h-navbar-title-text--{{type}}">
+      <text>{{title}}</text>
+    </view>
+    <view class="h-navbar-title-side"></view>
+  </view>
+</template>
+
+<script>
+import {componentBaseTreeMixin, componentEventMixin} from '@hupo/core'
+class HNavbarTitle implements HNavbarTitleInterface {
+  name = 'h-navbar-title'
+  mixins = [componentBaseTreeMixin, componentEventMixin]
+  props = {
+    title: {
+      type: String,
+      default: '琥珀亲子'
+    },
+    loading: {
+      type: Boolean,
+      default: false
+    },
+    type: {
+      type: String,
+      default: 'default'
+    }
+  }
+}
+export default new HNavbarTitle()
+</script>
+<style lang="scss">
+@import "./title.scss";
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-navbar-loading": "../loading/loading"
+    },
+    "component": true
+  }
+}
+</script>

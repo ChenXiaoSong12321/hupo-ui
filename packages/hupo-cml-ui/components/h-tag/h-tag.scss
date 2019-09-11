@@ -1,0 +1,17 @@
+@import '../../assets/scss/output';
+
+@include b(tag) {
+  @include flexCenter;
+  border-radius: 5cpx;
+  @include m(primary) {
+    background-color: transparent;
+    color: $--secondary-color-CA2;
+    border: 1px solid rgba($--secondary-color-CA2, 0.4);
+  }
+  
+  @include m(medium) {
+    height: 30cpx;
+    padding:0 8cpx;
+    font-size: $--font-size-weak-medium-FW2;
+  }
+}

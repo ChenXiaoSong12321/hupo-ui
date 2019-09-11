@@ -1,0 +1,4 @@
+<script cml-type='interface'>
+interface HPaginationInterface{}
+</script>
+<script cml-type="web,wx" src="./h-pagination.cml"></script>

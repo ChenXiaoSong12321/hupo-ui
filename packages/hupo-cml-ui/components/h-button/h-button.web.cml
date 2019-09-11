@@ -1,0 +1,66 @@
+<template>
+  <view
+    form-type="{{openType ? '' : 'submit'}}"
+    class="h-button {{ type == 'none' ? 'h-button--none' : 'h-button--'+size }} {{ type == 'none' ? 'h-button--none' : 'h-button--'+type }} {{stateClass}} {{radius?'is-radius':''}} {{customClass}}"
+    disabled="{{disabled}}"
+    open-type="{{openType}}"
+    style="{{customStyle||''}}"
+    c-bind:tap="clickBtn"
+  >
+    <slot></slot>
+  </view>
+</template>
+
+<script>
+import HButtonMixins from "./h-button.mixins.js";
+import componentMixin from "../../core/mixins/component/index.js";
+
+class HButton implements HButtonInterface {
+  name = 'h-button'
+  mixins = [HButtonMixins, ...componentMixin]
+  methods = {
+    getuserinfo(e) {
+      this.btnEmit("getuserinfo", e);
+    },
+    contact(e) {
+      this.btnEmit("contact", e);
+    },
+    getphonenumber(e) {
+      this.btnEmit("getphonenumber", e);
+    },
+    error(e) {
+      this.btnEmit("error", e);
+    },
+    opensetting(e) {
+      this.btnEmit("opensetting", e);
+    },
+    clickBtn(e) {
+      const { disabled, openType } = this;
+      if (disabled) return;
+      if (openType) {
+        this[openType.toLowerCase()](e);
+        return;
+      }
+      console.log("onclick");
+      this.btnEmit("onclick", e);
+    },
+    async handleFormSubmit(event) {
+      console.log(event);
+    }
+  };
+}
+export default new HButton()
+</script>
+
+<style lang="scss">
+@import "./h-button.scss";
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {},
+    "component": true
+  }
+}
+</script>

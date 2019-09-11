@@ -1,0 +1,46 @@
+<template>
+  <view class="{{nodes.classStr}} wxParse-{{nodes.tag}}" style="{{nodes.styleStr || ''}}">
+    <view c-for="{{nodes.nodes}}">
+      <view
+        c-if="{{item.tag == 'td'}}"
+        class="{{item.classStr}} wxParse-{{item.tag}}"
+        style="{{item.styleStr || ''}}"
+      >
+        <h-rich-text-parse-base c-for="{{item.nodes}}" c-for-item="td" nodes="{{td}}"></h-rich-text-parse-base>
+      </view>
+      <h-rich-text-parse-base c-else nodes="{{item}}"></h-rich-text-parse-base>
+    </view>
+  </view>
+</template>
+<script>
+import recursion from '../../recursion.interface'
+class HRichTextParseTr implements HRichTextParseTrInterface{
+  name = 'h-rich-text-parse-tr'
+
+  beforeCreate () {
+    recursion.beforeCreate(this)
+  }
+  props = {
+    nodes: {
+      type: Object,
+      default: {}
+    }
+  }
+}
+export default new HRichTextParseTr();
+</script>
+
+<style lang="scss">
+@import "../common.scss";
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "h-rich-text-parse-base": "../base/h-rich-text-parse-base"
+    },
+    "component": true
+  }
+}
+</script>
