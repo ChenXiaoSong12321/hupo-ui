@@ -1,4 +1,0 @@
-<script cml-type='interface'>
-interface HPopupInterface{}
-</script>
-<script cml-type="web,wx" src="./h-popup.cml"></script>

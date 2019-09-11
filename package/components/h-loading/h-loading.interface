@@ -1,4 +1,0 @@
-<script cml-type='interface'>
-interface HLoadingInterface{}
-</script>
-<script cml-type="web,wx" src="./h-loading.cml"></script>

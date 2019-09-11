@@ -5,7 +5,7 @@
   "main": "/components",
   "author": "hupo",
   "dependencies": {
-    "@hupo/core": "^0.2.5",
+    "@hupo/core": "latest",
     "better-scroll": "^1.15.2",
     "lozad": "^1.9.0"
   }
