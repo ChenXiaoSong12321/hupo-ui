@@ -65,7 +65,6 @@ export default {
       if (this.throttle > 0) {
         await this.$throttleButton(this.throttle)
       }
-
       this.$cmlEmit(type, data)
       this.$cmlEmit('test', data)
     }
