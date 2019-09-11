@@ -1,6 +1,16 @@
 {
+  "version": "0.2.4",
   "packages": [
     "packages/*"
   ],
-  "version": "0.2.5"
+  "bootstarp": {
+    "scope": {
+      "hupo": "https://nexus.hupovip.cn/repository/hp-npm/"
+    }
+  },
+  "command": {
+    "publish": {
+      "registry": "https://nexus.hupovip.cn/repository/hp-npm/"
+    }
+  }
 }

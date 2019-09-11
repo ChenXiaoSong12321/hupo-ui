@@ -11,5 +11,6 @@
     "@hupo/core": "^0.2.5",
     "better-scroll": "^1.15.2",
     "lozad": "^1.9.0"
-  }
+  },
+  "gitHead": "12b4b278d526b82fa9836e0ca7bc66dfc1db424f"
 }
