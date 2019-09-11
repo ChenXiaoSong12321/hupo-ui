@@ -8,9 +8,13 @@
 @mixin ellipsis ($line-num: 1) {
   overflow-x: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  -webkit-line-clamp: $line-num;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line-num; /* 控制显示的行数 */
+  line-height: 1.5;        /* 对不支持浏览器的 */
+  max-height: $line-num*1.5;       /* 对不支持浏览器的弥补 */
 }
+
 @mixin h-loading($width:40cpx) {
   @at-root {
     @keyframes loading-rotate {
