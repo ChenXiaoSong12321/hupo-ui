@@ -69,7 +69,6 @@ typings/
 
 dist
 output/
-package
 .temp
 node_modules
 # next.js build output
