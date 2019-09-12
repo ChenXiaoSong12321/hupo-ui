@@ -17,7 +17,12 @@
         <h-icon name="icondianjibeifen" customStyle="color:#999;"></h-icon>
       </view>
       <view class="icon-wrap">
+        <h-icon name="iconmorengouxuanbeifen1" customStyle="color:#999"></h-icon>
         <h-icon name="iconmorengouxuanbeifen"></h-icon>
+        <h-icon name="iconmorenbugouxuanbeifen"></h-icon>
+        <h-icon name="iconbukegouxuanbeifen1"></h-icon>
+        <h-icon name="iconbukegouxuanbeifen" customStyle="color:#999"></h-icon>
+
       </view>
     </view>
   </h-page>
