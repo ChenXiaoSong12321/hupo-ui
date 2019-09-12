@@ -26,9 +26,17 @@ class HLoading implements HLoadingInterface {
       type: String,
       default: 'circular'
     },
-    color: {
+    effect: {
       type: String,
-      default: '#c9c9c9'
+      default: 'dark'
+    }
+  }
+  computed={
+    color() {
+      return ({
+        dark: '#c9c9c9',
+        light: '#fff'
+      })[this.effect] || ''
     }
   }
 }

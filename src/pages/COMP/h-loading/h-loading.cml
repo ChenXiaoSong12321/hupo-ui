@@ -3,29 +3,34 @@
     <view class="container">
       <h-button class="btn" c-bind:onclick="showLoading">show loading</h-button>
       <h-popup-manager show="{{show}}" type="circular" c-bind:onclose="closePopup">
-        <h-loading color="#fff"></h-loading>
+        <h-loading effect="light"></h-loading>
+      </h-popup-manager>
+      <h-button class="btn" c-bind:onclick="showLoadingcircular">show loading type="circular"</h-button>
+      <h-popup-manager show="{{showcircular}}" type="circular" c-bind:onclose="closePopup">
+        <h-loading effect="light" type="spinner"></h-loading>
       </h-popup-manager>
     </view>
   </h-page>
 </template>
 <script>
 import pageMixin from '../../../core/mixins/page/index.js'
-import {promise} from "@hupo/core";
 
 export default {
   mixins: [...pageMixin],
   data: {
-    show:false
+    show: false,
+    showcircular: false
   },
   methods: {
-    showLoading(){
+    showLoading() {
       this.show = true
-      // setTimeout(() => {
-      //   this.show = false
-      // }, 3000);
     },
-    closePopup(){
+    showLoadingcircular() {
+      this.showcircular = true
+    },
+    closePopup() {
       this.show = false
+      this.showcircular = false
     }
   }
 }

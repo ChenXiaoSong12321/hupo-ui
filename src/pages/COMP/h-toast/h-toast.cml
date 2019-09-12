@@ -23,35 +23,35 @@ export default {
     // show: false,
     // mask: false,
     // needIcon: true,
-    show_toastHasMask(){
+    show_toastHasMask() {
       this._toast({
-        message:'很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的提示',
+        message: '很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的提示',
         duration: 2000,
-        mask:true
+        mask: true
       })
     },
-    show_toast(){
+    show_toast() {
       this._toast({
         message: '测试',
-        duration: 3000,
+        duration: 3000
       })
     },
-    async show_toastAwait(){
+    async show_toastAwait() {
       console.log('start toast')
       await this._toast('提示框 await')
       console.log('complete toast')
     },
-    show_loadingToast(){
+    show_loadingToast() {
       this._loadingToast()
-      this._setTimeout(() => {this._clearToast()}, 3000);
+      this._setTimeout(() => { this._clearToast() }, 3000)
     },
-    wori(){
+    wori() {
       console.log('wori')
     },
-    failToast(){
+    failToast() {
       this._failToast('错误提示')
     },
-    successToast(){
+    successToast() {
       this._successToast('成功提示')
     }
   }

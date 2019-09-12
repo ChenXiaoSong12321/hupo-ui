@@ -17,29 +17,29 @@ export default {
       await this.__handleToastBroadcast(options)
     },
     _loadingToast(options = {}) {
-      this.__handleToastBroadcast(options, { message: '加载中...', duration: -1 ,needIcon: true, type: 'loading' })
+      this.__handleToastBroadcast(options, { message: '加载中...', duration: -1, needIcon: true, type: 'loading' })
     },
     _clearToast() {
       this._broadcast('h-toast', 'toggle', { show: false })
     },
     _failToast(options = {}) {
-      this.__handleToastBroadcast(options, { needIcon: true, type: 'warn'})
+      this.__handleToastBroadcast(options, { needIcon: true, type: 'warn' })
     },
     _successToast(options = {}) {
-      this.__handleToastBroadcast(options,{ needIcon: true, type: 'success' })
+      this.__handleToastBroadcast(options, { needIcon: true, type: 'success' })
     },
-    __handleToastBroadcast(options, typeOptions){
-      return new Promise((resolve,reject)=>{
+    __handleToastBroadcast(options, typeOptions) {
+      return new Promise((resolve, reject) => {
         clearTimeout(timer)
         options = parseOptions(options)
         options = toastOptions({ ...typeOptions, ...options })
         this._broadcast('h-toast', 'toggle', options)
-        if (options.duration > 0){
-          timer = this._setTimeout(_=> {
-            this._clearToast() 
+        if (options.duration > 0) {
+          timer = this._setTimeout(_ => {
+            this._clearToast()
             resolve()
-          },options.duration)
-        } 
+          }, options.duration)
+        }
       })
     }
   }

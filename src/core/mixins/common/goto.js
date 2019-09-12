@@ -1,7 +1,7 @@
 import cml from 'chameleon-api'
 import difference from '../../difference/difference.interface'
 import channelDifference from '../../utils/channelDifference'
-import {global, wxTools} from '@hupo/core'
+import { global, wxTools } from '@hupo/core'
 import url from '../../utils/url'
 
 let indexRoute = ''
