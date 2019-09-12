@@ -1,32 +1,24 @@
 module.exports = {
   root: true,
-  parser: "babel-eslint",
   parserOptions: {
     sourceType: 'module',
-    "allowImportExportEverywhere": true  //ignore eslint error: 'import' and 'export' may only appear at the top level
+    parser: 'babel-eslint'
   },
   env: {
-    browser: true,
     node: true,
-    es6: true,
+    es6: true
   },
-  extends: 'eslint:recommended',
-  // required to lint *.vue files
+  extends: [
+    'eslint:recommended',
+    'plugin:vue/essential'
+  ],
   plugins: [
     'html'
   ],
-  // check if imports actually resolve
-  'settings': {
-    'import/resolver': {
-      'webpack': {
-        'config': 'build/webpack.base.conf.js'
-      }
-    }
-  },
-  // add your custom rules here
-  //it is base on https://github.com/vuejs/eslint-config-vue
   rules: {
+    'vue/comment-directive': 0,
     'accessor-pairs': 2,
+    "no-unused-vars": 0,
     'arrow-spacing': [2, {
       'before': true,
       'after': true
@@ -145,7 +137,8 @@ module.exports = {
     'no-unsafe-finally': 2,
     'no-unused-vars': [2, {
       'vars': 'all',
-      'args': 'none'
+      'args': 'none',
+      'varsIgnorePattern': 'regeneratorRuntime|moment'
     }],
     'no-useless-call': 2,
     'no-useless-computed-key': 2,
@@ -195,5 +188,18 @@ module.exports = {
       objectsInObjects: false
     }],
     'array-bracket-spacing': [2, 'never']
+  },
+  globals: {
+    "wx": true,
+    "App": true,
+    "Page": true,
+    "getApp": true,
+    "Component": true,
+    "getCurrentPages": true,
+    "Behavior": true,
+    "getRegExp": true,
+    "getDate": true,
+    "cml": true,
+    "window": true
   }
 }
