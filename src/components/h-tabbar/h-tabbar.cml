@@ -20,9 +20,9 @@
 
 <script>
 import componentMixin from '../../core/mixins/component/index.js'
-import {primaryColor,fontColorC3} from '../../assets/config/style.var.js'
+import { primaryColor, fontColorC3 } from '../../assets/config/style.var.js'
 
-class HTabbar implements HTabbarInterface{
+class HTabbar implements HTabbarInterface {
   name = 'h-tabbar'
   mixins = [...componentMixin]
   props = {
@@ -30,30 +30,30 @@ class HTabbar implements HTabbarInterface{
       type: Array,
       default: []
     },
-    tabLineStyle:{
+    tabLineStyle: {
       type: String,
       default: ''
     },
-    textStyle:{
+    textStyle: {
       type: String,
       default: fontColorC3
     },
-    selectedTextStyle:{
+    selectedTextStyle: {
       type: String,
       default: primaryColor
     },
-    position:{
+    position: {
       type: String,
       default: ''
     },
-    useFixedLayout:{
+    useFixedLayout: {
       type: Boolean,
       default: true
     },
     selectedIndex: { // 默认选中那个tabbbar
       type: Number,
-      default: 0,
-    },
+      default: 0
+    }
   }
   data = {
     tapedIndex: 0,
@@ -61,11 +61,11 @@ class HTabbar implements HTabbarInterface{
   }
   computed = {
     top() {
-      return this.tabbar.position === 'top';
+      return this.tabbar.position === 'top'
     },
-    //必须每个list中都配置icon,selectedIcon才展示icon,有一个不配置就不会展示
+    // 必须每个list中都配置icon,selectedIcon才展示icon,有一个不配置就不会展示
     hasIcon() {
-      let necessaryKeys = ['icon'];
+      const necessaryKeys = ['icon']
       return (this.tabbar || []).every((item) => {
         return necessaryKeys.every((key) => Object.keys(item).includes(key))
       })
@@ -73,25 +73,25 @@ class HTabbar implements HTabbarInterface{
   }
   watch = {
     selectedIndex() {
-      this.tapedIndex = this.selectedIndex;
+      this.tapedIndex = this.selectedIndex
     }
   }
   methods = {
     onTabbarItemTap(index) {
-      this.tapedIndex = index;
+      this.tapedIndex = index
       this.$cmlEmit('tabbarclick', {
         index
       })
     }
   }
   mounted() {
-    this.tapedIndex = this.selectedIndex;
+    this.tapedIndex = this.selectedIndex
     console.log(this)
     if (!this.tabbar.length) {
-      return '';
+      return ''
     }
-    let width = 750 / this.tabbar.length; //line的总宽度；
-    let leftOffset = this.selectedIndex * width;
+    const width = 750 / this.tabbar.length // line的总宽度；
+    const leftOffset = this.selectedIndex * width
   }
 }
 export default new HTabbar()
