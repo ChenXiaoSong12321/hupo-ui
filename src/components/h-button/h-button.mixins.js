@@ -1,7 +1,8 @@
-import { throttle } from '../../core/utils/throttle'
+import throttle from 'lodash.throttle'
+import debounce from 'lodash.debounce'
 
 export default {
-  name:'h-button',
+  name: 'h-button',
   props: {
     customClass: {
       type: String,
@@ -44,7 +45,6 @@ export default {
       default: false
     }
   },
-
   computed: {
     stateClass() {
       const classes = ['group', 'plain', 'disabled', 'opacity']
@@ -57,16 +57,17 @@ export default {
       return stateClass
     }
   },
-  mounted() {
-    this.$throttleButton = throttle()
-  },
   methods: {
     async btnEmit(type, data = {}) {
-      if (this.throttle > 0) {
-        await this.$throttleButton(this.throttle)
-      }
+      console.log('click', throttle, this.test)
+      throttle(this.test, 300)
+      debounce(this.test, 300)
+      // throttle(_ => {
+      console.log('emit')
       this.$cmlEmit(type, data)
       this.$cmlEmit('test', data)
-    }
+      // }, this.throttle)
+    },
+    test() { console.log('test') }
   }
 }

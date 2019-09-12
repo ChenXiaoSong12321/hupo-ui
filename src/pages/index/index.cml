@@ -58,137 +58,136 @@
 </h-page>
 </template>
 <script>
-import cml from "chameleon-api"
+import cml from 'chameleon-api'
 import routerConfig from '../../router.config.json'
 import pageMixin from '../../core/mixins/page/index.js'
 
-let routes = routerConfig.routes;
+const routes = routerConfig.routes
 
-let routeObj = {}
+const routeObj = {}
 routes.forEach(route => {
   routeObj[route['name']] = route
 })
-
 
 export default {
   mixins: [...pageMixin],
   data: {
     comList: [
       {
-        cid: "content1",
-        name: "基础内容-弹出层",
+        cid: 'content1',
+        name: '基础内容-弹出层',
         open: false,
         pages: [
-          routeObj["h-toast"],
-          routeObj["h-popup-manager"],
-          routeObj["h-popup"],
-          routeObj["h-dialog"],
-          routeObj["h-loading"]
+          routeObj['h-toast'],
+          routeObj['h-popup-manager'],
+          routeObj['h-popup'],
+          routeObj['h-dialog'],
+          routeObj['h-loading']
         ],
         src: require(`../../assets/images/component/kind/content.png`)
       },
       {
-        cid: "content2",
-        name: "基础内容-展示",
+        cid: 'content2',
+        name: '基础内容-展示',
         open: false,
         pages: [
-          routeObj["h-icon"],
-          routeObj["h-image"],
-          routeObj["h-search"],
-          routeObj["h-rich-text"],
-          routeObj["h-load-more"],
-          routeObj["h-tag"],
-          routeObj["h-pagination"],
-          routeObj["h-progress"],
-          routeObj["h-filter"],
-          routeObj["h-carousel"]
+          routeObj['h-icon'],
+          routeObj['h-image'],
+          routeObj['h-search'],
+          routeObj['h-rich-text'],
+          routeObj['h-load-more'],
+          routeObj['h-tag'],
+          routeObj['h-pagination'],
+          routeObj['h-progress'],
+          routeObj['h-filter'],
+          routeObj['h-carousel']
         ],
         src: require(`../../assets/images/component/kind/content.png`)
       },
       {
-        cid: "form",
-        name: "表单组件",
+        cid: 'form',
+        name: '表单组件',
         open: false,
         pages: [
-          routeObj["h-radio"],
-          routeObj["h-checkbox"],
-          routeObj["h-input"],
-          routeObj["h-field"],
-          routeObj["h-button"],
-          routeObj["h-stepper"],
+          routeObj['h-radio'],
+          routeObj['h-checkbox'],
+          routeObj['h-input'],
+          routeObj['h-field'],
+          routeObj['h-button'],
+          routeObj['h-stepper']
         ],
         src: require(`../../assets/images/component/kind/form.png`)
       },
       {
-        cid: "nav",
-        name: "导航",
+        cid: 'nav',
+        name: '导航',
         open: false,
         pages: [
-          routeObj["h-navbar"],
-          routeObj["h-tab"],
-          routeObj["h-tabbar"],
+          routeObj['h-navbar'],
+          routeObj['h-tab'],
+          routeObj['h-tabbar']
         ],
         src: require(`../../assets/images/component/kind/nav.png`)
       }
     ],
     apiList: [
       {
-        cid: "page",
-        name: "界面",
+        cid: 'page',
+        name: '界面',
         open: false,
         pages: [
         ],
         src: require(`../../assets/images/api/kind/page.png`)
-      },
+      }
     ],
     comLogoSrc: require(`../../assets/images/component/kind/logo.png`),
     apiLogoSrc: require(`../../assets/images/api/kind/logo.png`),
     tabList: [],
-    activeTab: "component",
-    arrowIcon: "https://gw.alicdn.com/tfs/TB11zBUpwMPMeJjy1XbXXcwxVXa-22-22.png",
+    activeTab: 'component',
+    arrowIcon: 'https://gw.alicdn.com/tfs/TB11zBUpwMPMeJjy1XbXXcwxVXa-22-22.png',
     loading: false
   },
   computed: {
     computedStyle() {
-      let transVal = this.activeTab === "api" ? "-750" : "0";
-      let styl = `transform: translateX(${transVal}cpx)`;
+      const transVal = this.activeTab === 'api' ? '-750' : '0'
+      const styl = `transform: translateX(${transVal}cpx)`
 
-      return styl;
+      return styl
     },
     bodyComputedStyl() {
-      let styl = "";
+      const styl = ''
 
-      return styl;
+      return styl
     }
   },
   methods: {
     kindToggle: function(e) {
-      let id = e.currentTarget.id;
-      let list = this.activeTab === "component" ? this.comList : this.apiList;
+      const id = e.currentTarget.id
+      const list = this.activeTab === 'component' ? this.comList : this.apiList
 
       for (var i = 0, len = list.length; i < len; ++i) {
         if (list[i].cid == id) {
-          list[i].open = !list[i].open;
+          list[i].open = !list[i].open
         } else {
-          list[i].open = false;
+          list[i].open = false
         }
       }
     },
     tabItemClick(e) {
-      let tar = e.currentTarget;
-      let dataset = tar.dataset;
-      let index = parseInt(dataset.index);
+      const tar = e.currentTarget
+      const dataset = tar.dataset
+      const index = parseInt(dataset.index)
 
-      this.tabList[index].selected = true;
-      this.tabList[(index + 1) % 2].selected = false;
+      this.tabList[index].selected = true
+      this.tabList[(index + 1) % 2].selected = false
 
-      this.activeTab = index == 0 ? "component" : "api";
+      this.activeTab = index == 0 ? 'component' : 'api'
     },
     routeTo(e) {
-      let tar = e.currentTarget;
-      let dataset = tar.dataset;
-      let url = dataset.routeurl;
-      let path = dataset.routepath;
+      const tar = e.currentTarget
+      const dataset = tar.dataset
+      const url = dataset.routeurl
+      const path = dataset.routepath
       this._goto({
         path: path
       })
@@ -196,21 +195,21 @@ export default {
       //   path: path
       // });
     },
-    onPulldown(e){
+    onPulldown(e) {
       this._setTimeout(() => {
         console.log(111)
         e.detail.stop()
-      }, 3000);
+      }, 3000)
     },
-    onPullup(e){
+    onPullup(e) {
       this._setTimeout(() => {
         console.log(222)
         e.detail.stop()
-      }, 2000);
+      }, 2000)
     }
   },
 
-  beforeCreate () {
+  beforeCreate() {
     console.log(this)
   },
   async mounted() {
