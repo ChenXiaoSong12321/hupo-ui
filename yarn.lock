@@ -927,44 +927,6 @@
   dependencies:
     axios "^0.19.0"
 
-<<<<<<< HEAD
-"@hupo/core-request-wx-app@^0.2.6":
-  version "0.2.6"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-request-wx-app/-/core-request-wx-app-0.2.6.tgz#4b72bd5284f6216fb82679ac57101bf532deb0b8"
-  integrity sha512-0VzTwZQuY30OwFMWzCC10mjwip1MdJDO9v1AXSVJB92DZMGDkvyzn2WGWKHUHdYj35eaqlZS1k0TaJleMgO6Nw==
-
-"@hupo/core-timer@^0.2.6":
-  version "0.2.6"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-timer/-/core-timer-0.2.6.tgz#dce2a9767677804b5d5551b699e4de8b9ad06b75"
-  integrity sha512-s6MP67Dw60xJuN2C1js5OWV28ZmAcgY44hWK090zVQn2q95TsVN1kUUlsxAw/UMkqeOd/YxuBblJZvdZDaQ4dQ==
-
-"@hupo/core-url@^0.2.6":
-  version "0.2.6"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-url/-/core-url-0.2.6.tgz#25a760fe36bae721029e64bfd5bf985938b665fd"
-  integrity sha512-xXrGgc0eaSHI++Dlgg8ydAnPo8IhAAn2wsq8JlFGXIHC28n3A7/CT1Lyc4/XF9/SxVKnS/nObvxpia7SaxBR6w==
-
-"@hupo/core-wx-app-tools@^0.2.6":
-  version "0.2.6"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-wx-app-tools/-/core-wx-app-tools-0.2.6.tgz#ae152b5aa08b47157be032416b0b3c23200672f5"
-  integrity sha512-EhlSmoPtOesjCEQzH952psTFwYl+36T2mLg8WOqdRDorBqWoME9hH/hH8F9jAsZR9QlHAwf+uscgsq/omCf2cA==
-
-"@hupo/core@latest":
-  version "0.2.6"
-  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core/-/core-0.2.6.tgz#d3f35d7e1be2d2349876e3b4194d2a03a3f51fda"
-  integrity sha512-oGzmVGU5n4Ba6o6FXzN2A2/mwB+Ckb3IcduBe1OWDboK9xGCgv8Qen//NXA3GS0FoOVRKP3+Fckw/Hh7wBpaAA==
-  dependencies:
-    "@hupo/core-cml-base-tree" "^0.2.6"
-    "@hupo/core-cml-event" "^0.2.6"
-    "@hupo/core-dayjs" "^0.2.6"
-    "@hupo/core-global" "^0.2.6"
-    "@hupo/core-promise" "^0.2.6"
-    "@hupo/core-request-base" "^0.2.6"
-    "@hupo/core-request-web" "^0.2.6"
-    "@hupo/core-request-wx-app" "^0.2.6"
-    "@hupo/core-timer" "^0.2.6"
-    "@hupo/core-url" "^0.2.6"
-    "@hupo/core-wx-app-tools" "^0.2.6"
-=======
 "@hupo/core-request-wx-app@^0.2.7":
   version "0.2.7"
   resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-request-wx-app/-/core-request-wx-app-0.2.7.tgz#e372e65d00ece1143c45e29dd3f7c6da19992775"
@@ -1001,7 +963,6 @@
     "@hupo/core-timer" "^0.2.7"
     "@hupo/core-url" "^0.2.7"
     "@hupo/core-wx-app-tools" "^0.2.7"
->>>>>>> 7175741b10af0fecb8846952d2f11fce37a42bef
 
 "@lerna/add@3.16.2":
   version "3.16.2"
@@ -6485,6 +6446,11 @@ lodash.clonedeep@^4.5.0:
   version "4.5.0"
   resolved "https://registry.npmjs.org/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
   integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
+
+lodash.debounce@^4.0.8:
+  version "4.0.8"
+  resolved "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
+  integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
 
 lodash.get@^4.4.2:
   version "4.4.2"
