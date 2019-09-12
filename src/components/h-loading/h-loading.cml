@@ -34,7 +34,7 @@ class HLoading implements HLoadingInterface {
   computed={
     color() {
       return ({
-        dark: '#c9c9c9',
+        dark: '#333',
         light: '#fff'
       })[this.effect] || ''
     }
