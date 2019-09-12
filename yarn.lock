@@ -947,9 +947,9 @@
   resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-wx-app-tools/-/core-wx-app-tools-0.2.6.tgz#ae152b5aa08b47157be032416b0b3c23200672f5"
   integrity sha512-EhlSmoPtOesjCEQzH952psTFwYl+36T2mLg8WOqdRDorBqWoME9hH/hH8F9jAsZR9QlHAwf+uscgsq/omCf2cA==
 
-"@hupo/core@^0.2.6":
+"@hupo/core@latest":
   version "0.2.6"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core/-/core-0.2.6.tgz#d3f35d7e1be2d2349876e3b4194d2a03a3f51fda"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core/-/core-0.2.6.tgz#d3f35d7e1be2d2349876e3b4194d2a03a3f51fda"
   integrity sha512-oGzmVGU5n4Ba6o6FXzN2A2/mwB+Ckb3IcduBe1OWDboK9xGCgv8Qen//NXA3GS0FoOVRKP3+Fckw/Hh7wBpaAA==
   dependencies:
     "@hupo/core-cml-base-tree" "^0.2.6"
