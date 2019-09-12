@@ -1,12 +1,10 @@
 <template>
-  <text>{{formatDistance}}</text>
+  <block>{{formatDistance}}</block>
 </template>
 
 <script>
-import componentMixin from '../../core/mixins/component/index.js'
 class HFormatDistance implements HFormatDistanceInterface {
   name = 'h-format-distance'
-  mixins = [...componentMixin]
   props = {
     distance: {
       type: [String,Number],

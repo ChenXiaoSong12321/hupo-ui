@@ -1,4 +1,5 @@
 import difference from '../../core/difference/difference.interface'
+import {url} from '@hupo/core'
 export default {
   data: {
     unloadImg: require("./assets/images/image-load-background.png"),
@@ -52,7 +53,7 @@ export default {
     reloadImage() {
       if (this.status == "load-complete") return false;
       let i = this.i;
-      this.url = oprateUrl.addUrlParam(this.src, { i });
+      this.url = url.addUrlParam({ i }, this.src);
       this.i = i++;
       this.status = "loading";
     }

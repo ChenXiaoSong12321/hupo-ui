@@ -1,7 +1,7 @@
 <template>
   <view
     form-type="{{openType ? '' : 'submit'}}"
-    class="h-button {{ type == 'none' ? 'h-button--none' : 'h-button--'+size }} {{ type == 'none' ? 'h-button--none' : 'h-button--'+type }} {{stateClass}} {{radius?'is-radius':''}} {{customClass}}"
+    class="h-button h-button--{{ type == 'none' ? 'none' : size }} h-button--{{ type || 'none' }} {{stateClass}} {{radius?'is-radius':''}} {{customClass}}"
     disabled="{{disabled}}"
     open-type="{{openType}}"
     style="{{customStyle||''}}"

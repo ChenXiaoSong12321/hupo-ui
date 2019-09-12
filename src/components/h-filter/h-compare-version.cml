@@ -1,13 +1,10 @@
 <template>
-  <text>{{compareVersion}}</text>
+  <block>{{compareVersion}}</block>
 </template>
 
 <script>
-import componentMixin from '../../core/mixins/component/index.js'
-
 class HCompareVersion implements HCompareVersionInterface {
   name = 'h-compare-version'
-  mixins = [...componentMixin]
   props = {
     min: {
       type: [String, Number],

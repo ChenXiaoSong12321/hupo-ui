@@ -1,14 +1,12 @@
 <template>
-  <text>{{formatDate}}</text>
+  <block>{{formatDate}}</block>
 </template>
 
 <script>
 import {dayjs} from '@hupo/core'
-import componentMixin from '../../core/mixins/component/index.js'
 
 class HFormatDate implements HFormatDateInterface {
   name = 'h-format-date'
-  mixins = [...componentMixin]
   props = {
     time: {
       type: [String,Number],

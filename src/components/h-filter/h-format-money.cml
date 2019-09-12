@@ -1,14 +1,11 @@
 
 <template>
-  <text>{{formatMoney}}</text>
+  <block>{{formatMoney}}</block>
 </template>
 
 <script>
-import componentMixin from '../../core/mixins/component/index.js'
-
 class HFormatMoney implements HFormatMoneyInterface {
   name = 'h-format-money'
-  mixins = [...componentMixin]
   props = {
     money: {
       type: [String,Number],

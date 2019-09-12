@@ -21,6 +21,7 @@ class App {
     const channel = await getChannel()
     if(channel == 'HP_WECHAT'){
       await loadScript('https://res2.wx.qq.com/open/js/jweixin-1.4.0.js')
+    console.log(wx)
     }
   }
 }
