@@ -15,7 +15,7 @@ import componentMixin from '../../core/mixins/component/index.js'
 
 class HLoadMore implements HLoadMoreInterface {
   name = 'h-load-more'
-  mixins = [...componentMixin]
+  mixins = componentMixin
   props = {
     loading: {
       type: Boolean,

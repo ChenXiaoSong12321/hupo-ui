@@ -3,11 +3,8 @@
 </template>
 
 <script>
-import routerConfig from "../router.config.json";
-import difference from '../core/difference/difference.interface'
-import getChannel from '../core/utils/channel'
-import loadScript from '../core/utils/loadScript'
-import {global, Event} from '@hupo/core'
+import routerConfig from '../router.config.json'
+import { global, Event } from '@hupo/core'
 
 global._eventbus = new Event()
 
@@ -15,18 +12,12 @@ class App {
   data = {
     routerConfig
   };
-  async beforeCreate(){
-    const network = await difference.getNetworkType()
+  async beforeCreate() {
     global._routerConfig = this.routerConfig
-    const channel = await getChannel()
-    if(channel == 'HP_WECHAT'){
-      await loadScript('https://res2.wx.qq.com/open/js/jweixin-1.4.0.js')
-    console.log(wx)
-    }
   }
 }
 
-export default new App();
+export default new App()
 </script>
 
 <style lang="scss">

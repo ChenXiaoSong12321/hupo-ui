@@ -19,7 +19,7 @@
 import componentMixin from '../../core/mixins/component/index.js'
 class HToast implements HToastInterface {
   name = 'h-toast'
-  mixins = [...componentMixin]
+  mixins = componentMixin
   data = {
     type: "loading",
     message: "",

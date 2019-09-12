@@ -4,25 +4,18 @@
 </template>
 
 <script>
+import { format } from '@hupo/core'
 class HFormatMoney implements HFormatMoneyInterface {
   name = 'h-format-money'
   props = {
     money: {
-      type: [String,Number],
-      default: ""
+      type: [String, Number],
+      default: ''
     }
   }
   computed = {
     formatMoney() {
-      let money = this.money;
-      if (!money) return "0";
-      let f = parseFloat(money);
-      if (isNaN(f)) {
-        return "0";
-      }
-      f = Math.round(money) / 100;
-      const s = parseFloat(f);
-      return s;
+      return format.formatMoney(this.money)
     }
   }
 }

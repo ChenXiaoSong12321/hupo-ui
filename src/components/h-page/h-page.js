@@ -1,9 +1,6 @@
 import defaultData from '../../core/viewport/defaultData'
-import calculate from '../../core/viewport/calculate'
-import difference from '../../core/difference/difference.interface'
-import channelDifference from '../../core/utils/channelDifference'
-import {wxTools} from '@hupo/core'
-const promise = {}
+import { wxTools, channelInterface, viewport } from '@hupo/core'
+import cml from 'chameleon-api'
 export default {
   props: {
     loading: {
@@ -45,7 +42,7 @@ export default {
       else return `height: ${this.viewport.viewportHeight}cpx;`
     }
   },
-  watch : {
+  watch: {
     title(val) {
       this.selfTitle = val
     },
@@ -62,10 +59,10 @@ export default {
   async created() {
     this.selfTitle = this.title
     this.initNavigation()
-    const data = await calculate()
+    const data = await viewport(cml)
     this.viewport = data
   },
-  mounted () {
+  mounted() {
     this._on('toggleLoading', (options = {}) => {
       Object.keys(options).forEach(key => {
         this[key] = options[key]
@@ -74,11 +71,13 @@ export default {
   },
   methods: {
     initNavigation() {
-      channelDifference('HP_MALL', () => {
-        wxTools.setNavigationBarColor({
-          frontColor: this.type === 'default' ? '#000000' : '#ffffff',
-          backgroundColor: this.type === 'default' ? '#fafafa' : '#dd392e'
-        })
+      channelInterface({
+        WX_MINI_PROGRAM() {
+          wxTools.setNavigationBarColor({
+            frontColor: this.type === 'default' ? '#000000' : '#ffffff',
+            backgroundColor: this.type === 'default' ? '#fafafa' : '#dd392e'
+          })
+        }
       })
     }
   }

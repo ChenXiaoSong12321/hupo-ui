@@ -21,7 +21,7 @@ import componentMixin from '../../core/mixins/component/index.js'
 
 class HTab implements HTabInterface{
   name = 'h-tab'
-  mixins = [...componentMixin]
+  mixins = componentMixin
   props = {
     tabs:{
       type:Array,

@@ -24,7 +24,7 @@ import { primaryColor, fontColorC3 } from '../../assets/config/style.var.js'
 
 class HTabbar implements HTabbarInterface {
   name = 'h-tabbar'
-  mixins = [...componentMixin]
+  mixins = componentMixin
   props = {
     tabbar: {
       type: Array,

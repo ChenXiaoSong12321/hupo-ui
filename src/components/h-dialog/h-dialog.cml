@@ -49,7 +49,7 @@ const promise = {}
 
 class HDialog implements HDialogInterface {
   name = 'h-dialog'
-  mixins = [...componentMixin]
+  mixins = componentMixin
   data = {
     // 标题
     title: "",

@@ -23,15 +23,10 @@
 </template>
 <script>
 let zindexManager = 1000
-import calculate from '../../core/viewport/calculate';
-import defaultData from '../../core/viewport/defaultData.js'
-import cml from "chameleon-api";
-import viewportDiffrence from './diffrence.interface'
 import componentMixin from '../../core/mixins/component/index.js'
-
 class HPopupManager implements HPopupManagerInterface {
   name = 'h-popup-manager'
-  mixins = [...componentMixin]
+  mixins = componentMixin
   props = {
     mask: {
       type: Boolean,
@@ -69,7 +64,6 @@ class HPopupManager implements HPopupManagerInterface {
   data = {
     transitionIn: false,
     visible:false,
-    viewport:defaultData,
     zIndex:1000
   }
   watch = {
@@ -79,20 +73,16 @@ class HPopupManager implements HPopupManagerInterface {
   }
   computed = {
     caculateStyle(){
-      if(!this.flexible || !this.viewport.headerHeight) return ''
+      if(!this.flexible) return ''
       let positions = {
-        top:`top:${cml.px2cpx(viewportDiffrence.setViewportTop(this.viewport.headerHeight))+ parseInt(this.top)}cpx;`,
-        bottom:`bottom:${cml.px2cpx(this.viewport.bottomHeight ) + parseInt(this.bottom)}cpx;`,
-        left:`left:${cml.px2cpx(this.left)}cpx;`,
-        right:`right:${cml.px2cpx(this.right)}cpx;`,
+        top:`top:${this._calcTop(parseInt(this.top))}cpx;`,
+        bottom:`bottom:${this._calcBottom(parseInt(this.bottom))}cpx;`,
+        left:`left:${this.left}cpx;`,
+        right:`right:${this.right}cpx;`,
         default:''
       }
       return positions[this.position||'default'] || positions.default
     }
-  }
-  async created(){
-    const data = await calculate()
-    this.viewport = data
   }
   methods = {
     closeevent() {

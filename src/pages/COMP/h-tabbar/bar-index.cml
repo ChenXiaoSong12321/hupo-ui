@@ -1,6 +1,6 @@
 <template>
   <view class="demo-com">
-    <h-scroll height="{{height}}">
+    <h-scroll>
       <view>comp-index1</view>
       <view>comp-index2</view>
       <view>comp-index3</view>
@@ -55,9 +55,6 @@
 </template>
 
 <script>
-import cml from 'chameleon-api';
-import calculate from '../../../core/viewport/calculate.js'
-import defaultData from '../../../core/viewport/defaultData.js'
 class DemoCom {
   props = {
     title: {
@@ -68,20 +65,6 @@ class DemoCom {
       type: String,
       default: ''
     }
-  }
-  data = {
-    viewport: defaultData
-  }
-  computed = {
-    height(){
-      const headerHeight = cml.px2cpx(this.viewport.headerHeight);
-      const bottomHeight = cml.px2cpx(this.viewport.bottomHeight);
-      return Math.floor( this.viewport.viewportHeight - headerHeight - bottomHeight - 100 );
-    }
-  }
-  async created() {
-    const data = await calculate()
-    this.viewport = data
   }
 }
 

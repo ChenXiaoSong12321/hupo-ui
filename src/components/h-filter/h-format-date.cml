@@ -3,18 +3,18 @@
 </template>
 
 <script>
-import {dayjs} from '@hupo/core'
+import { dayjs } from '@hupo/core'
 
 class HFormatDate implements HFormatDateInterface {
   name = 'h-format-date'
   props = {
     time: {
-      type: [String,Number],
-      default: ""
+      type: [String, Number],
+      default: ''
     },
     type: {
-      type: [String,Number],
-      default: "YYYY-MM-DD"
+      type: [String, Number],
+      default: ''
     }
   }
   computed = {

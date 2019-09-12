@@ -3,25 +3,18 @@
 </template>
 
 <script>
+import { format } from '@hupo/core'
 class HFormatDistance implements HFormatDistanceInterface {
   name = 'h-format-distance'
   props = {
     distance: {
-      type: [String,Number],
-      default: ""
+      type: [String, Number],
+      default: ''
     }
   }
   computed = {
     formatDistance() {
-      let distance = this.distance;
-      const onehundred = "100";
-      if (distance === null) return "";
-      var f = parseFloat(distance);
-      if (isNaN(f) || f < 100) return "100m以内";
-      if (f < 10 * parseInt(onehundred)) return `${f}m`;
-      const kilometers = Math.floor(f / 10) / 100;
-      if (f < 5 * parseInt(onehundred) * 10 * parseInt(onehundred)) return `${kilometers.toFixed(1)}km`;
-      return "500km以外";
+      return format.formatDistance(this.distance)
     }
   }
 }
