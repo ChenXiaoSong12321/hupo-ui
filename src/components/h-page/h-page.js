@@ -1,8 +1,7 @@
 import defaultData from '../../core/viewport/defaultData'
 import calculate from '../../core/viewport/calculate'
-import difference from '../../core/difference/difference.interface'
 import channelDifference from '../../core/utils/channelDifference'
-import {wxTools} from '@hupo/core'
+import { wxTools } from '@hupo/core'
 const promise = {}
 export default {
   props: {
@@ -45,7 +44,7 @@ export default {
       else return `height: ${this.viewport.viewportHeight}cpx;`
     }
   },
-  watch : {
+  watch: {
     title(val) {
       this.selfTitle = val
     },
@@ -65,7 +64,7 @@ export default {
     const data = await calculate()
     this.viewport = data
   },
-  mounted () {
+  mounted() {
     this._on('toggleLoading', (options = {}) => {
       Object.keys(options).forEach(key => {
         this[key] = options[key]

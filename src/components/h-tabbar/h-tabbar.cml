@@ -90,8 +90,8 @@ class HTabbar implements HTabbarInterface {
     if (!this.tabbar.length) {
       return ''
     }
-    const width = 750 / this.tabbar.length // line的总宽度；
-    const leftOffset = this.selectedIndex * width
+    // const width = 750 / this.tabbar.length // line的总宽度；
+    // const leftOffset = this.selectedIndex * width
   }
 }
 export default new HTabbar()

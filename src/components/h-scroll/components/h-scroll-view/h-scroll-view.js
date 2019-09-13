@@ -1,4 +1,4 @@
-import { INVISIABLE, PULLINGDOWN, PULLINGUP, FINISH } from '../../assets/js/const.js'
+import { INVISIABLE, PULLINGDOWN, PULLINGUP } from '../../assets/js/const.js'
 
 export default {
   props: {
@@ -9,8 +9,8 @@ export default {
   },
   methods: {
     onPullup() {
-      if(this.state == PULLINGDOWN || this.state == PULLINGUP)return
-      this.$cmlEmit("pullup", this);
+      if (this.state == PULLINGDOWN || this.state == PULLINGUP) return
+      this.$cmlEmit('pullup', this)
     }
   }
 }

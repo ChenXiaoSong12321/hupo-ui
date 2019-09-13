@@ -14,10 +14,10 @@
 </template>
 <script>
 import recursion from '../../recursion.interface'
-class HRichTextParseTr implements HRichTextParseTrInterface{
+class HRichTextParseTr implements HRichTextParseTrInterface {
   name = 'h-rich-text-parse-tr'
 
-  beforeCreate () {
+  beforeCreate() {
     recursion.beforeCreate(this)
   }
   props = {
@@ -27,7 +27,7 @@ class HRichTextParseTr implements HRichTextParseTrInterface{
     }
   }
 }
-export default new HRichTextParseTr();
+export default new HRichTextParseTr()
 </script>
 
 <style lang="scss">

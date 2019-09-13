@@ -17,11 +17,11 @@ class HRichTextParseImg implements HRichTextParseImgInterface {
   props= {
     nodes: {
       type: Object,
-      default(){return {}}
+      default() { return {} }
     }
   }
 }
-export default new HRichTextParseImg();
+export default new HRichTextParseImg()
 </script>
 
 <style lang="scss">

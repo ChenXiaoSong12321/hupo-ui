@@ -22,29 +22,27 @@
   </view>
 </template>
 <script>
-import cml from "chameleon-api";
-import difference from "../../core/difference/difference.interface";
-import HScrollMixin from "./assets/js/h-scroll.mixin.js";
-import { INVISIABLE, PULLING, PULLDOWN_RELEASE, PULLINGUP_RELEASE, PULLINGDOWN, PULLINGUP, FINISH } from './assets/js/const.js'
-import componentMixin from "../../core/mixins/component/index.js";
+import HScrollMixin from './assets/js/h-scroll.mixin.js'
+import { PULLINGDOWN, PULLINGUP, FINISH } from './assets/js/const.js'
+import componentMixin from '../../core/mixins/component/index.js'
 
-class HScroll implements HScrollInterface{
+class HScroll implements HScrollInterface {
   name = 'h-scroll'
   mixins = [...componentMixin, HScrollMixin]
   methods = {
-    onPullup(event){
-      if(this.loading || this.status == PULLINGDOWN || this.status == PULLINGUP)return
+    onPullup(event) {
+      if (this.loading || this.status == PULLINGDOWN || this.status == PULLINGUP) return
       this.status = PULLINGUP
-      this.$cmlEmit("pullup", this);
+      this.$cmlEmit('pullup', this)
     },
-    onPulldown(event){
-      if(this.loading || this.status == PULLINGDOWN || this.status == PULLINGUP)return
+    onPulldown(event) {
+      if (this.loading || this.status == PULLINGDOWN || this.status == PULLINGUP) return
       this.status = PULLINGDOWN
-      this.$cmlEmit("pulldown", this);
+      this.$cmlEmit('pulldown', this)
     },
     stop() {
-      this.status = FINISH;
-      wx.stopPullDownRefresh();
+      this.status = FINISH
+      wx.stopPullDownRefresh()
     }
   }
 }

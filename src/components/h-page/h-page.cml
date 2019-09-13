@@ -28,7 +28,7 @@
   </page>
 </template>
 <script>
-import HPageMixin from "./h-page.js";
+import HPageMixin from './h-page.js'
 import componentMixin from '../../core/mixins/component/index.js'
 
 class HPage implements HPageInterface {

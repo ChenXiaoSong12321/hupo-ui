@@ -23,9 +23,8 @@
   </view>
 </template>
 <script>
-import defaultData from "../../core/viewport/defaultData";
-import calculate from "../../core/viewport/calculate";
-import {promise} from "@hupo/core";
+import defaultData from '../../core/viewport/defaultData'
+import calculate from '../../core/viewport/calculate'
 import componentMixin from '../../core/mixins/component/index.js'
 
 class HNavbar implements HNavbarInterface {
@@ -38,7 +37,7 @@ class HNavbar implements HNavbarInterface {
     },
     title: {
       type: String,
-      default: "琥珀亲子"
+      default: '琥珀亲子'
     },
     showHomeIcon: {
       type: Boolean,
@@ -46,7 +45,7 @@ class HNavbar implements HNavbarInterface {
     },
     type: {
       type: String,
-      default: "default"
+      default: 'default'
     },
     fixed: {
       type: Boolean,
@@ -57,8 +56,8 @@ class HNavbar implements HNavbarInterface {
     viewport: defaultData
   }
   async created() {
-    const data = await calculate();
-    this.viewport = data;
+    const data = await calculate()
+    this.viewport = data
   }
 }
 export default new HNavbar()

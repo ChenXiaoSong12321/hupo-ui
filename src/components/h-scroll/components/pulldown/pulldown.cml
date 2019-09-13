@@ -3,7 +3,7 @@
 </template>
 <script>
 
-class Pulldown implements PulldownInterface{
+class Pulldown implements PulldownInterface {
   props = {
     status: {
       type: String,
@@ -15,7 +15,6 @@ class Pulldown implements PulldownInterface{
 export default new Pulldown()
 </script>
 <style lang="scss">
-@import "./pulldown.scss";
 </style>
 <script cml-type="json">
 {

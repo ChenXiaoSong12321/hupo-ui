@@ -5,10 +5,10 @@
 </template>
 <script>
 import recursion from '../../recursion.interface'
-class HRichTextParseTable implements HRichTextParseTableInterface{
+class HRichTextParseTable implements HRichTextParseTableInterface {
   name = 'h-rich-text-parse-table'
 
-  beforeCreate () {
+  beforeCreate() {
     recursion.beforeCreate(this)
   }
   props = {
@@ -18,7 +18,7 @@ class HRichTextParseTable implements HRichTextParseTableInterface{
     }
   }
 }
-export default new HRichTextParseTable();
+export default new HRichTextParseTable()
 </script>
 
 <style lang="scss">

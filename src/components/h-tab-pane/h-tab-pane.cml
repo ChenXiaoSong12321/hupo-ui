@@ -8,35 +8,35 @@
 <script>
 import componentMixin from '../../core/mixins/component/index.js'
 
-class HTabPane implements HTabPaneInterface{
+class HTabPane implements HTabPaneInterface {
   name = 'h-tab-pane'
   mixins = [...componentMixin]
   props = {
-    tabs:{ 
-      type:Array,
-      default(){
-        return [];
+    tabs: {
+      type: Array,
+      default() {
+        return []
       }
     },
-    activeLabel:{
-      type:[Number,String],
-      required:true,
-    },
+    activeLabel: {
+      type: [Number, String],
+      required: true
+    }
   }
   computed = {
-    paneWrap(){
-      let width = this.tabs.length * 750;//总宽度；
-      //findIndex找不到返回 -1
-      
-      let foundIndex = this.tabs.findIndex((item,index,arr) => {
-        return this.activeLabel === item.label;
-      });
-      let leftIndex = foundIndex == -1 ? 0 : foundIndex;
+    paneWrap() {
+      const width = this.tabs.length * 750// 总宽度；
+      // findIndex找不到返回 -1
 
-      let leftOffset = leftIndex * 750;
+      const foundIndex = this.tabs.findIndex((item, index, arr) => {
+        return this.activeLabel === item.label
+      })
+      const leftIndex = foundIndex == -1 ? 0 : foundIndex
 
-      let style = `width:${width}cpx;transform: translateX(${-leftOffset}cpx)`;
-      return style;
+      const leftOffset = leftIndex * 750
+
+      const style = `width:${width}cpx;transform: translateX(${-leftOffset}cpx)`
+      return style
     }
   }
 }
