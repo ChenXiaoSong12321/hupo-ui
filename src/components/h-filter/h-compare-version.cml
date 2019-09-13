@@ -11,35 +11,35 @@ class HCompareVersion implements HCompareVersionInterface {
   props = {
     min: {
       type: [String, Number],
-      default: ""
+      default: ''
     },
     max: {
       type: [String, Number],
-      default: ""
+      default: ''
     }
   }
 
   computed = {
     compareVersion() {
-      let { min, max } = this;
-      min = min.split(".");
-      max = max.split(".");
-      var len = Math.max(min.length, max.length);
+      let { min, max } = this
+      min = min.split('.')
+      max = max.split('.')
+      var len = Math.max(min.length, max.length)
 
-      min.length < len && min.push("0");
-      max.length < len && max.push("0");
+      min.length < len && min.push('0')
+      max.length < len && max.push('0')
 
       for (var i = 0; i < len; i++) {
-        var num1 = parseInt(min[i]);
-        var num2 = parseInt(max[i]);
+        var num1 = parseInt(min[i])
+        var num2 = parseInt(max[i])
 
         if (num1 > num2) {
-          return true;
+          return true
         } else if (num1 < num2) {
-          return false;
+          return false
         }
       }
-      return true;
+      return true
     }
   }
 }
