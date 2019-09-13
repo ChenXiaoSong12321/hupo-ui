@@ -1,3 +1,4 @@
 <script cml-type="interface">
 interface HScrollInterface{}
 </script>
+<script cml-type="web,wx" src="./h-scroll.cml"></script>

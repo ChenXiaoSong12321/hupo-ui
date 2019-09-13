@@ -23,9 +23,7 @@
   </view>
 </template>
 <script>
-import defaultData from '../../core/viewport/defaultData'
 import { viewport } from '@hupo/core'
-import cml from 'chameleon-api'
 import componentMixin from '../../core/mixins/component/index.js'
 
 class HNavbar implements HNavbarInterface {
@@ -54,11 +52,7 @@ class HNavbar implements HNavbarInterface {
     }
   }
   data = {
-    viewport: defaultData
-  }
-  async created() {
-    const data = await viewport(cml)
-    this.viewport = data
+    viewport
   }
 }
 export default new HNavbar()

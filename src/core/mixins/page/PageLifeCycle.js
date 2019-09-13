@@ -5,5 +5,8 @@ export default {
   onReachBottom() {
     this._broadcast('h-page', 'pullup')
     // this._broadcast('h-pagination', 'pullup')
+  },
+  onShow() {
+    this._broadcast('h-page', 'onShow')
   }
 }

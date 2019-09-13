@@ -1,6 +1,6 @@
 <template>
-<h-page fixed loading="{{loading}}" title="hupo-ui组件展示" background="BgC2">
-  <h-scroll pulldown loadMore="{{false}}" c-bind:pulldown="onPulldown" c-bind:pullup="onPullup">
+<h-page loading="{{loading}}" title="hupo-ui组件展示" background="BgC2">
+  <h-scroll>
     <view class="index-page">
       <view class="index-body" style="{{bodyComputedStyl}}">
         <view ref="index-content-wrap" class="index-content-wrap" style="{{computedStyle}}">
@@ -70,7 +70,7 @@ routes.forEach(route => {
 })
 
 export default {
-  mixins: [...pageMixin],
+  mixins: pageMixin,
   data: {
     comList: [
       {
@@ -145,7 +145,7 @@ export default {
     tabList: [],
     activeTab: 'component',
     arrowIcon: 'https://gw.alicdn.com/tfs/TB11zBUpwMPMeJjy1XbXXcwxVXa-22-22.png',
-    loading: false
+    loading: true
   },
   computed: {
     computedStyle() {
@@ -194,21 +194,8 @@ export default {
       // cml.navigateTo({
       //   path: path
       // });
-    },
-    onPulldown(e) {
-      this._setTimeout(() => {
-        console.log(111)
-        e.detail.stop()
-      }, 3000)
-    },
-    onPullup(e) {
-      this._setTimeout(() => {
-        console.log(222)
-        e.detail.stop()
-      }, 2000)
     }
   },
-
   beforeCreate() {
     console.log(this)
   },

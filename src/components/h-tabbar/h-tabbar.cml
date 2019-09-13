@@ -1,21 +1,19 @@
 <template>
-  <h-fixed position="{{useFixedLayout?'fixed':'absolute'}}" bottom="0" place-height="{{height}}cpx">
-    <view class="h-tab-bar">
-      <view class="h-tab-bar-wrap">
-        <view c-for="{{tabbar}}" c-key="text" class="h-tab-bar-item-wrap">
-          <view class="h-tab-bar-content" c-bind:click="onTabbarItemTap(index)">
-            <view class="h-tab-bar-icon-wrap" c-if="{{!top && hasIcon}}">
-              <image c-if="{{!(index === tapedIndex)}}" class="tab-icon" src="{{item.icon}}" style="{{!(index === tapedIndex) ? (item.iconStyle || '') : ';'}}"></image>
-              <image c-if="{{index === tapedIndex}}" class="tab-icon" src="{{item.selectedIcon || item.icon}}" style="{{(index === tapedIndex) ? (item.selectedIconStyle || '') : ''}}"></image>
-            </view>
-            <view class='tab-title'>
-              <text class="tab-text" style="color:{{index === tapedIndex ? selectedTextStyle:textStyle}}">{{item.text}}</text>
-            </view>
+  <view class="h-tab-bar {{fixed ? 'h-tab-bar--fixed' : ''}}" style="{{tabbarStyle}}">
+    <view class="h-tab-bar-wrap">
+      <view c-for="{{tabbar}}" c-key="text" class="h-tab-bar-item-wrap">
+        <view class="h-tab-bar-content" c-bind:click="onTabbarItemTap(index)">
+          <view class="h-tab-bar-icon-wrap" c-if="{{!top && hasIcon}}">
+            <image c-if="{{!(index === tapedIndex)}}" class="tab-icon" src="{{item.icon}}" style="{{!(index === tapedIndex) ? (item.iconStyle || '') : ';'}}"></image>
+            <image c-if="{{index === tapedIndex}}" class="tab-icon" src="{{item.selectedIcon || item.icon}}" style="{{(index === tapedIndex) ? (item.selectedIconStyle || '') : ''}}"></image>
+          </view>
+          <view class='tab-title'>
+            <text class="tab-text" style="color:{{index === tapedIndex ? selectedTextStyle:textStyle}}">{{item.text}}</text>
           </view>
         </view>
       </view>
     </view>
-  </h-fixed>
+  </view>
 </template>
 
 <script>
@@ -46,9 +44,9 @@ class HTabbar implements HTabbarInterface {
       type: String,
       default: ''
     },
-    useFixedLayout: {
+    fixed: {
       type: Boolean,
-      default: true
+      default: false
     },
     selectedIndex: { // 默认选中那个tabbbar
       type: Number,
@@ -69,6 +67,13 @@ class HTabbar implements HTabbarInterface {
       return (this.tabbar || []).every((item) => {
         return necessaryKeys.every((key) => Object.keys(item).includes(key))
       })
+    },
+    tabbarStyle() {
+      if (this.top) {
+        return `top: ${this._calcTop(0)}cpx;`
+      } else {
+        return `bottom: ${this._calcBottom(0)}cpx;`
+      }
     }
   }
   watch = {
@@ -86,12 +91,6 @@ class HTabbar implements HTabbarInterface {
   }
   mounted() {
     this.tapedIndex = this.selectedIndex
-    console.log(this)
-    if (!this.tabbar.length) {
-      return ''
-    }
-    const width = 750 / this.tabbar.length // line的总宽度；
-    const leftOffset = this.selectedIndex * width
   }
 }
 export default new HTabbar()
@@ -102,9 +101,6 @@ export default new HTabbar()
 <script cml-type="json">
   {
     "base": {
-      "usingComponents": {
-        "h-fixed": "../h-fixed/h-fixed"
-      },
       "component": true
     }
   }

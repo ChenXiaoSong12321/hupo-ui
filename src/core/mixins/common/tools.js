@@ -1,9 +1,5 @@
 import cml from 'chameleon-api'
 import { viewport } from '@hupo/core'
-let viewportData = {}
-viewport(cml).then(data => {
-  viewportData = data
-})
 export default {
   methods: {
     _loadingNavbar() {
@@ -19,12 +15,12 @@ export default {
       return this._broadcast('h-page', 'toggleLoading', { selfTitle: title })
     },
     _calcTop(top) {
-      if (!viewportData.headerHeight) return top
-      else return cml.px2cpx(viewportData.headerHeight) + top
+      if (!viewport.headerHeight) return top
+      else return cml.px2cpx(viewport.headerHeight) + top
     },
     _calcBottom(bottom) {
-      if (!viewportData.bottomHeight) return bottom
-      else return cml.px2cpx(viewportData.bottomHeight) + bottom
+      if (!viewport.bottomHeight) return bottom
+      else return cml.px2cpx(viewport.bottomHeight) + bottom
     }
   }
 }

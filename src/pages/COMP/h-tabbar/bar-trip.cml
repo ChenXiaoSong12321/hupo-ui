@@ -1,11 +1,11 @@
 <template>
-  <view class="demo-com">
+  <view>
     <text>comp-trip</text>
   </view>
 </template>
 
 <script>
-import cml from 'chameleon-api';
+import cml from 'chameleon-api'
 class DemoCom {
   props = {
     title: {
@@ -19,16 +19,9 @@ class DemoCom {
   }
 }
 
-export default new DemoCom();
+export default new DemoCom()
 </script>
 <style>
-.demo-com {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height:400cpx;
-  justify-content: center;
-}
 .title {
   align-self: center;
   color: #61c7fc;
@@ -42,10 +35,12 @@ export default new DemoCom();
   margin-top: 100cpx;
 }
 </style>
+
 <script cml-type="json">
 {
   "base": {
-    "usingComponents": {}
+    "usingComponents": {
+    }
   }
 }
 </script>

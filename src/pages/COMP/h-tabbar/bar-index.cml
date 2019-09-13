@@ -1,56 +1,54 @@
 <template>
-  <view class="demo-com">
-    <h-scroll>
-      <view>comp-index1</view>
-      <view>comp-index2</view>
-      <view>comp-index3</view>
-      <view>comp-index4</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index</view>
-      <view>comp-index6</view>
-      <view>comp-index7</view>
-      <view>comp-index8</view>
-      <view>comp-index9</view>
-    </h-scroll>
+  <view>
+    <view>comp-index1</view>
+    <view>comp-index2</view>
+    <view>comp-index3</view>
+    <view>comp-index4</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index</view>
+    <view>comp-index6</view>
+    <view>comp-index7</view>
+    <view>comp-index8</view>
+    <view>comp-index9</view>
   </view>
 </template>
 
@@ -68,15 +66,9 @@ class DemoCom {
   }
 }
 
-export default new DemoCom();
+export default new DemoCom()
 </script>
 <style>
-.demo-com {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 .title {
   align-self: center;
   color: #61c7fc;
@@ -94,7 +86,6 @@ export default new DemoCom();
 {
   "base": {
     "usingComponents": {
-      "h-scroll": "../../../components/h-scroll/h-scroll"
     }
   }
 }
