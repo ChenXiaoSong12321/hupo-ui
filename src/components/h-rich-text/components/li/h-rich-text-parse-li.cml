@@ -12,10 +12,10 @@
 </template>
 <script>
 import recursion from '../../recursion.interface'
-class HRichTextParseLi implements HRichTextParseLiInterface{
+class HRichTextParseLi implements HRichTextParseLiInterface {
   name = 'h-rich-text-parse-li'
 
-  beforeCreate () {
+  beforeCreate() {
     recursion.beforeCreate(this)
   }
   props = {
@@ -25,7 +25,7 @@ class HRichTextParseLi implements HRichTextParseLiInterface{
     }
   }
 }
-export default new HRichTextParseLi();
+export default new HRichTextParseLi()
 </script>
 
 <style lang="scss">

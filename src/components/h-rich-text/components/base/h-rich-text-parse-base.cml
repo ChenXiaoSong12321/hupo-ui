@@ -38,7 +38,7 @@ class HRichTextParseBase implements HRichTextParseBaseInterface {
     }
   }
 }
-export default new HRichTextParseBase();
+export default new HRichTextParseBase()
 </script>
 
 <style lang="scss">

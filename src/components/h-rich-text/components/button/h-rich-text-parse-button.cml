@@ -8,7 +8,7 @@ import recursion from '../../recursion.interface'
 class HRichTextParseButton implements HRichTextParseButtonInterface {
   name = 'h-rich-text-parse-button'
 
-  beforeCreate () {
+  beforeCreate() {
     recursion.beforeCreate(this)
   }
   props = {
@@ -18,7 +18,7 @@ class HRichTextParseButton implements HRichTextParseButtonInterface {
     }
   }
 }
-export default new HRichTextParseButton();
+export default new HRichTextParseButton()
 </script>
 
 <style lang="scss">

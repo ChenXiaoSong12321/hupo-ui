@@ -9,7 +9,7 @@
   </view>
 </template>
 <script>
-import { primaryColor } from "../../assets/config/style.var.js";
+import { primaryColor } from '../../assets/config/style.var.js'
 import componentMixin from '../../core/mixins/component/index.js'
 
 class HRadio implements HRadioInterface {
@@ -44,8 +44,8 @@ class HRadio implements HRadioInterface {
     innerChecked: false
   }
   computed = {
-    radioStyle () {
-      let style = '';
+    radioStyle() {
+      let style = ''
       if (this.disabled) {
         style += 'opacity:0.5;'
       }
@@ -54,43 +54,43 @@ class HRadio implements HRadioInterface {
       } else {
         style += 'margin-right:13cpx;'
       }
-      return style;
+      return style
     },
-    radioInnerStyle () {
+    radioInnerStyle() {
       let style = ''
       if (this.innerChecked) {
         style += `border:10cpx solid ${this.color};`
       }
 
-      return style;
+      return style
     },
-    radioClass () {
+    radioClass() {
       if (this.disabled) {
-        return  this.innerChecked? 'h-radio-selected-disabled': 'h-radio-unselect-disabled';
+        return this.innerChecked ? 'h-radio-selected-disabled' : 'h-radio-unselect-disabled'
       }
-      return this.innerChecked? 'h-radio-selected': 'h-radio-unselect';
+      return this.innerChecked ? 'h-radio-selected' : 'h-radio-unselect'
     }
   }
   watch = {
-    checked (val) {
-      this.innerChecked = val;
+    checked(val) {
+      this.innerChecked = val
     }
   }
   methods = {
-    changeSelect () {
-      if (this.disabled) return;
+    changeSelect() {
+      if (this.disabled) return
       this.innerChecked = !this.innerChecked
-      let value = {
+      const value = {
         value: this.innerChecked
       }
       if (this.groupIndex !== -1) {
         value.index = this.groupIndex
       }
-      this.$cmlEmit('change', value);
+      this.$cmlEmit('change', value)
     }
   }
   mounted() {
-    this.innerChecked = this.checked;
+    this.innerChecked = this.checked
   }
 }
 export default new HRadio()

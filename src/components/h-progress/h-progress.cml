@@ -33,10 +33,10 @@ class HProgress implements HProgressInterface {
     }
   }
   computed = {
-    progressStyle(){
+    progressStyle() {
       return `border-color:${this.borderColor};background-color:${this.backgroundColor};height: ${this.height}cpx;`
     },
-    progressLineStyle(){
+    progressLineStyle() {
       return `width:${this.percentage / 100 + '%'};background-color:${this.color};height: ${this.height}cpx;border-top-right-radius: ${this.height}cpx;border-bottom-right-radius: ${this.height}cpx;`
     }
   }

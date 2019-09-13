@@ -16,37 +16,37 @@
   </view>
 </template>
 <script>
-import { primaryColor } from "../../assets/config/style.var.js";
+import { primaryColor } from '../../assets/config/style.var.js'
 import componentMixin from '../../core/mixins/component/index.js'
 
-class HTab implements HTabInterface{
+class HTab implements HTabInterface {
   name = 'h-tab'
   mixins = componentMixin
   props = {
-    tabs:{
-      type:Array,
-      default(){
-        return [];
-      },
+    tabs: {
+      type: Array,
+      default() {
+        return []
+      }
     },
-    activeLabel:{
-      type:String,
+    activeLabel: {
+      type: String
     },
-    hasUnderline:{
-      type:Boolean,
-      default:true,
+    hasUnderline: {
+      type: Boolean,
+      default: true
     },
-    activeLabelStyle:{
-      type:String,
-      default:`color:${primaryColor};border-bottom:4cpx solid ${primaryColor}`
+    activeLabelStyle: {
+      type: String,
+      default: `color:${primaryColor};border-bottom:4cpx solid ${primaryColor}`
     }
   }
   methods = {
-    handleTabTap(e){
-      let label = e.detail.label;
-      let activeIndex = this.tabs.findIndex(item => item.label === label);
+    handleTabTap(e) {
+      const label = e.detail.label
+      const activeIndex = this.tabs.findIndex(item => item.label === label)
 
-      this.$cmlEmit('tabclick',{label,activeIndex})
+      this.$cmlEmit('tabclick', { label, activeIndex })
     }
   }
 }

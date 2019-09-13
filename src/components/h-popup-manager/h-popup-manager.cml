@@ -42,65 +42,65 @@ class HPopupManager implements HPopupManagerInterface {
     },
     position: {
       type: String,
-      default: ""
+      default: ''
     },
     top: {
-      type: [String,Number],
+      type: [String, Number],
       default: 0
     },
     left: {
-      type: [String,Number],
+      type: [String, Number],
       default: 0
     },
     bottom: {
-      type: [String,Number],
+      type: [String, Number],
       default: 0
     },
     right: {
-      type: [String,Number],
+      type: [String, Number],
       default: 0
     }
   }
   data = {
     transitionIn: false,
-    visible:false,
-    zIndex:1000
+    visible: false,
+    zIndex: 1000
   }
   watch = {
     show(n) {
-      n ? this.showMask() : this.hideMask();
+      n ? this.showMask() : this.hideMask()
     }
   }
   computed = {
-    caculateStyle(){
-      if(!this.flexible) return ''
-      let positions = {
-        top:`top:${this._calcTop(parseInt(this.top))}cpx;`,
-        bottom:`bottom:${this._calcBottom(parseInt(this.bottom))}cpx;`,
-        left:`left:${this.left}cpx;`,
-        right:`right:${this.right}cpx;`,
-        default:''
+    caculateStyle() {
+      if (!this.flexible) return ''
+      const positions = {
+        top: `top:${this._calcTop(parseInt(this.top))}cpx;`,
+        bottom: `bottom:${this._calcBottom(parseInt(this.bottom))}cpx;`,
+        left: `left:${this.left}cpx;`,
+        right: `right:${this.right}cpx;`,
+        default: ''
       }
-      return positions[this.position||'default'] || positions.default
+      return positions[this.position || 'default'] || positions.default
     }
   }
   methods = {
     closeevent() {
-      this.$cmlEmit("onclose");
+      this.$cmlEmit('onclose')
     },
     showMask() {
-      zindexManager=zindexManager+2
+      zindexManager = zindexManager + 2
       this.zIndex = zindexManager
-      this.visible = true;
+      this.visible = true
       this._setTimeout(() => {
-        this.transitionIn = true;
-      }, 50);
+        this.transitionIn = true
+      }, 50)
     },
     hideMask() {
-      this.transitionIn = false;
+      this.transitionIn = false
       this._setTimeout(() => {
-        this.visible = false;
-      }, 300);
+        this.visible = false
+      }, 300)
     }
   }
 }

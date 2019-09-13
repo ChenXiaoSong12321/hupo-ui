@@ -27,23 +27,23 @@ class HPopup implements HPopupInterface {
     },
     customStyle: {
       type: String,
-      default: ""
+      default: ''
     }
   }
   data = {
-    visible:false
+    visible: false
   }
   watch = {
     show(n) {
-      this.visible = n;
+      this.visible = n
     }
   }
   methods = {
     onclose() {
-      this.visible = false;
-      this.$cmlEmit("onclose", false);
+      this.visible = false
+      this.$cmlEmit('onclose', false)
     },
-    empty(){}
+    empty() {}
   }
 }
 export default new HPopup()

@@ -42,7 +42,6 @@ export default new HLoadMore()
 @import "./h-load-more.scss";
 </style>
 
-
 <script cml-type="json">
 {
   "base": {

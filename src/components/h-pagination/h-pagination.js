@@ -67,7 +67,7 @@ export default {
       this.length.new = n.length
     }
   },
-  mounted () {
+  mounted() {
     this._on('stop', (options = {}) => {
       this.stopRefresh()
     })

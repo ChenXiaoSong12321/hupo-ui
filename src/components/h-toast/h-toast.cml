@@ -21,8 +21,8 @@ class HToast implements HToastInterface {
   name = 'h-toast'
   mixins = componentMixin
   data = {
-    type: "loading",
-    message: "",
+    type: 'loading',
+    message: '',
     duration: 3000,
     show: false,
     mask: false,
@@ -32,7 +32,7 @@ class HToast implements HToastInterface {
       success: 'iconjiazaichenggong'
     }
   }
-  mounted () {
+  mounted() {
     this._on('toggle', (options = {}) => {
       Object.keys(options).forEach(key => {
         this[key] = options[key]
@@ -43,8 +43,6 @@ class HToast implements HToastInterface {
 export default new HToast()
 </script>
 <style lang="scss">
-@import "../../assets/scss/output";
-
 @include b(toast) {
   @keyframes loading-rotate {
     from {
