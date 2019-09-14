@@ -88,7 +88,6 @@ class HScroll implements HScrollInterface {
 export default new HScroll()
 </script>
 <style lang="scss">
-@import "./h-scroll.scss";
 </style>
 <script cml-type="json">
 {

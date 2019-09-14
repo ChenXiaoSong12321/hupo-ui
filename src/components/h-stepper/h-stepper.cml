@@ -1,7 +1,7 @@
 <template>
   <view class="h-stepper">
     <h-button
-      throttle="{{0}}"
+      throttle="{{false}}"
       class="h-stepper-subtract {{disabled || (stepValue<=min) ? 'is-disabled':''}}"
       type="none"
       c-bind:onclick="onChange('subtract')"
@@ -18,7 +18,7 @@
       />
     </view>
     <h-button
-      throttle="{{0}}"
+      throttle="{{false}}"
       class="h-stepper-add {{disabled || (stepValue >= max) ? 'is-disabled':''}}"
       type="none"
       c-bind:onclick="onChange('add')"

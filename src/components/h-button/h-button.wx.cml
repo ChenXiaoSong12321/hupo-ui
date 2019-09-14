@@ -45,7 +45,7 @@ class HButton implements HButtonInterface {
     opensetting(e) {
       this.btnEmit('opensetting', e.detail)
     },
-    onclick(e) {
+    handleTap(e) {
       const { disabled, openType } = this
       if (disabled || openType) return
       this.btnEmit('onclick', e.detail)
