@@ -54,11 +54,7 @@ cml.utils.plugin('webpackConfig', function({ type, media, webpackConfig }, cb) {
     return rules
   }
   const alias = {
-    // '@': path.join(__dirname, './src'),
-    // '@api': path.join(__dirname, './src/common/api'),
-    // '@core': path.join(__dirname, './src/core'),
-    // '@mixin': path.join(__dirname, './src/core/mixins'),
-    // '@components': path.join(__dirname, './src/components'),
+    '@core': path.join(__dirname, './src/core'),
     '~@output': path.join(__dirname, './src/assets/scss/_output.scss')
   }
   webpackConfig.resolve.alias = { ...webpackConfig.resolve.alias, ...alias }

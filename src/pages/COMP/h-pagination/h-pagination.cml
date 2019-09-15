@@ -2,15 +2,13 @@
   <h-page title="h-pagination 演示" fixed>
     <view class="container">
       <h-pagination
-        c-bind:pulldown="pulldown"
         c-bind:pullup="pullup"
-        start="{{start}}"
-        step="{{step}}"
+        start="{{pagination.start}}"
+        step="{{pagination.step}}"
         pageCount="{{pageCount}}"
-        total="{{list.length}}"
-        list="{{list}}"
+        loading="{{pagination.loading}}"
       >
-        <view c-for="{{list}}" class="list-item">{{item}}</view>
+        <view c-for="{{pagination.list}}" class="list-item">{{item}}</view>
         <view slot="empty">empty</view>
       </h-pagination>
     </view>
@@ -19,49 +17,42 @@
 <script>
 import pageMixin from '../../../core/mixins/page/index.js'
 import Pagination from '../../../core/mixins/common/pagination.js'
-let i=0
+let i = 0
 export default {
   mixins: [...pageMixin, Pagination],
   data: {
-    list: [],
-    start: '1231231231231',
-    step: 12312312,
-    pageCount: 20
-  },
-  watch: {
-    list(n){
-      console.log('list:',[...n])
-      this._stopRefresh()
+    pagination: {
+      list: [],
+      start: '1231231231231',
+      step: 12312312,
+      loading: false,
+      total: 0
     }
   },
-  mounted(){
+  mounted() {
     this.createList(20)
   },
   methods: {
-    pulldown(e){
-      console.log('pulldown',e.detail)
-      this.list = []
-      this.createList(20)
-      i=0
-    },
-    pullup(e){
-      console.log('pullup',e.detail)
+    pullup(e) {
+      this.pagination.loading = true
+      console.log('pullup', e.detail)
       setTimeout(() => {
-        if(i<2){
+        if (i < 2) {
           this.createList(20)
           i++
         }
-        if(i===2){
+        if (i === 2) {
           this.createList(1)
         }
-      }, 1000);
+        this.pagination.loading = false
+      }, 1000)
     },
-    createList(len=20){
-      let list = []
-      for(let i = 0;i<len;i++){
+    createList(len = 20) {
+      const list = []
+      for (let i = 0; i < len; i++) {
         list.push(Math.random())
       }
-      this.list = this.list.concat(list)
+      this.pagination.list = this.pagination.list.concat(list)
     }
   }
 }

@@ -72,17 +72,13 @@ class HScroll implements HScrollInterface {
     })
   }
   methods = {
-    onPullup(event) {
-      debounce(() => {
-        event.detail.instance = this
-        this.$cmlEmit('pullup', event.detail)
-      }, 100)
-    },
-    onScroll(event) {
-      debounce(() => {
-        this.$cmlEmit('scroll', event.detail)
-      }, 100)
-    }
+    onPullup: debounce(function(event) {
+      event.detail.instance = this
+      this.$cmlEmit('pullup', event.detail)
+    }, 100),
+    onScroll: debounce(function(event) {
+      this.$cmlEmit('scroll', event.detail)
+    }, 100)
   }
 }
 export default new HScroll()
