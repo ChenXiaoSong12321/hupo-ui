@@ -6,9 +6,6 @@ const apiPrefix = 'https://api.chameleon.com'
 cml.config.merge({
   cmlNpm: [
   ],
-  check: {
-    enable: false
-  },
   platforms: ['web', 'wx'],
   baseStyle: {
     web: false,
@@ -30,7 +27,6 @@ cml.config.merge({
       apiPrefix
     }
   },
-  babelPath: [path.resolve(__dirname, `node_modules/@hupo/`)],
   web: {
     dev: {
       hash: true,
@@ -43,7 +39,7 @@ cml.config.merge({
       apiPrefix
     }
   },
-  babelPath: [path.resolve(__dirname, `node_modules/@hupo/`)],
+  babelPath: [path.resolve(__dirname, `node_modules/@hupo/`)]
 })
 
 cml.utils.plugin('webpackConfig', function({ type, media, webpackConfig }, cb) {
@@ -71,11 +67,11 @@ cml.utils.plugin('webpackConfig', function({ type, media, webpackConfig }, cb) {
   if (cmlFile) {
     cmlFile.rule.use = cmlFile.rule.use.map(use => {
       use.options.loaders.scss = JSON.parse(JSON.stringify(use.options.loaders.less)).map(item => {
-        if (item.loader === 'less-loader'){
+        if (item.loader === 'less-loader') {
           item.loader = 'sass-loader'
-          if(webpackConfig.resolve.alias['~@output'])item.options.data = '@import "~@output";'
+          if (webpackConfig.resolve.alias['~@output'])item.options.data = '@import "~@output";'
           else console.warn('请添加 ~@output 别名指向 _output.scss 文件')
-        } 
+        }
         return item
       })
       return use
@@ -83,18 +79,16 @@ cml.utils.plugin('webpackConfig', function({ type, media, webpackConfig }, cb) {
     webpackConfig.module.rules[cmlFile.index] = cmlFile.rule
   }
 
-
-  if(type === 'wx') {
+  if (type === 'wx') {
     webpackConfig.plugins.push({
       apply(compiler) {
         compiler.plugin('emit', function(compilation, callback) {
-          let target = 'components/h-rich-text/components/video/h-rich-text-parse-video.json'; //改这里
-          let obj = JSON.parse(compilation.assets[target]._value);
-          obj.usingComponents['txv-video'] = 'plugin://tencentvideo/video';
-          compilation.assets[target]._value = JSON.stringify(obj,'',4);
+          const target = 'components/h-rich-text/components/video/h-rich-text-parse-video.json' // 改这里
+          const obj = JSON.parse(compilation.assets[target]._value)
+          obj.usingComponents['txv-video'] = 'plugin://tencentvideo/video'
+          compilation.assets[target]._value = JSON.stringify(obj, '', 4)
           // console.log(compilation.assets)
-          return callback();
-
+          return callback()
         })
       }
     })

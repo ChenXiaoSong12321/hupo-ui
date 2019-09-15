@@ -6,10 +6,6 @@ export default {
       type: String,
       default: '1'
     },
-    pulldown: {
-      type: Boolean,
-      default: true
-    },
     step: {
       type: [String, Number],
       default: 1
@@ -34,7 +30,7 @@ export default {
   data: {
     empty: false,
     loading: true,
-    status: 'INIT', // PULLDOWN_ING PULLUP_ING FINISH INIT PULLUP_DISABLED PULLDOWN_DISABLED
+    status: 'INIT', // PULLUP_ING FINISH INIT PULLUP_DISABLED
     stopStatus: {
       pulldown: null,
       pullup: null
@@ -73,22 +69,6 @@ export default {
     })
   },
   methods: {
-    onPulldown(event) {
-      if (this.status !== 'PULLDOWN_DISABLED') {
-        this.stopStatus.pulldown = event.detail
-        this.status = 'PULLDOWN_ING'
-        this.loading = true
-        this.pageIndex = 1
-        this.$cmlEmit('pulldown', {
-          pageCount: this.pageCount,
-          step: this.step,
-          start: this.start,
-          pageIndex: this.pageIndex
-        })
-      } else {
-        event.detail.stop()
-      }
-    },
     onPullup(event) {
       if (this.status !== 'PULLUP_DISABLED') {
         this.stopStatus.pullup = event.detail
@@ -108,7 +88,6 @@ export default {
     // refresh 既不是上拉也不是下拉刷新
     async stopRefresh() {
       await difference.nextTick()
-
       console.log('stopRefresh', this.length.new, this.total)
       this.loading = false
       this.empty = false
