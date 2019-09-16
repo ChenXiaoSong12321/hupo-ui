@@ -1,5 +1,3 @@
-@import '../../assets/scss/output';
-
 @include b(navbar) {
   position: relative;
   z-index: $--z-index-max;

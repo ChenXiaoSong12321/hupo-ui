@@ -1,5 +1,5 @@
 <template>
-  <h-scroll pulldown="{{pulldown}}" c-bind:pulldown="onPulldown" c-bind:pullup="onPullup">
+  <h-scroll c-bind:pullup="onPullup" c-bind:bottomOffset="{{bottomOffset}}">
     <block c-if="{{!empty}}">
       <slot></slot>
       <h-load-more loading="{{loading}}"></h-load-more>
@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import CurrentComponent from './h-pagination.js';
-import componentMixin from '../../core/mixins/component/index.js'
+import CurrentComponent from './h-pagination.js'
+import componentMixin from '@core/mixins/component/index.js'
 
 class HPagination implements HPaginationInterface {
   name = 'h-pagination'

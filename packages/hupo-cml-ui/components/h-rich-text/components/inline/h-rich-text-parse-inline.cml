@@ -11,7 +11,7 @@ import recursion from '../../recursion.interface'
 class HRichTextParseInline implements HRichTextParseInlineInterface {
   name = 'h-rich-text-parse-inline'
 
-  beforeCreate () {
+  beforeCreate() {
     recursion.beforeCreate(this)
   }
   props = {
@@ -21,7 +21,7 @@ class HRichTextParseInline implements HRichTextParseInlineInterface {
     }
   }
 }
-export default new HRichTextParseInline();
+export default new HRichTextParseInline()
 </script>
 
 <style lang="scss">

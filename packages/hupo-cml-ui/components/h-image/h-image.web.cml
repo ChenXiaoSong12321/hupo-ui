@@ -32,32 +32,31 @@
 </template>
 
 <script>
-import HImageMixins from "./h-image.mixins.js";
-import difference from '../../core/difference/difference.interface'
-import lozad from "lozad";
-import componentMixin from "../../core/mixins/component/index.js";
+import HImageMixins from './h-image.mixins.js'
+import lozad from 'lozad'
+import componentMixin from '../../core/mixins/component/index.js'
 
 class HImage implements HImageInterface {
   name = 'h-image'
-  mixins = [componentMixin,HImageMixins]
+  mixins = [componentMixin, HImageMixins]
   async mounted() {
-    this.init();
+    this.init()
     if (this.lazyLoad) {
       const el = this.$refs.image
       await this.$relativeToViewport(el)
     }
-    this.show = true;
+    this.show = true
   }
   methods = {
     async $relativeToViewport(selector) {
       return new Promise((resolve, reject) => {
-        if (!selector) reject("no selector");
+        if (!selector) reject('no selector')
         const observer = lozad(selector, {
           threshold: 0.1,
           load: resolve
         })
-        observer.observe();
-      });
+        observer.observe()
+      })
     }
   }
 }

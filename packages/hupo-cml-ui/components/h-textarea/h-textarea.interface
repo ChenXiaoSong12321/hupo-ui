@@ -1,6 +1,6 @@
 <script cml-type="interface">
 
-//定义事件detail对象的参数
+// 定义事件detail对象的参数
 type inputEventDetail = {
   value: String
 }

@@ -1,8 +1,7 @@
 import cml from 'chameleon-api'
 import difference from '../../difference/difference.interface'
-import channelDifference from '../../utils/channelDifference'
-import {global, wxTools} from '@hupo/core'
-import {url} from '@hupo/core'
+import { global, wxTools, channelInterface } from '@hupo/core'
+import { url } from '@hupo/core'
 
 let indexRoute = ''
 export default {
@@ -31,12 +30,14 @@ export default {
           redirect: true
         })
       }
-      channelDifference('HP_H5', reLaunch)
-      channelDifference('HP_WECHAT', reLaunch)
-      channelDifference('HP_MALL', () => {
-        wxTools.reLaunch({
-          url: indexRoute
-        })
+      channelInterface({
+        WX_H5: reLaunch,
+        H5: reLaunch,
+        WX_MINI_PROGRAM() {
+          wxTools.reLaunch({
+            url: indexRoute
+          })
+        }
       })
     },
     _handleGoto(event) {

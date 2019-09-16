@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import componentMixin from "../../core/mixins/component/index.js";
+import componentMixin from '../../core/mixins/component/index.js'
 
 class HImageOrigin implements HImageOriginInterface {
   name = 'h-image-origin'
@@ -17,24 +17,24 @@ class HImageOrigin implements HImageOriginInterface {
   props = {
     src: {
       type: String,
-      default: ""
+      default: ''
     },
     mode: {
       type: String,
-      default: "scaleToFill"
+      default: 'scaleToFill'
     }
   }
   methods = {
-    onload(){
-      this.$cmlEmit("onload");
+    onload() {
+      this.$cmlEmit('onload')
     },
-    onerror(){
-      this.$cmlEmit("onerror");
+    onerror() {
+      this.$cmlEmit('onerror')
     }
   }
 }
 
-export default new HImageOrigin();
+export default new HImageOrigin()
 </script>
 
 <style lang="scss">

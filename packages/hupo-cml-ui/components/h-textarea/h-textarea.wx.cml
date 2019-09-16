@@ -18,35 +18,35 @@
 /*
 event: cinput cblur cfocus cconfirm
 */
- class Textarea implements HTextareaInterface {
+class Textarea implements HTextareaInterface {
     props = {
-      //textarea的内容
+      // textarea的内容
       value: {
         type: String,
-        default: '' 
+        default: ''
       },
-      //textarea的placerholder
+      // textarea的placerholder
       placeholder: {
         type: String,
-        default: '' 
+        default: ''
       },
-      //是否禁用textarea输入
+      // 是否禁用textarea输入
       disabled: {
         type: Boolean,
         default: false
       },
-      //控制textarea是否聚焦
+      // 控制textarea是否聚焦
       focus: {
         type: Boolean,
         default: false
       },
-      //最大长度
+      // 最大长度
       maxlength: {
         type: Number,
         default: 140
       },
-      //右下角返回键类型
-      returnKeyType: { //枚举值 done search next go
+      // 右下角返回键类型
+      returnKeyType: { // 枚举值 done search next go
         type: String,
         default: 'done'
       },
@@ -64,15 +64,15 @@ event: cinput cblur cfocus cconfirm
       }
     }
     data = {
-      defaultStyle: "font-size: 40cpx; height: 150cpx; line-height: 50cpx; padding-left:20cpx; padding-right:20cpx; color: #000; text-align: left; background-color: #fff; width:auto; border: 1px solid #999; border-radius: 8cpx;"
+      defaultStyle: 'font-size: 40cpx; height: 150cpx; line-height: 50cpx; padding-left:20cpx; padding-right:20cpx; color: #000; text-align: left; background-color: #fff; width:auto; border: 1px solid #999; border-radius: 8cpx;'
     }
     computed ={
       wxPlaceHolderStyle() {
         return `color: ${this.placerHolderColor}`
       },
       wxStyle() {
-        let style = this.defaultStyle + this.cStyle;
-        return style;
+        const style = this.defaultStyle + this.cStyle
+        return style
       }
     }
     watch = {
@@ -81,41 +81,41 @@ event: cinput cblur cfocus cconfirm
     }
     methods = {
       inputEvent(e) {
-        this.$cmlEmit('input',{
+        this.$cmlEmit('input', {
           value: e.detail.value || ''
         })
-        this.$cmlEmit('inputevent',{
+        this.$cmlEmit('inputevent', {
           value: e.detail.value || ''
         })
       },
       blurEvent(e) {
-        this.$cmlEmit('blur',{
+        this.$cmlEmit('blur', {
           value: e.detail.value || ''
         })
-        this.$cmlEmit('blurevent',{
+        this.$cmlEmit('blurevent', {
           value: e.detail.value || ''
         })
       },
       focusEvent(e) {
-        this.$cmlEmit('focus',{
+        this.$cmlEmit('focus', {
           value: e.detail.value || ''
         })
-        this.$cmlEmit('focusevent',{
+        this.$cmlEmit('focusevent', {
           value: e.detail.value || ''
         })
       },
       confirmEvent(e) {
-        this.$cmlEmit('confirm',{
+        this.$cmlEmit('confirm', {
           value: e.detail.value || ''
         })
-        this.$cmlEmit('confirmevent',{
+        this.$cmlEmit('confirmevent', {
           value: e.detail.value || ''
         })
       }
     }
-  }
+}
 
-  export default new Textarea();
+export default new Textarea()
 
 </script>
 <style scoped>

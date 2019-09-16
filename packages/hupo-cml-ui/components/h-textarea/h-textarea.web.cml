@@ -1,6 +1,6 @@
 <template>
   <view>ss</view>
-  <!-- <inputable 
+  <!-- <inputable
       :value="value"
       :placeholder="placeholder"
       :disabled="disabled"
@@ -22,7 +22,7 @@
 /*
 event: cinput cblur cfocus cconfirm
 */
- class Textarea implements HTextareaInterface {
+class Textarea implements HTextareaInterface {
     props = {
       rows: {
         type: Number,
@@ -32,28 +32,28 @@ event: cinput cblur cfocus cconfirm
         type: String,
         default: ''
       },
-      //placerholder
+      // placerholder
       placeholder: {
         type: String,
         default: ''
       },
-      //是否禁用输入
+      // 是否禁用输入
       disabled: {
         type: Boolean,
         default: false
       },
-      //控制是否聚焦
+      // 控制是否聚焦
       focus: {
         type: Boolean,
         default: false
       },
-      //最大长度
+      // 最大长度
       maxlength: {
         type: Number,
         default: 140
       },
-      //右下角返回键类型
-      returnKeyType: { //枚举值 done search next go
+      // 右下角返回键类型
+      returnKeyType: { // 枚举值 done search next go
         type: String,
         default: 'done'
       },
@@ -67,7 +67,7 @@ event: cinput cblur cfocus cconfirm
       }
     }
     data = {
-      defaultStyle: "font-size: 18px; height: 75px; line-height: 25px; padding-left:10px; padding-right:10px; color: #000; text-align: left; background-color: #fff; border: 1px solid #999; border-radius: 4px;"
+      defaultStyle: 'font-size: 18px; height: 75px; line-height: 25px; padding-left:10px; padding-right:10px; color: #000; text-align: left; background-color: #fff; border: 1px solid #999; border-radius: 4px;'
     }
     computed ={
       computedStyle() {
@@ -78,30 +78,30 @@ event: cinput cblur cfocus cconfirm
       inputEvent(e) {
         this.$cmlEmit('input', {
           value: e.target.value || ''
-        });
+        })
         this.$cmlEmit('inputevent', {
           value: e.target.value || ''
-        });
+        })
       },
       blurEvent(e) {
-        window.scroll(0,0); // 键盘收起留白的bug
+        window.scroll(0, 0) // 键盘收起留白的bug
         this.$cmlEmit('blur', {
           value: e.target.value || ''
-        });
+        })
         this.$cmlEmit('blurevent', {
           value: e.target.value || ''
-        });
+        })
       },
       focusEvent(e) {
         this.$cmlEmit('focus', {
           value: e.target.value || ''
-        });
+        })
         this.$cmlEmit('focusevent', {
           value: e.target.value || ''
-        });
+        })
       },
       // support enter key event
-      keyupEvent (e) {
+      keyupEvent(e) {
         this.$cmlEmit('confirm', {
           value: e.target.value || ''
         })
@@ -110,8 +110,8 @@ event: cinput cblur cfocus cconfirm
         })
       }
     }
-  }
-  export default new Textarea();
+}
+export default new Textarea()
 
 </script>
 <style scoped>
@@ -123,6 +123,4 @@ event: cinput cblur cfocus cconfirm
   }
 }
 </script>
-
-
 

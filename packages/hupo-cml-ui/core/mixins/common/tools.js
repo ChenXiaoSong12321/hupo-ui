@@ -1,3 +1,5 @@
+import cml from 'chameleon-api'
+import { viewport } from '@hupo/core'
 export default {
   methods: {
     _loadingNavbar() {
@@ -11,6 +13,14 @@ export default {
     },
     _setPageTitle(title) {
       return this._broadcast('h-page', 'toggleLoading', { selfTitle: title })
+    },
+    _calcTop(top) {
+      if (!viewport.headerHeight) return top
+      else return cml.px2cpx(viewport.headerHeight) + top
+    },
+    _calcBottom(bottom) {
+      if (!viewport.bottomHeight) return bottom
+      else return cml.px2cpx(viewport.bottomHeight) + bottom
     }
   }
 }

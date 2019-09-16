@@ -12,29 +12,38 @@ import componentMixin from '../../core/mixins/component/index.js'
 
 class HTag implements HTagInterface {
   name = 'h-tag'
-  mixins = [...componentMixin]
+  mixins = componentMixin
   props = {
     customClass: String,
     customStyle: {
-      type:String,
-      default:''
+      type: String,
+      default: ''
     },
     type: {
       type: String,
-      default: "primary"
+      default: 'primary'
     },
     size: {
       type: String,
-      default: "medium"
+      default: 'medium'
+    },
+    plain: {
+      type: Boolean,
+      default: true
     },
     color: {
       type: String,
-      default: ""
+      default: ''
     }
   }
   computed = {
-    style(){
-      let color = this.color?`color:${this.color};border:1px solid ${this.hex2rgba(this.color)};`:''
+    style() {
+      let color = ''
+      if (this.color) {
+        color = this.plain
+          ? `color:${this.color};border:1px solid ${this.hex2rgba(this.color)};`
+          : `color:#fff;border:1px solid ${this.color};background-color:${this.color}`
+      }
       return color + this.customStyle
     }
   }
@@ -42,15 +51,15 @@ class HTag implements HTagInterface {
     /**
      * 16进制颜色转换成rgba
      */
-    hex2rgba(hex, opacity = ".4") {
-      const rgb = [];
-      hex = hex.substr(1); // 去除 # 号
-      hex.length === 3 && (hex = hex.replace(/(.)/g, "$1$1")); // 处理 "#abc" 成 "#aabbcc"
+    hex2rgba(hex, opacity = '.4') {
+      const rgb = []
+      hex = hex.substr(1) // 去除 # 号
+      hex.length === 3 && (hex = hex.replace(/(.)/g, '$1$1')) // 处理 "#abc" 成 "#aabbcc"
 
-      hex.replace(/../g, v => rgb.push(parseInt(v, 0x10)));
+      hex.replace(/../g, v => rgb.push(parseInt(v, 0x10)))
 
-      return `rgb${opacity ? "a" : ""}(${rgb.join(",")}${
-        opacity ? "," + opacity : ""
+      return `rgb${opacity ? 'a' : ''}(${rgb.join(',')}${
+        opacity ? ',' + opacity : ''
       })`
     }
   }

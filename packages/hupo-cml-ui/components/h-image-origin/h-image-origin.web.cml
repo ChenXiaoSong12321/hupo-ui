@@ -11,7 +11,7 @@
 
 <script>
 import loadImage from './assets/js/image.load.js'
-import componentMixin from "../../core/mixins/component/index.js";
+import componentMixin from '../../core/mixins/component/index.js'
 
 class HImageOrigin implements HImageOriginInterface {
   name = 'h-image-origin'
@@ -19,20 +19,20 @@ class HImageOrigin implements HImageOriginInterface {
   props = {
     src: {
       type: String,
-      default: ""
+      default: ''
     },
     mode: {
       type: String,
-      default: "scaleToFill"
+      default: 'scaleToFill'
     }
   }
   watch = {
-    src(){
+    src() {
       this.loadImage()
     }
   }
   computed = {
-    modeStyle () {
+    modeStyle() {
       let size = 'auto'
       let position = ''
       const repeat = 'no-repeat'
@@ -87,18 +87,18 @@ class HImageOrigin implements HImageOriginInterface {
     this.loadImage()
   }
   methods = {
-    async loadImage(){
+    async loadImage() {
       try {
         await loadImage(this.src)
-        this.$cmlEmit("onload");
+        this.$cmlEmit('onload')
       } catch (error) {
-        this.$cmlEmit("onerror");
+        this.$cmlEmit('onerror')
       }
     }
   }
 }
 
-export default new HImageOrigin();
+export default new HImageOrigin()
 </script>
 
 <style lang="scss">

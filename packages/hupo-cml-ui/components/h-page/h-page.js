@@ -1,9 +1,6 @@
-import defaultData from '../../core/viewport/defaultData'
-import calculate from '../../core/viewport/calculate'
-import difference from '../../core/difference/difference.interface'
-import channelDifference from '../../core/utils/channelDifference'
-import {wxTools} from '@hupo/core'
-const promise = {}
+import cml from 'chameleon-api'
+import { wxTools, channelInterface, viewport } from '@hupo/core'
+import debounce from 'lodash.debounce'
 export default {
   props: {
     loading: {
@@ -41,11 +38,10 @@ export default {
   },
   computed: {
     heightStyle() {
-      if (this.fixed) return `min-height: ${this.viewport.viewportHeight}cpx;`
-      else return `height: ${this.viewport.viewportHeight}cpx;`
+      return `${this.fixed ? 'min-' : ''}height: ${this.viewportHeight}cpx;`
     }
   },
-  watch : {
+  watch: {
     title(val) {
       this.selfTitle = val
     },
@@ -55,30 +51,58 @@ export default {
   },
   data: {
     navbarLoading: false,
-    viewport: defaultData,
+    viewport,
+    viewportHeight: 0,
     status: '',
     selfTitle: ''
   },
   async created() {
     this.selfTitle = this.title
     this.initNavigation()
-    const data = await calculate()
-    this.viewport = data
+    const system = await cml.getSystemInfo()
+    this.viewportHeight = system.viewportHeight
   },
-  mounted () {
+  mounted() {
+    this._on('onShow', () => {
+      this.initNavigation()
+    })
     this._on('toggleLoading', (options = {}) => {
       Object.keys(options).forEach(key => {
         this[key] = options[key]
       })
     })
+    this._on('pulldown', () => {
+      this.$cmlEmit('pulldown')
+    })
+    this._on('pullup', () => {
+      this.$cmlEmit('pullup')
+    })
+    const onScroll = () => {
+      const scollTop = document.documentElement.scrollTop
+      const scrollHeight = document.documentElement.scrollHeight
+      const documentHeight = cml.cpx2px(this.viewportHeight)
+      if (scollTop + documentHeight + 100 > scrollHeight) {
+        this.$cmlEmit('pullup')
+      }
+    }
+    channelInterface({
+      H5() {
+        window.onscroll = debounce(onScroll, 100)
+      },
+      WX_H5() {
+        window.onscroll = debounce(onScroll, 100)
+      }
+    })
   },
   methods: {
     initNavigation() {
-      channelDifference('HP_MALL', () => {
-        wxTools.setNavigationBarColor({
-          frontColor: this.type === 'default' ? '#000000' : '#ffffff',
-          backgroundColor: this.type === 'default' ? '#fafafa' : '#dd392e'
-        })
+      channelInterface({
+        WX_MINI_PROGRAM: () => {
+          wxTools.setNavigationBarColor({
+            frontColor: this.type === 'default' ? '#000000' : '#ffffff',
+            backgroundColor: this.type === 'default' ? '#fafafa' : '#dd392e'
+          })
+        }
       })
     }
   }
