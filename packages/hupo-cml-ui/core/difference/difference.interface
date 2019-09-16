@@ -3,8 +3,7 @@ interface DifferenceInterface {}
 </script>
 
 <script cml-type="web">
-import getNetworkType from '../utils/getNetworkType'
-import {global} from '@hupo/core'
+import {global, getNetworkType} from '@hupo/core'
 
   class Difference implements DifferenceInterface {
     getUrl(){

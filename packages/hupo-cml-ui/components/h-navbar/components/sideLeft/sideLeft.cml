@@ -31,8 +31,8 @@
   </view>
 </template>
 <script>
-import difference from "../../../../core/difference/difference.interface";
-import {componentBaseTreeMixin, componentEventMixin} from '@hupo/core'
+import difference from '../../../../core/difference/difference.interface'
+import { componentBaseTreeMixin, componentEventMixin } from '@hupo/core'
 import Goto from '../../../../core/mixins/common/goto.js'
 import sideLeftDifference from './sideLeft.difference.interface'
 class HNavbarSideLeft implements HNavbarSideLeftInterface {
@@ -45,7 +45,7 @@ class HNavbarSideLeft implements HNavbarSideLeftInterface {
     },
     type: {
       type: String,
-      default: "default"
+      default: 'default'
     }
   }
   data = {
@@ -56,12 +56,12 @@ class HNavbarSideLeft implements HNavbarSideLeftInterface {
     const historys = sideLeftDifference.getHistorys()
     const route = difference.getRouter(this._page)
     const isHomeRoute = this._isHomeRoute(route.route)
-    this.selfShowBackIcon = historys > 1 && !isHomeRoute;
-    this.selfShowHomeIcon = !isHomeRoute;
+    this.selfShowBackIcon = historys > 1 && !isHomeRoute
+    this.selfShowHomeIcon = !isHomeRoute
   }
   methods = {
     back() {
-      this._back();
+      this._back()
     }
   }
 }

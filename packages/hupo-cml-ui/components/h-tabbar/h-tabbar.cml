@@ -1,59 +1,57 @@
 <template>
-  <h-fixed position="{{useFixedLayout?'fixed':'absolute'}}" bottom="0" place-height="{{height}}cpx">
-    <view class="h-tab-bar">
-      <view class="h-tab-bar-wrap">
-        <view c-for="{{tabbar}}" c-key="text" class="h-tab-bar-item-wrap">
-          <view class="h-tab-bar-content" c-bind:click="onTabbarItemTap(index)">
-            <view class="h-tab-bar-icon-wrap" c-if="{{!top && hasIcon}}">
-              <image c-if="{{!(index === tapedIndex)}}" class="tab-icon" src="{{item.icon}}" style="{{!(index === tapedIndex) ? (item.iconStyle || '') : ';'}}"></image>
-              <image c-if="{{index === tapedIndex}}" class="tab-icon" src="{{item.selectedIcon || item.icon}}" style="{{(index === tapedIndex) ? (item.selectedIconStyle || '') : ''}}"></image>
-            </view>
-            <view class='tab-title'>
-              <text class="tab-text" style="color:{{index === tapedIndex ? selectedTextStyle:textStyle}}">{{item.text}}</text>
-            </view>
+  <view class="h-tab-bar {{fixed ? 'h-tab-bar--fixed' : ''}}" style="{{tabbarStyle}}">
+    <view class="h-tab-bar-wrap">
+      <view c-for="{{tabbar}}" c-key="text" class="h-tab-bar-item-wrap">
+        <view class="h-tab-bar-content" c-bind:click="onTabbarItemTap(index)">
+          <view class="h-tab-bar-icon-wrap" c-if="{{!top && hasIcon}}">
+            <image c-if="{{!(index === tapedIndex)}}" class="tab-icon" src="{{item.icon}}" style="{{!(index === tapedIndex) ? (item.iconStyle || '') : ';'}}"></image>
+            <image c-if="{{index === tapedIndex}}" class="tab-icon" src="{{item.selectedIcon || item.icon}}" style="{{(index === tapedIndex) ? (item.selectedIconStyle || '') : ''}}"></image>
+          </view>
+          <view class='tab-title'>
+            <text class="tab-text" style="color:{{index === tapedIndex ? selectedTextStyle:textStyle}}">{{item.text}}</text>
           </view>
         </view>
       </view>
     </view>
-  </h-fixed>
+  </view>
 </template>
 
 <script>
 import componentMixin from '../../core/mixins/component/index.js'
-import {primaryColor,fontColorC3} from '../../assets/config/style.var.js'
+import { primaryColor, fontColorC3 } from '../../assets/config/style.var.js'
 
-class HTabbar implements HTabbarInterface{
+class HTabbar implements HTabbarInterface {
   name = 'h-tabbar'
-  mixins = [...componentMixin]
+  mixins = componentMixin
   props = {
     tabbar: {
       type: Array,
       default: []
     },
-    tabLineStyle:{
+    tabLineStyle: {
       type: String,
       default: ''
     },
-    textStyle:{
+    textStyle: {
       type: String,
       default: fontColorC3
     },
-    selectedTextStyle:{
+    selectedTextStyle: {
       type: String,
       default: primaryColor
     },
-    position:{
+    position: {
       type: String,
       default: ''
     },
-    useFixedLayout:{
+    fixed: {
       type: Boolean,
-      default: true
+      default: false
     },
     selectedIndex: { // 默认选中那个tabbbar
       type: Number,
-      default: 0,
-    },
+      default: 0
+    }
   }
   data = {
     tapedIndex: 0,
@@ -61,37 +59,38 @@ class HTabbar implements HTabbarInterface{
   }
   computed = {
     top() {
-      return this.tabbar.position === 'top';
+      return this.tabbar.position === 'top'
     },
-    //必须每个list中都配置icon,selectedIcon才展示icon,有一个不配置就不会展示
+    // 必须每个list中都配置icon,selectedIcon才展示icon,有一个不配置就不会展示
     hasIcon() {
-      let necessaryKeys = ['icon'];
+      const necessaryKeys = ['icon']
       return (this.tabbar || []).every((item) => {
         return necessaryKeys.every((key) => Object.keys(item).includes(key))
       })
+    },
+    tabbarStyle() {
+      if (this.top) {
+        return `top: ${this._calcTop(0)}cpx;`
+      } else {
+        return `bottom: ${this._calcBottom(0)}cpx;`
+      }
     }
   }
   watch = {
     selectedIndex() {
-      this.tapedIndex = this.selectedIndex;
+      this.tapedIndex = this.selectedIndex
     }
   }
   methods = {
     onTabbarItemTap(index) {
-      this.tapedIndex = index;
+      this.tapedIndex = index
       this.$cmlEmit('tabbarclick', {
         index
       })
     }
   }
   mounted() {
-    this.tapedIndex = this.selectedIndex;
-    console.log(this)
-    if (!this.tabbar.length) {
-      return '';
-    }
-    let width = 750 / this.tabbar.length; //line的总宽度；
-    let leftOffset = this.selectedIndex * width;
+    this.tapedIndex = this.selectedIndex
   }
 }
 export default new HTabbar()
@@ -102,9 +101,6 @@ export default new HTabbar()
 <script cml-type="json">
   {
     "base": {
-      "usingComponents": {
-        "h-fixed": "../h-fixed/h-fixed"
-      },
       "component": true
     }
   }

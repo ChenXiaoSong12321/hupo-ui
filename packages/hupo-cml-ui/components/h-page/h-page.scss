@@ -1,4 +1,3 @@
-@import '../../assets/scss/output';
 @include b(page) {
   display: flex;
   flex-direction: column;
@@ -38,7 +37,6 @@
     bottom: 0;
     right: 0;
     width: 100%;
-    height: 34px;
     z-index: $--z-index-max;
     background: $--white;
   }

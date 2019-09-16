@@ -1,0 +1,94 @@
+<template>
+  <scroller
+    class="h-scroll"
+    cstyle="{{cstyle}}"
+    width="{{width}}"
+    scrollDirection="{{scrollDirection}}"
+    bottomOffset="{{bottomOffset}}"
+    scrollTop="{{scrollTop}}"
+    bounce="{{bounce}}"
+    height="{{computedHeight}}"
+    c-bind:scrolltobottom="onPullup"
+    c-bind:onscroll="onScroll"
+  >
+    <slot></slot>
+  </scroller>
+</template>
+<script>
+import cml from 'chameleon-api'
+import componentMixin from '../../core/mixins/component/index.js'
+import { viewport } from '@hupo/core'
+import debounce from 'lodash.debounce'
+
+class HScroll implements HScrollInterface {
+  name = 'h-scroll'
+  mixins = componentMixin
+  props = {
+    cstyle: {
+      type: String,
+      default: ''
+    },
+    height: {
+      type: Number,
+      default: -1
+    },
+    width: {
+      type: Number,
+      default: -1
+    },
+    scrollDirection: {
+      type: String,
+      default: 'vertical'
+    },
+    bottomOffset: {
+      type: Number,
+      default: 0
+    },
+    scrollTop: {
+      type: Number,
+      default: 0
+    },
+    bounce: {
+      type: Boolean,
+      default: true
+    }
+  }
+  data = {
+    viewportHeight: 0,
+    offetHeight: 0
+  }
+  computed = {
+    computedHeight() {
+      return this.height == -1 ? (this.viewportHeight - cml.px2cpx(viewport.bottomHeight + viewport.headerHeight) - this.offetHeight) : this.height - this.offetHeight
+    }
+  }
+  async created() {
+    const system = await cml.getSystemInfo()
+    this.viewportHeight = system.viewportHeight
+  }
+  mounted() {
+    this._on('offetHeight', offetHeight => {
+      this.offetHeight = offetHeight
+    })
+  }
+  methods = {
+    onPullup: debounce(function(event) {
+      event.detail.instance = this
+      this.$cmlEmit('pullup', event.detail)
+    }, 100),
+    onScroll: debounce(function(event) {
+      this.$cmlEmit('scroll', event.detail)
+    }, 100)
+  }
+}
+export default new HScroll()
+</script>
+<style lang="scss">
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "component": true
+  }
+}
+</script>

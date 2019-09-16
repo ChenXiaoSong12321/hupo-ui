@@ -37,30 +37,30 @@
 import HInputMixins from '../h-field/h-input.mixins.js'
 import componentMixin from '../../core/mixins/component/index.js'
 
-class HSearch implements HSearchInterface{
+class HSearch implements HSearchInterface {
   name = 'h-search'
   mixins = [HInputMixins, ...componentMixin]
   props = {
-    value:{
-      type:String,
-      default:''
+    value: {
+      type: String,
+      default: ''
     },
-    width:{
-      type:String,
-      default:''
+    width: {
+      type: String,
+      default: ''
     },
-    cancel:{
-      type:Boolean,
-      default:false
+    cancel: {
+      type: Boolean,
+      default: false
     },
-    placeholder:{
-      type:String,
-      default:'请输入搜索关键字'
+    placeholder: {
+      type: String,
+      default: '请输入搜索关键字'
     }
   }
   computed = {
-   inputStyle(){
-     return `
+    inputStyle() {
+      return `
       border: none;
       height: 28cpx;
       line-height: 28cpx;
@@ -72,25 +72,25 @@ class HSearch implements HSearchInterface{
       vertical-align: bottom;
       outline: none;
      `
-   },
-   inputWidth(){
-     return this.width?this.width:(this.cancel?'526cpx':'446cpx')
-   }
+    },
+    inputWidth() {
+      return this.width ? this.width : (this.cancel ? '526cpx' : '446cpx')
+    }
   }
   watch = {
-    value(n,o){
-      if(n!==o)this.$cmlEmit('onChanged',{value:n})
+    value(n, o) {
+      if (n !== o) this.$cmlEmit('onChanged', { value: n })
     }
   }
   methods = {
-    onclick(){
-      this.$cmlEmit('onclick',{value:this.value})
+    onclick() {
+      this.$cmlEmit('onclick', { value: this.value })
     },
-    oncancel(){
-      this.$cmlEmit('oncancel',{value:this.value})
+    oncancel() {
+      this.$cmlEmit('oncancel', { value: this.value })
     },
-    inputChanged(e){
-      this.$cmlEmit('input',e.detail)
+    inputChanged(e) {
+      this.$cmlEmit('input', e.detail)
     }
   }
 }

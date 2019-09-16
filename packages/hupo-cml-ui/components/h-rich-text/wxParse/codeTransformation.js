@@ -22,7 +22,6 @@ const codeMap = {
   '&ang;': '∠',
   '&and;': '∧',
   '&or;': '∨',
-  '&cap;': '∩',
   '&cap;': '∪',
   '&int;': '∫',
   '&there4;': '∴',
@@ -156,7 +155,7 @@ const codeMap = {
   '&hearts;': '♥',
   '&diams;': '♦',
   '&#39;': "'"
-};
+}
 
 /**
  * 转换特殊字符
@@ -164,11 +163,11 @@ const codeMap = {
  * @return {String}     转换后的字符串
  */
 const transform = (str) => {
-  for (let code in codeMap) {
-    str = str.replace(new RegExp(code, 'g'), codeMap[code]);
+  for (const code in codeMap) {
+    str = str.replace(new RegExp(code, 'g'), codeMap[code])
   }
-  return str;
-};
+  return str
+}
 
 module.exports = {
   transform

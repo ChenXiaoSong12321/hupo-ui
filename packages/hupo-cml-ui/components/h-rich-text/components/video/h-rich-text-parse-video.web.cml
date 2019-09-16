@@ -21,7 +21,7 @@ class HRichTextParseVideo implements HRichTextParseVideoInterface {
     }
   }
   computed = {
-    video(){
+    video() {
       const video = {}
       if (this.nodes.attr && this.nodes.attr.src && this.nodes.attr.src.indexOf('qq.com') > -1) {
         video.type = 'tencentvideo'
@@ -31,7 +31,7 @@ class HRichTextParseVideo implements HRichTextParseVideoInterface {
     }
   }
 }
-export default new HRichTextParseVideo();
+export default new HRichTextParseVideo()
 </script>
 
 <style lang="scss">

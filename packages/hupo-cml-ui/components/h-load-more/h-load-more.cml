@@ -4,11 +4,8 @@
       <view class="h-loadmore--loading"></view>
       <view class="h-loadmore-tips">加载中...</view>
     </view>
-    <view class="h-loadmore h-loadmore--nodata" c-show="{{!loading && listLength >= 20}}">
-      <view c-if="{{useSlot}}">
-        <slot></slot>
-      </view>
-      <image class="image" c-else src="{{nodataImg}}" mode="widthFix"></image>
+    <view class="h-loadmore h-loadmore--nodata" c-show="{{!loading && slogen}}">
+      <image class="image" src="{{nodata}}" mode="widthFix"></image>
     </view>
   </view>
 </template>
@@ -18,23 +15,24 @@ import componentMixin from '../../core/mixins/component/index.js'
 
 class HLoadMore implements HLoadMoreInterface {
   name = 'h-load-more'
-  mixins = [...componentMixin]
+  mixins = componentMixin
   props = {
     loading: {
       type: Boolean,
       default: false
     },
-    listLength: {
-      type: Number,
-      default: 20
-    },
-    useSlot: {
+    slogen: {
       type: Boolean,
-      default: false
+      default: true
     }
   }
   data = {
-    nodataImg: require('./nodata.png')
+    nodata: require('./nodata.png')
+  }
+  mounted () {
+    this._on('nodata', nodata => {
+      this.nodata = nodata
+    })
   }
 }
 export default new HLoadMore()
@@ -43,7 +41,6 @@ export default new HLoadMore()
 <style lang="scss">
 @import "./h-load-more.scss";
 </style>
-
 
 <script cml-type="json">
 {

@@ -1,7 +1,7 @@
 <template>
   <view class="h-stepper">
     <h-button
-      throttle="{{0}}"
+      throttle="{{false}}"
       class="h-stepper-subtract {{disabled || (stepValue<=min) ? 'is-disabled':''}}"
       type="none"
       c-bind:onclick="onChange('subtract')"
@@ -18,7 +18,7 @@
       />
     </view>
     <h-button
-      throttle="{{0}}"
+      throttle="{{false}}"
       class="h-stepper-add {{disabled || (stepValue >= max) ? 'is-disabled':''}}"
       type="none"
       c-bind:onclick="onChange('add')"
@@ -29,17 +29,17 @@
 </template>
 
 <script>
-const MAX = 2147483647;
+const MAX = 2147483647
 import componentMixin from '../../core/mixins/component/index.js'
 
-class HStepper implements HStepperInterface{
-  name = 'h-stepper' 
-  mixins = [...componentMixin]
+class HStepper implements HStepperInterface {
+  name = 'h-stepper'
+  mixins = componentMixin
   props = {
     integer: Boolean,
     disabled: Boolean,
     disableInput: Boolean,
-    value:{
+    value: {
       type: String,
       default: '1'
     },
@@ -57,20 +57,20 @@ class HStepper implements HStepperInterface{
     }
   }
   data = {
-    stepValue:'1'
+    stepValue: '1'
   }
   watch = {
-    value(n){
+    value(n) {
       debugger
       this.stepValue = n
     },
-    stepValue(n){
-      this.$cmlEmit('changed',n)
+    stepValue(n) {
+      this.$cmlEmit('changed', n)
     }
   }
   computed = {
-   inputStyle(){
-     return `
+    inputStyle() {
+      return `
       border: none;
       font-size: 22cpx;
       height: 40cpx;
@@ -81,22 +81,22 @@ class HStepper implements HStepperInterface{
       color: #666666;
       outline: none;
      `
-   }
+    }
   }
   methods = {
-    inputChanged(e){
-      this.$cmlEmit('input',e.detail)
+    inputChanged(e) {
+      this.$cmlEmit('input', e.detail)
     },
     onChange(type) {
-      if ((this.stepValue<=this.min && type==='subtract') || (this.stepValue >= this.max && type==='add') ) {
-        this.$cmlEmit('overlimit', type);
-        return;
+      if ((this.stepValue <= this.min && type === 'subtract') || (this.stepValue >= this.max && type === 'add')) {
+        this.$cmlEmit('overlimit', type)
+        return
       }
 
-      const diff = type === 'subtract' ? -this.step : +this.step;
-      let stepValue = Math.round((Number(this.stepValue) + diff) * 100) / 100;
+      const diff = type === 'subtract' ? -this.step : +this.step
+      const stepValue = Math.round((Number(this.stepValue) + diff) * 100) / 100
       this.stepValue = stepValue.toString()
-      this.$cmlEmit(type);
+      this.$cmlEmit(type)
     }
   }
 }

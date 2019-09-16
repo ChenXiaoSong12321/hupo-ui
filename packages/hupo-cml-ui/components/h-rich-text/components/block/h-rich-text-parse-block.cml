@@ -10,7 +10,7 @@ import recursion from '../../recursion.interface'
 class HRichTextParseBlock implements HRichTextParseBlockInterface {
   name = 'h-rich-text-parse-block'
 
-  beforeCreate () {
+  beforeCreate() {
     recursion.beforeCreate(this)
   }
   props = {
@@ -20,7 +20,7 @@ class HRichTextParseBlock implements HRichTextParseBlockInterface {
     }
   }
 }
-export default new HRichTextParseBlock();
+export default new HRichTextParseBlock()
 </script>
 
 <style lang="scss">

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import {componentBaseTreeMixin, componentEventMixin} from '@hupo/core'
+import { componentBaseTreeMixin, componentEventMixin } from '@hupo/core'
 class HNavbarTitle implements HNavbarTitleInterface {
   name = 'h-navbar-title'
   mixins = [componentBaseTreeMixin, componentEventMixin]

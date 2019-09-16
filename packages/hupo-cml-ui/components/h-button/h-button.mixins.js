@@ -1,7 +1,7 @@
-import { throttle } from '../../core/utils/throttle'
+import throttle from 'lodash.throttle'
 
 export default {
-  name:'h-button',
+  name: 'h-button',
   props: {
     customClass: {
       type: String,
@@ -24,8 +24,8 @@ export default {
       default: false
     },
     throttle: {
-      type: [Number, String],
-      default: 500 // 当throttle <= 0，无防暴力点击
+      type: Boolean,
+      default: true
     },
     disabled: {
       type: Boolean,
@@ -44,7 +44,6 @@ export default {
       default: false
     }
   },
-
   computed: {
     stateClass() {
       const classes = ['group', 'plain', 'disabled', 'opacity']
@@ -57,16 +56,15 @@ export default {
       return stateClass
     }
   },
-  mounted() {
-    this.$throttleButton = throttle()
-  },
   methods: {
-    async btnEmit(type, data = {}) {
-      if (this.throttle > 0) {
-        await this.$throttleButton(this.throttle)
-      }
+    btnEmit(type, data = {}) {
+      this.throttle ? this.emitThrottle(type, data) : this.emitNow(type, data)
+    },
+    emitNow(type, data) {
       this.$cmlEmit(type, data)
-      this.$cmlEmit('test', data)
-    }
+    },
+    emitThrottle: throttle(function(type, data = {}) {
+      this.$cmlEmit(type, data)
+    }, 500)
   }
 }

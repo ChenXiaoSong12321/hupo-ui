@@ -6,7 +6,7 @@
 <script>
 class HRichTextParseBr implements HRichTextParseBrInterface {
 }
-export default new HRichTextParseBr();
+export default new HRichTextParseBr()
 </script>
 
 <style lang="scss">

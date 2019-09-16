@@ -4,47 +4,47 @@
   </view>
 </template>
 <script>
-import { primaryColor } from "../../assets/config/style.var.js";
+import { primaryColor } from '../../assets/config/style.var.js'
 import componentMixin from '../../core/mixins/component/index.js'
 
-class HTabItem implements HTabItemInterface{
+class HTabItem implements HTabItemInterface {
   name = 'h-tab-item'
-  mixins = [...componentMixin]
+  mixins = componentMixin
   props = {
-    tab:{
-      type:Object,
-      default(){
-        return {};
-      },
+    tab: {
+      type: Object,
+      default() {
+        return {}
+      }
     },
-    inline:{
-      type:Boolean,
-      default:true
+    inline: {
+      type: Boolean,
+      default: true
     },
-    activeLabel:{
-      type:String,
+    activeLabel: {
+      type: String
     },
-    hasUnderline:{
-      type:Boolean,
-      default:true,
+    hasUnderline: {
+      type: Boolean,
+      default: true
     },
-    activeLabelStyle:{
-      type:String,
-      default:`color:${primaryColor};border-bottom:4cpx solid ${primaryColor}`
-    },
+    activeLabelStyle: {
+      type: String,
+      default: `color:${primaryColor};border-bottom:4cpx solid ${primaryColor}`
+    }
   }
   computed = {
-    finalLabel(){
-      let activeLabelStyle = this.isActive ? this.activeLabelStyle : ';';
-      return (this.tab.labelStyle || ';') + activeLabelStyle;
+    finalLabel() {
+      const activeLabelStyle = this.isActive ? this.activeLabelStyle : ';'
+      return (this.tab.labelStyle || ';') + activeLabelStyle
     },
-    isActive(){
-      return this.activeLabel === this.tab.label;
-    },
+    isActive() {
+      return this.activeLabel === this.tab.label
+    }
   }
   methods = {
-    handleTabTap(){
-      this.$cmlEmit('tabclick',this.tab);
+    handleTabTap() {
+      this.$cmlEmit('tabclick', this.tab)
     }
   }
 }

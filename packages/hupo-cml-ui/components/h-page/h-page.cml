@@ -17,18 +17,22 @@
         </view>
       </block>
       <block c-else>
-        <view class="h-page-container {{disabled ? 'is-disabled' : ''}}">
+        <view class="h-page-container {{disabled || !fixed ? 'is-disabled' : ''}}">
           <slot></slot>
         </view>
       </block>
-      <view class="h-page-bottom" c-if="{{viewport.isAllScreen}}">
-        <view class="h-page-bottom-fixed"></view>
+      <view
+        class="h-page-bottom"
+        c-if="{{viewport.isAllScreen}}"
+        style="height: {{viewport.bottomHeight}}px;"
+      >
+        <view class="h-page-bottom-fixed" style="height: {{viewport.bottomHeight}}px;"></view>
       </view>
     </view>
   </page>
 </template>
 <script>
-import HPageMixin from "./h-page.js";
+import HPageMixin from './h-page.js'
 import componentMixin from '../../core/mixins/component/index.js'
 
 class HPage implements HPageInterface {

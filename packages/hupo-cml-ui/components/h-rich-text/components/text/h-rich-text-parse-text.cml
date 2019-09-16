@@ -4,17 +4,17 @@
   </view>
 </template>
 <script>
-class HRichTextParseText implements HRichTextParseTextInterface{
+class HRichTextParseText implements HRichTextParseTextInterface {
   name = 'h-rich-text-parse-text'
 
   props= {
     nodes: {
       type: Object,
-      default(){return {}}
+      default() { return {} }
     }
   }
 }
-export default new HRichTextParseText();
+export default new HRichTextParseText()
 </script>
 
 <style lang="scss">
