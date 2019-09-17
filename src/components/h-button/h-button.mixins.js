@@ -24,8 +24,8 @@ export default {
       default: false
     },
     throttle: {
-      type: Boolean,
-      default: true
+      type: Number,
+      default: 500
     },
     disabled: {
       type: Boolean,
@@ -56,15 +56,21 @@ export default {
       return stateClass
     }
   },
+  watch: {
+    throttle() {
+      this.refreshThrottleFn()
+    }
+  },
+  mounted() {
+    this.refreshThrottleFn()
+  },
   methods: {
     btnEmit(type, data = {}) {
-      this.throttle ? this.emitThrottle(type, data) : this.emitNow(type, data)
+      // eslint-disable-next-line no-useless-call
+      this.throttleEmit.call(this, type, data)
     },
-    emitNow(type, data) {
-      this.$cmlEmit(type, data)
-    },
-    emitThrottle: throttle(function(type, data = {}) {
-      this.$cmlEmit(type, data)
-    }, 500)
+    refreshThrottleFn() {
+      this.throttleEmit = throttle(function(type, data) { this.$cmlEmit(type, data) }, this.throttle)
+    }
   }
 }
