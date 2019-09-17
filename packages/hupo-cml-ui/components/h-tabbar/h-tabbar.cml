@@ -91,6 +91,7 @@ class HTabbar implements HTabbarInterface {
   }
   mounted() {
     this.tapedIndex = this.selectedIndex
+    this._broadcast('h-scroll', 'offetHeight', 100)
   }
 }
 export default new HTabbar()
