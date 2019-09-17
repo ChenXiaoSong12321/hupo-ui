@@ -1,5 +1,5 @@
 <template>
-  <h-scroll c-bind:pullup="onPullup" c-bind:bottomOffset="{{bottomOffset}}">
+  <h-scroll c-bind:pullup="onPullup" bottomOffset="{{bottomOffset}}">
     <block c-if="{{!empty}}">
       <slot></slot>
       <h-load-more loading="{{loading}}"></h-load-more>
@@ -16,7 +16,7 @@ import componentMixin from '@core/mixins/component/index.js'
 
 class HPagination implements HPaginationInterface {
   name = 'h-pagination'
-  mixins = [CurrentComponent, ...componentMixin]
+  mixins = [...componentMixin, CurrentComponent]
 }
 export default new HPagination()
 </script>

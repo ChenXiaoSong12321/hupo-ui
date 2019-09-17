@@ -97,6 +97,7 @@ class HSearch implements HSearchInterface {
 export default new HSearch()
 </script>
 <style lang="scss">
+@import "../../assets/scss/_output.scss";
 @import "./h-search.scss";
 </style>
 <script cml-type="json">

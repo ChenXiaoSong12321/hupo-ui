@@ -43,6 +43,7 @@ class HToast implements HToastInterface {
 export default new HToast()
 </script>
 <style lang="scss">
+@import "../../assets/scss/_output.scss";
 @include b(toast) {
   @keyframes loading-rotate {
     from {

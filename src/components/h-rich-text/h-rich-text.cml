@@ -74,6 +74,7 @@ class HRichText implements HRichTextInterface {
 export default new HRichText()
 </script>
 <style lang="scss">
+@import "../../assets/scss/_output.scss";
 @import "./h-rich-text.scss";
 </style>
 <script cml-type="json">
