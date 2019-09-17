@@ -4,16 +4,11 @@
 
 <script>
 import routerConfig from '../router.config.json'
-import { global, Event } from '@hupo/core'
-
-global._eventbus = new Event()
-
+import { global } from '@hupo/core'
+global._routerConfig = routerConfig
 class App {
   data = {
     routerConfig
-  };
-  async beforeCreate() {
-    global._routerConfig = this.routerConfig
   }
 }
 
