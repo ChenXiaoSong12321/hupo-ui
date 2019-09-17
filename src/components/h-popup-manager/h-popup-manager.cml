@@ -1,6 +1,9 @@
 <template>
   <h-fixed>
-    <view c-if="{{visible}}" class="h-popup-manager {{ visible ? 'h-popup-manager--show' : '' }}">
+    <view
+      c-if="{{visible}}"
+      class="h-popup-manager {{ visible ? 'h-popup-manager--show' : '' }} h-popup-manager--{{position === 'center' ? 'center' : 'full'}}"
+    >
       <view
         c-if="{{mask}}"
         class="h-popup-manager-mask is-transition {{ transitionIn ? 'is-in' : 'is-leave' }}"
@@ -37,7 +40,7 @@ class HPopupManager implements HPopupManagerInterface {
     },
     position: {
       type: String,
-      default: ''
+      default: 'center'
     },
     top: {
       type: [String, Number],
@@ -73,9 +76,9 @@ class HPopupManager implements HPopupManagerInterface {
         bottom: `bottom:${this._calcBottom(parseInt(this.bottom))}cpx;`,
         left: `left:${this.left}cpx;`,
         right: `right:${this.right}cpx;`,
-        default: ''
+        center: ''
       }
-      return positions[this.position || 'default'] || positions.default
+      return positions[this.position] || positions.center
     }
   }
   methods = {
