@@ -1,3 +1,4 @@
+@import '../../assets/scss/output';
 @include b(image) {
   display: inline-block;
   vertical-align: top;
@@ -26,7 +27,7 @@
     height: 100%;
     // animation: fadeIn 1s both ease-in-out;
   }
-  
+
   @include e(loaded-image){
     width: 100%;
     height: 100%;

@@ -1,6 +1,7 @@
+@import '../../assets/scss/output';
 @include b(popup-manager){
   z-index: 1000;
-  
+
   @include when(not-center){
     position: fixed;
     top: 0;
