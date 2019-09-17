@@ -97,6 +97,7 @@ export default new HRadio()
 </script>
 
 <style lang="scss">
+@import "../../assets/scss/_output.scss";
 @import "./h-radio.scss";
 </style>
 
