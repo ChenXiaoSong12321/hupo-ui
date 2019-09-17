@@ -67,6 +67,7 @@ class HTag implements HTagInterface {
 export default new HTag()
 </script>
 <style lang="scss">
+@import "../../assets/scss/_output.scss";
 @import "./h-tag.scss";
 </style>
 <script cml-type="json">

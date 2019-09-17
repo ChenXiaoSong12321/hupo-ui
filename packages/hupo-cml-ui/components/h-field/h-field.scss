@@ -1,3 +1,4 @@
+@import '../../assets/scss/output';
 @include b(field){
   @include flexCenter(vertical);
   height: 88cpx;
@@ -22,7 +23,7 @@
   }
   @include e(input-wrap){
     flex: 1;
-    height: 88cpx; 
+    height: 88cpx;
     @include when(no-label){
       margin-left: 10cpx;
     }
