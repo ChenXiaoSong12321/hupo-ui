@@ -7,6 +7,14 @@ interface sideLeftDifferenceInterface {}
     getHistorys(){
       return window.history.length
     }
+    getRouter(ctx){
+      return {
+        path: ctx.$route.path,
+        route: ctx.$route.path,
+        params: ctx.$route.params,
+        query: ctx.$route.query
+      }
+    }
   }
   export default new sideLeftDifference();
 </script>
@@ -14,6 +22,14 @@ interface sideLeftDifferenceInterface {}
   class sideLeftDifference implements sideLeftDifferenceInterface {
     getHistorys(){
       return getCurrentPages().length
+    }
+    getRouter(ctx){
+      return {
+        path: ctx.route,
+        route: ctx.route,
+        params: ctx.options,
+        query: ctx.options
+      }
     }
   }
   export default new sideLeftDifference();

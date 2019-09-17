@@ -1,19 +1,13 @@
 import cml from 'chameleon-api'
-import difference from '../../difference/difference.interface'
 import { global, wxTools, channelInterface } from '@hupo/core'
 import { url } from '@hupo/core'
 
-let indexRoute = ''
+const getIndexRoute = () => global._routerConfig.routes[0].path
 export default {
-  created() {
-    if (!indexRoute && global._routerConfig) {
-      indexRoute = global._routerConfig.routes[0].path
-    }
-  },
   methods: {
     // 判断 route 是否是首页
     _isHomeRoute(route) {
-      return indexRoute.indexOf(route) > -1 || route === '/'
+      return getIndexRoute().indexOf(route) > -1 || route === '/'
     },
     // 返回
     _back(backPageNum = -1) {
@@ -26,7 +20,7 @@ export default {
     _backToHome() {
       const reLaunch = () => {
         this._goto({
-          path: indexRoute,
+          path: getIndexRoute(),
           redirect: true
         })
       }
@@ -35,26 +29,12 @@ export default {
         H5: reLaunch,
         WX_MINI_PROGRAM() {
           wxTools.reLaunch({
-            url: indexRoute
+            url: getIndexRoute()
           })
         }
       })
     },
-    _handleGoto(event) {
-      const dataset = difference.getDataset(event)
-      let redirect = false
-      const query = {}
-      Object.keys(dataset).forEach(key => {
-        if (key.indexOf('query') > -1) {
-          const queryKey = key.replace(/query([A-Z])/, (a, v) => v.toLowerCase())
-          query[queryKey] = dataset[key]
-        } else if (key === 'redirect') {
-          redirect = true
-        }
-      })
-      const {
-        path = '/'
-      } = dataset
+    _handleGoto(path = getIndexRoute(), query = {}, redirect = false) {
       this._goto({
         path,
         query,
@@ -65,7 +45,7 @@ export default {
     // redirect -- 是否重定向
     _goto(options) {
       const {
-        path = indexRoute, query = {}, redirect = false
+        path = getIndexRoute(), query = {}, redirect = false
       } = options
       const param = url.formatUrlParam(path)
       const queryMerge = Object.assign(param, query)
