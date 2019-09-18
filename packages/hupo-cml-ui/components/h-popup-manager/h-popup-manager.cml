@@ -1,31 +1,30 @@
 <template>
-  <h-fixed>
+  <view
+    c-if="{{visible}}"
+    class="h-popup-manager {{ visible ? 'h-popup-manager--show' : '' }} h-popup-manager--{{position === 'center' ? 'center' : 'full'}}"
+  >
     <view
-      c-if="{{visible}}"
-      class="h-popup-manager {{ visible ? 'h-popup-manager--show' : '' }} h-popup-manager--{{position === 'center' ? 'center' : 'full'}}"
+      c-if="{{mask}}"
+      class="h-popup-manager-mask is-transition {{ transitionIn ? 'is-in' : 'is-leave' }}"
+      style="z-index:{{zIndex}};"
+      c-bind:tap="closeevent"
+    ></view>
+    <!-- c-catch禁止事件冒泡 -->
+    <view
+      class="h-popup-manager-content is-transition {{ transitionIn ? 'is-in' : 'is-leave' }} {{ position ? 'h-popup-manager-content--' + position : 'h-popup-manager-content--center' }}"
+      style="z-index:{{zIndex+1}};{{caculateStyle}}"
+      c-bind:tap="closeevent"
     >
-      <view
-        c-if="{{mask}}"
-        class="h-popup-manager-mask is-transition {{ transitionIn ? 'is-in' : 'is-leave' }}"
-        style="z-index:{{zIndex}};"
-        c-bind:tap="closeevent"
-      ></view>
-      <!-- c-catch禁止事件冒泡 -->
-      <view
-        class="h-popup-manager-content is-transition {{ transitionIn ? 'is-in' : 'is-leave' }} {{ position ? 'h-popup-manager-content--' + position : 'h-popup-manager-content--center' }}"
-        style="z-index:{{zIndex+1}};{{caculateStyle}}"
-        c-bind:tap="closeevent"
-      >
-        <view c-catch:tap="contentTap">
-          <slot></slot>
-        </view>
+      <view c-catch:tap="contentTap">
+        <slot></slot>
       </view>
     </view>
-  </h-fixed>
+  </view>
 </template>
 <script>
 let zindexManager = 1000
 import componentMixin from '../../core/mixins/component/index.js'
+import ViewportDifferenceInterface from './diffrence.interface'
 class HPopupManager implements HPopupManagerInterface {
   name = 'h-popup-manager'
   mixins = componentMixin
@@ -65,8 +64,8 @@ class HPopupManager implements HPopupManagerInterface {
     zIndex: 1000
   }
   watch = {
-    show(n) {
-      n ? this.showMask() : this.hideMask()
+    show() {
+      this.toggle()
     }
   }
   computed = {
@@ -81,11 +80,18 @@ class HPopupManager implements HPopupManagerInterface {
       return positions[this.position] || positions.center
     }
   }
+  mounted() {
+    this.toggle()
+  }
   methods = {
+    toggle() {
+      this.show ? this.showPopup() : this.hidePopup()
+    },
     closeevent() {
       this.$cmlEmit('onclose')
     },
-    showMask() {
+    showPopup() {
+      ViewportDifferenceInterface.moveNode(true, this.$el)
       zindexManager = zindexManager + 2
       this.zIndex = zindexManager
       this.visible = true
@@ -93,11 +99,15 @@ class HPopupManager implements HPopupManagerInterface {
         this.transitionIn = true
       }, 50)
     },
-    hideMask() {
+    hidePopup() {
       this.transitionIn = false
       this._setTimeout(() => {
         this.visible = false
+        ViewportDifferenceInterface.moveNode(false, this.$el)
       }, 300)
+    },
+    contentTap() {
+
     }
   }
 }
