@@ -4,16 +4,19 @@ interface ViewportDifferenceInterface {}
 
 <script cml-type="web">
 class Difference implements ViewportDifferenceInterface {
-    setViewportTop(top){
-      return 0
+    moveNode(visible, instance){
+      if(visible){
+        document.body.appendChild(instance.$el)
+      }else{
+        instance.$el.parentNode.removeChild(instance.$el)
+      }
     }
   }
   export default new Difference();
 </script>
 <script cml-type="wx">
   class Difference implements ViewportDifferenceInterface {
-   setViewportTop(top){
-      return top
+    moveNode(){
     }
   }
   export default new Difference();
