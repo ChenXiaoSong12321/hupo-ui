@@ -10,17 +10,15 @@
         showHomeIcon="{{showHomeIcon}}"
         fixed="{{fixed}}"
       ></h-navbar>
-
-      <block c-if="{{loading}}">
-        <view class="h-page-loading">
-          <h-load-more loading></h-load-more>
-        </view>
-      </block>
-      <block c-else>
-        <view class="h-page-container {{disabled || !fixed ? 'is-disabled' : ''}}">
-          <slot></slot>
-        </view>
-      </block>
+      <view class="h-page-loading" c-show="{{loading}}">
+        <h-load-more loading></h-load-more>
+      </view>
+      <view
+        class="h-page-container {{disabled || !fixed ? 'is-disabled' : ''}}"
+        c-show="{{!loading}}"
+      >
+        <slot></slot>
+      </view>
       <view
         class="h-page-bottom"
         c-if="{{viewport.isAllScreen}}"

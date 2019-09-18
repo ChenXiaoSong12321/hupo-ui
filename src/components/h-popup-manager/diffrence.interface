@@ -4,11 +4,11 @@ interface ViewportDifferenceInterface {}
 
 <script cml-type="web">
 class Difference implements ViewportDifferenceInterface {
-    moveNode(visible, instance){
+    moveNode(visible, el){
       if(visible){
-        document.body.appendChild(instance.$el)
+        document.body.appendChild(el)
       }else{
-        instance.$el.parentNode.removeChild(instance.$el)
+        el.parentNode.removeChild(el)
       }
     }
   }
