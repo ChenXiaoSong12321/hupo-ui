@@ -5,6 +5,7 @@
         <block c-for="{{item}}" c-for-item="node" c-for-index="y">
           <h-rich-text-parse-base
             nodes="{{node}}"
+            class="{{node.node !== 'element' || (node.tagType && node.tagType === 'inline') ? 'wxParse-inline' : ''}}"
             c-key="{{node.node + node.tag + node.tagType + y}}"
           ></h-rich-text-parse-base>
         </block>
