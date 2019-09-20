@@ -61,7 +61,6 @@ class HStepper implements HStepperInterface {
   }
   watch = {
     value(n) {
-      debugger
       this.stepValue = n
     },
     stepValue(n) {
