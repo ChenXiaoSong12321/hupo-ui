@@ -1,6 +1,6 @@
 {
   "name": "@hupo/cml-ui",
-  "version": "0.2.21",
+  "version": "0.2.22",
   "description": "the ui component Library for hupo mall by chameleon",
   "main": "/components",
   "author": "hupo",
