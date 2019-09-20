@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <block>
     <block c-if="{{nodes.node == 'element'}}">
       <block
         c-if="{{ nodes.tag == 'video' || nodes.tag == 'embed' || nodes.tag == 'img' || nodes.tag == 'br' || nodes.tag == 'button' || nodes.tag == 'li' || nodes.tag == 'a' || nodes.tag == 'table' || nodes.tag == 'tr' }}"
@@ -20,13 +20,13 @@
         <h-rich-text-parse-block nodes="{{nodes}}"></h-rich-text-parse-block>
       </block>
       <block c-else>
-        <h-rich-text-parse-inline nodes="{{nodes}}"></h-rich-text-parse-inline>
+        <h-rich-text-parse-inline class="wxParse-inline" nodes="{{nodes}}"></h-rich-text-parse-inline>
       </block>
     </block>
     <block c-else-if="{{nodes.node == 'text'}}">
-      <h-rich-text-parse-text nodes="{{nodes}}"></h-rich-text-parse-text>
+      <h-rich-text-parse-text class="wxParse-inline" nodes="{{nodes}}"></h-rich-text-parse-text>
     </block>
-  </view>
+  </block>
 </template>
 <script>
 class HRichTextParseBase implements HRichTextParseBaseInterface {
