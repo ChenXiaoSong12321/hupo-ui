@@ -24,6 +24,10 @@ export default {
     empty: {
       type: Boolean,
       default: false
+    },
+    height: {
+      type: Number,
+      default: -1
     }
   },
   data: {
