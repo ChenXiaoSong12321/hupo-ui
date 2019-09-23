@@ -7,7 +7,7 @@
       c-if="{{mask}}"
       class="h-popup-manager-mask is-transition {{ transitionIn ? 'is-in' : 'is-leave' }}"
       style="z-index:{{zIndex}};"
-      c-bind:tap="closeevent"
+      c-catch:tap="closeevent"
     ></view>
     <!-- c-catch禁止事件冒泡 -->
     <view
