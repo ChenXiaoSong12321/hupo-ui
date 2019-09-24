@@ -1,6 +1,6 @@
 
 <template>
-  <block>{{formatMoney}}</block>
+  <text>{{formatMoney}}</text>
 </template>
 
 <script>

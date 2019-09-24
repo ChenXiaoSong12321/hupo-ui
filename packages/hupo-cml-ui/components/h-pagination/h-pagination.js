@@ -9,13 +9,17 @@ export default {
       type: [String, Number],
       default: 1
     },
+    pages: {
+      type: [String, Number],
+      default: 999999
+    },
     pageCount: {
       type: [String, Number],
       default: 10
     },
     bottomOffset: {
       type: Number,
-      default: 0
+      default: 200
     },
     loading: {
       type: Boolean,
@@ -33,16 +37,19 @@ export default {
   data: {
     pageIndex: 1
   },
+  mounted() {
+    this.onPullup()
+  },
   methods: {
-    onPullup(event) {
-      if (!this.loading) {
-        this.pageIndex = this.pageIndex + 1
+    onPullup() {
+      if (!this.loading && this.pageIndex <= this.pages) {
         this.$cmlEmit('pullup', {
           pageCount: this.pageCount,
           step: this.step,
           start: this.start,
           pageIndex: this.pageIndex
         })
+        this.pageIndex = this.pageIndex + 1
       }
     }
   }
