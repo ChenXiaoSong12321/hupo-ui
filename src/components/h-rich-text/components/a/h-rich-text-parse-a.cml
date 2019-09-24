@@ -1,6 +1,6 @@
 <template>
   <view
-    bindtap="goto"
+    c-bind:tap="goto(nodes.attr.href)"
     class="wxParse-inline {{nodes.classStr}} wxParse-{{nodes.tag}}"
     data-src="{{nodes.attr.href}}"
     style="{{nodes.styleStr || ''}}"
@@ -10,8 +10,11 @@
 </template>
 <script>
 import recursion from '../../recursion.interface'
+import componentMixin from '../../../../core/mixins/component/index.js'
+import { url } from '@hupo/core'
 class HRichTextParseA implements HRichTextParseA {
   name = 'h-rich-text-parse-a'
+  mixins = componentMixin
   beforeCreate() {
     recursion.beforeCreate(this)
   }
@@ -19,6 +22,14 @@ class HRichTextParseA implements HRichTextParseA {
     nodes: {
       type: Object,
       default: {}
+    }
+  }
+  methods = {
+    goto(href) {
+      if (!/^\//.test(href))href = `/${href}`
+      const path = href.split('?')[0]
+      const query = url.formatUrlParam(href.split('?')[1])
+      this._handleGoto(path, query)
     }
   }
 }
