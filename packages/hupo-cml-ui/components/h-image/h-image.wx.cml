@@ -39,33 +39,28 @@ import componentMixin from '../../core/mixins/component/index.js'
 class HImage implements HImageInterface {
   name = 'h-image'
   mixins = [componentMixin, HImageMixins]
-  async created() {
+  created() {
     this.init()
     if (this.lazyLoad) {
-      await this.$relativeToViewport('.h-image')
+      this.$relativeToViewport('.h-image')
     }
-    this.show = true
   }
   methods = {
-    async $relativeToViewport(selector, bottom = 50) {
-      return new Promise((resolve, reject) => {
-        if (!selector) reject('no selector')
-        const observer = this.createIntersectionObserver()
-        observer.relativeToViewport({ bottom }).observe(selector, res => {
-          observer.disconnect()
-          resolve({
-            res
-          })
-        })
+    $relativeToViewport(selector, bottom = 50) {
+      if (!selector) return
+      const observer = this.createIntersectionObserver()
+      observer.relativeToViewport({ bottom }).observe(selector, res => {
+        this.show = true
+        observer.disconnect()
       })
     }
   }
   pageLifetimes = {
-    async show() {
+    show() {
       if (this.status == 'load-fail') {
         this.status = 'loading'
-        await this.$relativeToViewport('.h-image')
         this.reloadImage()
+        this.$relativeToViewport('.h-image')
       }
     }
   }

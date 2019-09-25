@@ -1,9 +1,10 @@
-view,text,image, .h-image-wxParse{
+.h-image-wxParse, .wxParse-img, .wxParse-inline{
   margin: 0;
 }
 .wxParse-p{
   font-size: 14px;
   line-height: 40cpx;
+  padding: 10cpx 0;
 }
 .wxParse-h1{
   font-size: 32px;
