@@ -1,14 +1,9 @@
 import cml from 'chameleon-api'
-import { global, wxTools, channelInterface } from '@hupo/core'
-import { url } from '@hupo/core'
+import { global, wxTools, channelInterface, url } from '@hupo/core'
 
 const getIndexRoute = () => global._routerConfig.routes[0].path
 export default {
   methods: {
-    // 判断 route 是否是首页
-    _isHomeRoute(route) {
-      return getIndexRoute().indexOf(route) > -1 || route === '/'
-    },
     // 返回
     _back(backPageNum = -1) {
       cml.navigateBack(backPageNum)

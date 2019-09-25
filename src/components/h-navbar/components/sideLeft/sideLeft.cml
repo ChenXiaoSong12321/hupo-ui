@@ -31,9 +31,12 @@
   </view>
 </template>
 <script>
-import { componentBaseTreeMixin, componentEventMixin } from '@hupo/core'
+import { componentBaseTreeMixin, componentEventMixin, global } from '@hupo/core'
 import Goto from '../../../../core/mixins/common/goto.js'
 import sideLeftDifference from './sideLeft.difference.interface'
+const getIndexRoute = () => global._routerConfig.routes[0].path
+// 判断 route 是否是首页
+const isHomeRoute = route => getIndexRoute().indexOf(route) > -1 || route === '/'
 class HNavbarSideLeft implements HNavbarSideLeftInterface {
   name = 'h-navbar-side-left'
   mixins = [componentBaseTreeMixin, componentEventMixin, Goto]
@@ -54,9 +57,9 @@ class HNavbarSideLeft implements HNavbarSideLeftInterface {
   mounted() {
     const historys = sideLeftDifference.getHistorys()
     const route = sideLeftDifference.getRouter(this._page)
-    const isHomeRoute = this._isHomeRoute(route.route)
-    this.selfShowBackIcon = historys > 1 && !isHomeRoute
-    this.selfShowHomeIcon = !isHomeRoute
+    const isHome = isHomeRoute(route.route)
+    this.selfShowBackIcon = historys > 1 && !isHome
+    this.selfShowHomeIcon = !isHome
   }
   methods = {
     back() {

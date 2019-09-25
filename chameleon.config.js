@@ -39,7 +39,7 @@ cml.config.merge({
       apiPrefix
     }
   },
-  babelPath: [path.resolve(__dirname, `node_modules/@hupo/`)]
+  babelPath: [path.resolve(__dirname, `node_modules`)]
 })
 
 cml.utils.plugin('webpackConfig', function({ type, media, webpackConfig }, cb) {
