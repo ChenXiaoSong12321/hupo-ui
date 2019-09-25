@@ -2,7 +2,7 @@
   <view class="h-image">
     <block c-if="{{status == 'load-complete'}}">
       <view class="h-image-loaded">
-        <h-image-origin class="image" src="{{url}}" mode="{{mode}}"></h-image-origin>
+        <h-image-origin class="h-image-loading-image" src="{{url}}" mode="{{mode}}"></h-image-origin>
       </view>
     </block>
     <block c-else-if="{{status == 'load-refresh'}}">
@@ -12,12 +12,12 @@
     </block>
     <block c-else-if="{{status == 'load-fail'}}">
       <view class="h-image-loading h-image-loading--{{mode}}">
-        <h-image-origin class="image" src="{{unloadImg}}" mode="widthFix"></h-image-origin>
+        <h-image-origin class="h-image-loading-image" src="{{unloadImg}}" mode="widthFix"></h-image-origin>
       </view>
     </block>
     <block c-else>
       <view class="h-image-loading h-image-loading--{{mode}}">
-        <h-image-origin class="image" src="{{unloadImg}}" mode="widthFix"></h-image-origin>
+        <h-image-origin class="h-image-loading-image" src="{{unloadImg}}" mode="widthFix"></h-image-origin>
       </view>
       <!-- 隐藏的image，用于隐士加载 -->
       <h-image-origin
@@ -33,8 +33,8 @@
 </template>
 
 <script>
-import HImageMixins from './h-image.mixins.js';
-import componentMixin from '../../core/mixins/component/index.js';
+import HImageMixins from './h-image.mixins.js'
+import componentMixin from '../../core/mixins/component/index.js'
 
 class HImage implements HImageInterface {
   name = 'h-image'

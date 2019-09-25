@@ -1,9 +1,9 @@
 <template>
-  <block>{{formatDate}}</block>
+  <text>{{formatDate}}</text>
 </template>
 
 <script>
-import { dayjs } from '@hupo/core'
+import formatDate from './utils/format.js'
 
 class HFormatDate implements HFormatDateInterface {
   name = 'h-format-date'
@@ -19,7 +19,7 @@ class HFormatDate implements HFormatDateInterface {
   }
   computed = {
     formatDate() {
-      return dayjs.formatDate(this.time,this.type)
+      return formatDate(parseInt(this.time), this.type)
     }
   }
 }

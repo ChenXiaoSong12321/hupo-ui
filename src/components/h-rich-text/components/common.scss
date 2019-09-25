@@ -41,6 +41,9 @@ image, hp-image{
 }
 .wxParse-span,.wxParse-inline{
   display: inline;
+  .__shadow_root__ {
+    display: inline;
+  }
 }
 
 .wxParse-strong{

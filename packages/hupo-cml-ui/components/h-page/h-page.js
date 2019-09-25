@@ -63,9 +63,6 @@ export default {
     this.viewportHeight = system.viewportHeight
   },
   mounted() {
-    this._on('onShow', () => {
-      this.initNavigation()
-    })
     this._on('toggleLoading', (options = {}) => {
       Object.keys(options).forEach(key => {
         this[key] = options[key]
@@ -93,6 +90,12 @@ export default {
         window.onscroll = debounce(onScroll, 100)
       }
     })
+
+    this._on('onShow', () => {
+      this.initNavigation()
+      this.$cmlEmit('onshow')
+    })
+    this.$cmlEmit('onshow')
   },
   methods: {
     initNavigation() {

@@ -104,8 +104,9 @@ export default new HImageOrigin()
 <style lang="scss">
 @import '../../assets/scss/output';
 @include b(image-mode){
-  display: inline-block;
-  vertical-align: top;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
   @include e(origin){

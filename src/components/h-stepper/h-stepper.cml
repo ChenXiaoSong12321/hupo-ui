@@ -2,7 +2,7 @@
   <view class="h-stepper">
     <h-button
       throttle="{{false}}"
-      class="h-stepper-subtract {{disabled || (stepValue<=min) ? 'is-disabled':''}}"
+      class="h-stepper-subtract {{disabled || (stepValue === min) ? 'is-disabled':''}}"
       type="none"
       c-bind:onclick="onChange('subtract')"
     >
@@ -19,7 +19,7 @@
     </view>
     <h-button
       throttle="{{false}}"
-      class="h-stepper-add {{disabled || (stepValue >= max) ? 'is-disabled':''}}"
+      class="h-stepper-add {{disabled || (stepValue === max) ? 'is-disabled':''}}"
       type="none"
       c-bind:onclick="onChange('add')"
     >
@@ -40,8 +40,8 @@ class HStepper implements HStepperInterface {
     disabled: Boolean,
     disableInput: Boolean,
     value: {
-      type: String,
-      default: '1'
+      type: Number,
+      default: 1
     },
     min: {
       type: null,
@@ -57,24 +57,16 @@ class HStepper implements HStepperInterface {
     }
   }
   data = {
-    stepValue: '1'
-  }
-  watch = {
-    value(n) {
-      debugger
-      this.stepValue = n
-    },
-    stepValue(n) {
-      this.$cmlEmit('changed', n)
-    }
+    stepValue: 1
   }
   computed = {
     inputStyle() {
       return `
       border: none;
       font-size: 22cpx;
-      height: 40cpx;
-      line-height: 40cpx;
+      height: 38cpx;
+      min-height: 0;
+      line-height: 38cpx;
       text-align:center;
       padding:0 2cpx;
       width: 42cpx;
@@ -83,19 +75,44 @@ class HStepper implements HStepperInterface {
      `
     }
   }
-  methods = {
-    inputChanged(e) {
-      this.$cmlEmit('input', e.detail)
+  watch = {
+    value: 'setValue',
+    stepValue(n) {
+      if (n !== this.value) {
+        this.$cmlEmit('change', n)
+        this.$cmlEmit('input', n)
+      }
     },
-    onChange(type) {
-      if ((this.stepValue <= this.min && type === 'subtract') || (this.stepValue >= this.max && type === 'add')) {
-        this.$cmlEmit('overlimit', type)
+    min(val) {
+      if (!!val && this.stepValue < val) {
+        this.setValue(val)
+      }
+    },
+    max(val) {
+      if (!!val && this.stepValue > val) {
+        this.setValue(val)
+      }
+    }
+  }
+  mounted() {
+    if (this.stepValue < this.min) this.setValue(this.min)
+  }
+  methods = {
+    setValue(val) {
+      if (!val)val = this.min
+      if (val < this.min || val > this.max) {
+        this.$cmlEmit('overlimit')
         return
       }
-
+      this.stepValue = val
+    },
+    inputChanged(e) {
+      this.setValue(e.detail)
+    },
+    onChange(type) {
       const diff = type === 'subtract' ? -this.step : +this.step
       const stepValue = Math.round((Number(this.stepValue) + diff) * 100) / 100
-      this.stepValue = stepValue.toString()
+      this.setValue(stepValue)
       this.$cmlEmit(type)
     }
   }

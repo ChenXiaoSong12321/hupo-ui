@@ -1,5 +1,5 @@
 <template>
-  <block>{{formatDistance}}</block>
+  <text>{{formatDistance}}</text>
 </template>
 
 <script>
