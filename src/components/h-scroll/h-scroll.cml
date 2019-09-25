@@ -67,7 +67,7 @@ class HScroll implements HScrollInterface {
     this.viewportHeight = system.viewportHeight
   }
   mounted() {
-    if (this._page) {
+    if (this._page && this._page._on) {
       this._page._on('h-scroll-offet-height', offetHeight => {
         this.offetHeight = offetHeight
       })
