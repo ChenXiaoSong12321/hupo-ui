@@ -42,6 +42,7 @@ export default new HImageOrigin()
 @include b(image-mode) {
   width: 100%;
   height: 100%;
+  vertical-align: top;
   @include e(widthFix) {
     height: 0;
   }
