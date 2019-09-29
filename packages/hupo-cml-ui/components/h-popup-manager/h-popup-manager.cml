@@ -8,6 +8,7 @@
       class="h-popup-manager-mask is-transition {{ transitionIn ? 'is-in' : 'is-leave' }}"
       style="z-index:{{zIndex}};"
       c-catch:tap="closeevent"
+      c-catch:touchmove="empty"
     ></view>
     <!-- c-catch禁止事件冒泡 -->
     <view
@@ -15,7 +16,7 @@
       style="z-index:{{zIndex+1}};{{caculateStyle}}"
       c-bind:tap="closeevent"
     >
-      <view c-catch:tap="contentTap">
+      <view c-catch:tap="empty">
         <slot></slot>
       </view>
     </view>
@@ -106,7 +107,7 @@ class HPopupManager implements HPopupManagerInterface {
         ViewportDifferenceInterface.moveNode(false, this.$el)
       }, 300)
     },
-    contentTap() {
+    empty() {
 
     }
   }
