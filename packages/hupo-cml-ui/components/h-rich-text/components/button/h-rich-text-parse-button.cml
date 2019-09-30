@@ -1,7 +1,5 @@
 <template>
-  <view type="default" size="mini">
-    <h-rich-text-parse-base c-for="{{nodes.nodes}}" nodes="{{item}}"></h-rich-text-parse-base>
-  </view>
+  <h-rich-text-parse-base c-for="{{nodes.nodes}}" nodes="{{item}}"></h-rich-text-parse-base>
 </template>
 <script>
 import recursion from '../../recursion.interface'

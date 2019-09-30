@@ -26,6 +26,7 @@ export default new HRichTextParseImg()
 
 <style lang="scss">
 @import "../common.scss";
+@include img();
 </style>
 
 <script cml-type="json">

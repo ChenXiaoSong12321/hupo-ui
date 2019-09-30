@@ -1,7 +1,7 @@
 <template>
-  <text class="{{nodes.classStr}} wxParse-inline" style="{{nodes.styleStr || ''}}">
+  <view class="{{nodes.classStr}} wxParse-inline" style="{{nodes.styleStr || ''}}">
     <block c-if="{{nodes.node == 'text'}}">{{nodes.text}}</block>
-  </text>
+  </view>
 </template>
 <script>
 class HRichTextParseText implements HRichTextParseTextInterface {
@@ -19,6 +19,7 @@ export default new HRichTextParseText()
 
 <style lang="scss">
 @import "../common.scss";
+@include text();
 </style>
 
 <script cml-type="json">

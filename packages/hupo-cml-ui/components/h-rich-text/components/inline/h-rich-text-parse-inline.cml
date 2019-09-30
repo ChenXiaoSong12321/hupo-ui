@@ -26,6 +26,7 @@ export default new HRichTextParseInline()
 
 <style lang="scss">
 @import "../common.scss";
+@include inline();
 </style>
 
 <script cml-type="json">

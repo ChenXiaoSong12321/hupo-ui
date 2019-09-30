@@ -29,7 +29,7 @@ class HRichText implements HRichTextInterface {
     },
     renderNum: {
       type: Number,
-      default: 5
+      default: 20
     }
   }
   data = {
