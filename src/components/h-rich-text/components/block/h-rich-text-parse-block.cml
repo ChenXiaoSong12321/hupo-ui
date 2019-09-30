@@ -25,6 +25,7 @@ export default new HRichTextParseBlock()
 
 <style lang="scss">
 @import "../common.scss";
+@include block();
 </style>
 
 <script cml-type="json">

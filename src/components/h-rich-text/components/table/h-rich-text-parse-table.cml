@@ -23,6 +23,7 @@ export default new HRichTextParseTable()
 
 <style lang="scss">
 @import "../common.scss";
+@include table();
 </style>
 
 <script cml-type="json">

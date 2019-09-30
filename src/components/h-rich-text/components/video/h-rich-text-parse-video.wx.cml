@@ -1,5 +1,8 @@
 <template>
-  <view class="{{nodes.classStr}} wxParse-{{nodes.tag}}" style="{{nodes.styleStr || ''}}">
+  <view
+    class="{{nodes.classStr}} wxParse-{{nodes.tag}} wxParse-video"
+    style="{{nodes.styleStr || ''}}"
+  >
     <block c-if="{{video.type == 'tencentvideo'}}">
       <txv-video vid="{{video.vid}}" playerid="{{video.vid}}" width="100%" height="auto"></txv-video>
     </block>
@@ -29,6 +32,7 @@ export default new HRichTextParseVideo()
 
 <style lang="scss">
 @import "../common.scss";
+@include video();
 </style>
 
 <script cml-type="json">
