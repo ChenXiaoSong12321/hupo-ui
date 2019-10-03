@@ -27,7 +27,7 @@ import { global } from '@hupo/core'
 
 class HButton implements HButtonInterface {
   name = 'h-button'
-  mixins = [HButtonMixins, ...componentMixin]
+  mixins = [HButtonMixins]
   methods = {
     getuserinfo(e) {
       console.log(e, 'getuserinfo')
