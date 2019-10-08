@@ -1,7 +1,7 @@
 <template>
-  <view class="{{nodes.classStr}} wxParse-inline" style="{{nodes.styleStr || ''}}">
+  <text class="{{nodes.classStr}} wxParse-inline" style="{{nodes.styleStr || ''}}">
     <block c-if="{{nodes.node == 'text'}}">{{nodes.text}}</block>
-  </view>
+  </text>
 </template>
 <script>
 class HRichTextParseText implements HRichTextParseTextInterface {
