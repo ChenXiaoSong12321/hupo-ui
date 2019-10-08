@@ -13,11 +13,11 @@
 
 <script>
 import HButtonMixins from './h-button.mixins.js'
-import componentMixin from '../../core/mixins/component/index.js'
+// import componentMixin from '../../core/mixins/component/index.js'
 
 class HButton implements HButtonInterface {
   name = 'h-button'
-  mixins = [HButtonMixins, ...componentMixin]
+  mixins = [HButtonMixins]
   methods = {
     getuserinfo(e) {
       this.btnEmit('getuserinfo', e)
