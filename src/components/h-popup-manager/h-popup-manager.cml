@@ -92,7 +92,7 @@ class HPopupManager implements HPopupManagerInterface {
       this.$cmlEmit('onclose')
     },
     showPopup() {
-      ViewportDifferenceInterface.moveNode(true, this.$el)
+      ViewportDifferenceInterface.moveNode(true, this)
       zindexManager = zindexManager + 2
       this.zIndex = zindexManager
       this.visible = true
@@ -104,7 +104,7 @@ class HPopupManager implements HPopupManagerInterface {
       this.transitionIn = false
       this._setTimeout(() => {
         this.visible = false
-        ViewportDifferenceInterface.moveNode(false, this.$el)
+        ViewportDifferenceInterface.moveNode(false, this)
       }, 300)
     },
     empty() {
@@ -124,7 +124,8 @@ export default new HPopupManager()
   "base": {
     "component": true,
     "usingComponents": {
-      "h-fixed": "../h-fixed/h-fixed"
+      "h-fixed": "../h-fixed/h-fixed",
+      "h-scroll": "../h-scroll/h-scroll"
     }
   }
 }
