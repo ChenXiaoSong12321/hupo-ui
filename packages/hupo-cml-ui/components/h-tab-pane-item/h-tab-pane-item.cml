@@ -4,11 +4,9 @@
   </view>
 </template>
 <script>
-import componentMixin from '../../core/mixins/component/index.js'
 
 class HTabPaneItem implements HTabPaneItemInterface {
   name = 'h-tab-pane-item'
-  mixins = componentMixin
 }
 export default new HTabPaneItem()
 </script>

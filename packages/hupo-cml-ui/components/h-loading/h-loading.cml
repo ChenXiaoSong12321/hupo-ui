@@ -16,7 +16,6 @@ import componentMixin from '../../core/mixins/component/index.js'
 
 class HLoading implements HLoadingInterface {
   name = 'h-loading'
-  mixins = componentMixin
   props = {
     size: {
       type: String,

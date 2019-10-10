@@ -12,6 +12,19 @@
     top: 0;
     bottom: 0;
   }
+  @include m(none){
+    @include e(content){
+      @include m(center){
+        top: 50%;
+        left: 50%;
+        position: fixed;
+        transform: translate(-50%,-50%);
+      }
+    }
+  }
+  @include m(center){
+    @include flexCenter()
+  }
   @include e(content){
     position: absolute;
     z-index: 80;
@@ -21,11 +34,7 @@
     transform-style: preserve-3d;
     -webkit-overflow-scrolling: touch;
     @include m(center){
-      top: 50%;
-      left: 50%;
       z-index: 1001;
-      position: fixed;
-      transform: translate(-50%,-50%);
 
       @include when(in){
         opacity: 1;

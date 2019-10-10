@@ -5,10 +5,8 @@
   </view>
 </template>
 <script>
-import { componentBaseTreeMixin, componentEventMixin } from '@hupo/core'
 class HNavbarLoading implements HNavbarLoadingInterface {
   name ='h-navbar-loading'
-  mixins = [componentBaseTreeMixin, componentEventMixin]
   props = {
     show: {
       type: Boolean,

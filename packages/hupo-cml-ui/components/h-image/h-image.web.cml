@@ -43,12 +43,12 @@ class HImage implements HImageInterface {
     this.init()
     if (this.lazyLoad) {
       const el = this.$refs.image
-      await this.$relativeToViewport(el)
+      await this.relativeToViewport(el)
     }
     this.show = true
   }
   methods = {
-    async $relativeToViewport(selector) {
+    async relativeToViewport(selector) {
       return new Promise((resolve, reject) => {
         if (!selector) reject('no selector')
         const observer = lozad(selector, {

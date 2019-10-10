@@ -1,7 +1,8 @@
 <template>
   <view
     c-if="{{visible}}"
-    class="h-popup-manager {{ visible ? 'h-popup-manager--show' : '' }} h-popup-manager--{{position === 'center' ? 'center' : 'full'}}"
+    class="h-popup-manager {{ visible ? 'h-popup-manager--show' : '' }} h-popup-manager--{{mask ? 'full' : 'none'}} h-popup-manager--{{position}}"
+    style="top: {{caculateTop}}cpx; bottom: {{caculateBottom}}cpx;"
   >
     <view
       c-if="{{mask}}"
@@ -24,11 +25,9 @@
 </template>
 <script>
 let zindexManager = 1000
-import componentMixin from '../../core/mixins/component/index.js'
 import ViewportDifferenceInterface from './diffrence.interface'
 class HPopupManager implements HPopupManagerInterface {
   name = 'h-popup-manager'
-  mixins = componentMixin
   props = {
     mask: {
       type: Boolean,
@@ -60,6 +59,8 @@ class HPopupManager implements HPopupManagerInterface {
     }
   }
   data = {
+    caculateTop: 0,
+    caculateBottom: 0,
     transitionIn: false,
     visible: false,
     zIndex: 1000
@@ -72,8 +73,8 @@ class HPopupManager implements HPopupManagerInterface {
   computed = {
     caculateStyle() {
       const positions = {
-        top: `top:${this._calcTop(parseInt(this.top))}cpx;`,
-        bottom: `bottom:${this._calcBottom(parseInt(this.bottom))}cpx;`,
+        top: `top:${this.top}cpx;`,
+        bottom: `bottom:${this.bottom}cpx;`,
         left: `left:${this.left}cpx;`,
         right: `right:${this.right}cpx;`,
         center: ''
@@ -82,6 +83,8 @@ class HPopupManager implements HPopupManagerInterface {
     }
   }
   mounted() {
+    this.caculateTop = this._calcTop(0)
+    this.caculateBottom = this._calcBottom(0)
     this.toggle()
   }
   methods = {

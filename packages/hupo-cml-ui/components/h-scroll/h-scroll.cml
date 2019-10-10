@@ -63,7 +63,7 @@ class HScroll implements HScrollInterface {
     }
   }
   async created() {
-    const system = await cml.getSystemInfo()
+    const system = await this._getSystemInfo()
     this.viewportHeight = system.viewportHeight
   }
   mounted() {

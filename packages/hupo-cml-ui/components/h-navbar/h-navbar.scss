@@ -5,7 +5,7 @@
   @include e(place) {
     display: flex;
     align-items: flex-end;
-    background: #fafafa;
+    background: $--white;
   }
 
   @include e(box) {
@@ -13,7 +13,7 @@
     align-items: center;
 
     @include m(default) {
-      background: $--primary-background-write-1;
+      background: $--white;
     }
 
     @include m(primary) {

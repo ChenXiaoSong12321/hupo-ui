@@ -34,19 +34,17 @@
 
 <script>
 import HImageMixins from './h-image.mixins.js'
-import componentMixin from '../../core/mixins/component/index.js'
-
 class HImage implements HImageInterface {
   name = 'h-image'
-  mixins = [componentMixin, HImageMixins]
-  created() {
+  mixins = [HImageMixins]
+  mounted() {
     this.init()
     if (this.lazyLoad) {
-      this.$relativeToViewport('.h-image')
+      this.relativeToViewport('.h-image')
     }
   }
   methods = {
-    $relativeToViewport(selector, bottom = 50) {
+    relativeToViewport(selector, bottom = 50) {
       if (!selector) return
       const observer = this.createIntersectionObserver()
       observer.relativeToViewport({ bottom }).observe(selector, res => {
@@ -60,7 +58,7 @@ class HImage implements HImageInterface {
       if (this.status == 'load-fail') {
         this.status = 'loading'
         this.reloadImage()
-        this.$relativeToViewport('.h-image')
+        this.relativeToViewport('.h-image')
       }
     }
   }

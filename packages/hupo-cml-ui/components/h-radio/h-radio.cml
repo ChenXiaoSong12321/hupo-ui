@@ -10,11 +10,9 @@
 </template>
 <script>
 import { primaryColor } from '../../assets/config/style.var.js'
-import componentMixin from '../../core/mixins/component/index.js'
 
 class HRadio implements HRadioInterface {
   name = 'h-radio'
-  mixins = componentMixin
   props = {
     checked: {
       type: Boolean,

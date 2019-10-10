@@ -24,11 +24,9 @@
 </template>
 <script>
 import { viewport } from '@hupo/core'
-import componentMixin from '../../core/mixins/component/index.js'
 
 class HNavbar implements HNavbarInterface {
   name = 'h-navbar'
-  mixins = componentMixin
   props = {
     loading: {
       type: Boolean,

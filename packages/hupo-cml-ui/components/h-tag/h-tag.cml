@@ -8,11 +8,9 @@
 </template>
 
 <script>
-import componentMixin from '../../core/mixins/component/index.js'
 
 class HTag implements HTagInterface {
   name = 'h-tag'
-  mixins = componentMixin
   props = {
     customClass: String,
     customStyle: {

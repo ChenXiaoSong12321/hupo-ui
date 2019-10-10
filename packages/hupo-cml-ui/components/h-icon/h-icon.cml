@@ -3,11 +3,8 @@
 </template>
 
 <script>
-import componentMixin from '../../core/mixins/component/index.js'
-
 class HIcon implements HIconInterface {
   name = 'h-icon'
-  mixins = componentMixin
   props = {
     name: {
       type: String,
