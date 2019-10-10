@@ -5,11 +5,9 @@
 </template>
 <script>
 import { primaryColor } from '../../assets/config/style.var.js'
-import componentMixin from '../../core/mixins/component/index.js'
 
 class HTabItem implements HTabItemInterface {
   name = 'h-tab-item'
-  mixins = componentMixin
   props = {
     tab: {
       type: Object,

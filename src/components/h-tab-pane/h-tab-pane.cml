@@ -6,11 +6,9 @@
   </view>
 </template>
 <script>
-import componentMixin from '../../core/mixins/component/index.js'
 
 class HTabPane implements HTabPaneInterface {
   name = 'h-tab-pane'
-  mixins = componentMixin
   props = {
     tabs: {
       type: Array,

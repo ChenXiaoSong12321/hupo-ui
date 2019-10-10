@@ -42,4 +42,9 @@
     background: $--white;
   }
 
+  @include e(popup) {
+    position: relative;
+    z-index: $--z-index-max;
+  }
+
 }

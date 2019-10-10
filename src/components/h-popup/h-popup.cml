@@ -15,11 +15,9 @@
   </h-popup-manager>
 </template>
 <script>
-import componentMixin from '../../core/mixins/component/index.js'
 
 class HPopup implements HPopupInterface {
   name = 'h-popup'
-  mixins = componentMixin
   props = {
     show: {
       type: Boolean,

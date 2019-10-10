@@ -15,12 +15,10 @@
   </view>
 </template>
 <script>
-import { primaryColor } from "../../assets/config/style.var.js";
-import componentMixin from '../../core/mixins/component/index.js'
+import { primaryColor } from '../../assets/config/style.var.js'
 
 class HCheckbox implements HCheckboxInterface {
   name = 'h-checkbox'
-  mixins = componentMixin
   props = {
     checked: {
       type: Boolean,
@@ -43,12 +41,12 @@ class HCheckbox implements HCheckboxInterface {
     }
   }
   data = {
-    innerChecked:false,
+    innerChecked: false,
     primaryColor
   }
   computed = {
-    checkStyle () {
-      let style = '';
+    checkStyle() {
+      let style = ''
       if (this.disabled) {
         style += 'opacity:0.5;'
       }
@@ -57,35 +55,35 @@ class HCheckbox implements HCheckboxInterface {
       } else {
         style += 'margin-right:13cpx;'
       }
-      return style;
+      return style
     },
-    checkClass () {
-      let clazz = this.innerChecked? 'h-checkbox-checked': 'h-checkbox-uncheck';
+    checkClass() {
+      let clazz = this.innerChecked ? 'h-checkbox-checked' : 'h-checkbox-uncheck'
       clazz += ' h-checkbox-disabled'
       return clazz
-    },
+    }
   }
   watch = {
     checked(newChecked) {
-      this.innerChecked = newChecked;
+      this.innerChecked = newChecked
     }
   }
   methods = {
-    changeCheck () {
-      if (this.disabled) return;
+    changeCheck() {
+      if (this.disabled) return
       this.innerChecked = !this.innerChecked
-      let value = {
+      const value = {
         value: this.innerChecked
       }
       if (this.groupIndex !== -1) {
         value.index = this.groupIndex
       }
-      this.$cmlEmit('changeevent', value);
-      this.$cmlEmit('change', value);
+      this.$cmlEmit('changeevent', value)
+      this.$cmlEmit('change', value)
     }
   }
-  created () {
-     let { checked } = this
+  mounted() {
+    const { checked } = this
     this.innerChecked = checked
   }
 }

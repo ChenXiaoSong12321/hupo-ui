@@ -30,11 +30,9 @@
 
 <script>
 const MAX = 2147483647
-import componentMixin from '../../core/mixins/component/index.js'
 
 class HStepper implements HStepperInterface {
   name = 'h-stepper'
-  mixins = componentMixin
   props = {
     integer: Boolean,
     disabled: Boolean,
@@ -79,8 +77,8 @@ class HStepper implements HStepperInterface {
     value: 'setValue',
     stepValue(n) {
       if (n !== this.value) {
-        this.$cmlEmit('change', n)
-        this.$cmlEmit('input', n)
+        this.$cmlEmit('change', { value: n })
+        this.$cmlEmit('input', { value: n })
       }
     },
     min(val) {

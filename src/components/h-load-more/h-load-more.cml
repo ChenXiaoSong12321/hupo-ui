@@ -11,11 +11,8 @@
 </template>
 
 <script>
-import componentMixin from '../../core/mixins/component/index.js'
-
 class HLoadMore implements HLoadMoreInterface {
   name = 'h-load-more'
-  mixins = componentMixin
   props = {
     loading: {
       type: Boolean,
@@ -28,11 +25,6 @@ class HLoadMore implements HLoadMoreInterface {
   }
   data = {
     nodata: require('./nodata.png')
-  }
-  mounted () {
-    this._on('nodata', nodata => {
-      this.nodata = nodata
-    })
   }
 }
 export default new HLoadMore()

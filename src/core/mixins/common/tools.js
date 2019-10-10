@@ -1,5 +1,5 @@
 import cml from 'chameleon-api'
-import { viewport } from '@hupo/core'
+import { viewport, promise } from '@hupo/core'
 export default {
   methods: {
     _loadingNavbar() {
@@ -15,6 +15,9 @@ export default {
     _calcBottom(bottom) {
       if (!viewport.bottomHeight) return bottom
       else return cml.px2cpx(viewport.bottomHeight) + bottom
+    },
+    _getSystemInfo() {
+      return promise.cache('getSystemInfo', () => cml.getSystemInfo())
     }
   }
 }

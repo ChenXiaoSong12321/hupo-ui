@@ -1,5 +1,5 @@
 import cml from 'chameleon-api'
-import { wxTools, channelInterface, viewport } from '@hupo/core'
+import { wxTools, channelInterface, viewport, promise } from '@hupo/core'
 import debounce from 'lodash.debounce'
 export default {
   props: {
@@ -54,15 +54,19 @@ export default {
     viewport,
     viewportHeight: 0,
     status: '',
-    selfTitle: ''
+    selfTitle: '',
+    loaded: false
   },
   async created() {
     this.selfTitle = this.title
     this.initNavigation()
-    const system = await cml.getSystemInfo()
+    const system = await this._getSystemInfo()
     this.viewportHeight = system.viewportHeight
   },
   mounted() {
+    promise.delay(500).then(() => {
+      this.loaded = true
+    })
     this._on('toggleLoading', (options = {}) => {
       Object.keys(options).forEach(key => {
         this[key] = options[key]
