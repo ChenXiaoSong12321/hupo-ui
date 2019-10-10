@@ -26,8 +26,10 @@
 <script>
 let zindexManager = 1000
 import ViewportDifferenceInterface from './diffrence.interface'
+import componentMixin from '../../core/mixins/component/index.js'
 class HPopupManager implements HPopupManagerInterface {
   name = 'h-popup-manager'
+  mixins = componentMixin
   props = {
     mask: {
       type: Boolean,
