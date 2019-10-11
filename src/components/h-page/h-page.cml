@@ -12,13 +12,10 @@
         showHomeIcon="{{showHomeIcon}}"
         fixed="{{fixed}}"
       ></h-navbar>
-      <view class="h-page-loading" c-if="{{loading}}">
+      <view class="h-page-loading" c-if="{{loading || !loaded}}">
         <h-load-more loading></h-load-more>
       </view>
-      <view
-        class="h-page-container {{disabled || !fixed ? 'is-disabled' : ''}}"
-        c-else-if="{{loaded}}"
-      >
+      <view class="h-page-container {{disabled || !fixed ? 'is-disabled' : ''}}" c-else>
         <slot></slot>
       </view>
       <view
