@@ -23,9 +23,15 @@ export default {
         WX_H5: reLaunch,
         H5: reLaunch,
         WX_MINI_PROGRAM() {
-          wxTools.reLaunch({
-            url: getIndexRoute()
-          })
+          const pages = getCurrentPages()
+          const indexRoute = getIndexRoute()
+          if (`/${pages[0].route}` === indexRoute) {
+            this._back(pages.length - 1)
+          }else {
+            wxTools.reLaunch({
+              url: indexRoute
+            })
+          }
         }
       })
     },
