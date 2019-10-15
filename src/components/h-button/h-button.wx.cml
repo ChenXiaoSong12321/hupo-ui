@@ -3,8 +3,7 @@
     <origin-button
       type="keng"
       form-type="{{openType ? '' : 'submit'}}"
-      class="h-button {{ type == 'none' ? 'h-button--none' : 'h-button--'+size }} {{ type == 'none' ? 'h-button--none' : 'h-button--'+type }} {{stateClass}} {{radius?'is-radius':''}} {{customClass}}"
-      disabled="{{disabled}}"
+      class="h-button h-button--{{type == 'none' ? '' : size}} h-button--{{type}} {{stateClass}}"
       open-type="{{openType}}"
       style="{{customStyle||''}}"
       bindtap="handleTap"

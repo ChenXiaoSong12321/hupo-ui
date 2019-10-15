@@ -1,12 +1,7 @@
 import throttle from 'lodash.throttle'
 
 export default {
-  name: 'h-button',
   props: {
-    customClass: {
-      type: String,
-      default: ''
-    },
     customStyle: {
       type: String,
       default: ''
@@ -44,28 +39,33 @@ export default {
       default: false
     }
   },
-  computed: {
-    stateClass() {
-      const classes = ['group', 'plain', 'disabled', 'opacity']
-      let stateClass = ''
-      classes.forEach(item => {
-        if (this[item] && (item != 'radius' || !this.group)) {
-          stateClass += `is-${item} `
-        }
-      })
-      return stateClass
-    }
+  data: {
+    stateClass: ''
   },
   watch: {
-    throttle() {
-      this.refreshThrottleFn()
-    }
+    throttle: 'refreshThrottleFn',
+    plain: 'calcClass',
+    disabled: 'calcClass',
+    radius: 'calcClass',
+    opacity: 'calcClass'
   },
   mounted() {
     this.refreshThrottleFn()
+    this.calcClass()
   },
   methods: {
+    calcClass() {
+      const classes = ['plain', 'disabled', 'opacity', 'radius']
+      let stateClass = ''
+      classes.forEach(item => {
+        if (this[item]) {
+          stateClass += `is-${item} `
+        }
+      })
+      this.stateClass = stateClass
+    },
     btnEmit(type, data = {}) {
+      if (this.disabled) return
       // eslint-disable-next-line no-useless-call
       this.throttleEmit.call(this, type, data)
     },
