@@ -77,8 +77,8 @@ class HTabbar implements HTabbarInterface {
     }
   }
   watch = {
-    selectedIndex() {
-      this.tapedIndex = this.selectedIndex
+    selectedIndex(val) {
+      this.tapedIndex = val
     }
   }
   methods = {

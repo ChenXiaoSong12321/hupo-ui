@@ -1,6 +1,6 @@
 <template>
   <origin-image
-    class="h-image-mode h-image-mode-{{mode}}"
+    class="h-image-mode h-image-mode--{{mode}}"
     src="{{src}}"
     mode="{{mode}}"
     c-bind:load="onload"
@@ -42,7 +42,7 @@ export default new HImageOrigin()
   width: 100%;
   height: 100%;
   vertical-align: top;
-  @include e(widthFix) {
+  @include m(widthFix) {
     height: 0;
   }
 }
