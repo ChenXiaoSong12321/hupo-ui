@@ -64,6 +64,7 @@
       @include flexCenter;
       height: 70cpx;
       width: 100%;
+      font-size: 28cpx;
       @include when(confirm){
         color: $--primary-color-CM1;
       }
