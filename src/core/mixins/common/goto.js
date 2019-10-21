@@ -22,12 +22,12 @@ export default {
       channelInterface({
         WX_H5: reLaunch,
         H5: reLaunch,
-        WX_MINI_PROGRAM() {
+        WX_MINI_PROGRAM: () => {
           const pages = getCurrentPages()
           const indexRoute = getIndexRoute()
           if (`/${pages[0].route}` === indexRoute) {
             this._back(pages.length - 1)
-          }else {
+          } else {
             wxTools.reLaunch({
               url: indexRoute
             })
