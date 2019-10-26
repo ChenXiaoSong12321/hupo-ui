@@ -1,9 +1,15 @@
 <template>
   <view class="h-radio">
-    <view class="h-radio-wrap" c-bind:tap="changeSelect">
-      <view class="h-radio-select" style="{{ radioStyle }}">
-        <view class="{{ radioClass }}" style="{{ radioInnerStyle }}"></view>
-      </view>
+    <view class="h-radio-wrap {{radioClass}}" c-bind:tap="changeSelect">
+      <block c-if="{{disabled}}">
+        <h-icon class="h-radio-select" name="iconbukegouxuanbeifen"></h-icon>
+      </block>
+      <block c-else-if="{{innerChecked}}">
+        <h-icon class="h-radio-select" name="iconyigouxuanbeifen"></h-icon>
+      </block>
+      <block c-else>
+        <h-icon class="h-radio-select" name="iconbukegouxuanbeifen1"></h-icon>
+      </block>
       <text class="h-radio-label">{{ label }}</text>
     </view>
   </view>
@@ -25,48 +31,20 @@ class HRadio implements HRadioInterface {
       type: Boolean,
       default: false
     },
-    position: {
-      type: String,
-      default: 'left'
-    },
     groupIndex: {
       type: Number,
       default: -1
-    },
-    color: {
-      type: String,
-      default: primaryColor
     }
   }
   data = {
     innerChecked: false
   }
   computed = {
-    radioStyle() {
-      let style = ''
-      if (this.disabled) {
-        style += 'opacity:0.5;'
-      }
-      if (this.position == 'right') {
-        style += 'position:absolute;right:0;margin-right:45cpx;'
-      } else {
-        style += 'margin-right:13cpx;'
-      }
-      return style
-    },
-    radioInnerStyle() {
-      let style = ''
-      if (this.innerChecked) {
-        style += `border:10cpx solid ${this.color};`
-      }
-
-      return style
-    },
     radioClass() {
       if (this.disabled) {
-        return this.innerChecked ? 'h-radio-selected-disabled' : 'h-radio-unselect-disabled'
+        return 'is-disabled'
       }
-      return this.innerChecked ? 'h-radio-selected' : 'h-radio-unselect'
+      return this.innerChecked ? 'is-active' : ''
     }
   }
   watch = {
@@ -95,14 +73,16 @@ export default new HRadio()
 </script>
 
 <style lang="scss">
-@import "../../assets/scss/_output.scss";
 @import "./h-radio.scss";
 </style>
 
 <script cml-type="json">
 {
   "base": {
-    "component": true
+    "component": true,
+    "usingComponents": {
+      "h-icon": "../h-icon/h-icon"
+    }
   }
 }
 </script>

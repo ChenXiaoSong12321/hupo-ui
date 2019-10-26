@@ -1,46 +1,35 @@
 @import '../../assets/scss/output';
 @include b(radio){
-  margin: 10cpx;
   @include e(wrap){
-    padding:11cpx 0;
     word-break: break-word;
     word-wrap: break-word;
     display: flex;
     flex-direction: row;
     align-items: center;
-    line-height: 1.5;
     position: relative;
+    height: 56cpx;
+    @include when(disabled){
+      @include e(select){
+        color: $--background-color-BgC1;
+      }
+    }
+    @include when(active){
+      @include e(select){
+        color: $--primary-color-CM1;
+      }
+      @include e(label){
+        color: $--font-color-FC1;
+      }
+    }
   }
-  @include e(selected){
-    width:32cpx;
-    height:32cpx;
-    border-radius: 100cpx;
-    box-sizing: border-box;
-  }
-  @include e(selected-disabled){
-    width:32cpx;
-    height:32cpx;
-    border-radius: 100cpx;
-    box-sizing: border-box;
-    opacity: 0.5;
-  }
-  @include e(unselect){
-    width:32cpx;
-    height:32cpx;
-    border:1px solid #ccc;
-    border-radius: 20cpx;
-    box-sizing:border-box;
-  }
-  @include e(unselect-disabled){
-    width:32cpx;
-    height:32cpx;
-    border-radius: 20cpx;
-    background: #ccc;
-    box-sizing:border-box;
+  @include e(select){
+    display: block;
+    color: $--splitline-color-FgxC1;
   }
   @include e(label){
     color:#666;
-    font-weight: 400;
-    font-size: 32cpx;
+    font-size: 26cpx;
+    margin-left: 20cpx;
+    color: $--font-color-FC3;
   }
 }
