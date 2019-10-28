@@ -1,40 +1,34 @@
-.h-checkbox {
-  margin: 10cpx;
-}
-.h-checkbox-wrap {
-  padding:11cpx 0;
-  word-break: break-word;
-  word-wrap: break-word;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  line-height: 1.5;
-  position: relative;
-}
-.h-checkbox-checked {
-  width:32cpx;
-  height:32cpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.h-checkbox-uncheck {
-  width:36cpx;
-  height:36cpx;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  border-radius:16cpx;
-  border: 4cpx solid $--font-color-FC3;
-}
-
-.h-checkbox-label {
-  color:#666;
-  font-weight: 400;
-  font-size: 32cpx;
-}
-.inner-icon {
-  width:32cpx;
-  height:32cpx;
+@import '../../assets/scss/output';
+@include b(checkbox){
+  @include e(wrap){
+    word-break: break-word;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    @include when(disabled){
+      @include e(select){
+        color: $--splitline-color-FgxC1;
+      }
+    }
+    @include when(active){
+      @include e(select){
+        color: $--primary-color-CM1;
+      }
+      @include e(label){
+        color: $--font-color-FC1;
+      }
+    }
+  }
+  @include e(select){
+    display: block;
+    color: $--splitline-color-FgxC1;
+  }
+  @include e(label){
+    color:#666;
+    font-size: 26cpx;
+    margin-left: 20cpx;
+    color: $--font-color-FC3;
+  }
 }
