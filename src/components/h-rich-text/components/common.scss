@@ -13,6 +13,9 @@
     font-weight: bold;
   }
 }
+.wxParse-em{
+  font-style: italic;
+}
 @mixin block {
   .wxParse-p{
     font-size: 14px;
