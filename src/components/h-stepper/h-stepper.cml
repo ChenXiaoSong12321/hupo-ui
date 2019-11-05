@@ -8,15 +8,7 @@
     >
       <view class="text">-</view>
     </h-button>
-    <view class="h-stepper-input-wrap">
-      <input
-        class="h-stepper-input"
-        placeholder
-        value="{{stepValue}}"
-        cStyle="{{inputStyle}}"
-        c-bind:input="inputChanged"
-      />
-    </view>
+    <view class="h-stepper-input-wrap">{{stepValue}}</view>
     <h-button
       throttle="{{false}}"
       class="h-stepper-add {{disabled || (stepValue === max) ? 'is-disabled':''}}"
@@ -57,22 +49,6 @@ class HStepper implements HStepperInterface {
   data = {
     stepValue: 1
   }
-  computed = {
-    inputStyle() {
-      return `
-      border: none;
-      font-size: 22cpx;
-      height: 38cpx;
-      min-height: 0;
-      line-height: 38cpx;
-      text-align:center;
-      padding:0 2cpx;
-      width: 42cpx;
-      color: #666666;
-      outline: none;
-     `
-    }
-  }
   watch = {
     value: 'setValue',
     stepValue(n) {
@@ -103,9 +79,6 @@ class HStepper implements HStepperInterface {
         return
       }
       this.stepValue = val
-    },
-    inputChanged(e) {
-      this.setValue(e.detail)
     },
     onChange(type) {
       const diff = type === 'subtract' ? -this.step : +this.step
