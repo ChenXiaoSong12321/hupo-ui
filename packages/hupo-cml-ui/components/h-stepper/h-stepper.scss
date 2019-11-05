@@ -20,8 +20,12 @@
     width: 42cpx;
   }
   @include e(input-wrap){
-    font-size: $--font-size-weak-medium-FW2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex: 1;
+    width: 40cpx;
+    font-size: $--font-size-weak-medium-FW2;
     border-left: 1px solid $--splitline-color-FgxC1;
     border-right: 1px solid $--splitline-color-FgxC1;
   }
