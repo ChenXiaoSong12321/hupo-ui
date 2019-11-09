@@ -69,6 +69,7 @@ class HStepper implements HStepperInterface {
     }
   }
   mounted() {
+    this.stepValue = this.value
     if (this.stepValue < this.min) this.setValue(this.min)
   }
   methods = {
