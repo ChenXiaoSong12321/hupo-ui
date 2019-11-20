@@ -14,7 +14,6 @@
         <h-rich-text-parse-li c-if="{{nodes.tag == 'li'}}" nodes="{{nodes}}"></h-rich-text-parse-li>
         <h-rich-text-parse-a c-if="{{nodes.tag == 'a'}}" nodes="{{nodes}}"></h-rich-text-parse-a>
         <h-rich-text-parse-table c-if="{{nodes.tag == 'table'}}" nodes="{{nodes}}"></h-rich-text-parse-table>
-        <h-rich-text-parse-tr c-if="{{nodes.tag == 'tr'}}" nodes="{{nodes}}"></h-rich-text-parse-tr>
       </block>
       <block c-else-if="{{nodes.tagType == 'block'}}">
         <h-rich-text-parse-block nodes="{{nodes}}"></h-rich-text-parse-block>
@@ -57,7 +56,6 @@ export default new HRichTextParseBase()
       "h-rich-text-parse-inline": "../inline/h-rich-text-parse-inline",
       "h-rich-text-parse-li": "../li/h-rich-text-parse-li",
       "h-rich-text-parse-table": "../table/h-rich-text-parse-table",
-      "h-rich-text-parse-tr": "../tr/h-rich-text-parse-tr",
       "h-rich-text-parse-text": "../text/h-rich-text-parse-text",
       "h-rich-text-parse-video": "../video/h-rich-text-parse-video"
     }
