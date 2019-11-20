@@ -8,8 +8,6 @@
 <script>
 import recursion from '../../recursion.interface'
 class HRichTextParseBlock implements HRichTextParseBlockInterface {
-  name = 'h-rich-text-parse-block'
-
   beforeCreate() {
     recursion.beforeCreate(this)
   }
