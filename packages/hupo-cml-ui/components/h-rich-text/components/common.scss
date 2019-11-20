@@ -67,42 +67,49 @@
 }
 @mixin table {
   .wxParse-table{
-      width: 100%;
-      border-top:1px solid #d8d8d8;
+    width: calc(100% - 1px) !important;
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2cpx;
+    border-color: grey;
   }
-  .wxParse-thead,.wxParse-tfoot{
-      display: flex;
-      flex-direction: row;
+  .wxParse-thead{
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
   }
-
-}
-@mixin tr {
+  .wxParse-tfoot{
+    display: table-footer-group;
+    vertical-align: middle;
+    border-color: inherit;
+  }
+  .wxParse-tbody{
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+  }
   .wxParse-tr{
-    display: flex;
-    flex-direction: row;
-    border-right:1px solid #d8d8d8;
-    border-bottom:1px solid #d8d8d8;
-    // border-top:1px solid #d8d8d8;
-    height: auto !important;
-    &.firstRow{
-      border-top:1px solid #d8d8d8;
-    }
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
   }
-  .wxParse-th,
   .wxParse-td{
-    flex: 1;
-    padding: 5px 10px;
-    font-size: 28cpx;
-    border-left: 1px solid #d8d8d8 !important;
-    word-break: break-all;
-    box-sizing: border-box;
-  }
-  .wxParse-td:last{
-    border-top: 1px solid #d8d8d8;
+    display: table-cell;
+    vertical-align: inherit;
+    border: 1px solid #ccc;
+    word-wrap:break-word;
+    word-break:break-all;
+    padding: 12cpx;
   }
   .wxParse-th{
-    background: #f0f0f0;
-    border-top: 1px solid #d8d8d8;
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
+    border: 1px solid #ccc;
+    word-wrap:break-word;
+    word-break:break-all;
+    padding: 12cpx;
   }
 }
 @mixin video {
