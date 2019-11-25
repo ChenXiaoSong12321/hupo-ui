@@ -2,6 +2,7 @@
 @include b(page) {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 
   @include m(BgC1){
     background: $--background-color-BgC1;
@@ -46,5 +47,4 @@
     position: relative;
     z-index: $--z-index-max;
   }
-
 }

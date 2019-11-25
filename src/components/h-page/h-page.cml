@@ -1,32 +1,30 @@
 <template>
-  <page title="{{selfTitle}}">
+  <view class="h-page h-page--{{background}}" style="{{heightStyle}}">
     <view class="h-page-popup">
       <h-dialog></h-dialog>
       <h-toast></h-toast>
     </view>
-    <view class="h-page h-page--{{background}}" style="{{heightStyle}}">
-      <h-navbar
-        type="{{type}}"
-        loading="{{navbarLoading}}"
-        title="{{selfTitle}}"
-        showHomeIcon="{{showHomeIcon}}"
-        fixed="{{fixed}}"
-      ></h-navbar>
-      <view class="h-page-loading" c-if="{{loading || !loaded}}">
-        <h-load-more loading></h-load-more>
-      </view>
-      <view class="h-page-container {{disabled || !fixed ? 'is-disabled' : ''}}" c-else>
-        <slot></slot>
-      </view>
-      <view
-        class="h-page-bottom"
-        c-if="{{viewport.isAllScreen}}"
-        style="height: {{viewport.bottomHeight}}px;"
-      >
-        <view class="h-page-bottom-fixed" style="height: {{viewport.bottomHeight}}px;"></view>
-      </view>
+    <h-navbar
+      type="{{type}}"
+      loading="{{navbarLoading}}"
+      title="{{title}}"
+      showHomeIcon="{{showHomeIcon}}"
+      fixed="{{fixed}}"
+    ></h-navbar>
+    <view class="h-page-loading" c-if="{{loading || !loaded}}">
+      <h-load-more loading></h-load-more>
     </view>
-  </page>
+    <view class="h-page-container {{disabled || !fixed ? 'is-disabled' : ''}}" c-else>
+      <slot></slot>
+    </view>
+    <view
+      class="h-page-bottom"
+      c-if="{{viewport.isAllScreen}}"
+      style="height: {{viewport.bottomHeight}}px;"
+    >
+      <view class="h-page-bottom-fixed" style="height: {{viewport.bottomHeight}}px;"></view>
+    </view>
+  </view>
 </template>
 <script>
 import HPageMixin from './h-page.js'
