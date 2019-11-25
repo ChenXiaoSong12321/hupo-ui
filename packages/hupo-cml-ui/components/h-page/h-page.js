@@ -38,12 +38,12 @@ export default {
   },
   computed: {
     heightStyle() {
-      return `${this.fixed ? 'min-' : ''}height: ${this.viewportHeight}cpx;`
+      return `${this.fixed ? 'min-' : ''}height: 100vh;`
     }
   },
   watch: {
     title(val) {
-      this.selfTitle = val
+      cml.setTitle(val)
     },
     type() {
       this.initNavigation()
@@ -54,16 +54,14 @@ export default {
     viewport,
     viewportHeight: 0,
     status: '',
-    selfTitle: '',
     loaded: false
   },
-  async created() {
-    this.selfTitle = this.title
-    this.initNavigation()
-    const system = await this._getSystemInfo()
-    this.viewportHeight = system.viewportHeight
-  },
   mounted() {
+    cml.setTitle(this.title)
+    this.initNavigation()
+    this._getSystemInfo().then(system => {
+      this.viewportHeight = system.viewportHeight
+    })
     promise.delay(500).then(() => {
       this.loaded = true
     })
