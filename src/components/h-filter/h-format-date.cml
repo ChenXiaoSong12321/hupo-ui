@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import formatDate from './utils/format.js'
+import { dateUtils } from '@hupo/core'
 
 class HFormatDate implements HFormatDateInterface {
   name = 'h-format-date'
@@ -19,7 +19,7 @@ class HFormatDate implements HFormatDateInterface {
   }
   computed = {
     formatDate() {
-      return formatDate(parseInt(this.time), this.type)
+      return dateUtils.format(this.time, this.type)
     }
   }
 }
