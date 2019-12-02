@@ -81,6 +81,8 @@ export default new HToast()
     color: #fff;
     line-height: 1.5;
     font-size: 26cpx;
+    word-break: break-all;
+    word-wrap: break-word;
   }
 }
 </style>
