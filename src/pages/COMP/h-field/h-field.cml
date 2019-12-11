@@ -23,10 +23,10 @@ import pageMixin from '../../../core/mixins/page/index.js'
 export default {
   mixins: [...pageMixin],
   data: {
-    inputval:''
+    inputval: ''
   },
   watch: {
-    inputval(n){
+    inputval(n) {
       console.log(n)
     }
   }

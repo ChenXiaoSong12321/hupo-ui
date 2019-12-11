@@ -66,7 +66,7 @@
       <view class="input-wrap">
         <input placeholder="placeholderColor web端不支持" placer-holder-color="#ff0000;"></input>
       </view>
-      
+
       <text class="title-text">自定义样式</text>
       <view class="end-item">
         <input placeholder="自定义样式" cstyle="color: #00ff00; border: 1px solid #00f;" ></input>
@@ -86,21 +86,21 @@ export default {
   },
   methods: {
     inputEvent(e) {
-      this.inputValue = e.detail.value;
+      this.inputValue = e.detail.value
     },
     testEvent(e) {
       this.eventName = e.type
     },
     bindblurevent() {
       console.log('blur')
-      this.isfocus = false;
+      this.isfocus = false
     }
   },
   mounted(res) {
     console.log('mounted')
     this._setTimeout(() => {
-      this.isfocus = true;
-    }, 300);
+      this.isfocus = true
+    }, 300)
   }
 }
 </script>

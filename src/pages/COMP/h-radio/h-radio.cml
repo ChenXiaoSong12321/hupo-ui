@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     valueChange(e) {
-      this.radioValue = e.detail.value;
+      this.radioValue = e.detail.value
     }
   }
 }

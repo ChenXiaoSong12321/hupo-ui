@@ -30,6 +30,7 @@ class HCheckbox implements HCheckboxInterface {
       type: String,
       default: 'left'
     },
+    // todo wait delete
     groupIndex: {
       type: Number,
       default: -1
@@ -58,9 +59,11 @@ class HCheckbox implements HCheckboxInterface {
       const value = {
         value: this.innerChecked
       }
+      // todo wait delete
       if (this.groupIndex !== -1) {
         value.index = this.groupIndex
       }
+      // todo wait delete
       this.$cmlEmit('changeevent', value)
       this.$cmlEmit('change', value)
     }
@@ -73,7 +76,7 @@ class HCheckbox implements HCheckboxInterface {
 export default new HCheckbox()
 </script>
 <style lang="scss">
-@import "./h-checkbox.scss";
+@import './h-checkbox.scss';
 </style>
 
 <script cml-type="json">
