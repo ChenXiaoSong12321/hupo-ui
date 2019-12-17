@@ -3,6 +3,7 @@
   "version": "2.0.0-uni-app",
   "description": "hupo ui基础组件库&接口能力",
   "scripts": {
+    "publish": "sh ./bin/publish.sh && git add . && git commit -m publish && lerna publish",
     "serve": "npm run dev:h5",
     "build": "npm run build:h5",
     "build:app-plus": "cross-env NODE_ENV=production UNI_PLATFORM=app-plus vue-cli-service uni-build",
