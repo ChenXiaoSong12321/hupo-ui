@@ -38,51 +38,51 @@ class HField implements HFieldInterface {
   name = 'h-field'
   mixins = [HInput, ...componentMixin]
   props = {
-    icon:{
+    icon: {
       type: String,
-      default:''
+      default: ''
     },
-    label:{
+    label: {
       type: String,
-      default:''
+      default: ''
     },
-    value:{
+    value: {
       type: String,
-      default:''
+      default: ''
     },
-    useSlot:{
+    useSlot: {
       type: Boolean,
-      default:false
+      default: false
     },
     placeholder: {
       type: String,
-      default:''
+      default: ''
     },
-    border:{
+    border: {
       type: Boolean,
-      default:false
+      default: false
     }
   }
   computed = {
-   inputStyle(){
-     return `
+    inputStyle() {
+      return `
       border: none;
       height: 80cpx;
       line-height: 80cpx;
       margin-top: 1px;
      `
-   }
+    }
   }
   methods = {
-    inputChanged(e){
-      this.$cmlEmit('input',e.detail)
+    inputChanged(e) {
+      this.$cmlEmit('input', e.detail)
     }
   }
 }
 export default new HField()
 </script>
 <style lang="scss">
-@import "./h-field.scss";
+@import './h-field.scss';
 </style>
 <script cml-type="json">
 {
