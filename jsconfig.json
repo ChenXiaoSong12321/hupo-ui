@@ -1,14 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "@core/*": [
-        "src/core/*"
-      ],
-      "@components/*": [
-        "src/components/*"
-      ]
-    }
+    "baseUrl": "./"
   },
   "exclude": [
     "node_modules",

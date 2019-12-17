@@ -1,4 +1,0 @@
-<script cml-type='interface'>
-interface HNavbarLoadingInterface{}
-</script>
-<script cml-type="web,wx" src="./loading.cml"></script>
