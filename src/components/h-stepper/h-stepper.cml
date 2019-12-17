@@ -28,7 +28,6 @@ class HStepper implements HStepperInterface {
   props = {
     integer: Boolean,
     disabled: Boolean,
-    disableInput: Boolean,
     value: {
       type: Number,
       default: 1

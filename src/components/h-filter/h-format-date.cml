@@ -13,7 +13,7 @@ class HFormatDate implements HFormatDateInterface {
       default: ''
     },
     type: {
-      type: [String, Number],
+      type: String,
       default: ''
     }
   }
