@@ -1,0 +1,45 @@
+const defaultOptions = {
+  type: 'text',
+  message: '',
+  duration: 3000,
+  show: true,
+  mask: false,
+  needIcon: false
+}
+
+const parseOptions = options => typeof options === 'string' ? { message: options } : options
+const toastOptions = options => Object.assign({}, defaultOptions, options)
+let timer = null
+const handleToastBroadcast = function(options, typeOptions) {
+  return new Promise((resolve, reject) => {
+    clearTimeout(timer)
+    options = parseOptions(options)
+    options = toastOptions({ ...typeOptions, ...options })
+    this._broadcast('h-toast', 'toggle', options)
+    if (options.duration > 0) {
+      timer = this._setTimeout(_ => {
+        this._clearToast()
+        resolve()
+      }, options.duration)
+    }
+  })
+}
+export default {
+  methods: {
+    async _toast(options = {}) {
+      await handleToastBroadcast.call(this, options)
+    },
+    _loadingToast(options = {}) {
+      handleToastBroadcast.call(this, options, { message: '加载中...', duration: -1, needIcon: true, type: 'loading' })
+    },
+    _clearToast() {
+      this._broadcast('h-toast', 'toggle', { show: false })
+    },
+    _failToast(options = {}) {
+      handleToastBroadcast.call(this, options, { needIcon: true, type: 'warn' })
+    },
+    _successToast(options = {}) {
+      handleToastBroadcast.call(this, options, { needIcon: true, type: 'success' })
+    }
+  }
+}
