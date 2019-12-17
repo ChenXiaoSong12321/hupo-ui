@@ -7,10 +7,6 @@ export default {
       type: Boolean,
       default: false
     },
-    loadmore: {
-      type: Boolean,
-      default: false
-    },
     title: {
       type: String,
       default: '琥珀亲子'

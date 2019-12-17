@@ -39,8 +39,10 @@ export default {
       default: false
     }
   },
-  data: {
-    stateClass: ''
+  data() {
+    return {
+      stateClass: ''
+    }
   },
   watch: {
     throttle: 'refreshThrottleFn',
@@ -70,7 +72,7 @@ export default {
       this.throttleEmit.call(this, type, data)
     },
     refreshThrottleFn() {
-      this.throttleEmit = throttle(function(type, data) { this.$cmlEmit(type, data) }, this.throttle)
+      this.throttleEmit = throttle(function(type, data) { this.$emit(type, data) }, this.throttle)
     }
   }
 }

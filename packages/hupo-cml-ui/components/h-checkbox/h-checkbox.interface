@@ -1,5 +1,0 @@
-<script cml-type='interface'>
-interface HCheckboxInterface{
-}
-</script>
-<script cml-type="web,wx" src="./h-checkbox.cml"></script>

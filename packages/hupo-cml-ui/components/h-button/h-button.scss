@@ -31,7 +31,7 @@
 
   @each $color-name,$color in $button-color {
     @include m(#{$color-name}) {
-      @include set-button-color(map-get($color,color),map-get($color,background-color),map-get($color,plian-color));
+      @include set-button-color(map-get($color,color),map-get($color,background-color),map-get($color,plain-color));
     }
   }
 

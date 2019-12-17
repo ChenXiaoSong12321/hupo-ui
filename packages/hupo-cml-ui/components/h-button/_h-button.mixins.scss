@@ -10,7 +10,7 @@
   }
 }
 
-@mixin set-button-color($color, $background-color,$plian-color) {
+@mixin set-button-color($color, $background-color,$plain-color) {
 
   color: $color;
   background-color: $background-color;
@@ -18,7 +18,7 @@
   @include when(plain) {
     border: 1px solid $background-color;
     background-color: transparent;
-    color: $plian-color;
+    color: $plain-color;
   }
 
 }
