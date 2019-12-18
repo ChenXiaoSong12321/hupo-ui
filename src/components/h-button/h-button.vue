@@ -6,7 +6,7 @@
         type="keng"
         :form-type="openType ? '' : 'submit'"
         class="h-button"
-        :class="`h-button--${type == 'none' ? '' : size} h-button--${type} ${stateClass}`"
+        :class="stateClass"
         :open-type="openType"
         :style="customStyle"
         @tap="handleTap"
@@ -21,11 +21,7 @@
     </form>
     <!--  #endif -->
     <!--  #ifdef H5 -->
-    <view
-      :class="`h-button--${type == 'none' ? '' : size} h-button--${type} ${stateClass}`"
-      :style="customStyle"
-      @tap="handleTap"
-    >
+    <view :class="stateClass" :style="customStyle" @tap="handleTap">
       <slot></slot>
     </view>
     <!--  #endif -->

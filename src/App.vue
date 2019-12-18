@@ -1,7 +1,10 @@
 <script>
 export default {
-  onLaunch: function() {
+  async onLaunch() {
+    console.log(uni.px2rpx)
     console.log('App Launch')
+    const test = await uni.getSystemInfo()
+    console.log(test)
   },
   onShow: function() {
     console.log('App Show')

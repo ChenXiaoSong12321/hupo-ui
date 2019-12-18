@@ -190,16 +190,8 @@ module.exports = {
     'array-bracket-spacing': [2, 'never']
   },
   globals: {
-    "wx": true,
-    "App": true,
-    "Page": true,
-    "getApp": true,
-    "Component": true,
-    "getCurrentPages": true,
-    "Behavior": true,
-    "getRegExp": true,
-    "getDate": true,
-    "cml": true,
-    "window": true
+    "uni": true,
+    "getCurrentPages": true
+
   }
 }
