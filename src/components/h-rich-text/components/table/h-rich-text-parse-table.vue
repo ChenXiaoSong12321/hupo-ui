@@ -1,24 +1,20 @@
 <template>
-  <view :class="[`${nodes.classStr}`,`wxParse-${nodes.tag}`]" :style="[nodes.styleStr]">
-    <block v-for="body in nodes.nodes">
+  <view :class="[`${nodes.classStr}`,`wxParse-${nodes.tag}`]" :style="nodes.styleStr">
+    <block v-for="body in nodes.nodes" :key="body.index">
       <view
         v-if="body.tag"
         :class="[`${body.classStr}`,`wxParse-${body.tag}`]"
-        :style="[body.styleStr]"
+        :style="body.styleStr"
       >
-        <block v-for="tr in body.nodes">
-          <view
-            v-if="tr.tag"
-            :class="[`${tr.classStr}`,`wxParse-${tr.tag}`]"
-            :style="[tr.styleStr]"
-          >
-            <block v-for="td in tr.nodes">
+        <block v-for="tr in body.nodes" :key="tr.index">
+          <view v-if="tr.tag" :class="[`${tr.classStr}`,`wxParse-${tr.tag}`]" :style="tr.styleStr">
+            <block v-for="td in tr.nodes" :key="td.index">
               <view
                 v-if="td.tag"
                 :class="[`${td.classStr}`,`wxParse-${td.tag}`]"
-                :style="[td.styleStr]"
+                :style="td.styleStr"
               >
-                <h-rich-text-parse-base v-for="item in td.nodes" :nodes="item"></h-rich-text-parse-base>
+                <h-rich-text-parse-base v-for="item in td.nodes" :key="item.index" :nodes="item"></h-rich-text-parse-base>
               </view>
             </block>
           </view>

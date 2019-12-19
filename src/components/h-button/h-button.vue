@@ -30,6 +30,7 @@
 
 <script>
 import HButtonMixins from './h-button.mixins.js'
+global._buttonFormIds = []
 export default {
   name: 'h-button',
   mixins: [HButtonMixins],
@@ -56,10 +57,10 @@ export default {
     },
     // #ifdef MP-WEIXIN
     handleFormSubmit(event) {
-      console.log('event:', event)
       const formId = event.detail.formId || ''
-      console.log('formId:', formId)
-      global._buttonFormIds.push(formId)
+      if (formId !== 'the formId is a mock one') {
+        global._buttonFormIds.push(formId)
+      }
     }
     // #endif
   }

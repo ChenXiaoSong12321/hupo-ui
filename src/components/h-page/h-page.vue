@@ -1,9 +1,5 @@
 <template>
-  <view
-    class="h-page"
-    :class="[`h-page--${background}`]"
-    :style="[`min-height: ${this.fixed ? '100vh' : '0'}`, `height: ${this.fixed ? '0' : '100vh'}`]"
-  >
+  <view class="h-page" :class="[`h-page--${background}`, `${this.fixed ? '' : 'is-disabled'}`]">
     <view class="h-page-popup">
       <h-dialog></h-dialog>
       <h-toast></h-toast>
@@ -24,9 +20,9 @@
     <view
       class="h-page-bottom"
       v-if="viewport.isAllScreen"
-      :style="[`height: ${viewport.bottomHeight}rpx`]"
+      :style="{height: `${viewport.bottomHeight}rpx`}"
     >
-      <view class="h-page-bottom-fixed" :style="[`height: ${viewport.bottomHeight}rpx`]"></view>
+      <view class="h-page-bottom-fixed" :style="{height: `${viewport.bottomHeight}rpx`}"></view>
     </view>
   </view>
 </template>

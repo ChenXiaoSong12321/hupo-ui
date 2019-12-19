@@ -34,7 +34,7 @@
 </template>
 <script>
 // todo
-const getIndexRoute = () => global._routerConfig.routes[0].path
+const getIndexRoute = () => ''
 // 判断 route 是否是首页
 // todo
 const isHomeRoute = route => getIndexRoute().indexOf(route) > -1 || route === '/'
@@ -57,6 +57,7 @@ export default {
     }
   },
   mounted() {
+    console.log(global)
     const historys = getCurrentPages().length
     const isHome = isHomeRoute(this.$root.route)
     this.selfShowBackIcon = historys > 1 && !isHome

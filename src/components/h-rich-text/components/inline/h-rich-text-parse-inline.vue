@@ -1,9 +1,9 @@
 <template>
   <view
     :class="[`${nodes.classStr}`,`wxParse-${nodes.tag}`,`wxParse-${nodes.tagType}`]"
-    :style="[nodes.styleStr]"
+    :style="nodes.styleStr"
   >
-    <h-rich-text-parse-base v-for="item in nodes.nodes" :nodes="item"></h-rich-text-parse-base>
+    <h-rich-text-parse-base v-for="item in nodes.nodes" :key="item.index" :nodes="item"></h-rich-text-parse-base>
   </view>
 </template>
 <script>

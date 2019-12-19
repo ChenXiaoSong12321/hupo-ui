@@ -1,11 +1,11 @@
 <template>
-  <view :class="[`${nodes.classStr}`,`wxParse-${nodes.tag}`]" :style="[nodes.styleStr]">
+  <view :class="[`${nodes.classStr}`,`wxParse-${nodes.tag}`]" :style="nodes.styleStr">
     <view class="wxParse-li-inner">
       <view class="wxParse-li-text">
         <view class="wxParse-li-circle"></view>
       </view>
       <view class="wxParse-li-text">
-        <h-rich-text-parse-base v-for="item in nodes.nodes" :nodes="item"></h-rich-text-parse-base>
+        <h-rich-text-parse-base v-for="item in nodes.nodes" :key="item.index" :nodes="item"></h-rich-text-parse-base>
       </view>
     </view>
   </view>

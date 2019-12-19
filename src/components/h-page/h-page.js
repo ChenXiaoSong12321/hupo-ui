@@ -50,7 +50,6 @@ export default {
     return {
       navbarLoading: false,
       viewport,
-      viewportHeight: 0,
       status: '',
       loaded: false
     }
@@ -60,45 +59,38 @@ export default {
       title: this.title
     })
     this.initNavigation()
-    this._getSystemInfo().then(system => {
-      this.viewportHeight = system.viewportHeight
-    })
     promise.delay(500).then(() => {
       this.loaded = true
     })
-    this._on('toggleLoading', (options = {}) => {
+    this.$on('toggle', (options = {}) => {
       Object.keys(options).forEach(key => {
         this[key] = options[key]
       })
     })
-    this._on('pulldown', () => {
-      this.$cmlEmit('pulldown')
+    this.$on('emit-event', name => {
+      this.$emit(name)
     })
-    this._on('pullup', () => {
-      this.$cmlEmit('pullup')
-    })
-    const onScroll = () => {
-      const scollTop = document.documentElement.scrollTop
-      const scrollHeight = document.documentElement.scrollHeight
-      const documentHeight = cml.rpx2px(this.viewportHeight)
-      if (scollTop + documentHeight + 100 > scrollHeight) {
-        this.$cmlEmit('pullup')
+    // #ifdef H5
+    this._getSystemInfo().then(system => {
+      const onScroll = () => {
+        const scollTop = document.documentElement.scrollTop
+        const scrollHeight = document.documentElement.scrollHeight
+        const documentHeight = system.windowHeight
+        if (scollTop + documentHeight + 100 > scrollHeight) {
+          this.$emit('pullup')
+        }
       }
-    }
-    channelInterface({
-      H5() {
-        window.onscroll = debounce(onScroll, 100)
-      },
-      WX_H5() {
-        window.onscroll = debounce(onScroll, 100)
-      }
+      window.onscroll = debounce(onScroll, 100)
     })
+    // #endif
 
-    this._on('onShow', () => {
+    this.$on('onshow', () => {
       this.initNavigation()
-      this.$cmlEmit('onshow')
     })
-    this.$cmlEmit('onshow')
+  },
+  onPageShow() {
+    console.log(this)
+    this.initNavigation()
   },
   methods: {
     initNavigation() {

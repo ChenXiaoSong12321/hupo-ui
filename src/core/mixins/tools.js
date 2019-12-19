@@ -1,20 +1,17 @@
 import { viewport, promise } from '@hupo/core'
 export default {
   onPullDownRefresh() {
-    this.$root._broadcast('h-page', 'pulldown')
+    this.$root._broadcast('h-page', 'emit-event', 'pulldown')
   },
   onReachBottom() {
-    this.$root._broadcast('h-page', 'pullup')
-  },
-  onShow() {
-    this.$root._broadcast('h-page', 'onShow')
+    this.$root._broadcast('h-page', 'emit-event', 'pullup')
   },
   methods: {
     _loadingNavbar() {
-      return this.$root._broadcast('h-page', 'toggleLoading', { navbarLoading: true })
+      return this.$root._broadcast('h-page', 'toggle', { navbarLoading: true })
     },
     _clearLoadingNavbar() {
-      return this.$root._broadcast('h-page', 'toggleLoading', { navbarLoading: false })
+      return this.$root._broadcast('h-page', 'toggle', { navbarLoading: false })
     },
     _calcTop(top) {
       if (!viewport.headerHeight) return top

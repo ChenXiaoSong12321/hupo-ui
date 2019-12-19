@@ -1,10 +1,10 @@
 <template>
   <view class="h-navbar" v-if="viewport.headerHeight > 0">
-    <view class="h-navbar-place" v-if="fixed" :style="[`height: ${viewport.headerHeight}rpx`]"></view>
+    <view class="h-navbar-place" v-if="fixed" :style="{height: `${viewport.headerHeight}rpx`}"></view>
     <view
       class="h-navbar-box"
       :class="[`h-navbar-box--${type}`, `${fixed ? 'is-fixed' : ''}`]"
-      :style="[`height: ${viewport.capsuleHeight}rpx`, `paddingTop: ${viewport.statusBarHeight}rpx`]"
+      :style="{height: `${viewport.capsuleHeight}rpx`, paddingTop: `${viewport.statusBarHeight}rpx`}"
     >
       <view class="h-navbar-box-side">
         <!-- <slot name="left"></slot> -->

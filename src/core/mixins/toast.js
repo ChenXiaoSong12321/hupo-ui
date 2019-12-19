@@ -1,7 +1,7 @@
 const defaultOptions = {
   type: 'text',
   message: '',
-  duration: 3000,
+  duration: 30000000,
   show: true,
   mask: false,
   needIcon: false
@@ -26,20 +26,20 @@ const handleToastBroadcast = function(options, typeOptions) {
 }
 export default {
   methods: {
-    async _toast(options = {}) {
-      await handleToastBroadcast.call(this, options)
+    _toast(options = {}) {
+      return handleToastBroadcast.call(this, options)
     },
     _loadingToast(options = {}) {
-      handleToastBroadcast.call(this, options, { message: '加载中...', duration: -1, needIcon: true, type: 'loading' })
+      return handleToastBroadcast.call(this, options, { message: '加载中...', duration: -1, needIcon: true, type: 'loading' })
     },
     _clearToast() {
       this.$root._broadcast('h-toast', 'toggle', { show: false })
     },
     _failToast(options = {}) {
-      handleToastBroadcast.call(this, options, { needIcon: true, type: 'warn' })
+      return handleToastBroadcast.call(this, options, { needIcon: true, type: 'warn' })
     },
     _successToast(options = {}) {
-      handleToastBroadcast.call(this, options, { needIcon: true, type: 'success' })
+      return handleToastBroadcast.call(this, options, { needIcon: true, type: 'success' })
     }
   }
 }

@@ -15,6 +15,10 @@
     background: $--background-color-BgC3;
   }
 
+  @include when(disabled){
+    height: 100vh;
+  }
+
   @include e(loading) {
     flex: 1;
     @include flexCenter()

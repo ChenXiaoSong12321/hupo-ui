@@ -63,6 +63,7 @@ const html2json = html => {
   // 需要把此节点放到父节点的 nodes 列表，如果没有，则证明该节点没有父节点了，放到根节点即可。
   //
   // 总体来说，就是一个进栈出栈（节点缓冲区）的算法问题。
+  var index = 0
   htmlParser.parseHtml(html, {
     /**
      * 处理开始标签
@@ -74,6 +75,17 @@ const html2json = html => {
       const node = {
         node: 'element',
         tag: tag
+      }
+
+      if (bufferNodes.length === 0) {
+        node.index = index.toString()
+        index += 1
+      } else {
+        var parent = bufferNodes[0]
+        if (parent.nodes === undefined) {
+          parent.nodes = []
+        }
+        node.index = parent.index + '.' + parent.nodes.length
       }
 
       if (elements.block[tag]) {

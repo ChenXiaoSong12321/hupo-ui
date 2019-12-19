@@ -4,7 +4,7 @@
     :class="[`${nodes.classStr}`,`wxParse-${nodes.tag}`]"
     :src="nodes.attr.src"
     mode="widthFix"
-    :style="nodes.width ? nodes.width + 'px;' : ''"
+    :style="{width: nodes.width ? nodes.width + 'px;' : 'auto'}"
     reload
   ></h-image>
 </template>

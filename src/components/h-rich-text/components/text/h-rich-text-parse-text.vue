@@ -1,5 +1,5 @@
 <template>
-  <text class="wxParse-inline" :class="nodes.classStr" :style="[nodes.styleStr]">
+  <text class="wxParse-inline" :class="nodes.classStr" :style="nodes.styleStr">
     <block v-if="nodes.node == 'text'">{{nodes.text}}</block>
   </text>
 </template>

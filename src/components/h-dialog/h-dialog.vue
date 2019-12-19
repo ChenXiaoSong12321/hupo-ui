@@ -1,5 +1,5 @@
 <template>
-  <h-popup-manager :show="show" position="center">
+  <h-popup-base :show="show" position="center">
     <view class="h-dialog--container">
       <view v-if="title" class="h-dialog-header">
         <view class="h-dialog-header--icon" v-if="icon" :style="{color: (iconColor || '#333')}">
@@ -35,7 +35,7 @@
         </h-button>
       </view>
     </view>
-  </h-popup-manager>
+  </h-popup-base>
 </template>
 <script>
 import { primaryColor, fontColorC1 } from '../../core/options/style/var'
@@ -75,7 +75,7 @@ export default {
     }
   },
   mounted() {
-    this._on('setDialogOptions', (options = {}) => {
+    this.$on('toggle', (options = {}) => {
       Object.keys(options).forEach(key => {
         this[key] = options[key]
         promise.resolve = options.promise ? options.promise.resolve : null
@@ -110,7 +110,7 @@ export default {
 
     selfEmit(type, data) {
       this.show = false
-      this.$cmlEmit(type, data)
+      this.$emit(type, data)
       if (type === 'confirm' && promise.resolve) {
         promise.resolve(data)
       }

@@ -1,23 +1,29 @@
 <template>
-  <h-popup-manager :show="show" :mask="mask">
+  <h-transition
+    name="fade"
+    :show="show"
+    :mask="false"
+    :styles="{
+      position: 'fixed',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%,-50%)',
+      zIndex: 999999
+    }"
+  >
     <view
       class="h-toast-content"
       :class="[iconMap[type] ? 'h-toast-content--square' : 'h-toast-content--other']"
     >
-      <view
-        v-if="type==='loading'"
-        class="h-toast-icon h-toast-icon--loading"
-        style="width:80rpx;height:80rpx"
-      ></view>
+      <view v-if="type==='loading'" class="h-toast-icon h-toast-icon--loading"></view>
       <h-icon
         v-else-if="type==='success'||type==='warn'"
         :name="iconMap[type]"
         class="h-toast-icon"
-        :class="[`h-toast-icon--${type}`]"
       ></h-icon>
       <view class="h-toast-text">{{message}}</view>
     </view>
-  </h-popup-manager>
+  </h-transition>
 </template>
 <script>
 export default {
@@ -37,7 +43,7 @@ export default {
     }
   },
   mounted() {
-    this._on('toggle', (options = {}) => {
+    this.$on('toggle', (options = {}) => {
       Object.keys(options).forEach(key => {
         this[key] = options[key]
       })
@@ -75,6 +81,8 @@ export default {
     font-size: 80rpx;
     margin-bottom: 6rpx;
     @include m(loading) {
+      width: 80rpx;
+      height: 80rpx;
       // animation: loading-rotate 1s steps(12, end) infinite;
       @include h-loading;
     }

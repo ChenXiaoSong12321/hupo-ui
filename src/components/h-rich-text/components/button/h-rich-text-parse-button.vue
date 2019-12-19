@@ -1,6 +1,6 @@
 <template>
   <block>
-    <h-rich-text-parse-base v-for="item in nodes.nodes" :nodes="item"></h-rich-text-parse-base>
+    <h-rich-text-parse-base v-for="item in nodes.nodes" :key="item.index" :nodes="item"></h-rich-text-parse-base>
   </block>
 </template>
 <script>

@@ -1,12 +1,11 @@
 <template>
   <view class="h-rich-text">
     <view class="wxParse">
-      <block v-for="item in selfNodes">
-        <block v-for="(node, y) in item">
+      <block v-for="item in selfNodes" :key="item.index">
+        <block v-for="node in item" :key="node.index">
           <h-rich-text-parse-base
             :nodes="node"
             :class="node.node !== 'element' || (node.tagType && node.tagType === 'inline') ? 'wxParse-inline' : ''"
-            :key="node.node + node.tag + node.tagType + y"
           ></h-rich-text-parse-base>
         </block>
       </block>
@@ -68,7 +67,7 @@ export default {
       this.selfNodes = []
       for (const [_, item] of selfNodes) {
         this.selfNodes.push(item)
-        await this.nextTick()
+        await this.$nextTick()
         await promise.delay(200)
       }
       this.$emit('success')

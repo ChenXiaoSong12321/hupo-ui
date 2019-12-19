@@ -16,9 +16,10 @@ import Himage from './components/h-image/h-image.vue'
 import HloadMore from './components/h-load-more/h-load-more.vue'
 import Hnavbar from './components/h-navbar/h-navbar.vue'
 import Hpage from './components/h-page/h-page.vue'
-import HpopupManager from './components/h-popup-manager/h-popup-manager.vue'
+import HpopupBase from './components/h-popup-base/h-popup-base.vue'
 import HrichText from './components/h-rich-text/h-rich-text.vue'
 import Htoast from './components/h-toast/h-toast.vue'
+import Htransition from './components/h-transition/h-transition.vue'
 Vue.component('h-button', Hbutton)
 Vue.component('h-dialog', Hdialog)
 Vue.component('h-icon', Hicon)
@@ -26,9 +27,10 @@ Vue.component('h-image', Himage)
 Vue.component('h-load-more', HloadMore)
 Vue.component('h-navbar', Hnavbar)
 Vue.component('h-page', Hpage)
-Vue.component('h-popup-manager', HpopupManager)
+Vue.component('h-popup-base', HpopupBase)
 Vue.component('h-rich-text', HrichText)
 Vue.component('h-toast', Htoast)
+Vue.component('h-transition', Htransition)
 /*
 --------------------------------------------------------------------------------------------------------------------------
 */

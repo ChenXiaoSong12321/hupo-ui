@@ -2,7 +2,7 @@
   <view
     class="wxParse-video"
     :class="[`${nodes.classStr}`,`wxParse-${nodes.tag}`]"
-    :style="[nodes.styleStr]"
+    :style="nodes.styleStr"
   >
     <block v-if="video.type == 'tencentvideo'">
       <!-- #ifdef MP-WEIXIN -->

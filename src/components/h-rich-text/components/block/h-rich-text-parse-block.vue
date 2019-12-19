@@ -1,7 +1,7 @@
 <template>
-  <view :class="[`${nodes.classStr}`,`wxParse-${nodes.tag}`]" :style="[nodes.styleStr]">
-    <block v-if="nodes.nodes && nodes.nodes.length > 0" v-for="item in nodes.nodes">
-      <h-rich-text-parse-base :nodes="item"></h-rich-text-parse-base>
+  <view :class="[`${nodes.classStr}`,`wxParse-${nodes.tag}`]" :style="nodes.styleStr">
+    <block v-if="nodes.nodes && nodes.nodes.length > 0">
+      <h-rich-text-parse-base v-for="item in nodes.nodes" :key="item.index" :nodes="item"></h-rich-text-parse-base>
     </block>
   </view>
 </template>

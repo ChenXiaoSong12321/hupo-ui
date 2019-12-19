@@ -20,7 +20,7 @@ const handleDialogBroadcast = function(options, typeOptions) {
         resolve, reject
       }
     }
-    this.$root._broadcast('h-dialog', 'setDialogOptions', options)
+    this.$root._broadcast('h-dialog', 'toggle', options)
   })
 }
 export default {

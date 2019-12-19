@@ -70,6 +70,12 @@ export default {
   mounted() {
     this.init()
   },
+  onPageShow() {
+    if (this.status == 'load-fail') {
+      this.status = 'loading'
+      this.reloadImage()
+    }
+  },
   methods: {
     async init() {
       if (!this.src) return
@@ -95,14 +101,6 @@ export default {
       this.url = url.addUrlParam({ i }, this.src)
       this.i = i++
       this.status = 'loading'
-    }
-  },
-  pageLifetimes: {
-    show() {
-      if (this.status == 'load-fail') {
-        this.status = 'loading'
-        this.reloadImage()
-      }
     }
   }
 }
