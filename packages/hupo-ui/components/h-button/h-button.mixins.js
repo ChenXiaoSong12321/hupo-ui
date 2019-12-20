@@ -3,8 +3,10 @@ import throttle from 'lodash.throttle'
 export default {
   props: {
     customStyle: {
-      type: String,
-      default: ''
+      type: Array,
+      default() {
+        return []
+      }
     },
     radius: {
       type: Boolean,
@@ -49,7 +51,9 @@ export default {
     plain: 'calcClass',
     disabled: 'calcClass',
     radius: 'calcClass',
-    opacity: 'calcClass'
+    opacity: 'calcClass',
+    type: 'calcClass',
+    size: 'calcClass'
   },
   mounted() {
     this.refreshThrottleFn()
@@ -64,7 +68,7 @@ export default {
           stateClass += `is-${item} `
         }
       })
-      this.stateClass = stateClass
+      this.stateClass = `h-button--${this.type == 'none' ? '' : this.size} h-button--${this.type} ${stateClass}`
     },
     btnEmit(type, data = {}) {
       if (this.disabled) return

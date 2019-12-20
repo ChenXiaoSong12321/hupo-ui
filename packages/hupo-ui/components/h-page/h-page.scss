@@ -1,4 +1,3 @@
-@import '../../assets/scss/output';
 @include b(page) {
   display: flex;
   flex-direction: column;
@@ -14,6 +13,10 @@
 
   @include m(BgC3){
     background: $--background-color-BgC3;
+  }
+
+  @include when(disabled){
+    height: 100vh;
   }
 
   @include e(loading) {

@@ -1,5 +1,4 @@
-import cml from 'chameleon-api'
-import { wxTools, channelInterface, viewport, promise } from '@hupo/core'
+import { viewport, promise } from '@hupo/core'
 import debounce from 'lodash.debounce'
 export default {
   props: {
@@ -39,72 +38,68 @@ export default {
   },
   watch: {
     title(val) {
-      cml.setTitle(val)
+      uni.setNavigationBarTitle({
+        title: val
+      })
     },
     type() {
       this.initNavigation()
     }
   },
-  data: {
-    navbarLoading: false,
-    viewport,
-    viewportHeight: 0,
-    status: '',
-    loaded: false
+  data() {
+    return {
+      navbarLoading: false,
+      viewport,
+      status: '',
+      loaded: false
+    }
   },
   mounted() {
-    cml.setTitle(this.title)
-    this.initNavigation()
-    this._getSystemInfo().then(system => {
-      this.viewportHeight = system.viewportHeight
+    uni.setNavigationBarTitle({
+      title: this.title
     })
-    promise.delay(500).then(() => {
+    this.initNavigation()
+    promise.delay(100).then(() => {
       this.loaded = true
     })
-    this._on('toggleLoading', (options = {}) => {
+    this.$on('toggle', (options = {}) => {
       Object.keys(options).forEach(key => {
         this[key] = options[key]
       })
     })
-    this._on('pulldown', () => {
-      this.$cmlEmit('pulldown')
+    this.$on('emit-event', name => {
+      this.$emit(name)
     })
-    this._on('pullup', () => {
-      this.$cmlEmit('pullup')
-    })
-    const onScroll = () => {
-      const scollTop = document.documentElement.scrollTop
-      const scrollHeight = document.documentElement.scrollHeight
-      const documentHeight = cml.cpx2px(this.viewportHeight)
-      if (scollTop + documentHeight + 100 > scrollHeight) {
-        this.$cmlEmit('pullup')
+    // #ifdef H5
+    this._getSystemInfo().then(system => {
+      const onScroll = () => {
+        const scollTop = document.documentElement.scrollTop
+        const scrollHeight = document.documentElement.scrollHeight
+        const documentHeight = system.windowHeight
+        if (scollTop + documentHeight + 100 > scrollHeight) {
+          this.$emit('pullup')
+        }
       }
-    }
-    channelInterface({
-      H5() {
-        window.onscroll = debounce(onScroll, 100)
-      },
-      WX_H5() {
-        window.onscroll = debounce(onScroll, 100)
-      }
+      window.onscroll = debounce(onScroll, 100)
     })
+    // #endif
 
-    this._on('onShow', () => {
+    this.$on('onshow', () => {
       this.initNavigation()
-      this.$cmlEmit('onshow')
     })
-    this.$cmlEmit('onshow')
+  },
+  onPageShow() {
+    console.log(this)
+    this.initNavigation()
   },
   methods: {
     initNavigation() {
-      channelInterface({
-        WX_MINI_PROGRAM: () => {
-          wxTools.setNavigationBarColor({
-            frontColor: this.type === 'default' ? '#000000' : '#ffffff',
-            backgroundColor: this.type === 'default' ? '#fafafa' : '#dd392e'
-          })
-        }
+      // #ifdef MP-WEIXIN
+      uni.setNavigationBarColor({
+        frontColor: this.type === 'default' ? '#000000' : '#ffffff',
+        backgroundColor: this.type === 'default' ? '#fafafa' : '#dd392e'
       })
+      // #endif
     }
   }
 }
