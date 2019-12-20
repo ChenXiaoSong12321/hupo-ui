@@ -53,8 +53,10 @@ export default {
     }
   },
   mounted() {
-    const historys = getCurrentPages().length
-    const isHome = this.$root.route === global.indexRoute
+    const pages = getCurrentPages()
+    const historys = pages.length
+    const current = pages.pop()
+    const isHome = current.route === global.indexRoute
     this.selfShowBackIcon = historys > 1 && !isHome
     this.selfShowHomeIcon = !isHome
   },
