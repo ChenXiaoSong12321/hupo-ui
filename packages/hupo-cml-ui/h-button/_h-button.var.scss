@@ -1,0 +1,20 @@
+$button-size:(
+  full:( width:100%, height:100%, font-size:32rpx),
+  max:( width:600rpx, height:80rpx, font-size:32rpx),
+  large:( width:560rpx, height:70rpx, font-size:32rpx),
+  medium:( width:240rpx, height:70rpx, font-size:28rpx),
+  mediumsmall:( width:150rpx, height:50rpx, font-size:24rpx),
+  small:( width:120rpx, height:50rpx, font-size:24rpx),
+  mini:( width:100rpx, height:40rpx, font-size:24rpx)
+);
+
+$button-color:(
+  default:( color:$--white, background-color:$--primary-color-CM1, plain-color:$--primary-color-CM1 ),
+  primary:( color:$--white, background-color:$--primary-color-CM1, plain-color:$--primary-color-CM1 ),
+  secondary:( color:$--white, background-color:$--secondary-color-CA2, plain-color:$--secondary-color-CA2 ),
+  preheat:( color:$--white, background-color:$--preheat-color, plain-color:$--preheat-color ),
+  muted:( color:$--font-color-FC2, background-color:$--border-color-PC1, plain-color:$--border-color-PC1 ),
+  forbidden:( color:$--font-color-FC3, background-color:$--border-color-PC1, plain-color:$--border-color-PC1 ),
+  member:( color:$--font-color-FC1, background-color:$--member-color-MCM1, plain-color:$--font-color-FC1 ),
+  specialmember:( color:$--member-color-MCM1, background-color:$--font-color-FC1, plain-color:$--member-color-MCM1 )
+);
