@@ -15,6 +15,14 @@ export default {
 }
 </script>
 
-<style>
-/*每个页面公共css */
+<style lang="scss">
+/*  #ifdef H5 */
+html,
+body {
+  margin: 0;
+}
+uni-view {
+  display: block;
+}
+/*  #endif  */
 </style>

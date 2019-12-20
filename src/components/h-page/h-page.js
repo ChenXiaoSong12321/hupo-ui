@@ -59,7 +59,7 @@ export default {
       title: this.title
     })
     this.initNavigation()
-    promise.delay(500).then(() => {
+    promise.delay(100).then(() => {
       this.loaded = true
     })
     this.$on('toggle', (options = {}) => {

@@ -1,5 +1,5 @@
 {
-  "name": "hupo-ui",
+  "name": "@hupo/ui",
   "version": "2.0.0-uni-app",
   "description": "hupo ui基础组件库&接口能力",
   "scripts": {

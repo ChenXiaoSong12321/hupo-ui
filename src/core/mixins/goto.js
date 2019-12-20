@@ -1,5 +1,4 @@
 import { global, url } from '@hupo/core'
-
 // const getIndexRoute = () => global._routerConfig.routes[0].path
 export default {
   methods: {
@@ -12,27 +11,14 @@ export default {
       @加载过首页，会自动加载首页
     */
     _backToHome() {
-      // const reLaunch = () => {
-      //   this._goto({
-      //     path: getIndexRoute(),
-      //     redirect: true
-      //   })
-      // }
-      // channelInterface({
-      //   WX_H5: reLaunch,
-      //   H5: reLaunch,
-      //   WX_MINI_PROGRAM: () => {
-      //     const pages = getCurrentPages()
-      //     const indexRoute = getIndexRoute()
-      //     if (`/${pages[0].route}` === indexRoute) {
-      //       this._back(pages.length - 1)
-      //     } else {
-      //       wxTools.reLaunch({
-      //         url: indexRoute
-      //       })
-      //     }
-      //   }
-      // })
+      const pages = getCurrentPages()
+      if (pages[0].route === global.indexRoute) {
+        this._back(pages.length - 1)
+      } else {
+        uni.reLaunch({
+          url: global.indexRoute
+        })
+      }
     },
     _handleGoto(path = '', query = {}, redirect = false) {
       this._goto({

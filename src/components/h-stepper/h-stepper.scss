@@ -1,0 +1,46 @@
+@include b(stepper){
+  border: 1px solid $--splitline-color-FgxC1;
+  display: flex;
+  width: 130rpx;
+  box-sizing: border-box;
+  height: 42rpx;
+  overflow: hidden;
+  @include e(subtract){
+    @include flexCenter;
+    .text{
+      font-size: $--font-size-weak-medium-FW2;
+      color: $--font-color-FC2;
+    }
+    @include when(disabled){
+      background-color: $--background-color-BgC1;
+      .text{
+        color: #d7d7d7;
+      }
+    }
+    width: 42rpx;
+  }
+  @include e(input-wrap){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    width: 40rpx;
+    font-size: $--font-size-weak-medium-FW2;
+    border-left: 1px solid $--splitline-color-FgxC1;
+    border-right: 1px solid $--splitline-color-FgxC1;
+  }
+  @include e(add){
+    @include flexCenter;
+    .text{
+      font-size: $--font-size-weak-medium-FW2;
+      color: $--font-color-FC2;
+    }
+    @include when(disabled){
+      background-color: $--background-color-BgC1;
+      .text{
+        color: #d7d7d7;
+      }
+    }
+    width: 42rpx;
+  }
+}

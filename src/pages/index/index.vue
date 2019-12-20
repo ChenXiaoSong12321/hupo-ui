@@ -69,9 +69,13 @@ export default {
       // this.position = e
       // console.log(e)
       // this.show2 = true
-      this._confirm({
-        message: '您的账号已在其他地方登录，请重新验证身份。'
-      }).then(() => console.log(111))
+      this._alert({
+        message: `<p>您的账号已在其他地方登录，请重新验证身份。</p>
+                   <p>您的账号已在其他地方登录，请重新验证身份。</p>
+          `,
+        title: 'alert',
+        confirmButtonText: 'perfect'
+      })
     },
     closePopup() {
       this.show = false

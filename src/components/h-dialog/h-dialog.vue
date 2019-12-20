@@ -38,7 +38,7 @@
   </h-popup-base>
 </template>
 <script>
-import { primaryColor, fontColorC1 } from '../../core/options/style/var'
+import { primaryColor, fontColorC1 } from '@hupo/ui/core/options/style/var'
 import { filterType } from './authorize'
 
 const needResponseOpenTypes = ['getUserInfo', 'getPhoneNumber', 'openSetting']

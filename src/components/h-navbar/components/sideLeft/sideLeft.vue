@@ -33,11 +33,7 @@
   </view>
 </template>
 <script>
-// todo
-const getIndexRoute = () => ''
-// 判断 route 是否是首页
-// todo
-const isHomeRoute = route => getIndexRoute().indexOf(route) > -1 || route === '/'
+import { global } from '@hupo/core'
 export default {
   name: 'h-navbar-side-left',
   props: {
@@ -57,9 +53,8 @@ export default {
     }
   },
   mounted() {
-    console.log(global)
     const historys = getCurrentPages().length
-    const isHome = isHomeRoute(this.$root.route)
+    const isHome = this.$root.route === global.indexRoute
     this.selfShowBackIcon = historys > 1 && !isHome
     this.selfShowHomeIcon = !isHome
   },

@@ -33,12 +33,15 @@ const html2json = html => {
     imageUrls: []
   }
 
+  var index = 0
   /**
    * 把节点放到父节点的 nodes 列表
    * @param  {Object} node 节点对象
    */
   const putNode2ParentNodeList = (node) => {
     if (bufferNodes.length === 0) { // 表明关闭此 node 时，不存在任何未关闭标签，也就是不存在父元素，所以直接挂到根节点即可
+      node.index = index.toString()
+      index += 1
       results.nodes.push(node)
     } else {
       // 如果节点缓冲区还有节点，子节点会不断的被放到该子节点的父节点下，形成一个嵌套引用的节点对象。
@@ -48,6 +51,7 @@ const html2json = html => {
         parent.nodes = []
       }
       node.parent = parent.tag
+      node.index = parent.index + '.' + parent.nodes.length
       parent.nodes.push(node)
     }
   }
@@ -63,7 +67,6 @@ const html2json = html => {
   // 需要把此节点放到父节点的 nodes 列表，如果没有，则证明该节点没有父节点了，放到根节点即可。
   //
   // 总体来说，就是一个进栈出栈（节点缓冲区）的算法问题。
-  var index = 0
   htmlParser.parseHtml(html, {
     /**
      * 处理开始标签
@@ -76,18 +79,6 @@ const html2json = html => {
         node: 'element',
         tag: tag
       }
-
-      if (bufferNodes.length === 0) {
-        node.index = index.toString()
-        index += 1
-      } else {
-        var parent = bufferNodes[0]
-        if (parent.nodes === undefined) {
-          parent.nodes = []
-        }
-        node.index = parent.index + '.' + parent.nodes.length
-      }
-
       if (elements.block[tag]) {
         node.tagType = 'block'
       } else if (elements.inline[tag]) {

@@ -36,7 +36,6 @@ export default {
       show: false,
       mask: false,
       iconMap: {
-        loading: 'iconjiazaizhong',
         warn: 'iconjuxing',
         success: 'iconjiazaichenggong'
       }

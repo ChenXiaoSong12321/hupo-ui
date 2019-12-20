@@ -21,7 +21,7 @@
     </form>
     <!--  #endif -->
     <!--  #ifdef H5 -->
-    <view :class="stateClass" :style="customStyle" @tap="handleTap">
+    <view class="h-button" :class="stateClass" :style="customStyle" @tap="handleTap">
       <slot></slot>
     </view>
     <!--  #endif -->
@@ -30,6 +30,7 @@
 
 <script>
 import HButtonMixins from './h-button.mixins.js'
+import { global } from '@hupo/core'
 global._buttonFormIds = []
 export default {
   name: 'h-button',

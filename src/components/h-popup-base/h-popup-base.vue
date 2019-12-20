@@ -10,7 +10,7 @@
   >
     <view v-if="overlay" class="h-popup-base-overlay"></view>
     <h-transition v-if="mask" name="fade" :duration="duration" :show="show">
-      <view class="h-popup-base-mask" @tap.stop="closeevent" @touchmove.stop="empty"></view>
+      <view class="h-popup-base-mask" @tap.stop="onclose" @touchmove.stop="empty"></view>
     </h-transition>
     <h-transition
       :name="position === 'center' ? 'fade' : 'slide-' + position"
@@ -19,7 +19,7 @@
       :show="show"
       @change="change"
     >
-      <view class="h-popup-base-content" @tap="closeevent">
+      <view class="h-popup-base-content" @tap="onclose">
         <view @tap="empty">
           <slot></slot>
         </view>
@@ -28,37 +28,11 @@
   </view>
 </template>
 <script>
+import popupMixin from './h-popup-base.mixin'
 let zIndexBase = 1000
 export default {
   name: 'h-popup-base',
-  props: {
-    mask: {
-      type: Boolean,
-      default: true
-    },
-    overlay: {
-      type: Boolean,
-      default: false
-    },
-    show: {
-      type: Boolean,
-      default: false
-    },
-    duration: {
-      type: Number,
-      default: 300
-    },
-    position: {
-      type: String,
-      default: 'center'
-    },
-    styles: {
-      type: Object,
-      default() {
-        return {}
-      }
-    }
-  },
+  mixins: [popupMixin],
   data() {
     return {
       isShow: false,
@@ -117,9 +91,6 @@ export default {
   methods: {
     toggle(val) {
       val && this.showPopup()
-    },
-    closeevent() {
-      this.$emit('onclose')
     },
     showPopup() {
       // #ifdef H5
