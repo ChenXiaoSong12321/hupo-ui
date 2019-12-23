@@ -3,7 +3,7 @@
     <h-button
       class="h-navbar-left-button"
       type="none"
-      :customStyle="['height: 100%']"
+      :styles="{height: '100%'}"
       v-if="selfShowBackIcon"
       @onclick="back"
     >
@@ -18,7 +18,7 @@
     <h-button
       class="h-navbar-left-button"
       type="none"
-      :customStyle="['height: 100%']"
+      :styles="{height: '100%'}"
       v-if="showHomeIcon && selfShowHomeIcon"
       @onclick="_backToHome"
     >
