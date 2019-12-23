@@ -1,7 +1,7 @@
 <template>
   <view class="h-tab-bar" :class="{'h-tab-bar--fixed': fixed}" :style="tabbarStyle">
     <view class="h-tab-bar-wrap">
-      <view v-for="item in tabbar" :key="item.text" class="h-tab-bar-item-wrap">
+      <view v-for="(item, index) in tabbar" :key="item.text" class="h-tab-bar-item-wrap">
         <view class="h-tab-bar-content" @tap="onTabbarItemTap(index)">
           <view class="h-tab-bar-icon-wrap" v-if="!top && hasIcon">
             <image v-if="index === tapedIndex" class="tab-icon" :src="item.selectedIcon || item.icon" :style="item.selectedIconStyle || ''"></image>

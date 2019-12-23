@@ -8,7 +8,7 @@
         class="h-button"
         :class="stateClass"
         :open-type="openType"
-        :style="customStyle"
+        :style="styles"
         @tap="handleTap"
         @contact="contact"
         @getuserinfo="getuserinfo"
@@ -21,7 +21,7 @@
     </form>
     <!--  #endif -->
     <!--  #ifdef H5 -->
-    <view class="h-button" :class="stateClass" :style="customStyle" @tap="handleTap">
+    <view class="h-button" :class="stateClass" :style="styles" @tap="handleTap">
       <slot></slot>
     </view>
     <!--  #endif -->

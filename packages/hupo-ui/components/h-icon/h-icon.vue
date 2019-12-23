@@ -1,5 +1,5 @@
 <template>
-  <view :style="customStyle" :class="name" class="h-icon"></view>
+  <view :style="styles" :class="name" class="h-icon"></view>
 </template>
 
 <script>
@@ -11,10 +11,10 @@ export default {
       type: String,
       default: ''
     },
-    customStyle: {
-      type: Array,
+    styles: {
+      type: Object,
       default() {
-        return []
+        return {}
       }
     }
   }

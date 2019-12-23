@@ -2,10 +2,10 @@ import throttle from 'lodash.throttle'
 
 export default {
   props: {
-    customStyle: {
-      type: Array,
+    styles: {
+      type: Object,
       default() {
-        return []
+        return {}
       }
     },
     radius: {
