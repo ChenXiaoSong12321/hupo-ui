@@ -98,6 +98,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~@hupo/core-sass-bem";
 @include b(transition) {
   transition-timing-function: ease;
   transition-duration: 0.3s;

@@ -40,6 +40,7 @@ export default {
 }
 </script>
 <style lang="scss">
+@import "~@hupo/core-sass-bem";
 @include b(tabs) {
   position: relative;
   @include e(item) {

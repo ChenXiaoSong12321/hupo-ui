@@ -51,6 +51,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~@hupo/core-sass-bem";
 @include b(progress) {
   height: 10rpx;
   border-radius: 10rpx;

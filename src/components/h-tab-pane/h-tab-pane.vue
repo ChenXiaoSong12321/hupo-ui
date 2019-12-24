@@ -40,6 +40,7 @@ export default {
 }
 </script>
 <style lang="scss">
+@import "~@hupo/core-sass-bem";
 @include b(tab-pane) {
   width: 750rpx;
   overflow-x: hidden;

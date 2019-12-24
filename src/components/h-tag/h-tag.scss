@@ -1,3 +1,4 @@
+@import "~@hupo/core-sass-bem";
 @include b(tag) {
   @include flexCenter;
   border-radius: 5rpx;
