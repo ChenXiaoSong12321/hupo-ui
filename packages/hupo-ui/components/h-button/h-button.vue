@@ -1,14 +1,19 @@
 <template>
   <block>
     <!--  #ifdef MP-WEIXIN -->
-    <form @submit="handleFormSubmit" report-submit class="h-button-form">
+    <form
+      @submit="handleFormSubmit"
+      report-submit
+      class="h-button-form"
+      :class="{'h-button-form--none': type === 'none'}"
+    >
       <button
         type="keng"
         :form-type="openType ? '' : 'submit'"
         class="h-button"
         :class="stateClass"
         :open-type="openType"
-        :style="styles"
+        :style="customStyle"
         @tap="handleTap"
         @contact="contact"
         @getuserinfo="getuserinfo"

@@ -46,6 +46,11 @@ export default {
       stateClass: ''
     }
   },
+  computed: {
+    customStyle() {
+      return this.transformStyle(this.styles)
+    }
+  },
   watch: {
     throttle: 'refreshThrottleFn',
     plain: 'calcClass',

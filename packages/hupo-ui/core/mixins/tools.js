@@ -23,6 +23,13 @@ export default {
     },
     _getSystemInfo() {
       return promise.cache('getSystemInfo', () => uni.getSystemInfo())
+    },
+    transformStyle(styles) {
+      let transfrom = ''
+      for (const i in styles) {
+        transfrom += i + ':' + styles[i] + ';'
+      }
+      return transfrom
     }
   }
 }

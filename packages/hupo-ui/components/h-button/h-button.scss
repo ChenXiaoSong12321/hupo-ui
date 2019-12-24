@@ -15,9 +15,11 @@
     border: 0;
   }
   @include e(form){
-    // height: 100%;
-    // width: 100%;
     display: block;
+    @include m(none){
+      height: 100%;
+      width: 100%;
+    }
   }
   @include flexCenter();
 

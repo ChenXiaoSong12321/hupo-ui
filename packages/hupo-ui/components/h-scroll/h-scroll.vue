@@ -20,7 +20,7 @@
   </scroll-view>
 </template>
 <script>
-// import { viewport } from '@hupo/core'
+import { viewport } from '@hupo/core'
 import debounce from 'lodash.debounce'
 import scrollMixin from './h-scroll.mixin'
 export default {
@@ -36,15 +36,28 @@ export default {
     height: {
       type: Number,
       default: -1
+    },
+    offset: {
+      type: Number,
+      default: 0
+    }
+  },
+  data() {
+    return {
+      viewportHeight: 0
     }
   },
   computed: {
     computedStyle() {
-      return {
+      return this.transformStyle({
         ...this.styles,
-        height: this.height == -1 ? '100%;' : this.height + 'rpx;'
-      }
+        height: this.height == -1 ? `${this.viewportHeight - (viewport.bottomHeight + viewport.headerHeight) - this.offset}rpx` : this.height + 'rpx;'
+      })
     }
+  },
+  async created() {
+    const system = await this._getSystemInfo()
+    this.viewportHeight = viewport.px2rpx(system.windowHeight)
   },
   methods: {
     onPullup: debounce(function(event) {

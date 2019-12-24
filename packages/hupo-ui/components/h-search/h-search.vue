@@ -22,10 +22,10 @@
             :selectionStart="selectionStart"
             :selectionEnd="selectionEnd"
             :adjustPosition="adjustPosition"
-            @input="input"
-            @focus="focus"
-            @blur="blur"
-            @confirm="confirm"
+            @input="handleInput"
+            @focus="handleFocus"
+            @blur="handleBlur"
+            @confirm="handleConfirm"
           />
         </view>
       </h-button>
