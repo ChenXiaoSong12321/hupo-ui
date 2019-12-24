@@ -2,7 +2,7 @@
   <view class="h-image">
     <block v-if="status == 'load-complete'">
       <view class="h-image-loaded">
-        <image class="h-image-loading-image" :src="url" :mode="mode"></image>
+        <image class="h-image-loaded-image" :src="url" :mode="mode"></image>
       </view>
     </block>
     <block v-else-if="status == 'load-refresh'">
@@ -15,7 +15,7 @@
         <image class="h-image-loading-image" :src="unloadImg" mode="widthFix"></image>
       </view>
     </block>
-    <block c-else>
+    <block v-else>
       <view class="h-image-loading" :class="[`h-image-loading--${mode}`]">
         <image class="h-image-loading-image" :src="unloadImg" mode="widthFix"></image>
       </view>

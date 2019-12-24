@@ -1,3 +1,4 @@
+@import "~@hupo/core-sass-bem";
 @include b(dialog){
   @include m(container){
     background-color: $--white;

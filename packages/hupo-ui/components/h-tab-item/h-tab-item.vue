@@ -40,6 +40,7 @@ export default {
 }
 </script>
 <style lang="scss">
+@import "~@hupo/core-sass-bem";
 @include b(tabs-item) {
   @include m(row) {
     flex: 1;

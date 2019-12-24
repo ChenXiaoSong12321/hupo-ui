@@ -9,6 +9,7 @@ export default {
 }
 </script>
 <style lang="scss">
+@import "~@hupo/core-sass-bem";
 @include b(pane-item) {
   width: 750rpx;
 }

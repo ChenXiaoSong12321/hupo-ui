@@ -1,3 +1,4 @@
+@import "~@hupo/core-sass-bem";
 @include b(radio){
   @include e(wrap){
     word-break: break-word;
