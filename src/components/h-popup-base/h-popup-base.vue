@@ -19,10 +19,8 @@
       :show="show"
       @change="change"
     >
-      <view class="h-popup-base-content" @tap="onclose">
-        <view @tap="empty">
-          <slot></slot>
-        </view>
+      <view class="h-popup-base-content" @tap.stop="empty">
+        <slot></slot>
       </view>
     </h-transition>
   </view>

@@ -4,6 +4,7 @@
     :overlay="overlay"
     :show="show"
     :duration="duration"
+    :offset="offset"
     :position="position"
     :styles="styles"
     @onclose="onclose"

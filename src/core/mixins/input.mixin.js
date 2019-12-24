@@ -62,16 +62,16 @@ export default {
     }
   },
   methods: {
-    input(event) {
+    handleInput(event) {
       this.$emit('input', event)
     },
-    focus(event) {
+    handleFocus(event) {
       this.$emit('focus', event)
     },
-    blur(event) {
+    handleBlur(event) {
       this.$emit('blur', event)
     },
-    confirm(event) {
+    handleConfirm(event) {
       this.$emit('confirm', event)
     }
   }

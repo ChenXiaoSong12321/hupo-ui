@@ -20,6 +20,10 @@ export default {
       type: String,
       default: 'center'
     },
+    offset: {
+      type: [String, Number],
+      default: 0
+    },
     styles: {
       type: Object,
       default() {

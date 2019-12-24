@@ -1,7 +1,7 @@
 const defaultOptions = {
   type: 'text',
   message: '',
-  duration: 30000000,
+  duration: 3000,
   show: true,
   mask: false,
   needIcon: false

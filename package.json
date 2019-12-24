@@ -37,7 +37,7 @@
     "@dcloudio/uni-mp-toutiao": "^2.0.0-24220191115006",
     "@dcloudio/uni-mp-weixin": "^2.0.0-24220191115006",
     "@dcloudio/uni-stat": "^2.0.0-24220191115006",
-    "@hupo/core": "2.0.0-uni-app.0",
+    "@hupo/core": "2.0.0-uni-app.3",
     "@hupo/core-request-uni": "2.0.0-uni-app.0",
     "@hupo/core-sass-bem": "2.0.0-uni-app.0",
     "flyio": "^0.6.2",

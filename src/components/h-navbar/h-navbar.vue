@@ -27,7 +27,6 @@
 import { viewport } from '@hupo/core'
 import hNavbarSideLeft from './components/sideLeft/sideLeft'
 import hNavbarTitle from './components/title/title'
-console.log(global)
 export default {
   name: 'h-navbar',
   components: {

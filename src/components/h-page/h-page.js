@@ -89,7 +89,6 @@ export default {
     })
   },
   onPageShow() {
-    console.log(this)
     this.initNavigation()
   },
   methods: {
