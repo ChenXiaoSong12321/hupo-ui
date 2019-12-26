@@ -23,10 +23,7 @@ export default {
   },
   computed: {
     finalLabel() {
-      return {
-        ...this.activeLabelStyle,
-        ...this.tab.labelStyle
-      }
+      return `${this.isActive ? this.transformStyle(this.activeLabelStyle) : ''}${this.transformStyle(this.tab.labelStyle)}`
     },
     isActive() {
       return this.activeLabel === this.tab.label

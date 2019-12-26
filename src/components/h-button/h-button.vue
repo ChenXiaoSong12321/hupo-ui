@@ -5,7 +5,7 @@
       @submit="handleFormSubmit"
       report-submit
       class="h-button-form"
-      :class="{'h-button-form--none': type === 'none'}"
+      :class="{'h-button-form--none': type === 'none','h-button-form--full': size === 'full'}"
     >
       <button
         type="keng"
@@ -26,7 +26,7 @@
     </form>
     <!--  #endif -->
     <!--  #ifdef H5 -->
-    <view class="h-button" :class="stateClass" :style="styles" @tap="handleTap">
+    <view class="h-button" :class="stateClass" :style="customStyle" @tap="handleTap">
       <slot></slot>
     </view>
     <!--  #endif -->

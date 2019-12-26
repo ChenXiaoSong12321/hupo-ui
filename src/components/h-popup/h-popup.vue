@@ -15,7 +15,7 @@
           <h-icon name="iconicon-test" class="h-popup-close-icon"></h-icon>
         </h-button>
       </view>
-      <view class="h-popup-box" :style="styles">
+      <view class="h-popup-box">
         <view class="h-popup-box-content">
           <slot></slot>
         </view>

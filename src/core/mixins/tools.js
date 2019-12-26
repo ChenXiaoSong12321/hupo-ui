@@ -22,7 +22,11 @@ export default {
       else return viewport.bottomHeight + bottom
     },
     _getSystemInfo() {
-      return promise.cache('getSystemInfo', () => uni.getSystemInfo())
+      return promise.cache('getSystemInfo', async() => {
+        const [error, system] = await uni.getSystemInfo()
+        if (error) return promise.exit(error)
+        return system
+      })
     },
     transformStyle(styles) {
       let transfrom = ''

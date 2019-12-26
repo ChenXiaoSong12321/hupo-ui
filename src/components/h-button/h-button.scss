@@ -20,6 +20,10 @@
       height: 100%;
       width: 100%;
     }
+    @include m(full){
+      height: 100%;
+      width: 100%;
+    }
   }
   @include flexCenter();
 

@@ -16,7 +16,7 @@ export default {
         this._back(pages.length - 1)
       } else {
         uni.reLaunch({
-          url: global.indexRoute
+          url: `/${global.indexRoute}`
         })
       }
     },
@@ -45,13 +45,11 @@ export default {
       console.groupEnd()
       if (redirect) {
         uni.redirectTo({
-          path: pathFilter,
-          query: queryMerge
+          url: url.addUrlParam(queryMerge, pathFilter)
         })
       } else {
         uni.navigateTo({
-          path: pathFilter,
-          query: queryMerge
+          url: url.addUrlParam(queryMerge, pathFilter)
         })
       }
     }

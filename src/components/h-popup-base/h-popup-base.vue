@@ -53,22 +53,22 @@ export default {
           styles.transform = 'translate(-50%,-50%)'
           break
         case 'left':
-          styles.left = '0'
+          styles.left = `${this.offset}rpx`
           styles.top = `0`
           styles.bottom = `0`
           break
         case 'right':
-          styles.right = '0'
+          styles.right = `${this.offset}rpx`
           styles.top = `0`
           styles.bottom = `0`
           break
         case 'top':
-          styles.top = '0'
+          styles.top = `${this.offset}rpx`
           styles.left = '0'
           styles.right = '0'
           break
         case 'bottom':
-          styles.bottom = '0'
+          styles.bottom = `${this.offset}rpx`
           styles.left = '0'
           styles.right = '0'
           break

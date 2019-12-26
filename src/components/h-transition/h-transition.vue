@@ -57,12 +57,7 @@ export default {
         ...this.styles,
         'transition-duration': this.duration / 1000 + 's'
       }
-      let transfrom = ''
-      for (const i in styles) {
-        const line = this.toLine(i)
-        transfrom += line + ':' + styles[i] + ';'
-      }
-      return transfrom
+      return this.transformStyle(styles)
     },
     nameClass() {
       return `h-transition--${this.name}`
@@ -89,9 +84,6 @@ export default {
         }
         this.$emit('change', this.isShow)
       }, this.duration)
-    },
-    toLine(name) {
-      return name.replace(/([A-Z])/g, '-$1').toLowerCase()
     }
   }
 }
