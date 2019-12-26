@@ -48,10 +48,10 @@ export default {
           style.backgroundColor = this.color
         }
       }
-      return {
+      return this.transformStyle({
         ...this.styles,
         ...style
-      }
+      })
     }
   },
   methods: {
