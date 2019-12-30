@@ -39,6 +39,20 @@ export default {
     showScrollbar: {
       type: Boolean,
       default: false
+    },
+    height: {
+      type: Number,
+      default: -1
+    },
+    styles: {
+      type: Object,
+      default() {
+        return {}
+      }
+    },
+    offset: {
+      type: Number,
+      default: 0
     }
   },
   methods: {

@@ -36,6 +36,7 @@ export default {
       show: false,
       mask: false,
       iconMap: {
+        loading: 'loading',
         warn: 'iconjuxing',
         success: 'iconjiazaichenggong'
       }
@@ -81,10 +82,10 @@ export default {
     font-size: 80rpx;
     margin-bottom: 6rpx;
     @include m(loading) {
-      width: 80rpx;
-      height: 80rpx;
       // animation: loading-rotate 1s steps(12, end) infinite;
       @include h-loading;
+      width: 80rpx;
+      height: 80rpx;
     }
   }
   @include e(text) {

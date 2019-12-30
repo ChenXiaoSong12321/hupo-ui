@@ -3,8 +3,8 @@ import { global, url } from '@hupo/core'
 export default {
   methods: {
     // 返回
-    _back(backPageNum = 1) {
-      uni.navigateBack(backPageNum)
+    _back(delta = 1) {
+      uni.navigateBack({ delta })
     },
     /*
       @返回首页请使用此api
@@ -36,13 +36,13 @@ export default {
       const param = url.formatUrlParam(path)
       const queryMerge = Object.assign(param, query)
       const pathFilter = path.split('?')[0]
-      console.groupCollapsed(`%cgoto debug: %c${pathFilter}`, 'color: #999', 'color: #0076ff')
-      console.log({
-        path: pathFilter,
-        query: queryMerge,
-        redirect: redirect
-      })
-      console.groupEnd()
+      // console.groupCollapsed(`%cgoto debug: %c${pathFilter}`, 'color: #999', 'color: #0076ff')
+      // console.log({
+      //   path: pathFilter,
+      //   query: queryMerge,
+      //   redirect: redirect
+      // })
+      // console.groupEnd()
       if (redirect) {
         uni.redirectTo({
           url: url.addUrlParam(queryMerge, pathFilter)
