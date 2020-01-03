@@ -1,26 +1,9 @@
 <template>
   <h-page title="h-popup-base 演示">
     <view class="container">
-      <h-popup-base :show="show" :mask="mask" @onclose="closePopup">
-        <view style="background:#fff">hhhhhhh</view>
-      </h-popup-base>
-      <h-popup-base
-        :show="show2"
-        :mask="mask"
-        @onclose="closePopup"
-        :position="position"
-        bottom="80"
-      >
-        <view :style="contentStyle">
-          <text>content</text>
-        </view>
-      </h-popup-base>
-      <h-button @onclick="showPopup" class="btn">show popup</h-button>
-      <h-button @onclick="showPopup2('left')" class="btn">left</h-button>
-      <h-button @onclick="showPopup2('top')" class="btn">top</h-button>
-      <h-button @onclick="showPopup2('right')" class="btn">right</h-button>
-      <h-button @onclick="showPopup2('bottom')" class="btn">bottom</h-button>
-      <h-button @onclick="showPopup2('center')" class="btn">center</h-button>
+      <view style="width: 600rpx;">
+        <h-search-bar></h-search-bar>
+      </view>
     </view>
   </h-page>
 </template>
@@ -28,6 +11,7 @@
 export default {
   data: function() {
     return {
+      search: '',
       mask: true,
       show: false,
       show2: false,
