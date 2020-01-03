@@ -4,7 +4,7 @@
       <block v-if="disabled || innerChecked">
         <h-icon class="h-checkbox-select" name="iconyigouxuanbeifen"></h-icon>
       </block>
-      <block c-else>
+      <block v-else>
         <h-icon class="h-checkbox-select" name="iconbukegouxuanbeifen1"></h-icon>
       </block>
       <text class="h-checkbox-label" v-if="label">{{ label }}</text>
