@@ -26,7 +26,7 @@ Vue.component('${name}', ${importName})`
   console.log(importTemp)
   console.log(vueTemp)
 }
-z(['h-button', 'h-checkbox', 'h-dialog', 'h-icon', 'h-image', 'h-load-more', 'h-loading', 'h-navbar', 'h-page', 'h-pagination', 'h-popup', 'h-popup-base', 'h-progress', 'h-radio', 'h-rich-text', 'h-scroll', 'h-search-bar', 'h-stepper', 'h-tab', 'h-tab-item', 'h-tab-pane', 'h-tab-pane-item', 'h-tabbar', 'h-tag', 'h-toast', 'h-transition'])
+z(['h-button', 'h-checkbox', 'h-dialog', 'h-field', 'h-field-group', 'h-icon', 'h-image', 'h-load-more', 'h-loading', 'h-navbar', 'h-page', 'h-pagination', 'h-popup', 'h-popup-base', 'h-progress', 'h-radio', 'h-rich-text', 'h-scroll', 'h-search-bar', 'h-stepper', 'h-tab', 'h-tab-item', 'h-tab-pane', 'h-tab-pane-item', 'h-tabbar', 'h-tag', 'h-toast', 'h-transition'])
 
 --------------------------------------------------------------------------------------------------------------------------
 */
@@ -34,6 +34,8 @@ z(['h-button', 'h-checkbox', 'h-dialog', 'h-icon', 'h-image', 'h-load-more', 'h-
 import hButton from '@hupo/ui/components/h-button/h-button.vue'
 import hCheckbox from '@hupo/ui/components/h-checkbox/h-checkbox.vue'
 import hDialog from '@hupo/ui/components/h-dialog/h-dialog.vue'
+import hField from '@hupo/ui/components/h-field/h-field.vue'
+import hFieldGroup from '@hupo/ui/components/h-field-group/h-field-group.vue'
 import hIcon from '@hupo/ui/components/h-icon/h-icon.vue'
 import hImage from '@hupo/ui/components/h-image/h-image.vue'
 import hLoadMore from '@hupo/ui/components/h-load-more/h-load-more.vue'
@@ -60,6 +62,8 @@ import hTransition from '@hupo/ui/components/h-transition/h-transition.vue'
 Vue.component('h-button', hButton)
 Vue.component('h-checkbox', hCheckbox)
 Vue.component('h-dialog', hDialog)
+Vue.component('h-field', hField)
+Vue.component('h-field-group', hFieldGroup)
 Vue.component('h-icon', hIcon)
 Vue.component('h-image', hImage)
 Vue.component('h-load-more', hLoadMore)

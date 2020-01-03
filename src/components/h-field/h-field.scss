@@ -1,0 +1,28 @@
+@import "~@hupo/core-sass-bem";
+@include b(field) {
+  width: 100%;
+  height: 88rpx;
+  @include e(box) {
+    display: flex;
+    align-items: center;
+    margin-left: 30rpx;
+    padding-right: 30rpx;
+    @include m(border){
+      border-bottom: 1rpx solid $--splitline-color-FgxC1;
+    }
+  }
+  @include e(icon) {
+    margin-right: 10rpx;
+  }
+  @include e(label) {
+    width: 184rpx;
+    font-size: 28rpx;
+    color: $--font-color-FC1;
+  }
+  @include e(input) {
+    flex: 1;
+    font-size: 28rpx;
+    color: $--font-color-FC1;
+    height: 88rpx;
+  }
+}

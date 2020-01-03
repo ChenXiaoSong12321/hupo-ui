@@ -1,9 +1,17 @@
 <template>
   <h-page title="h-popup-base 演示">
     <view class="container">
-      <view style="width: 600rpx;">
-        <h-search-bar></h-search-bar>
-      </view>
+      <h-field-group>
+        <h-field label="请输入用户名" v-model="test.data1"></h-field>
+        <h-field label="请输入密码" v-model="test.data2"></h-field>
+        <h-field label="请输入密码" v-model="test.data3"></h-field>
+        <h-field label="请输入密码" v-model="test.data4"></h-field>
+        <h-field label="请输入密码" v-model="test.data5"></h-field>
+        <h-field label="请输入密码" v-model="test.data6"></h-field>
+        <h-field label="请输入密码" v-model="test.data7"></h-field>
+        <h-field label="请输入密码" v-model="test.data8"></h-field>
+        <h-field label="请输入密码" v-model="test.data9"></h-field>
+      </h-field-group>
     </view>
   </h-page>
 </template>
@@ -11,7 +19,17 @@
 export default {
   data: function() {
     return {
-      search: '',
+      test: {
+        data1: '1',
+        data2: '2',
+        data3: '3',
+        data4: '4',
+        data5: '5',
+        data6: '6',
+        data7: '7',
+        data8: '8',
+        data9: '9'
+      },
       mask: true,
       show: false,
       show2: false,
