@@ -1,17 +1,7 @@
 <template>
   <h-page title="h-popup-base 演示">
     <view class="container">
-      <h-field-group>
-        <h-field label="请输入用户名" v-model="test.data1"></h-field>
-        <h-field label="请输入密码" v-model="test.data2"></h-field>
-        <h-field label="请输入密码" v-model="test.data3"></h-field>
-        <h-field label="请输入密码" v-model="test.data4"></h-field>
-        <h-field label="请输入密码" v-model="test.data5"></h-field>
-        <h-field label="请输入密码" v-model="test.data6"></h-field>
-        <h-field label="请输入密码" v-model="test.data7"></h-field>
-        <h-field label="请输入密码" v-model="test.data8"></h-field>
-        <h-field label="请输入密码" v-model="test.data9"></h-field>
-      </h-field-group>
+      <h-tag type="member">儿童</h-tag>
     </view>
   </h-page>
 </template>

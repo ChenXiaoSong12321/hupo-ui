@@ -2,15 +2,11 @@
 @include b(tag) {
   @include flexCenter;
   border-radius: 5rpx;
-  @include m(primary) {
-    background-color: transparent;
-    color: $--secondary-color-CA2;
-    border: 1px solid rgba($--secondary-color-CA2, 0.4);
-  }
-
-  @include m(medium) {
-    height: 30rpx;
-    padding:0 8rpx;
-    font-size: $--font-size-weak-medium-FW2;
+  font-size: $--font-size-weak-medium-FW2;
+  padding: 0 8rpx;
+  height: 30rpx;
+  @include m(member) {
+    color: $--white;
+    background-image: linear-gradient(90deg, $--member-color-MCM2 0%, $--member-color-MCA2 100%);
   }
 }

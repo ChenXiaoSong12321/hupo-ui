@@ -31,7 +31,7 @@ export default {
     transformStyle(styles) {
       let transfrom = ''
       for (const i in styles) {
-        transfrom += i + ':' + styles[i] + ';'
+        transfrom += i.replace(/[A-Z]/g, v => `-${v.toLowerCase()}`) + ':' + styles[i] + ';'
       }
       return transfrom
     }
