@@ -1,9 +1,5 @@
 <template>
-  <view
-    class="h-tag"
-    :class="[type ? 'h-tag--' + type : '', size ? 'h-tag--' + size : '']"
-    :style="styles"
-  >
+  <view class="h-tag" :class="[type ? 'h-tag--' + type : '']" :style="styles">
     <slot></slot>
   </view>
 </template>
@@ -12,53 +8,38 @@
 export default {
   name: 'h-tag',
   props: {
-    styles: {
-      type: Object,
-      default() {
-        return {}
-      }
-    },
     type: {
       type: String,
-      default: 'primary'
-    },
-    size: {
-      type: String,
-      default: 'medium'
+      default: 'default'
     },
     plain: {
       type: Boolean,
-      default: true
+      default: false
     },
     color: {
       type: String,
-      default: ''
+      default: '#DD392E'
     }
   },
   computed: {
-    style() {
+    styles() {
       const style = {}
-      if (this.color) {
+      if (this.type === 'default') {
+        style.color = this.color
         if (this.plain) {
-          style.color = this.color
-          style.border = `1px solid ${this.hex2rgba(this.color)}`
+          style.border = `1px solid ${this.hex2rgba(this.color, 0.4)}`
         } else {
-          style.color = '#fff'
-          style.border = `1px solid ${this.color}`
-          style.backgroundColor = this.color
+          style.backgroundColor = this.hex2rgba(this.color, 0.1)
         }
       }
-      return this.transformStyle({
-        ...this.styles,
-        ...style
-      })
+      return this.transformStyle(style)
     }
   },
   methods: {
     /**
      * 16进制颜色转换成rgba
      */
-    hex2rgba(hex, opacity = '.4') {
+    hex2rgba(hex, opacity) {
       const rgb = []
       hex = hex.substr(1) // 去除 # 号
       hex.length === 3 && (hex = hex.replace(/(.)/g, '$1$1')) // 处理 "#abc" 成 "#aabbcc"

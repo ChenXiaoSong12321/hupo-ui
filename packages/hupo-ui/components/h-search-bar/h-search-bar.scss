@@ -1,0 +1,31 @@
+@import "~@hupo/core-sass-bem";
+@include b(search-bar){
+  width: 100%;
+  @include e(box){
+    display: flex;
+    align-items: center;
+    padding: 0 30rpx;
+    height: 60rpx;
+    border-radius: 60rpx;
+    background-color: $--white;
+    border: 1rpx solid $--splitline-color-FgxC1;
+  }
+  @include e(icon){
+    font-size: 28rpx;
+    color: $--font-color-FC2;
+  }
+  @include e(input){
+    flex: 1;
+    font-size: 28rpx;
+    color: $--font-color-FC1;
+  }
+  @include e(placeholder){
+    flex: 1;
+    font-size: 28rpx;
+    color: $--font-color-FC3;
+  }
+  @include e(clear){
+    font-size: 28rpx;
+    color: $--font-color-FC3;
+  }
+}

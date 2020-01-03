@@ -61,10 +61,17 @@ export default {
       default: true
     }
   },
+  computed: {
+    inputVal: {
+      get() {
+        return this.value
+      },
+      set(val) {
+        this.$emit('input', val)
+      }
+    }
+  },
   methods: {
-    handleInput(event) {
-      this.$emit('input', event)
-    },
     handleFocus(event) {
       this.$emit('focus', event)
     },

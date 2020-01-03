@@ -1,0 +1,4 @@
+@import "~@hupo/core-sass-bem";
+@include b(field-group) {
+  width: 100%;
+}

@@ -26,22 +26,6 @@ import scrollMixin from './h-scroll.mixin'
 export default {
   name: 'h-scroll',
   mixins: [scrollMixin],
-  props: {
-    styles: {
-      type: Object,
-      default() {
-        return {}
-      }
-    },
-    height: {
-      type: Number,
-      default: -1
-    },
-    offset: {
-      type: Number,
-      default: 0
-    }
-  },
   data() {
     return {
       viewportHeight: 0
