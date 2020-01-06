@@ -1,0 +1,4 @@
+@import "~@hupo/core-sass-bem";
+@include b(radio-group){
+  width: 100%;
+}

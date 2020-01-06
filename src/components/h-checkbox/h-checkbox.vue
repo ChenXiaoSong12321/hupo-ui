@@ -63,7 +63,14 @@ export default {
       this.innerChecked = !this.innerChecked
       this.$emit('changeevent', this.innerChecked ? this.value : '')
       this.$emit('change', this.innerChecked ? this.value : '')
+      this.$root._broadcast('h-checkbox-group', 'ui.checkbox.change')
     }
+  },
+  mounted() {
+    this.$root._broadcast('h-checkbox-group', 'ui.checkbox.add', this)
+  },
+  beforeDestroy() {
+    this.$root._broadcast('h-checkbox-group', 'ui.checkbox.remove', this)
   }
 }
 </script>

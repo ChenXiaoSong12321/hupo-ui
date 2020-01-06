@@ -898,37 +898,47 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@hupo/core-channel@^2.0.0-uni-app.0":
-  version "2.0.0-uni-app.0"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-channel/-/core-channel-2.0.0-uni-app.0.tgz#f0b9dfda9a68d85db70f223a8d79da8caa6a70ab"
-  integrity sha512-j5xeqNdyQUqaqn3RHf2jogDas8ZS/BtKoo9Qi90+vSxdyvaiqzIvAKXGHeJZKnkWkI5CdIsU1SGc1fk9DSJCKA==
+"@hupo/core-channel@^2.0.0-uni-app.3":
+  version "2.0.0-uni-app.3"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-channel/-/core-channel-2.0.0-uni-app.3.tgz#f9feb884490d6d6d5a00ae1dfa4fe1ea5e198df2"
+  integrity sha512-+csAypQeN5Yg983OFTL+0oGF4Y9EaXTk2I5if1xz8dC/+CFH/7zhKYIE/y1jvKlI/N6qgQiMcr9VH1DaaoWSkA==
   dependencies:
-    "@hupo/core-load-script-web" "^2.0.0-uni-app.0"
+    "@hupo/core-load-script-web" "^2.0.0-uni-app.3"
 
-"@hupo/core-date@^2.0.0-uni-app.0":
-  version "2.0.0-uni-app.0"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-date/-/core-date-2.0.0-uni-app.0.tgz#9091894a0d083a61fd17b0dba6fa91d5cba2cb8d"
-  integrity sha512-r/3VIcrGb2d64K1ffJG5loA5DsT4tme0CJrnmNGLU8FXD5P5s829WJTZwMEG8/0hVx7bjO89i1JXk+ZYv0HJeg==
+"@hupo/core-date@^2.0.0-uni-app.3":
+  version "2.0.0-uni-app.3"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-date/-/core-date-2.0.0-uni-app.3.tgz#96f46fdcbe8bdb3fc9b4688fa43ddbcd3c3eb0be"
+  integrity sha512-MweRDsd6HgBwDchglye33fxoJaqS381/TYGvM4tvTKdIEj6XliviG5S16P6HGdMVBmWNRLp95qJzwauyHBr8bw==
 
-"@hupo/core-format-utils@^2.0.0-uni-app.0":
-  version "2.0.0-uni-app.0"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-format-utils/-/core-format-utils-2.0.0-uni-app.0.tgz#c40e4e9133d91b09644255ab70b9bc9de2d5fe8c"
-  integrity sha512-i3a3zvT8SNZmV1GkHG5jBOo39ayw6+zsOU+ukyvF/GMNcFlWZBV3SRgQLfQhEJiJCAlsqBdb9Lpe3ke5v5rj1Q==
+"@hupo/core-format-utils@^2.0.0-uni-app.3":
+  version "2.0.0-uni-app.3"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-format-utils/-/core-format-utils-2.0.0-uni-app.3.tgz#1072705b9948fe4928dc61c70b92a3ac4488b5df"
+  integrity sha512-QB1otwzP6dae1tkR4D16uxlEnxpkA5dq9RXNjhdL+6Eg+RRvvnxJXHNyAD/+ivU/5LULdoP2WFjzVtJ7zyCxmg==
 
 "@hupo/core-global@^2.0.0-uni-app.0":
   version "2.0.0-uni-app.0"
   resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-global/-/core-global-2.0.0-uni-app.0.tgz#8d2f93f9ba15eab99b9ac9d50b85c2c3c41eaf14"
   integrity sha512-96SDYeB8+fUA0p4apjz/BeXsS6njiE9SBGyhEueUli2IWKFCqQUndWp0ZNQltUXVDZ476B+XQIa+SLnUKekH0A==
 
-"@hupo/core-load-script-web@^2.0.0-uni-app.0":
-  version "2.0.0-uni-app.0"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-load-script-web/-/core-load-script-web-2.0.0-uni-app.0.tgz#90787419c22db60f7b4a05e29bb9cf67f20b3482"
-  integrity sha512-yBAdroGBM6zXjJDZB0koF+s+WUoftk6peouv+DZDa0Ov1uN7lqzqeNi1hP7LzxcXSDBiV3ZZkW1cDlg4fqNzLQ==
+"@hupo/core-global@^2.0.0-uni-app.3":
+  version "2.0.0-uni-app.3"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-global/-/core-global-2.0.0-uni-app.3.tgz#fcde25039ec9dd18802d514f19d2ef74b8987c86"
+  integrity sha512-M08H5ww9HnMt1ZCQyTlD7rVJPQrh3itXEUIJRZsHVaI7q8YMXLChjhUMnbVu3udZEiR9VzQWB4dOSqM1j38LYw==
+
+"@hupo/core-load-script-web@^2.0.0-uni-app.3":
+  version "2.0.0-uni-app.3"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-load-script-web/-/core-load-script-web-2.0.0-uni-app.3.tgz#0ebf907e4f31853a645c3eaf9509b2720effd98e"
+  integrity sha512-nOGh9qMWrBOkj7HoSx1HhvUOoJrW5aeGlElenjgeHrOdDaaNCigZt2olD3GTEtdnBO+B121Ny4XA/OOf0JIrFg==
 
 "@hupo/core-promise@^2.0.0-uni-app.0":
   version "2.0.0-uni-app.0"
   resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-promise/-/core-promise-2.0.0-uni-app.0.tgz#047e9861ae41d0ef612e04af4c9aef07f79f8c01"
   integrity sha512-w797Z4B+b3TT3fBhbrDX7XrxBW75gy4Ejq1ptVHK1thSrYT+6a6OJ8PBrfuB8M2PpHGf4dy3s9dyIQeVOsT83w==
+
+"@hupo/core-promise@^2.0.0-uni-app.3":
+  version "2.0.0-uni-app.3"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-promise/-/core-promise-2.0.0-uni-app.3.tgz#56929c00cf75f62e4e751b5c6bf309c2dd649bd4"
+  integrity sha512-+FhmG9rinTcAzkr/kBP9GV433ifHrEsX0P8dqixsq6/dVR3gDUFOXbjhMgqJBdHbjXpYLYhJ5up/ItKdJ0zoeg==
 
 "@hupo/core-request-uni@2.0.0-uni-app.0":
   version "2.0.0-uni-app.0"
@@ -948,41 +958,46 @@
     "@hupo/core-promise" "^2.0.0-uni-app.0"
     "@hupo/core-url" "^2.0.0-uni-app.0"
 
-"@hupo/core-sass-bem@2.0.0-uni-app.0":
-  version "2.0.0-uni-app.0"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-sass-bem/-/core-sass-bem-2.0.0-uni-app.0.tgz#71276610510cf2f8edb6efc651652b1e9e29c9f7"
-  integrity sha512-V80vNTxKYGI9g1qnzks90p9Ejc7SR7lYMveNKFL81WPSIlAxlWEPpfJSVsJH0fFagqfendEazD447uvOASg4Eg==
+"@hupo/core-sass-bem@2.0.0-uni-app.2":
+  version "2.0.0-uni-app.2"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-sass-bem/-/core-sass-bem-2.0.0-uni-app.2.tgz#5190f0e7583e3f00a289d0b4d4ea853e6f9324d2"
+  integrity sha512-xOxUc1HU9eLY3FfqUxmvR2MS55Q1mVOQlRXBqV1SM6PxiNrUcwVU2bNoKLyBKESQfjaSKlOhnXCRoqeedoIAyA==
 
-"@hupo/core-timer@^2.0.0-uni-app.0":
-  version "2.0.0-uni-app.0"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-timer/-/core-timer-2.0.0-uni-app.0.tgz#f97c73d579ff32b042446ab1bf3c457676b42c90"
-  integrity sha512-QfROD92++AIu+5jdFxeL6lUckum6d8qUupRKEMTE2N4AfSMyB7U6XZtlkFp/SVQXEQUm67X9cNJRLZF4EYGojA==
+"@hupo/core-timer@^2.0.0-uni-app.3":
+  version "2.0.0-uni-app.3"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-timer/-/core-timer-2.0.0-uni-app.3.tgz#b6f1c882a15098c8f91649a93a8de82c53715502"
+  integrity sha512-f1UzIBPfdCp4FK0Z2wLJyww9E5FWdtqJSC5F44DnSYOB/8rwKJv81kV+TP4y28bbwjZQoq34254m0ZSWPFj73w==
 
 "@hupo/core-url@^2.0.0-uni-app.0":
   version "2.0.0-uni-app.0"
   resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-url/-/core-url-2.0.0-uni-app.0.tgz#2c76a682e800882385122989aa63e05a34a6ef52"
   integrity sha512-JOEMEBZHiAaWwUvyGjAe3Q1+Bzjrbg+k36lMenK0swJTlce9R0b9SVs5nBD6cpzx+vg8tZyTf83J3WPyvWV32w==
 
-"@hupo/core-viewport@^2.0.0-uni-app.0":
-  version "2.0.0-uni-app.0"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-viewport/-/core-viewport-2.0.0-uni-app.0.tgz#71352fb22efe18a9f993d59c4730807290c0f2b1"
-  integrity sha512-S+cLSecYFWajnuGpf6/13pDG2MQtkwSQhOajD4Vp7ILHa59HmYTZjlM8O/Ho60HLaq9IrvgbMUcMwNow7euEWw==
-  dependencies:
-    "@hupo/core-channel" "^2.0.0-uni-app.0"
+"@hupo/core-url@^2.0.0-uni-app.3":
+  version "2.0.0-uni-app.3"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-url/-/core-url-2.0.0-uni-app.3.tgz#7de03c40b26f050f075fcee0024cb8eb0a5eab87"
+  integrity sha512-n3ZHBz53UwrRD4ssz4/UHkIV0JOLXgz43TO6z7LDn+iA3xVIElTKkOK9NeWOYarcJSi6gb+uCHDE2LkKkpG19Q==
 
-"@hupo/core@2.0.0-uni-app.0":
-  version "2.0.0-uni-app.0"
-  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core/-/core-2.0.0-uni-app.0.tgz#2376acf53ff80c17617c9046160df6101a2d25aa"
-  integrity sha512-yVRNoXMcrO2ic0EncP9YqjjhxM/FlVDdY1YVeoYlRhQrrcWEsz8rXs1AUOIWB0B9G1MMIoUD7SJfHM+wJQFHPg==
+"@hupo/core-viewport@^2.0.0-uni-app.3":
+  version "2.0.0-uni-app.3"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-viewport/-/core-viewport-2.0.0-uni-app.3.tgz#01250582cb9b9d38739f1390bbfde05834a5c0b2"
+  integrity sha512-ww+ortGpTgfajDtsYvOsSMsAHOAQOrZhgTxDNCo4neW+oY6ATiddBWVRsu6Cjbm41L7afQaXUAFiy7xPNMEzBA==
   dependencies:
-    "@hupo/core-channel" "^2.0.0-uni-app.0"
-    "@hupo/core-date" "^2.0.0-uni-app.0"
-    "@hupo/core-format-utils" "^2.0.0-uni-app.0"
-    "@hupo/core-global" "^2.0.0-uni-app.0"
-    "@hupo/core-promise" "^2.0.0-uni-app.0"
-    "@hupo/core-timer" "^2.0.0-uni-app.0"
-    "@hupo/core-url" "^2.0.0-uni-app.0"
-    "@hupo/core-viewport" "^2.0.0-uni-app.0"
+    "@hupo/core-channel" "^2.0.0-uni-app.3"
+
+"@hupo/core@2.0.0-uni-app.3":
+  version "2.0.0-uni-app.3"
+  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core/-/core-2.0.0-uni-app.3.tgz#72a5a7911db379a337dea08955e49541e24c1d88"
+  integrity sha512-J8ULjz4S8V4ExLDy4kKCyZJtNdDeR8ODC0H1SlHTNHgRHSb38oExwjfPEixVAn3O/FcULdS7/Lzpr4P3Wp6XrQ==
+  dependencies:
+    "@hupo/core-channel" "^2.0.0-uni-app.3"
+    "@hupo/core-date" "^2.0.0-uni-app.3"
+    "@hupo/core-format-utils" "^2.0.0-uni-app.3"
+    "@hupo/core-global" "^2.0.0-uni-app.3"
+    "@hupo/core-promise" "^2.0.0-uni-app.3"
+    "@hupo/core-timer" "^2.0.0-uni-app.3"
+    "@hupo/core-url" "^2.0.0-uni-app.3"
+    "@hupo/core-viewport" "^2.0.0-uni-app.3"
 
 "@intervolga/optimize-cssnano-plugin@^1.0.5":
   version "1.0.6"

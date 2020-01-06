@@ -33,6 +33,7 @@ z(['h-button', 'h-checkbox', 'h-dialog', 'h-field', 'h-field-group', 'h-icon', '
 
 import hButton from '@hupo/ui/components/h-button/h-button.vue'
 import hCheckbox from '@hupo/ui/components/h-checkbox/h-checkbox.vue'
+import hCheckboxGroup from '@hupo/ui/components/h-checkbox-group/h-checkbox-group.vue'
 import hDialog from '@hupo/ui/components/h-dialog/h-dialog.vue'
 import hField from '@hupo/ui/components/h-field/h-field.vue'
 import hFieldGroup from '@hupo/ui/components/h-field-group/h-field-group.vue'
@@ -47,6 +48,7 @@ import hPopup from '@hupo/ui/components/h-popup/h-popup.vue'
 import hPopupBase from '@hupo/ui/components/h-popup-base/h-popup-base.vue'
 import hProgress from '@hupo/ui/components/h-progress/h-progress.vue'
 import hRadio from '@hupo/ui/components/h-radio/h-radio.vue'
+import hRadioGroup from '@hupo/ui/components/h-radio-group/h-radio-group.vue'
 import hRichText from '@hupo/ui/components/h-rich-text/h-rich-text.vue'
 import hScroll from '@hupo/ui/components/h-scroll/h-scroll.vue'
 import hSearchBar from '@hupo/ui/components/h-search-bar/h-search-bar.vue'
@@ -61,6 +63,7 @@ import hToast from '@hupo/ui/components/h-toast/h-toast.vue'
 import hTransition from '@hupo/ui/components/h-transition/h-transition.vue'
 Vue.component('h-button', hButton)
 Vue.component('h-checkbox', hCheckbox)
+Vue.component('h-checkbox-group', hCheckboxGroup)
 Vue.component('h-dialog', hDialog)
 Vue.component('h-field', hField)
 Vue.component('h-field-group', hFieldGroup)
@@ -75,6 +78,7 @@ Vue.component('h-popup', hPopup)
 Vue.component('h-popup-base', hPopupBase)
 Vue.component('h-progress', hProgress)
 Vue.component('h-radio', hRadio)
+Vue.component('h-radio-group', hRadioGroup)
 Vue.component('h-rich-text', hRichText)
 Vue.component('h-scroll', hScroll)
 Vue.component('h-search-bar', hSearchBar)

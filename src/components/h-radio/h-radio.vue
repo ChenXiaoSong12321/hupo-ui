@@ -61,7 +61,14 @@ export default {
       if (this.disabled) return
       this.innerChecked = !this.innerChecked
       this.$emit('change', this.innerChecked ? this.value : '')
+      this.$root._broadcast('h-radio-group', 'ui.radio.change', { current: this, val: this.innerChecked ? this.value : '' })
     }
+  },
+  mounted() {
+    this.$root._broadcast('h-radio-group', 'ui.radio.add', this)
+  },
+  beforeDestroy() {
+    this.$root._broadcast('h-radio-group', 'ui.radio.remove', this)
   }
 }
 </script>

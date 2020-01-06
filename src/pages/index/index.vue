@@ -2,6 +2,18 @@
   <h-page title="h-popup-base 演示">
     <view class="container">
       <h-tag type="member">儿童</h-tag>
+      {{checkBoxValues}}
+      <h-checkbox-group @change="checkboxChange">
+        <h-checkbox value="checkbox1" label="checkbox1"></h-checkbox>
+        <h-checkbox value="checkbox2" label="checkbox2"></h-checkbox>
+        <h-checkbox value="checkbox3" label="checkbox3"></h-checkbox>
+      </h-checkbox-group>
+      {{radioValues}}
+      <h-radio-group @change="radioChange">
+        <h-radio value="radio1" label="radio1"></h-radio>
+        <h-radio value="radio2" label="radio2"></h-radio>
+        <h-radio value="radio3" label="radio3"></h-radio>
+      </h-radio-group>
     </view>
   </h-page>
 </template>
@@ -25,7 +37,9 @@ export default {
       show2: false,
       position: '',
       pos: ['left', 'top', 'right', 'bottom', ''],
-      posi: 0
+      posi: 0,
+      checkBoxValues: [],
+      radioValues: ''
     }
   },
   computed: {
@@ -53,6 +67,12 @@ export default {
     }
   },
   methods: {
+    checkboxChange(values) {
+      this.checkBoxValues = values
+    },
+    radioChange(value) {
+      this.radioValues = value
+    },
     showPopup() {
       this.show = true
     },
