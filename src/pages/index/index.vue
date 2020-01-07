@@ -3,16 +3,16 @@
     <view class="container">
       <h-tag type="member">儿童</h-tag>
       {{checkBoxValues}}
-      <h-checkbox-group @change="checkboxChange">
-        <h-checkbox value="checkbox1" label="checkbox1"></h-checkbox>
-        <h-checkbox value="checkbox2" label="checkbox2"></h-checkbox>
-        <h-checkbox value="checkbox3" label="checkbox3"></h-checkbox>
+      <h-checkbox-group v-model="checkBoxValues">
+        <h-checkbox label="1">checkbox1</h-checkbox>
+        <h-checkbox label="2" :disabled="true">checkbox2</h-checkbox>
+        <h-checkbox label="3"></h-checkbox>
       </h-checkbox-group>
       {{radioValues}}
-      <h-radio-group @change="radioChange">
-        <h-radio value="radio1" label="radio1"></h-radio>
-        <h-radio value="radio2" label="radio2"></h-radio>
-        <h-radio value="radio3" label="radio3"></h-radio>
+      <h-radio-group v-model="radioValues">
+        <h-radio label="1">radio1</h-radio>
+        <h-radio label="2" :disabled="true">radio2</h-radio>
+        <h-radio label="3"></h-radio>
       </h-radio-group>
     </view>
   </h-page>
@@ -38,8 +38,9 @@ export default {
       position: '',
       pos: ['left', 'top', 'right', 'bottom', ''],
       posi: 0,
-      checkBoxValues: [],
-      radioValues: ''
+      checkbox: '',
+      checkBoxValues: ['1'],
+      radioValues: '1'
     }
   },
   computed: {
@@ -67,12 +68,6 @@ export default {
     }
   },
   methods: {
-    checkboxChange(values) {
-      this.checkBoxValues = values
-    },
-    radioChange(value) {
-      this.radioValues = value
-    },
     showPopup() {
       this.show = true
     },

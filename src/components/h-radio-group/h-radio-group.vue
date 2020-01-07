@@ -6,6 +6,12 @@
 <script>
 export default {
   name: 'h-radio-group',
+  props: {
+    value: {
+      type: [String, Number],
+      default: ''
+    }
+  },
   created() {
     this.radios = []
     this.$on('ui.radio.add', radio => {
@@ -22,7 +28,25 @@ export default {
         }
       })
       this.$emit('change', val)
+      this.$emit('input', val)
     })
+  },
+  mounted() {
+    this.setRadioActive()
+  },
+  watch: {
+    value(val) {
+      this.setRadioActive()
+    }
+  },
+  methods: {
+    setRadioActive() {
+      this.radios.forEach(radio => {
+        if (this.value.indexOf(radio.label) !== -1) {
+          radio.innerChecked = true
+        }
+      })
+    }
   }
 }
 </script>

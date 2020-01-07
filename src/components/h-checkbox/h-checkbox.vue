@@ -7,12 +7,14 @@
       <block v-else>
         <h-icon class="h-checkbox-select" name="iconbukegouxuanbeifen1"></h-icon>
       </block>
-      <text class="h-checkbox-label" v-if="label">{{ label }}</text>
+      <text class="h-checkbox-label" v-if="$slots.default || label">
+        <slot></slot>
+        <block v-if="!$slots.default">{{label}}</block>
+      </text>
     </view>
   </view>
 </template>
 <script>
-// todo -- checkgroup 封装
 export default {
   name: 'h-checkbox',
   props: {
@@ -30,10 +32,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    },
-    position: {
-      type: String,
-      default: 'left'
     }
   },
   data() {
@@ -61,8 +59,9 @@ export default {
     changeCheck() {
       if (this.disabled) return
       this.innerChecked = !this.innerChecked
-      this.$emit('changeevent', this.innerChecked ? this.value : '')
-      this.$emit('change', this.innerChecked ? this.value : '')
+      const label = this.innerChecked ? this.label : ''
+      this.$emit('input', label)
+      this.$emit('change', label)
       this.$root._broadcast('h-checkbox-group', 'ui.checkbox.change')
     }
   },
