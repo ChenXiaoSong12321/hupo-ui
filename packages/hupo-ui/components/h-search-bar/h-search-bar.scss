@@ -13,6 +13,7 @@
   @include e(icon){
     font-size: 28rpx;
     color: $--font-color-FC2;
+    margin-right: 20rpx;
   }
   @include e(input){
     flex: 1;

@@ -10,12 +10,14 @@
       <block v-else>
         <h-icon class="h-radio-select" name="iconbukegouxuanbeifen1"></h-icon>
       </block>
-      <text class="h-radio-label">{{ label }}</text>
+       <text class="h-radio-label" v-if="$slots.default || label">
+        <slot></slot>
+        <block v-if="!$slots.default">{{label}}</block>
+      </text>
     </view>
   </view>
 </template>
 <script>
-// todo -- radio group 封装
 export default {
   name: 'h-radio',
   props: {
@@ -60,8 +62,17 @@ export default {
     changeSelect() {
       if (this.disabled) return
       this.innerChecked = !this.innerChecked
-      this.$emit('change', this.innerChecked ? this.value : '')
+      const label = this.innerChecked ? this.label : ''
+      this.$emit('input', label)
+      this.$emit('change', label)
+      this.$root._broadcast('h-radio-group', 'ui.radio.change', { current: this, val: label })
     }
+  },
+  mounted() {
+    this.$root._broadcast('h-radio-group', 'ui.radio.add', this)
+  },
+  beforeDestroy() {
+    this.$root._broadcast('h-radio-group', 'ui.radio.remove', this)
   }
 }
 </script>

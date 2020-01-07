@@ -12,6 +12,7 @@
     :scrollWithAnimation="scrollWithAnimation"
     :enableBackToTop="enableBackToTop"
     :showScrollbar="showScrollbar"
+    scroll-anchoring
     @scrolltoupper="scrolltoupper"
     @scroll="scroll"
     @scrolltolower="onPullup"
