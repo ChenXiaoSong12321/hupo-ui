@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@dcloudio/uni-cli-shared": "^2.0.0-24220191115006",
-    "@hupo/uni-template-compiler": "^0.1.39",
+    "@dcloudio/uni-template-compiler": "git+https://github.com/TheLostlyp/uni-template-compiler.git",
     "@dcloudio/vue-cli-plugin-hbuilderx": "^2.0.0-24220191115006",
     "@dcloudio/vue-cli-plugin-uni": "^2.0.0-24220191115006",
     "@dcloudio/vue-cli-plugin-uni-optimize": "^2.0.0-24220191115006",
