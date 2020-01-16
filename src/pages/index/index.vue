@@ -1,11 +1,13 @@
 <template>
   <h-page title="h-popup-base 演示">
     <view class="container">
-      <h-progress style="width: 60%;" height="30"></h-progress>
-      <text>\r\n</text>
-      <h-load-more :loading="loading" :slogen="false">
-        <view slot="slogen">slogenslogen</view>
-      </h-load-more>
+      <h-checkbox-group v-model="checkbox">
+        <h-checkbox label="a">选择框a</h-checkbox>
+        <h-checkbox label="b">选择框b</h-checkbox>
+        <h-checkbox label="c">选择框c</h-checkbox>
+        <h-checkbox label="d">选择框d</h-checkbox>
+        <h-checkbox label="e">选择框e</h-checkbox>
+      </h-checkbox-group>
     </view>
   </h-page>
 </template>
@@ -13,13 +15,11 @@
 export default {
   data: function() {
     return {
-      loading: true
+      checkbox: ['a', 'e']
     }
   },
   mounted() {
-    setTimeout(() => {
-      this.loading = false
-    }, 2000)
+
   },
   methods: {
     change(tabName) {

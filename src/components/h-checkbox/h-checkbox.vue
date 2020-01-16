@@ -18,17 +18,13 @@
 export default {
   name: 'h-checkbox',
   props: {
-    checked: {
-      type: Boolean,
-      default: false
-    },
     label: {
       type: String,
       required: true
     },
     value: {
-      type: [String, Number],
-      default: ''
+      type: Boolean,
+      default: false
     },
     disabled: {
       type: Boolean,
@@ -37,11 +33,20 @@ export default {
   },
   data() {
     return {
-      innerChecked: false,
-      selfValue: this.value || this.label
+      model: false
     }
   },
   computed: {
+    innerChecked: {
+      get() {
+        return this.model
+      },
+      set(val) {
+        this.$emit('input', val)
+        this.$emit('change', val)
+        this.model = val
+      }
+    },
     checkClass() {
       if (this.disabled) {
         return 'is-disabled'
@@ -49,29 +54,21 @@ export default {
       return this.innerChecked ? 'is-active' : ''
     }
   },
-  watch: {
-    checked: {
-      handler(val) {
-        this.innerChecked = val
-      },
-      immediate: true
-    }
+  created() {
+    this._dispatch('h-checkbox-group', 'ui.checkbox.add', this)
+  },
+  mounted() {
+    this.model = this.value
+  },
+  beforeDestroy() {
+    this._dispatch('h-checkbox-group', 'ui.checkbox.remove', this)
   },
   methods: {
     changeCheck() {
       if (this.disabled) return
       this.innerChecked = !this.innerChecked
-      const label = this.innerChecked ? this.label : ''
-      this.$emit('input', label)
-      this.$emit('change', label)
-      this.$root._broadcast('h-checkbox-group', 'ui.checkbox.change')
+      this._dispatch('h-checkbox-group', 'ui.checkbox.change')
     }
-  },
-  mounted() {
-    this.$root._broadcast('h-checkbox-group', 'ui.checkbox.add', this)
-  },
-  beforeDestroy() {
-    this.$root._broadcast('h-checkbox-group', 'ui.checkbox.remove', this)
   }
 }
 </script>
