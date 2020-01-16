@@ -23,7 +23,8 @@ export default {
       default: false
     },
     label: {
-      type: String
+      type: String,
+      required: true
     },
     value: {
       type: [String, Number],
@@ -36,7 +37,8 @@ export default {
   },
   data() {
     return {
-      innerChecked: false
+      innerChecked: false,
+      selfValue: this.value || this.label
     }
   },
   computed: {

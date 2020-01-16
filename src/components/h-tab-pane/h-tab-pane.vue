@@ -1,56 +1,56 @@
 <template>
-  <view class="h-tab-pane">
-    <view class="h-tab-pane-wrap" :style="paneWrap">
-      <slot></slot>
-    </view>
+  <view class="h-tab-pane" :class="{'is-active': active}">
+    <slot></slot>
   </view>
 </template>
 <script>
 export default {
   name: 'h-tab-pane',
   props: {
-    tabs: {
-      type: Array,
-      default() {
-        return []
-      }
+    label: {
+      type: String,
+      required: true
     },
-    activeLabel: {
-      type: [Number, String],
+    name: {
+      type: String,
       required: true
     }
   },
-  computed: {
-    paneWrap() {
-      const width = this.tabs.length * 750// 总宽度；
-      // findIndex找不到返回 -1
-
-      const foundIndex = this.tabs.findIndex((item, index, arr) => {
-        return this.activeLabel === item.label
-      })
-      const leftIndex = foundIndex == -1 ? 0 : foundIndex
-
-      const leftOffset = leftIndex * 750
-      return {
-        width: width + 'rpx',
-        transform: `translateX(${-leftOffset}rpx)`
-      }
+  data() {
+    return {
+      loaded: false,
+      active: false
     }
+  },
+  watch: {
+    label() {
+      this.$parent.$emit('update', this)
+    },
+    name(newName, oldName) {
+      this.$parent.$emit('updateName', newName, oldName)
+    }
+  },
+  created() {
+    this.$on('setCurrentName', currentName => {
+      this.active = currentName === this.name
+      if (this.active && !this.loaded) {
+        this.loaded = true
+        this.$emit('load')
+      }
+    })
+    this.$parent.$emit('add', this)
+  },
+  beforeDestroy() {
+    this.$parent.$emit('remove', this)
   }
 }
 </script>
 <style lang="scss">
 @import "~@hupo/core-sass-bem";
 @include b(tab-pane) {
-  width: 750rpx;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  @include e(wrap) {
-    display: flex;
-    flex-direction: row;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-in-out;
-    transition-property: transform;
+  display: none;
+  @include when(active) {
+    display: block;
   }
 }
 </style>

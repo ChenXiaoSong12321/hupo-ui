@@ -54,9 +54,7 @@ import hScroll from '@hupo/ui/components/h-scroll/h-scroll.vue'
 import hSearchBar from '@hupo/ui/components/h-search-bar/h-search-bar.vue'
 import hStepper from '@hupo/ui/components/h-stepper/h-stepper.vue'
 import hTab from '@hupo/ui/components/h-tab/h-tab.vue'
-import hTabItem from '@hupo/ui/components/h-tab-item/h-tab-item.vue'
 import hTabPane from '@hupo/ui/components/h-tab-pane/h-tab-pane.vue'
-import hTabPaneItem from '@hupo/ui/components/h-tab-pane-item/h-tab-pane-item.vue'
 import hTabbar from '@hupo/ui/components/h-tabbar/h-tabbar.vue'
 import hTag from '@hupo/ui/components/h-tag/h-tag.vue'
 import hToast from '@hupo/ui/components/h-toast/h-toast.vue'
@@ -84,9 +82,7 @@ Vue.component('h-scroll', hScroll)
 Vue.component('h-search-bar', hSearchBar)
 Vue.component('h-stepper', hStepper)
 Vue.component('h-tab', hTab)
-Vue.component('h-tab-item', hTabItem)
 Vue.component('h-tab-pane', hTabPane)
-Vue.component('h-tab-pane-item', hTabPaneItem)
 Vue.component('h-tabbar', hTabbar)
 Vue.component('h-tag', hTag)
 Vue.component('h-toast', hToast)

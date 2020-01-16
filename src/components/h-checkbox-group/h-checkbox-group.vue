@@ -33,12 +33,12 @@ export default {
       this.$emit('input', values)
     })
   },
-  mounted() {
-    this.setChecked()
-  },
   watch: {
-    value(val) {
-      this.setChecked()
+    value: {
+      handler() {
+        this.setChecked()
+      },
+      immediate: true
     }
   },
   methods: {

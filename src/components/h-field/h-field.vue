@@ -51,10 +51,10 @@ export default {
     }
   },
   mounted() {
-    this.$root._broadcast('h-field-group', 'add', this)
+    this._dispatch('h-field-group', 'add', this)
   },
   beforeDestroy() {
-    this.$root._broadcast('h-field-group', 'remove', this)
+    this._dispatch('h-field-group', 'remove', this)
   }
 }
 

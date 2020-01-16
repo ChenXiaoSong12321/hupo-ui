@@ -49,6 +49,8 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.4",
+    "@commitlint/config-conventional": "^8.3.4",
     "@dcloudio/uni-cli-shared": "^2.0.0-24220191115006",
     "@dcloudio/uni-template-compiler": "git+https://github.com/TheLostlyp/uni-template-compiler.git",
     "@dcloudio/vue-cli-plugin-hbuilderx": "^2.0.0-24220191115006",
@@ -62,17 +64,38 @@
     "@vue/cli-service": "^4.1.0",
     "babel-eslint": "^10.0.3",
     "babel-plugin-import": "^1.11.0",
+    "commitizen": "^4.0.3",
+    "cz-customizable": "^6.2.0",
     "eslint": "^6.3.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-plugin-html": "^6.0.0",
     "eslint-plugin-vue": "^5.2.3",
+    "husky": "^4.0.9",
     "lerna": "^3.16.4",
     "mini-types": "*",
     "miniprogram-api-typings": "^2.8.0-2",
     "node-sass": "^4.13.0",
     "postcss-comment": "^2.0.0",
     "sass-loader": "^8.0.0",
+    "standard-version": "^7.0.1",
     "vue-template-compiler": "2.6.10"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  },
+  "standard-version": {
+    "skip": {
+      "tag": true,
+      "commit": true,
+      "bump": true
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "browserslist": [
     "Android >= 4",
