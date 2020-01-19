@@ -11,19 +11,8 @@
   border-radius: 0;
   margin: 0;
   flex-wrap: wrap;
-  &::after{
-    border: 0;
-  }
-  @include e(form){
-    display: block;
-    @include m(none){
-      height: 100%;
-      width: 100%;
-    }
-    @include m(full){
-      height: 100%;
-      width: 100%;
-    }
+  @include pseudo(after){
+    display: none;
   }
   @include flexCenter();
 

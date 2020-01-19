@@ -14,6 +14,9 @@ export default {
       }
     }
   },
+  watch: {
+    value: 'setChecked'
+  },
   created() {
     this.checkboxs = []
     this.$on('ui.checkbox.add', checkbox => {
@@ -34,17 +37,16 @@ export default {
     })
   },
   mounted() {
-    this.setChecked()
-  },
-  watch: {
-    value(val) {
-      this.setChecked()
+    if (this.value.length) {
+      this.$nextTick(() => {
+        this.setChecked()
+      })
     }
   },
   methods: {
     setChecked() {
       this.checkboxs.forEach(checkbox => {
-        if (this.value.indexOf(checkbox.label) !== -1) {
+        if (this.value.indexOf(checkbox.label) > -1) {
           checkbox.innerChecked = true
         }
       })

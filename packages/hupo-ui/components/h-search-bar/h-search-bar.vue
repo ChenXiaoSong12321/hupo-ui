@@ -81,7 +81,6 @@ export default {
   },
   methods: {
     clear() {
-      console.log(this)
       this.searchVal = ''
     },
     confirm() {

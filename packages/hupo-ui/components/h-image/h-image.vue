@@ -12,12 +12,12 @@
     </block>
     <block v-else-if="status == 'load-fail'">
       <view class="h-image-loading" :class="[`h-image-loading--${mode}`]">
-        <image class="h-image-loading-image" :src="unloadImg" mode="widthFix"></image>
+        <image class="h-image-loading-image" :src="placeholder" mode="widthFix"></image>
       </view>
     </block>
     <block v-else>
       <view class="h-image-loading" :class="[`h-image-loading--${mode}`]">
-        <image class="h-image-loading-image" :src="unloadImg" mode="widthFix"></image>
+        <image class="h-image-loading-image" :src="placeholder" mode="widthFix"></image>
       </view>
       <!-- 隐藏的image，用于隐士加载 -->
       <image
@@ -52,11 +52,14 @@ export default {
     reload: {
       type: Boolean,
       default: false
+    },
+    placeholder: {
+      type: String,
+      default: require('./assets/images/image-load-background.png')
     }
   },
   data() {
     return {
-      unloadImg: require('./assets/images/image-load-background.png'),
       url: '',
       i: 0,
       status: 'loading'

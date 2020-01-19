@@ -1,29 +1,21 @@
 <template>
   <block>
     <!--  #ifdef MP-WEIXIN -->
-    <form
-      @submit="handleFormSubmit"
-      report-submit
-      class="h-button-form"
-      :class="{'h-button-form--none': type === 'none','h-button-form--full': size === 'full'}"
+    <button
+      type="keng"
+      class="h-button"
+      :class="stateClass"
+      :open-type="openType"
+      :style="customStyle"
+      @tap="handleTap"
+      @contact="contact"
+      @getuserinfo="getuserinfo"
+      @getphonenumber="getphonenumber"
+      @error="error"
+      @opensetting="opensetting"
     >
-      <button
-        type="keng"
-        :form-type="openType ? '' : 'submit'"
-        class="h-button"
-        :class="stateClass"
-        :open-type="openType"
-        :style="customStyle"
-        @tap="handleTap"
-        @contact="contact"
-        @getuserinfo="getuserinfo"
-        @getphonenumber="getphonenumber"
-        @error="error"
-        @opensetting="opensetting"
-      >
-        <slot></slot>
-      </button>
-    </form>
+      <slot></slot>
+    </button>
     <!--  #endif -->
     <!--  #ifdef H5 -->
     <view class="h-button" :class="stateClass" :style="customStyle" @tap="handleTap">
@@ -35,8 +27,6 @@
 
 <script>
 import HButtonMixins from './h-button.mixins.js'
-import { global } from '@hupo/core'
-global._buttonFormIds = []
 export default {
   name: 'h-button',
   mixins: [HButtonMixins],
@@ -60,15 +50,7 @@ export default {
       const { disabled, openType } = this
       if (disabled || openType) return
       this.btnEmit('onclick', e.detail)
-    },
-    // #ifdef MP-WEIXIN
-    handleFormSubmit(event) {
-      const formId = event.detail.formId || ''
-      if (formId !== 'the formId is a mock one') {
-        global._buttonFormIds.push(formId)
-      }
     }
-    // #endif
   }
 }
 </script>

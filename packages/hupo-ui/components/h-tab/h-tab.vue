@@ -1,62 +1,146 @@
 <template>
-  <view class="h-tabs">
-    <view class="h-tabs-wrap">
-      <h-tab-item
-        class="h-tabs-item"
-        v-for="(item, index) in tabs"
-        :key="index"
-        :tab="item"
-        :activeLabel="activeLabel"
-        :hasUnderline="hasUnderline"
-        :activeLabelStyle="activeLabelStyle"
-        @tabclick="handleTabTap"
-      ></h-tab-item>
+  <view class="h-tab">
+    <view class="h-tab-label" :style="stickyStyle">
+      <view
+        class="h-tab-label-item"
+        :class="{'is-active': currentName === item.name}"
+        v-for="item in tabs"
+        :key="item.name"
+        @tap="handleTabTap(item)"
+      >
+        <text class="h-tab-label-text">{{item.label}}</text>
+        <view class="h-tab-label-line"></view>
+      </view>
     </view>
-    <view class="h-tabs-bottom"></view>
-    <!-- <view c-if="{{hasUnderline}}" class="h-tabs-line-wrap" style="{{tabLineStyle}}"></view> -->
+    <view class="h-tab-content">
+      <slot></slot>
+    </view>
   </view>
 </template>
 <script>
-import tabItemMixin from '../h-tab-item/h-tab-item.mixin'
 export default {
   name: 'h-tab',
-  mixins: [tabItemMixin],
   props: {
-    tabs: {
-      type: Array,
+    value: {
+      type: String,
+      default: ''
+    },
+    sticky: {
+      type: Boolean,
+      default: false
+    },
+    stickyOption: {
+      type: Object,
       default() {
-        return []
+        return {}
       }
     }
   },
+  data() {
+    return {
+      tabs: [],
+      currentName: ''
+    }
+  },
+  computed: {
+    stickyStyle() {
+      let stickyStyle = ''
+      if (this.sticky) {
+        stickyStyle += `position: sticky;${this.transformStyle(this.stickyOption)}`
+      }
+      return stickyStyle
+    }
+  },
+  watch: {
+    value(val) {
+      this.setCurrentName(val)
+    }
+  },
+  created() {
+    this.items = []
+    this.$on('add', item => {
+      this.items.push(item)
+      const tab = {
+        name: item.name,
+        label: item.label
+      }
+      this.tabs.push(tab)
+      if (!this.currentName) this.setCurrentName(item.name)
+    })
+    this.$on('remove', item => {
+      this.items.splice(this.items.indexOf(item), 1)
+      this.tabs.splice(this.tabs.findIndex(v => v.name === item.name), 1)
+    })
+  },
+  mounted() {
+    if (this.value) {
+      this.$nextTick(() => {
+        this.setCurrentName(this.value)
+      })
+    }
+  },
   methods: {
+    setCurrentName(value) {
+      this.currentName = value
+      this.$emit('input', value)
+      this.$emit('change', value)
+      // 避免闪烁，优先处理show，后面再循环处理hide
+      const currentItem = this.items.find(item => item.name === value)
+      currentItem.setCurrentName(value)
+      currentItem.$nextTick(() => {
+        this.items.forEach(item => {
+          if (item.name !== value) {
+            item.setCurrentName(value)
+          }
+        })
+      })
+    },
     handleTabTap(tab) {
-      const label = tab.label
-      const activeIndex = this.tabs.findIndex(item => item.label === label)
-
-      this.$emit('tabclick', { label, activeIndex })
+      this.setCurrentName(tab.name)
     }
   }
 }
 </script>
 <style lang="scss">
 @import "~@hupo/core-sass-bem";
-@include b(tabs) {
-  position: relative;
-  @include e(item) {
-    flex: 1;
-    text-align: center;
-  }
-  @include e(wrap) {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: #fff;
-  }
-  @include e(bottom) {
+@include b(tab) {
+  @include e(label) {
     width: 100%;
-    height: 1rpx;
-    background-color: $--border-color-PC1;
+    height: 90rpx;
+    background-color: $--white;
+    display: flex;
+    border-bottom: 1rpx solid $--border-color-PC1;
+  }
+  @include e(label-item) {
+    position: relative;
+    flex: 1;
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+    @include when(active) {
+      @include e(label-text) {
+        color: $--primary-color-CM1;
+      }
+      @include e(label-line) {
+        display: block;
+      }
+    }
+  }
+  @include e(label-text) {
+    font-size: 30rpx;
+    color: $--font-color-FC2;
+  }
+  @include e(label-line) {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 80rpx;
+    height: 4rpx;
+    border-radius: 2rpx;
+    background: $--primary-color-CM1;
+    margin: auto;
   }
 }
 </style>

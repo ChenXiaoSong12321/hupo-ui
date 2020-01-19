@@ -61,6 +61,7 @@ export default {
     size: 'calcClass'
   },
   mounted() {
+    console.log(this)
     this.refreshThrottleFn()
     this.calcClass()
   },

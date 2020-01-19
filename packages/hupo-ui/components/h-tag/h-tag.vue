@@ -5,6 +5,9 @@
 </template>
 
 <script>
+import style from '@hupo/core-sass-bem'
+console.log(style)
+
 export default {
   name: 'h-tag',
   props: {
@@ -18,7 +21,7 @@ export default {
     },
     color: {
       type: String,
-      default: '#DD392E'
+      default: style.primaryColorCM1
     }
   },
   computed: {

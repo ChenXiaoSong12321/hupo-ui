@@ -1,4 +1,4 @@
-import { primaryColor, fontColorC1 } from '../style/var'
+import style from '@hupo/core-sass-bem'
 export default {
   // 标题
   title: '',
@@ -11,13 +11,13 @@ export default {
   // 确认按钮文案
   confirmButtonText: '确定',
   // 确认按钮颜色
-  confirmButtonColor: primaryColor,
+  confirmButtonColor: style.primaryColorCM1,
   // 是否展示取消
   showCancelButton: false,
   // 取消按钮文案
   cancelButtonText: '取消',
   // 取消按钮颜色
-  cancelButtonColor: fontColorC1,
+  cancelButtonColor: style.fontColorFC1,
   // 点击按钮自动关闭 dialog
   autoClose: true
 }

@@ -21,16 +21,12 @@
 export default {
   name: 'h-radio',
   props: {
-    checked: {
-      type: Boolean,
-      default: false
-    },
     label: {
       type: String
     },
     value: {
-      type: [String, Number],
-      default: ''
+      type: Boolean,
+      default: false
     },
     disabled: {
       type: Boolean,
@@ -39,10 +35,20 @@ export default {
   },
   data() {
     return {
-      innerChecked: false
+      model: false
     }
   },
   computed: {
+    innerChecked: {
+      get() {
+        return this.model
+      },
+      set(val) {
+        this.$emit('input', val)
+        this.$emit('change', val)
+        this.model = val
+      }
+    },
     radioClass() {
       if (this.disabled) {
         return 'is-disabled'
@@ -50,29 +56,21 @@ export default {
       return this.innerChecked ? 'is-active' : ''
     }
   },
-  watch: {
-    checked: {
-      handler(val) {
-        this.innerChecked = val
-      },
-      immediate: true
-    }
+  created() {
+    this._dispatch('h-radio-group', 'ui.radio.add', this)
+  },
+  mounted() {
+    this.model = this.value
+  },
+  beforeDestroy() {
+    this._dispatch('h-radio-group', 'ui.radio.remove', this)
   },
   methods: {
     changeSelect() {
-      if (this.disabled) return
+      if (this.disabled || this.innerChecked) return
       this.innerChecked = !this.innerChecked
-      const label = this.innerChecked ? this.label : ''
-      this.$emit('input', label)
-      this.$emit('change', label)
-      this.$root._broadcast('h-radio-group', 'ui.radio.change', { current: this, val: label })
+      this._dispatch('h-radio-group', 'ui.radio.change', this.label)
     }
-  },
-  mounted() {
-    this.$root._broadcast('h-radio-group', 'ui.radio.add', this)
-  },
-  beforeDestroy() {
-    this.$root._broadcast('h-radio-group', 'ui.radio.remove', this)
   }
 }
 </script>

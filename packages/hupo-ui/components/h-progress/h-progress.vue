@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import style from '@hupo/core-sass-bem'
 export default {
   name: 'h-progress',
   props: {
@@ -12,39 +13,45 @@ export default {
       type: [String, Number],
       default: 40
     },
-    borderColor: {
-      type: String,
-      default: 'rgba(252, 38, 88, 1)'
-    },
     color: {
       type: String,
-      default: '#FC2658'
+      default: style.primaryColorCM1
     },
     height: {
       type: [Number, String],
       default: '10'
-    },
-    backgroundColor: {
-      type: String,
-      default: '#FFE0E4'
     }
   },
   computed: {
     progressStyle() {
-      return {
-        'border-color': this.borderColor,
-        'background-color': this.backgroundColor,
-        'height': this.height + 'rpx'
-      }
+      const style = {}
+      style.height = this.height + 'rpx'
+      style.borderRadius = this.height + 'rpx'
+      style.borderColor = this.color
+      style.backgroundColor = this.hex2rgba(this.color, 0.2)
+      return this.transformStyle(style)
     },
     progressLineStyle() {
-      return {
-        'width': this.percentage / 100 + '%',
-        'background-color': this.color,
-        'height': this.height + 'rpx',
-        'border-top-right-radius': this.height + 'rpx',
-        'border-bottom-right-radius': this.height + 'rpx'
-      }
+      const style = {}
+      style.width = this.percentage + '%'
+      style.backgroundColor = this.color
+      return this.transformStyle(style)
+    }
+  },
+  methods: {
+    /**
+     * 16进制颜色转换成rgba
+     */
+    hex2rgba(hex, opacity) {
+      const rgb = []
+      hex = hex.substr(1) // 去除 # 号
+      hex.length === 3 && (hex = hex.replace(/(.)/g, '$1$1')) // 处理 "#abc" 成 "#aabbcc"
+
+      hex.replace(/../g, v => rgb.push(parseInt(v, 0x10)))
+
+      return `rgb${opacity ? 'a' : ''}(${rgb.join(',')}${
+        opacity ? ',' + opacity : ''
+      })`
     }
   }
 }
@@ -53,14 +60,17 @@ export default {
 <style lang="scss">
 @import "~@hupo/core-sass-bem";
 @include b(progress) {
-  height: 10rpx;
-  border-radius: 10rpx;
-  border: 1rpx solid rgba(252, 38, 88, 1);
-  background-color: #ffe0e4;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  overflow: hidden;
   @include e(line) {
-    background-color: #fc2658;
-    height: 10rpx;
-    border-radius: 10rpx;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
   }
 }
 </style>

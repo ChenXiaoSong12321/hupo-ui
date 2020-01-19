@@ -8,7 +8,7 @@ export default {
   name: 'h-radio-group',
   props: {
     value: {
-      type: [String, Number],
+      type: [String, Number, Boolean],
       default: ''
     }
   },
@@ -21,29 +21,28 @@ export default {
       this.radios.splice(this.radios.indexOf(radio), 1)
     })
 
-    this.$on('ui.radio.change', ({ current, val }) => {
-      this.radios.forEach(radio => {
-        if (current !== radio) {
-          radio.innerChecked = false
-        }
-      })
-      this.$emit('change', val)
-      this.$emit('input', val)
+    this.$on('ui.radio.change', (label) => {
+      this.$emit('change', label)
+      this.$emit('input', label)
     })
   },
   mounted() {
-    this.setRadioActive()
+    if (this.value) {
+      this.$nextTick(() => {
+        this.setRadioActive()
+      })
+    }
   },
   watch: {
-    value(val) {
-      this.setRadioActive()
-    }
+    value: 'setRadioActive'
   },
   methods: {
     setRadioActive() {
       this.radios.forEach(radio => {
-        if (this.value.indexOf(radio.label) !== -1) {
+        if (this.value === radio.label) {
           radio.innerChecked = true
+        } else {
+          radio.innerChecked = false
         }
       })
     }

@@ -5,11 +5,7 @@
   height: 120rpx;
   font-size: 28rpx;
   @include flexCenter;
-  @include e(wrap){
-    width: 100%;
-    overflow:hidden;
-  }
-  @include m(loading){
+  @include e(loading){
     @include h-loading;
     margin-right: 8rpx
   }
@@ -18,16 +14,9 @@
     vertical-align: middle;
     height: 20px;
     line-height: 20px;
-    .image {
-      width: 100%;
-      vertical-align: middle;
-    }
   }
-  @include m(nodata){
-    color: $--font-color-FC3;
-    .image {
+  @include e(image){
       height: 0;
       width: 690rpx;
-    }
   }
 }
