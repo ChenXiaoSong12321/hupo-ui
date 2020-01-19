@@ -8,6 +8,8 @@
         <h-checkbox label="d">选择框d</h-checkbox>
         <h-checkbox label="e">选择框e</h-checkbox>
       </h-checkbox-group>
+      <h-button>1111</h-button>
+      <h-button>222</h-button>
     </view>
   </h-page>
 </template>
