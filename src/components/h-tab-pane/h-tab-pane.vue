@@ -31,17 +31,19 @@ export default {
     }
   },
   created() {
-    this.$on('setCurrentName', currentName => {
+    this.$parent.$emit('add', this)
+  },
+  beforeDestroy() {
+    this.$parent.$emit('remove', this)
+  },
+  methods: {
+    setCurrentName(currentName) {
       this.active = currentName === this.name
       if (this.active && !this.loaded) {
         this.loaded = true
         this.$emit('load')
       }
-    })
-    this.$parent.$emit('add', this)
-  },
-  beforeDestroy() {
-    this.$parent.$emit('remove', this)
+    }
   }
 }
 </script>
