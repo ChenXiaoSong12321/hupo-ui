@@ -10,7 +10,8 @@
   },
   "command": {
     "publish": {
-      "registry": "https://nexus.hupovip.cn/repository/hp-npm/"
+      "registry": "https://nexus.hupovip.cn/repository/hp-npm/",
+      "message": "chore(release): publish %s"
     }
   }
 }
