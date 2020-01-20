@@ -5,8 +5,6 @@
   "main": "/components",
   "author": "hupo",
   "dependencies": {
-    "@hupo/core": "2.0.0-uni-app.3",
-    "better-scroll": "^1.15.2",
-    "lozad": "^1.9.0"
+    "@hupo/core": "2.0.0-uni-app.4"
   }
 }
