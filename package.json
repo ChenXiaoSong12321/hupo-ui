@@ -23,7 +23,7 @@
     "dev:mp-toutiao": "cross-env NODE_ENV=development UNI_PLATFORM=mp-toutiao vue-cli-service uni-build --watch",
     "dev:mp-weixin": "cross-env NODE_ENV=development UNI_PLATFORM=mp-weixin vue-cli-service uni-build --watch",
     "info": "node node_modules/@dcloudio/vue-cli-plugin-uni/commands/info.js",
-    "changelog": "standard-version"
+    "changelog": "rm CHANGELOG.md && standard-version"
   },
   "main": "packages/hupo-cml-ui/components",
   "author": "Hupo-Team",
@@ -91,7 +91,18 @@
       "tag": true,
       "commit": true,
       "bump": true
-    }
+    },
+    "types": [
+      {"type":"feat","section":"Features"},
+      {"type":"fix","section":"Bug Fixes"},
+      {"type":"chore","hidden":true},
+      {"type":"docs","hidden":true},
+      {"type":"style","hidden":true},
+      {"type":"refactor","section":"Refactor"},
+      {"type":"perf","section":"Perf"},
+      {"type":"test","hidden":true},
+      {"type":"revert","section":"Revert"}
+    ]
   },
   "husky": {
     "hooks": {
