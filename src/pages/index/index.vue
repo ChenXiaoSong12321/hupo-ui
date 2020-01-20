@@ -18,6 +18,8 @@
         <h-radio label="d">选择框d</h-radio>
         <h-radio label="e">选择框e</h-radio>
       </h-radio-group>
+
+      <h-qrcode value="123" :icon="icon"></h-qrcode>
     </view>
   </h-page>
 </template>
@@ -25,6 +27,7 @@
 export default {
   data: function() {
     return {
+      icon: require('./tabbar/index.png'),
       a: false,
       checkbox: ['a', 'e'],
       radio: false

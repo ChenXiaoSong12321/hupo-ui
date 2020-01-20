@@ -26,7 +26,7 @@ Vue.component('${name}', ${importName})`
   console.log(importTemp)
   console.log(vueTemp)
 }
-z(['h-button', 'h-checkbox', 'h-dialog', 'h-field', 'h-field-group', 'h-icon', 'h-image', 'h-load-more', 'h-loading', 'h-navbar', 'h-page', 'h-pagination', 'h-popup', 'h-popup-base', 'h-progress', 'h-radio', 'h-rich-text', 'h-scroll', 'h-search-bar', 'h-stepper', 'h-tab', 'h-tab-item', 'h-tab-pane', 'h-tab-pane-item', 'h-tabbar', 'h-tag', 'h-toast', 'h-transition'])
+z(['h-button', 'h-checkbox', 'h-checkbox-group', 'h-dialog', 'h-field', 'h-field-group', 'h-icon', 'h-image', 'h-load-more', 'h-loading', 'h-navbar', 'h-page', 'h-pagination', 'h-popup', 'h-popup-base', 'h-progress', 'h-radio', 'h-radio-group', 'h-rich-text', 'h-scroll', 'h-search-bar', 'h-stepper', 'h-tab', 'h-tab-pane', 'h-tabbar', 'h-tag', 'h-toast', 'h-transition', 'h-qrcode'])
 
 --------------------------------------------------------------------------------------------------------------------------
 */
@@ -59,6 +59,7 @@ import hTabbar from '@hupo/ui/components/h-tabbar/h-tabbar.vue'
 import hTag from '@hupo/ui/components/h-tag/h-tag.vue'
 import hToast from '@hupo/ui/components/h-toast/h-toast.vue'
 import hTransition from '@hupo/ui/components/h-transition/h-transition.vue'
+import hQrcode from '@hupo/ui/components/h-qrcode/h-qrcode.vue'
 Vue.component('h-button', hButton)
 Vue.component('h-checkbox', hCheckbox)
 Vue.component('h-checkbox-group', hCheckboxGroup)
@@ -87,6 +88,7 @@ Vue.component('h-tabbar', hTabbar)
 Vue.component('h-tag', hTag)
 Vue.component('h-toast', hToast)
 Vue.component('h-transition', hTransition)
+Vue.component('h-qrcode', hQrcode)
 /*
 --------------------------------------------------------------------------------------------------------------------------
 */
