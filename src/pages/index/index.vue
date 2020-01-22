@@ -1,6 +1,10 @@
 <template>
   <h-page title="h-popup-base 演示">
     <view class="container">
+      <h-tab style="width: 100%;">
+        <h-tab-item label="哈哈哈" name="hhh"></h-tab-item>
+        <h-tab-item label="啊啊啊" name="aaa"></h-tab-item>
+      </h-tab>
       <h-checkbox-group v-model="checkbox">
         <h-checkbox label="a">选择框a</h-checkbox>
         <h-checkbox label="b">选择框b</h-checkbox>

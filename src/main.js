@@ -26,7 +26,7 @@ Vue.component('${name}', ${importName})`
   console.log(importTemp)
   console.log(vueTemp)
 }
-z(['h-button', 'h-checkbox', 'h-checkbox-group', 'h-dialog', 'h-field', 'h-field-group', 'h-icon', 'h-image', 'h-load-more', 'h-loading', 'h-navbar', 'h-page', 'h-pagination', 'h-popup', 'h-popup-base', 'h-progress', 'h-radio', 'h-radio-group', 'h-rich-text', 'h-scroll', 'h-search-bar', 'h-stepper', 'h-tab', 'h-tab-pane', 'h-tabbar', 'h-tag', 'h-toast', 'h-transition', 'h-qrcode'])
+z(['h-button', 'h-checkbox', 'h-checkbox-group', 'h-dialog', 'h-field', 'h-field-group', 'h-icon', 'h-image', 'h-load-more', 'h-loading', 'h-navbar', 'h-page', 'h-pagination', 'h-popup', 'h-popup-base', 'h-progress', 'h-radio', 'h-radio-group', 'h-rich-text', 'h-scroll', 'h-search-bar', 'h-stepper', 'h-tab', 'h-tab-pane', 'h-tab-item', 'h-tabbar', 'h-tag', 'h-toast', 'h-transition', 'h-qrcode'])
 
 --------------------------------------------------------------------------------------------------------------------------
 */
@@ -55,6 +55,7 @@ import hSearchBar from '@hupo/ui/components/h-search-bar/h-search-bar.vue'
 import hStepper from '@hupo/ui/components/h-stepper/h-stepper.vue'
 import hTab from '@hupo/ui/components/h-tab/h-tab.vue'
 import hTabPane from '@hupo/ui/components/h-tab-pane/h-tab-pane.vue'
+import hTabItem from '@hupo/ui/components/h-tab-item/h-tab-item.vue'
 import hTabbar from '@hupo/ui/components/h-tabbar/h-tabbar.vue'
 import hTag from '@hupo/ui/components/h-tag/h-tag.vue'
 import hToast from '@hupo/ui/components/h-toast/h-toast.vue'
@@ -84,6 +85,7 @@ Vue.component('h-search-bar', hSearchBar)
 Vue.component('h-stepper', hStepper)
 Vue.component('h-tab', hTab)
 Vue.component('h-tab-pane', hTabPane)
+Vue.component('h-tab-item', hTabItem)
 Vue.component('h-tabbar', hTabbar)
 Vue.component('h-tag', hTag)
 Vue.component('h-toast', hToast)
