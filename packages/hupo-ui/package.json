@@ -1,6 +1,6 @@
 {
   "name": "@hupo/ui",
-  "version": "2.0.0-uni-app.11",
+  "version": "2.0.0-uni-app.12",
   "description": "the ui component Library for hupo mall by chameleon",
   "main": "/components",
   "author": "hupo",

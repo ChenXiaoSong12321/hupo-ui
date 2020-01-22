@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0-uni-app.11",
+  "version": "2.0.0-uni-app.12",
   "packages": [
     "packages/*"
   ],
