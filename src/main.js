@@ -95,6 +95,8 @@ Vue.component('h-qrcode', hQrcode)
 --------------------------------------------------------------------------------------------------------------------------
 */
 
+import demoBlock from './pages/components/demo-block.vue'
+Vue.component('demo-block', demoBlock)
 // 定义首页route
 global.indexRoute = 'pages/index/index'
 Vue.config.productionTip = false

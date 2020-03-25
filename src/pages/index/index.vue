@@ -1,60 +1,14 @@
 <template>
-  <h-page title="h-popup-base 演示">
-    <view class="container">
-      <h-tab style="width: 100%;">
-        <h-tab-item label="哈哈哈" name="hhh"></h-tab-item>
-        <h-tab-item label="啊啊啊" name="aaa"></h-tab-item>
-      </h-tab>
-      <h-checkbox-group v-model="checkbox">
-        <h-checkbox label="a">选择框a</h-checkbox>
-        <h-checkbox label="b">选择框b</h-checkbox>
-        <h-checkbox label="c">选择框c</h-checkbox>
-        <h-checkbox label="d">选择框d</h-checkbox>
-        <h-checkbox label="e">选择框e</h-checkbox>
-      </h-checkbox-group>
-      <h-button>1111</h-button>
-      <h-button>222</h-button>
-      {{radio}}
-      <h-radio-group v-model="radio">
-        <h-radio label="a">选择框a</h-radio>
-        <h-radio label="b">选择框b</h-radio>
-        <h-radio label="c">选择框c</h-radio>
-        <h-radio label="d">选择框d</h-radio>
-        <h-radio label="e">选择框e</h-radio>
-      </h-radio-group>
-
-      <h-qrcode value="123" :icon="icon"></h-qrcode>
-    </view>
+  <h-page title="Hupo Ui 组件库演示" fixed>
+    <demo-home></demo-home>
   </h-page>
 </template>
 <script>
+import demoHome from '../components/demo-home.vue'
 export default {
-  data: function() {
-    return {
-      icon: require('./tabbar/index.png'),
-      a: false,
-      checkbox: ['a', 'e'],
-      radio: false
-    }
-  },
-  mounted() {
-
-  },
-  methods: {
-    change(tabName) {
-      this.show[tabName] = true
-    }
+  components: {
+    demoHome
   }
 }
 </script>
-<style scoped lang="scss">
-.container {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  align-items: center;
-  .btn {
-    margin-top: 20rpx;
-  }
-}
-</style>
+
