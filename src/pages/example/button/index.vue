@@ -1,5 +1,5 @@
 <template>
-  <h-page title="Button 按钮" fixed>
+  <demo-page title="Button 按钮">
     <demo-block title="按钮类型" padding>
       <demo-row>
         <h-button type="primary" class="h-demo-button-item" size="mediumsmall">主要按钮</h-button>
@@ -39,7 +39,7 @@
         </h-button>
       </demo-row>
     </demo-block>
-  </h-page>
+  </demo-page>
 </template>
 
 <script>

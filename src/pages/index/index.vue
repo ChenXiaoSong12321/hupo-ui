@@ -1,7 +1,7 @@
 <template>
-  <h-page title="Hupo UI 演示" fixed>
+  <demo-page title="Hupo UI 演示">
     <demo-home></demo-home>
-  </h-page>
+  </demo-page>
 </template>
 <script>
 import demoHome from '../components/demo-home.vue'

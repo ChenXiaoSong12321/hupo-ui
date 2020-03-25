@@ -1,5 +1,5 @@
 <template>
-  <h-page title="Icon 图标" fixed>
+  <demo-page title="Icon 图标">
     <demo-block title="基本用法" padding>
       <demo-row>
         <view class="h-demo-icon-item">
@@ -107,7 +107,7 @@
         </view>
       </demo-row>
     </demo-block>
-  </h-page>
+  </demo-page>
 </template>
 
 <script>
