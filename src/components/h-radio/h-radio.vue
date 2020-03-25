@@ -2,15 +2,15 @@
   <view class="h-radio">
     <view class="h-radio-wrap" :class="radioClass" @tap="changeSelect">
       <block v-if="disabled">
-        <h-icon class="h-radio-select" name="iconbukegouxuanbeifen"></h-icon>
+        <h-icon class="h-radio-select" name="radio-disabled"></h-icon>
       </block>
       <block v-else-if="innerChecked">
-        <h-icon class="h-radio-select" name="iconyigouxuanbeifen"></h-icon>
+        <h-icon class="h-radio-select" name="success"></h-icon>
       </block>
       <block v-else>
-        <h-icon class="h-radio-select" name="iconbukegouxuanbeifen1"></h-icon>
+        <h-icon class="h-radio-select" name="radio-l"></h-icon>
       </block>
-       <text class="h-radio-label" v-if="$slots.default || label">
+      <text class="h-radio-label" v-if="$slots.default || label">
         <slot></slot>
         <block v-if="!$slots.default">{{label}}</block>
       </text>

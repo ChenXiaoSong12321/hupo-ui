@@ -37,8 +37,8 @@ export default {
       mask: false,
       iconMap: {
         loading: 'loading',
-        warn: 'iconjuxing',
-        success: 'iconjiazaichenggong'
+        warn: 'warning-l',
+        success: 'success-l'
       }
     }
   },

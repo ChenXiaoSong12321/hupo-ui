@@ -12,7 +12,7 @@
     <view class="h-popup" @touchmove.stop="empty">
       <view class="h-popup-close">
         <h-button type="none" @onclick="onclose">
-          <h-icon name="iconicon-test" class="h-popup-close-icon"></h-icon>
+          <h-icon name="close-l" class="h-popup-close-icon"></h-icon>
         </h-button>
       </view>
       <view class="h-popup-box">

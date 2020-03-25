@@ -2,7 +2,7 @@
   <view class="h-search-bar">
     <view class="h-search-bar-box">
       <view class="h-search-bar-icon">
-        <h-icon name="iconsousuocopybeifen"></h-icon>
+        <h-icon name="search"></h-icon>
       </view>
       <input
         v-if="showInput"
@@ -21,7 +21,7 @@
         class="h-search-bar-clear"
         @click="clear"
       >
-        <h-icon name="icondianjibeifen"></h-icon>
+        <h-icon name="close"></h-icon>
       </view>
     </view>
   </view>

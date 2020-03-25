@@ -35,7 +35,7 @@
     <demo-block title="图标按钮" padding>
       <demo-row>
         <h-button type="secondary" size="medium" class="h-demo-button-item" :radius="false">
-          <h-icon name="iconmorenbugouxuanbeifen" style="margin-right: 10rpx; font-size: 24rpx"></h-icon>确认
+          <h-icon name="success-l" style="margin-right: 10rpx; font-size: 24rpx"></h-icon>确认
         </h-button>
       </demo-row>
     </demo-block>

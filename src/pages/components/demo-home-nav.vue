@@ -9,7 +9,7 @@
         @tap="onClick('/pages/example' + item.path + '/index')"
       >
         {{ item.title }}
-        <h-icon name="iconfanhuicopybeifen-copy" class="h-demo-home-nav-icon" />
+        <h-icon name="arrow-right" class="h-demo-home-nav-icon" />
       </view>
     </view>
   </view>

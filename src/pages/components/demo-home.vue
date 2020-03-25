@@ -2,7 +2,7 @@
   <view class="h-demo-home">
     <view class="h-demo-home-title">
       <image mode="aspectFit" class="h-demo-home-image" :src="logo" />
-      <view class="h-demo-home-text">Hupo Ui 组件库</view>
+      <view class="h-demo-home-text">Hupo UI 组件库</view>
     </view>
     <view class="h-demo-home-desc">基于uni-app开发，轻量、可靠的小程序 UI 组件库</view>
     <view v-for="(group, index) in list" :key="index">

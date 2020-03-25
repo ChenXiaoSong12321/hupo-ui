@@ -2,10 +2,10 @@
   <view class="h-checkbox">
     <view class="h-checkbox-wrap" :class="checkClass" @tap="changeCheck">
       <block v-if="disabled || innerChecked">
-        <h-icon class="h-checkbox-select" name="iconyigouxuanbeifen"></h-icon>
+        <h-icon class="h-checkbox-select" name="success"></h-icon>
       </block>
       <block v-else>
-        <h-icon class="h-checkbox-select" name="iconbukegouxuanbeifen1"></h-icon>
+        <h-icon class="h-checkbox-select" name="radio-disabled"></h-icon>
       </block>
       <text class="h-checkbox-label" v-if="$slots.default || label">
         <slot></slot>

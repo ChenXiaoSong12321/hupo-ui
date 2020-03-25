@@ -8,6 +8,9 @@
     },
     {
       "path": "pages/example/button/index"
+    },
+    {
+      "path": "pages/example/icon/index"
     }
   ],
   "globalStyle": {

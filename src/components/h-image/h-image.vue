@@ -7,7 +7,7 @@
     </block>
     <block v-else-if="status == 'load-refresh'">
       <view class="h-image-load-fail" @tap="reloadImage">
-        <h-icon name="iconshuaxin"></h-icon>
+        <h-icon name="refresh"></h-icon>
       </view>
     </block>
     <block v-else-if="status == 'load-fail'">
