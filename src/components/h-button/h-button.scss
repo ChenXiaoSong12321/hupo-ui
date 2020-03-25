@@ -36,6 +36,10 @@
     }
   }
 
+  @include pseudo(active) {
+    opacity: 0.9;
+  }
+
   @include when(group) {
     width: auto
   }

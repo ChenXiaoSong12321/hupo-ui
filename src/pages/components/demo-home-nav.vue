@@ -6,8 +6,7 @@
         v-for="item in group.list"
         :key="item.title"
         class="h-demo-home-nav-block"
-        :data-url="'/pages' + item.path + '/index'"
-        @tap="onClick"
+        @tap="onClick('/pages/example' + item.path + '/index')"
       >
         {{ item.title }}
         <h-icon name="iconfanhuicopybeifen-copy" class="h-demo-home-nav-icon" />
@@ -25,8 +24,10 @@ export default {
     }
   },
   methods: {
-    onClick() {
-
+    onClick(path) {
+      uni.navigateTo({
+        url: path
+      })
     }
   }
 }

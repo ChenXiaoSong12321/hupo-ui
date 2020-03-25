@@ -30,7 +30,7 @@ export default {
     color: rgba(69, 90, 100, 0.6);
     padding: 20px 15px 15px;
   }
-  @include e(padding) {
+  @include m(padding) {
     padding: 0 15px;
     @include e(title) {
       padding-left: 0;
