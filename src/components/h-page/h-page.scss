@@ -4,18 +4,6 @@
   flex-direction: column;
   min-height: 100vh;
 
-  @include m(BgC1){
-    background: $--background-color-BgC1;
-  }
-
-  @include m(BgC2){
-    background: $--background-color-BgC2;
-  }
-
-  @include m(BgC3){
-    background: $--background-color-BgC3;
-  }
-
   @include when(disabled){
     height: 100vh;
   }

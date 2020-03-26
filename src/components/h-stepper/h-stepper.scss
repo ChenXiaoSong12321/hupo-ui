@@ -29,6 +29,9 @@
     font-size: $--font-size-weak-medium-FW2;
     border-left: 1px solid $--splitline-color-FgxC1;
     border-right: 1px solid $--splitline-color-FgxC1;
+    @include when(disabled){
+      background-color: $--background-color-BgC1;
+    }
   }
   @include e(add){
     @include flexCenter;

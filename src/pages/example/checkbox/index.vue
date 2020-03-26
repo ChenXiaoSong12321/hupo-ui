@@ -39,20 +39,4 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "~@hupo/core-sass-bem";
-@include b(demo-transition) {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  @include e(item) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: $--primary-color-CM1;
-  }
-  @include e(button) {
-    margin-bottom: 20rpx;
-  }
-}
 </style>

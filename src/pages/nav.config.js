@@ -15,8 +15,8 @@ export default [
         title: 'Image 图片'
       },
       {
-        path: '/popup',
-        title: 'Popup 弹出层'
+        path: '/popup-base',
+        title: 'Popup Base 弹出层'
       },
       {
         path: '/transition',
@@ -46,6 +46,34 @@ export default [
       {
         path: '/stepper',
         title: 'Stepper 步进器'
+      },
+      {
+        path: '/stepper',
+        title: 'Stepper 步进器'
+      },
+      {
+        path: '/search-bar',
+        title: 'Search Bar 搜索'
+      },
+      {
+        path: '/picker',
+        title: 'Picker 选择器'
+      },
+      {
+        path: '/rate',
+        title: 'Rate 评分'
+      },
+      {
+        path: '/slider',
+        title: 'Slider 滑块'
+      },
+      {
+        path: '/switch',
+        title: 'Switch 开关'
+      },
+      {
+        path: '/uploader',
+        title: 'Uploader 文件上传'
       }
     ]
   },

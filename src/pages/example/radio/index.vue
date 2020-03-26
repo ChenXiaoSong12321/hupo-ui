@@ -21,34 +21,8 @@ export default {
       disabled: true,
       radio1: '1'
     }
-  },
-  methods: {
-    trigger(name) {
-      this.name = name
-      this.show = true
-      setTimeout(() => {
-        this.show = false
-      }, 500)
-    }
-
   }
 }
 </script>
 <style lang="scss">
-@import "~@hupo/core-sass-bem";
-@include b(demo-transition) {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  @include e(item) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: $--primary-color-CM1;
-  }
-  @include e(button) {
-    margin-bottom: 20rpx;
-  }
-}
 </style>
