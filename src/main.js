@@ -26,7 +26,7 @@ Vue.component('${name}', ${importName})`
   console.log(importTemp)
   console.log(vueTemp)
 }
-z(['h-button', 'h-checkbox', 'h-checkbox-group', 'h-dialog', 'h-field', 'h-field-group', 'h-icon', 'h-image', 'h-load-more', 'h-loading', 'h-navbar', 'h-page', 'h-pagination', 'h-popup', 'h-popup-base', 'h-progress', 'h-radio', 'h-radio-group', 'h-rich-text', 'h-scroll', 'h-search-bar', 'h-stepper', 'h-tab', 'h-tab-pane', 'h-tab-item', 'h-tabbar', 'h-tag', 'h-toast', 'h-transition', 'h-qrcode'])
+z(['h-button', 'h-checkbox', 'h-checkbox-group', 'h-form', 'h-form-item', 'h-dialog', 'h-field', 'h-field-group', 'h-icon', 'h-image', 'h-load-more', 'h-loading', 'h-navbar', 'h-page', 'h-pagination', 'h-popup', 'h-popup-base', 'h-progress', 'h-radio', 'h-radio-group', 'h-rich-text', 'h-scroll', 'h-search-bar', 'h-stepper', 'h-tab', 'h-tab-pane', 'h-tab-item', 'h-tabbar', 'h-tag', 'h-toast', 'h-transition', 'h-qrcode'])
 
 --------------------------------------------------------------------------------------------------------------------------
 */
@@ -34,6 +34,8 @@ z(['h-button', 'h-checkbox', 'h-checkbox-group', 'h-dialog', 'h-field', 'h-field
 import hButton from '@hupo/ui/components/h-button/h-button.vue'
 import hCheckbox from '@hupo/ui/components/h-checkbox/h-checkbox.vue'
 import hCheckboxGroup from '@hupo/ui/components/h-checkbox-group/h-checkbox-group.vue'
+import hForm from '@hupo/ui/components/h-form/h-form.vue'
+import hFormItem from '@hupo/ui/components/h-form-item/h-form-item.vue'
 import hDialog from '@hupo/ui/components/h-dialog/h-dialog.vue'
 import hField from '@hupo/ui/components/h-field/h-field.vue'
 import hFieldGroup from '@hupo/ui/components/h-field-group/h-field-group.vue'
@@ -64,6 +66,8 @@ import hQrcode from '@hupo/ui/components/h-qrcode/h-qrcode.vue'
 Vue.component('h-button', hButton)
 Vue.component('h-checkbox', hCheckbox)
 Vue.component('h-checkbox-group', hCheckboxGroup)
+Vue.component('h-form', hForm)
+Vue.component('h-form-item', hFormItem)
 Vue.component('h-dialog', hDialog)
 Vue.component('h-field', hField)
 Vue.component('h-field-group', hFieldGroup)

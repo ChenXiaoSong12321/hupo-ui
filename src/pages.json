@@ -26,6 +26,9 @@
     },
     {
       "path": "pages/example/radio/index"
+    },
+    {
+      "path": "pages/example/field/index"
     }
   ],
   "globalStyle": {

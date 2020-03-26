@@ -11,11 +11,11 @@ export default {
     this.fields = []
     this.$on('add', field => {
       this.fields.forEach(item => {
-        if (item.isLast)item.isLast = false
+        if (item.isFirst)item.isFirst = false
       })
       field.isGroup = true
-      field.isLast = true
       this.fields.push(field)
+      this.fields[0].isFirst = true
     })
     this.$on('remove', field => {
       this.fields.splice(this.fields.indexOf(field), 1)

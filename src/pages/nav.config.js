@@ -36,10 +36,6 @@ export default [
         title: 'Radio 单选框'
       },
       {
-        path: '/datetime-picker',
-        title: 'DatetimePicker 时间选择'
-      },
-      {
         path: '/field',
         title: 'Field 输入框'
       },

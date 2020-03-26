@@ -1,6 +1,6 @@
 <template>
   <view class="h-field">
-    <view class="h-field-box" :class="{'h-field-box--border': isGroup && !isLast}">
+    <view class="h-field-box" :class="{'h-field-box--border': isGroup && !isFirst}">
       <view class="h-field-icon" v-if="$slots.icon">
         <slot name="icon"></slot>
       </view>
@@ -47,7 +47,7 @@ export default {
   data() {
     return {
       isGroup: false,
-      isLast: false
+      isFirst: false
     }
   },
   mounted() {
