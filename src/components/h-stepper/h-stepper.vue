@@ -7,7 +7,7 @@
         'is-disabled': disabled || (stepValue == min)
       }"
       type="none"
-      @onclick="onChange('subtract')"
+      @tap="onChange('subtract')"
     >
       <view class="text">-</view>
     </h-button>
@@ -24,7 +24,7 @@
         'is-disabled': disabled || (stepValue == max)
       }"
       type="none"
-      @onclick="onChange('add')"
+      @tap="onChange('add')"
     >
       <view class="text">+</view>
     </h-button>

@@ -16,7 +16,7 @@
       "path": "pages/example/image/index"
     },
     {
-      "path": "pages/example/popup/index"
+      "path": "pages/example/popup-base/index"
     },
     {
       "path": "pages/example/transition/index"
@@ -35,6 +35,9 @@
     },
     {
       "path": "pages/example/stepper/index"
+    },
+    {
+      "path": "pages/example/search-bar/index"
     }
   ],
   "globalStyle": {

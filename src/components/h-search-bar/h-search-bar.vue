@@ -19,7 +19,7 @@
       <view
         v-if="showInput && clearButton === 'auto' && searchVal !== ''"
         class="h-search-bar-clear"
-        @click="clear"
+        @tap="clear"
       >
         <h-icon name="close"></h-icon>
       </view>
@@ -82,6 +82,7 @@ export default {
   methods: {
     clear() {
       this.searchVal = ''
+      this.$emit('clear')
     },
     confirm() {
       uni.hideKeyboard()

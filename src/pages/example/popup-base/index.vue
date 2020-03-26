@@ -1,5 +1,5 @@
 <template>
-  <demo-page title="Popup 弹出层">
+  <demo-page title="Popup Base 弹出层">
     <demo-block title="基本用法" padding>
       <h-button size="mediumsmall" @onclick="showBasic">展示弹出层</h-button>
       <h-popup-base :show="show.basic" @onclose="hideBasic">
