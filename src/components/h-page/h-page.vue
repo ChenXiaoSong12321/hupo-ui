@@ -1,5 +1,5 @@
 <template>
-  <view class="h-page" :class="[`h-page--${background}`, `${this.fixed ? '' : 'is-disabled'}`]">
+  <view class="h-page" :style="pageStyle" :class="{'is-disabled': !fixed}">
     <view class="h-page-popup">
       <h-dialog></h-dialog>
       <h-toast></h-toast>
