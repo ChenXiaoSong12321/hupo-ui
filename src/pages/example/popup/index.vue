@@ -51,8 +51,26 @@
             >无遮罩层</view>
           </h-popup-base>
         </view>
-        <view class="h-demo-popup-item"></view>
-        <view class="h-demo-popup-item"></view>
+        <view class="h-demo-popup-item" style="width: 150rpx;"></view>
+        <view class="h-demo-popup-item" style="width: 150rpx;"></view>
+      </demo-row>
+    </demo-block>
+    <demo-block title="动画时间" padding>
+      <demo-row>
+        <view class="h-demo-popup-item">
+          <h-button size="mediumsmall" @onclick="showDuration">默认300ms</h-button>
+          <h-popup-base :show="show.duration" @onclose="hideDuration">
+            <view class="h-demo-popup-item" style="width: 200px; height: 200px;">默认300ms</view>
+          </h-popup-base>
+        </view>
+        <view class="h-demo-popup-item">
+          <h-button size="mediumsmall" @onclick="showShortDuration">100ms</h-button>
+          <h-popup-base :show="show.shortDuration" :duration="100" @onclose="hideShortDuration">
+            <view class="h-demo-popup-item" style="width: 200px; height: 200px;">100ms</view>
+          </h-popup-base>
+        </view>
+        <view class="h-demo-popup-item" style="width: 150rpx;"></view>
+        <view class="h-demo-popup-item" style="width: 150rpx;"></view>
       </demo-row>
     </demo-block>
   </demo-page>
@@ -69,7 +87,9 @@ export default {
         left: false,
         right: false,
         mask: false,
-        noMask: false
+        noMask: false,
+        duration: false,
+        shortDuration: false
       }
     }
   },
@@ -131,6 +151,21 @@ export default {
       setTimeout(() => {
         this.toggle('noMask', false)
       }, 2000)
+    },
+
+    showDuration() {
+      this.toggle('duration', true)
+    },
+
+    hideDuration() {
+      this.toggle('duration', false)
+    },
+    showShortDuration() {
+      this.toggle('shortDuration', true)
+    },
+
+    hideShortDuration() {
+      this.toggle('shortDuration', false)
     }
 
   }

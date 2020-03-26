@@ -12,7 +12,7 @@
       <view class="h-popup-base-mask" @tap.stop="onclose" @touchmove.stop="empty"></view>
     </h-transition>
     <h-transition
-      :name="position === 'center' ? 'fade' : 'slide-' + position"
+      :name="position === 'center' ? 'fade' : 'fade-' + position"
       :duration="duration"
       :styles="computedStyles"
       :show="show"

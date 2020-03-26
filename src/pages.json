@@ -17,6 +17,9 @@
     },
     {
       "path": "pages/example/popup/index"
+    },
+    {
+      "path": "pages/example/transition/index"
     }
   ],
   "globalStyle": {

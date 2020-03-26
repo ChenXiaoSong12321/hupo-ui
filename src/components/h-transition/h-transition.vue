@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'uniTransition',
+  name: 'h-transition',
   props: {
     show: {
       type: Boolean,
@@ -123,6 +123,38 @@ export default {
     transform: translateX(-100%);
     @include when(active) {
       transform: translateX(0);
+    }
+  }
+  @include m(fade-top) {
+    transform: translateY(-100%);
+    opacity: 0;
+    @include when(active) {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @include m(fade-bottom) {
+    transform: translateY(100%);
+    opacity: 0;
+    @include when(active) {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @include m(fade-right) {
+    transform: translateX(100%);
+    opacity: 0;
+    @include when(active) {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @include m(fade-left) {
+    transform: translateX(-100%);
+    opacity: 0;
+    @include when(active) {
+      transform: translateX(0);
+      opacity: 1;
     }
   }
 }
