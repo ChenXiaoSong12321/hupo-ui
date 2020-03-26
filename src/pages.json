@@ -20,6 +20,9 @@
     },
     {
       "path": "pages/example/transition/index"
+    },
+    {
+      "path": "pages/example/checkbox/index"
     }
   ],
   "globalStyle": {
