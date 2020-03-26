@@ -16,10 +16,6 @@ export default [
         title: 'Image 图片'
       },
       {
-        path: '/col',
-        title: 'Layout 布局'
-      },
-      {
         path: '/popup',
         title: 'Popup 弹出层'
       },

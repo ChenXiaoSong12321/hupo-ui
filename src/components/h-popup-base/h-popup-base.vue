@@ -8,7 +8,6 @@
       bottom: `${caculateBottom}rpx`
     }"
   >
-    <view v-if="overlay" class="h-popup-base-overlay"></view>
     <h-transition v-if="mask" name="fade" :duration="duration" :show="show">
       <view class="h-popup-base-mask" @tap.stop="onclose" @touchmove.stop="empty"></view>
     </h-transition>

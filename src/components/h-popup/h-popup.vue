@@ -1,7 +1,6 @@
 <template>
   <h-popup-base
     :mask="mask"
-    :overlay="overlay"
     :show="show"
     :duration="duration"
     :offset="offset"
