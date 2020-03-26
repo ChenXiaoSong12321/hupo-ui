@@ -40,7 +40,7 @@
     "@dcloudio/uni-stat": "^2.0.0-24220191115006",
     "@hupo/core": "2.0.0-uni-app.3",
     "@hupo/core-request-uni": "2.0.0-uni-app.0",
-    "@hupo/core-sass-bem": "2.0.0-uni-app.2",
+    "@hupo/core-sass-bem": "2.0.0-uni-app.5",
     "flyio": "^0.6.2",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
@@ -93,15 +93,42 @@
       "bump": true
     },
     "types": [
-      {"type":"feat","section":"Features"},
-      {"type":"fix","section":"Bug Fixes"},
-      {"type":"chore","hidden":true},
-      {"type":"docs","hidden":true},
-      {"type":"style","hidden":true},
-      {"type":"refactor","section":"Refactor"},
-      {"type":"perf","section":"Perf"},
-      {"type":"test","hidden":true},
-      {"type":"revert","section":"Revert"}
+      {
+        "type": "feat",
+        "section": "Features"
+      },
+      {
+        "type": "fix",
+        "section": "Bug Fixes"
+      },
+      {
+        "type": "chore",
+        "hidden": true
+      },
+      {
+        "type": "docs",
+        "hidden": true
+      },
+      {
+        "type": "style",
+        "hidden": true
+      },
+      {
+        "type": "refactor",
+        "section": "Refactor"
+      },
+      {
+        "type": "perf",
+        "section": "Perf"
+      },
+      {
+        "type": "test",
+        "hidden": true
+      },
+      {
+        "type": "revert",
+        "section": "Revert"
+      }
     ]
   },
   "husky": {
