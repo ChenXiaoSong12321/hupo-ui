@@ -4,19 +4,24 @@
       :throttle="false"
       class="h-stepper-subtract"
       :class="{
-        'is-disabled': disabled || (stepValue === min)
+        'is-disabled': disabled || (stepValue == min)
       }"
       type="none"
       @onclick="onChange('subtract')"
     >
       <view class="text">-</view>
     </h-button>
-    <view class="h-stepper-input-wrap">{{stepValue}}</view>
+    <view
+      class="h-stepper-input-wrap"
+      :class="{
+        'is-disabled': disabled
+      }"
+    >{{stepValue}}</view>
     <h-button
       :throttle="false"
       class="h-stepper-add"
       :class="{
-        'is-disabled': disabled || (stepValue === max)
+        'is-disabled': disabled || (stepValue == max)
       }"
       type="none"
       @onclick="onChange('add')"
@@ -32,7 +37,6 @@ const MAX = 2147483647
 export default {
   name: 'h-stepper',
   props: {
-    integer: Boolean,
     disabled: Boolean,
     value: {
       type: Number,
@@ -89,6 +93,7 @@ export default {
       this.stepValue = val
     },
     onChange(type) {
+      if (this.disabled) return
       const diff = type === 'subtract' ? -this.step : +this.step
       const stepValue = Math.round((Number(this.stepValue) + diff) * 100) / 100
       this.setValue(stepValue)

@@ -40,6 +40,10 @@ export default [
         title: 'Field 输入框'
       },
       {
+        path: '/stepper',
+        title: 'Stepper 步进器'
+      },
+      {
         path: '/picker',
         title: 'Picker 选择器'
       },
@@ -54,10 +58,6 @@ export default [
       {
         path: '/slider',
         title: 'Slider 滑块'
-      },
-      {
-        path: '/stepper',
-        title: 'Stepper 步进器'
       },
       {
         path: '/switch',
