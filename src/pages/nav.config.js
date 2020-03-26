@@ -58,22 +58,6 @@ export default [
       {
         path: '/picker',
         title: 'Picker 选择器'
-      },
-      {
-        path: '/rate',
-        title: 'Rate 评分'
-      },
-      {
-        path: '/slider',
-        title: 'Slider 滑块'
-      },
-      {
-        path: '/switch',
-        title: 'Switch 开关'
-      },
-      {
-        path: '/uploader',
-        title: 'Uploader 文件上传'
       }
     ]
   },
@@ -82,16 +66,8 @@ export default [
     icon: 'passed',
     list: [
       {
-        path: '/action-sheet',
-        title: 'ActionSheet 上拉菜单'
-      },
-      {
         path: '/dialog',
         title: 'Dialog 弹出框'
-      },
-      {
-        path: '/dropdown-menu',
-        title: 'DropdownMenu 下拉菜单'
       },
       {
         path: '/loading',
