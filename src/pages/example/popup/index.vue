@@ -7,7 +7,7 @@
       </h-popup-base>
     </demo-block>
     <demo-block title="弹出位置" padding>
-      <demo-row>
+      <demo-row space-between>
         <view class="h-demo-popup-item">
           <h-button size="mediumsmall" @onclick="showTop">顶部弹出</h-button>
           <h-popup-base :show="show.top" position="top" @onclose="hideTop">
@@ -35,7 +35,7 @@
       </demo-row>
     </demo-block>
     <demo-block title="遮罩层" padding>
-      <demo-row>
+      <demo-row space-between>
         <view class="h-demo-popup-item">
           <h-button size="mediumsmall" @onclick="showMask">默认半透明</h-button>
           <h-popup-base :show="show.mask" @onclose="hideMask">
@@ -56,7 +56,7 @@
       </demo-row>
     </demo-block>
     <demo-block title="动画时间" padding>
-      <demo-row>
+      <demo-row space-between>
         <view class="h-demo-popup-item">
           <h-button size="mediumsmall" @onclick="showDuration">默认300ms</h-button>
           <h-popup-base :show="show.duration" @onclose="hideDuration">

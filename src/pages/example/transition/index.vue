@@ -1,7 +1,7 @@
 <template>
   <demo-page title="Transition 动画">
     <demo-block title="基本用法" padding>
-      <demo-row>
+      <demo-row space-between>
         <h-button
           class="h-demo-transition-button"
           size="mediumsmall"

@@ -1,14 +1,14 @@
 <template>
   <demo-page title="Image 图片">
     <demo-block title="基本用法" padding>
-      <demo-row>
+      <demo-row space-between>
         <view class="h-demo-image-item">
           <h-image :src="src" class="h-demo-image-item-image" style="width: 100px; height: 100px;"></h-image>
         </view>
       </demo-row>
     </demo-block>
     <demo-block title="填充模式（兼容h5）" padding>
-      <demo-row>
+      <demo-row space-between>
         <view class="h-demo-image-item">
           <h-image
             :src="src"
@@ -43,7 +43,7 @@
       </demo-row>
     </demo-block>
     <demo-block title="加载中提示" padding>
-      <demo-row>
+      <demo-row space-between>
         <view class="h-demo-image-item">
           <h-image class="h-demo-image-item-image" style="width: 100px; height: 100px;"></h-image>
           <view class="h-demo-image-item-text">默认提示</view>
@@ -60,7 +60,7 @@
       </demo-row>
     </demo-block>
     <demo-block title="加载失败提示" padding>
-      <demo-row>
+      <demo-row space-between>
         <view class="h-demo-image-item">
           <h-image src="x" class="h-demo-image-item-image" style="width: 100px; height: 100px;"></h-image>
           <view class="h-demo-image-item-text">默认提示</view>

@@ -1,11 +1,17 @@
 <template>
-  <view class="h-demo-row">
+  <view class="h-demo-row" :class="{'h-demo-row--between': spaceBetween}">
     <slot />
   </view>
 </template>
 
 <script>
 export default {
+  props: {
+    spaceBetween: {
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>
 
@@ -14,6 +20,8 @@ export default {
 @include b(demo-row) {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  @include m(between) {
+    justify-content: space-between;
+  }
 }
 </style>
