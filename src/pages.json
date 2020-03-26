@@ -29,6 +29,9 @@
     },
     {
       "path": "pages/example/field/index"
+    },
+    {
+      "path": "pages/example/tag/index"
     }
   ],
   "globalStyle": {

@@ -1100,10 +1100,10 @@
     "@hupo/core-promise" "^2.0.0-uni-app.0"
     "@hupo/core-url" "^2.0.0-uni-app.0"
 
-"@hupo/core-sass-bem@2.0.0-uni-app.2":
-  version "2.0.0-uni-app.2"
-  resolved "http://nexus.hupovip.cn/repository/hp-npm/@hupo/core-sass-bem/-/core-sass-bem-2.0.0-uni-app.2.tgz#5190f0e7583e3f00a289d0b4d4ea853e6f9324d2"
-  integrity sha512-xOxUc1HU9eLY3FfqUxmvR2MS55Q1mVOQlRXBqV1SM6PxiNrUcwVU2bNoKLyBKESQfjaSKlOhnXCRoqeedoIAyA==
+"@hupo/core-sass-bem@2.0.0-uni-app.5":
+  version "2.0.0-uni-app.5"
+  resolved "https://nexus.hupovip.cn/repository/hp-npm/@hupo/core-sass-bem/-/core-sass-bem-2.0.0-uni-app.5.tgz#762a07487f5c3df55cbfd2982fa58886505f838f"
+  integrity sha512-YRX//Q88PS/Wb8YLYqv2fmLEOv1fM8krhmOZ+yULwMLccXeWyiMzcWuxfGZ0B5JXlpxKDrJ8TGk3QbO6eJK4tA==
 
 "@hupo/core-timer@^2.0.0-uni-app.3":
   version "2.0.0-uni-app.3"

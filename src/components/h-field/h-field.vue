@@ -1,8 +1,8 @@
 <template>
   <view class="h-field">
     <view class="h-field-box" :class="{'h-field-box--border': isGroup && !isFirst}">
-      <view class="h-field-icon" v-if="$slots.icon">
-        <slot name="icon"></slot>
+      <view class="h-field-prepend" v-if="$slots.prepend">
+        <slot name="prepend"></slot>
       </view>
       <view class="h-field-label" v-if="label">{{label}}</view>
       <input

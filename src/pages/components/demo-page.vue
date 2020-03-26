@@ -1,5 +1,5 @@
 <template>
-  <h-page :title="title" fixed>
+  <h-page :title="title" background="BgC2" fixed>
     <slot></slot>
     <view class="h-demo-page-bottom"></view>
   </h-page>
