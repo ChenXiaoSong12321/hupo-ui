@@ -84,6 +84,7 @@
         <view class="h-demo-icon-item">
           <h-icon class="h-demo-icon-item-icon" style="color: red" name="close"></h-icon>
         </view>
+        <view class="h-demo-icon-item"></view>
       </demo-row>
     </demo-block>
     <demo-block title="图标大小" padding>

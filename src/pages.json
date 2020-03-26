@@ -11,6 +11,9 @@
     },
     {
       "path": "pages/example/icon/index"
+    },
+    {
+      "path": "pages/example/image/index"
     }
   ],
   "globalStyle": {

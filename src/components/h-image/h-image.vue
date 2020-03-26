@@ -5,19 +5,27 @@
         <image class="h-image-loaded-image" :src="url" :mode="mode"></image>
       </view>
     </block>
-    <block v-else-if="status == 'load-refresh'">
+    <block v-else-if="status == 'load-fail' || status == 'load-refresh'">
       <view class="h-image-load-fail" @tap="reloadImage">
-        <h-icon name="refresh"></h-icon>
-      </view>
-    </block>
-    <block v-else-if="status == 'load-fail'">
-      <view class="h-image-loading" :class="[`h-image-loading--${mode}`]">
-        <image class="h-image-loading-image" :src="placeholder" mode="widthFix"></image>
+        <block v-if="$slots.error">
+          <slot name="error"></slot>
+        </block>
+        <block v-else-if="status == 'load-refresh'">
+          <h-icon name="refresh" class="h-image-load-fail-icon"></h-icon>
+        </block>
+        <block v-else>
+          <h-icon name="img-load-error" class="h-image-load-fail-icon"></h-icon>
+        </block>
       </view>
     </block>
     <block v-else>
       <view class="h-image-loading" :class="[`h-image-loading--${mode}`]">
-        <image class="h-image-loading-image" :src="placeholder" mode="widthFix"></image>
+        <block v-if="$slots.loading">
+          <slot name="loading"></slot>
+        </block>
+        <block v-else>
+          <image class="h-image-loading-image" :src="placeholder" mode="widthFix"></image>
+        </block>
       </view>
       <!-- 隐藏的image，用于隐士加载 -->
       <image
@@ -99,10 +107,9 @@ export default {
       this.$emit('error', $event)
     },
     reloadImage() {
-      if (this.status == 'load-complete') return false
-      let i = this.i
-      this.url = url.addUrlParam({ i }, this.src)
-      this.i = i++
+      if (this.status == 'load-complete' || this.status == 'load-fail') return false
+      this.url = url.addUrlParam({ i: this.i }, this.src)
+      this.i++
       this.status = 'loading'
     }
   }
