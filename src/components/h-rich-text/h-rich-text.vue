@@ -65,6 +65,7 @@ export default {
         selfNodes.set(0, nodes)
       }
       this.selfNodes = []
+      // eslint-disable-next-line no-unused-vars
       for (const [_, item] of selfNodes) {
         this.selfNodes.push(item)
         await this.$nextTick()
@@ -76,5 +77,5 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "./h-rich-text.scss";
+@import './h-rich-text.scss';
 </style>

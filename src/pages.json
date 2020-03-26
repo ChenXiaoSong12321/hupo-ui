@@ -32,6 +32,18 @@
     },
     {
       "path": "pages/example/tag/index"
+    },
+    {
+      "path": "pages/example/progress/index"
+    },
+    {
+      "path": "pages/example/qrcode/index"
+    },
+    {
+      "path": "pages/example/rich-text/index"
+    },
+    {
+      "path": "pages/example/toast/index"
     }
   ],
   "globalStyle": {

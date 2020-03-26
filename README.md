@@ -3,37 +3,13 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [hupo-ui](#hupo-ui)
-    - [如何开发](#%E5%A6%82%E4%BD%95%E5%BC%80%E5%8F%91)
-    - [目录概述](#%E7%9B%AE%E5%BD%95%E6%A6%82%E8%BF%B0)
+    - [目录概述](#%e7%9b%ae%e5%bd%95%e6%a6%82%e8%bf%b0)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # hupo-ui
 
-本仓库为 `cml` 框架的扩展组件库，提供丰富的组件能力
-
-详细见[cml扩展组件文档](https://cmljs.org/doc/component/expand/expand.html)
-
-例如:
-
-```html
-<script cml-type="json">
-{
-  "base": {
-      "usingComponents": {
-        "h-dialog": "hupo-ui/components/h-dialog/h-dialog"
-      }
-  }
-}
-</script>
-```
-
-### 如何开发
-
-```javascript
-npm install
-cml dev  //开始开发
-```
+本仓库为琥珀亲子的扩展组件库，提供丰富的组件能力
 
 ### 目录概述
 
