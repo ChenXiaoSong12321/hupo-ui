@@ -23,6 +23,9 @@
     },
     {
       "path": "pages/example/checkbox/index"
+    },
+    {
+      "path": "pages/example/radio/index"
     }
   ],
   "globalStyle": {

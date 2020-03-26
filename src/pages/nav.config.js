@@ -32,6 +32,10 @@ export default [
         title: 'Checkbox 复选框'
       },
       {
+        path: '/radio',
+        title: 'Radio 单选框'
+      },
+      {
         path: '/datetime-picker',
         title: 'DatetimePicker 时间选择'
       },
@@ -42,10 +46,6 @@ export default [
       {
         path: '/picker',
         title: 'Picker 选择器'
-      },
-      {
-        path: '/radio',
-        title: 'Radio 单选框'
       },
       {
         path: '/rate',

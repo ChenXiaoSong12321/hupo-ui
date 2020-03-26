@@ -1,15 +1,12 @@
 <template>
   <view class="h-radio">
     <view class="h-radio-wrap" :class="radioClass" @tap="changeSelect">
-      <block v-if="disabled">
-        <h-icon class="h-radio-select" name="radio-disabled"></h-icon>
-      </block>
-      <block v-else-if="innerChecked">
-        <h-icon class="h-radio-select" name="success"></h-icon>
-      </block>
-      <block v-else>
-        <h-icon class="h-radio-select" name="radio-l"></h-icon>
-      </block>
+      <view class="h-radio-select">
+        <h-icon
+          class="h-radio-select-icon"
+          :name=" innerChecked ? 'success' : disabled ? 'radio-disabled' :'radio-l'"
+        ></h-icon>
+      </view>
       <text class="h-radio-label" v-if="$slots.default || label">
         <slot></slot>
         <block v-if="!$slots.default">{{label}}</block>
