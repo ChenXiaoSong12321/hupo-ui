@@ -40,10 +40,6 @@ export default [
         title: 'Field 输入框'
       },
       {
-        path: '/search',
-        title: 'Search 搜索'
-      },
-      {
         path: '/stepper',
         title: 'Stepper 步进器'
       },
@@ -104,6 +100,10 @@ export default [
         title: 'Qrcode 二维码'
       },
       {
+        path: '/load-more',
+        title: 'LoadMore 加载更多'
+      },
+      {
         path: '/rich-text',
         title: 'RichText 富文本'
       }
@@ -113,9 +113,8 @@ export default [
     groupName: '导航组件',
     icon: 'https://img.yzcdn.cn/vant/nav-0401.svg',
     list: [
-
       {
-        path: '/nav-bar',
+        path: '/navbar',
         title: 'NavBar 导航栏'
       },
       {

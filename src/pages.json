@@ -50,6 +50,18 @@
     },
     {
       "path": "pages/example/search-bar/index"
+    },
+    {
+      "path": "pages/example/tab/index"
+    },
+    {
+      "path": "pages/example/navbar/index"
+    },
+    {
+      "path": "pages/example/load-more/index"
+    },
+    {
+      "path": "pages/example/tabbar/index"
     }
   ],
   "globalStyle": {
