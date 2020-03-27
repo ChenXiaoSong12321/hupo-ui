@@ -48,10 +48,6 @@ export default [
         title: 'Stepper 步进器'
       },
       {
-        path: '/stepper',
-        title: 'Stepper 步进器'
-      },
-      {
         path: '/search-bar',
         title: 'Search Bar 搜索'
       },

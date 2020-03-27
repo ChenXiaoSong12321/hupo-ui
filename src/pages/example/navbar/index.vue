@@ -38,7 +38,7 @@
     </demo-block>
     <demo-block :title="navbarFixed.title">
       <view class="h-demo-navbar-btn-item">
-        <h-button type="primary" size="mediumsmall" @onclick="toggleFixed()">浮动切换</h-button>
+        <h-button type="primary" size="mediumsmall" @onclick="toggleFixed()">固顶切换</h-button>
       </view>
 
       <h-navbar
@@ -49,6 +49,7 @@
         :fixed="navbarFixed.fixed"
       ></h-navbar>
     </demo-block>
+    <view style="width:750rpx;height:500rpx"></view>
   </demo-page>
 </template>
 
@@ -88,7 +89,7 @@ export default {
       navbarFixed: {
         type: 'primary',
         loading: false,
-        title: '浮动状态',
+        title: '固顶状态',
         showHomeIcon: true,
         fixed: false
       }

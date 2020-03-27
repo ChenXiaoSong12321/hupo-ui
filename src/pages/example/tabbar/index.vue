@@ -35,7 +35,7 @@ export default {
     }
   },
   created() {
-    this.title = this.tabbar[0].babel
+    this.title = this.tabbar[0].label
     this.currentTabbar = this.tabbar[0].value
   },
   // computed: {
