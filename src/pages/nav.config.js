@@ -19,6 +19,10 @@ export default [
         title: 'Popup Base 弹出层'
       },
       {
+        path: '/page',
+        title: 'Page 页面框架'
+      },
+      {
         path: '/transition',
         title: 'Transition 动画'
       }
@@ -64,18 +68,6 @@ export default [
       {
         path: '/dialog',
         title: 'Dialog 弹出框'
-      },
-      {
-        path: '/loading',
-        title: 'Loading 加载'
-      },
-      {
-        path: '/notify',
-        title: 'Notify 消息通知'
-      },
-      {
-        path: '/overlay',
-        title: 'Overlay 遮罩层'
       },
       {
         path: '/toast',

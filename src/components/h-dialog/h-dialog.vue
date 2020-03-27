@@ -121,7 +121,7 @@ export default {
 
     // 以下为处理微信按钮开放能力的逻辑
     handleUserInfoResponse(event) {
-      const detail = event.detail
+      const detail = event
       const type = filterType(detail, 'getUserInfo')
       this.__handleOpenDataResponse({
         type,
@@ -155,5 +155,5 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "./h-dialog.scss";
+@import './h-dialog.scss';
 </style>

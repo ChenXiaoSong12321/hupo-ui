@@ -62,6 +62,12 @@
     },
     {
       "path": "pages/example/tabbar/index"
+    },
+    {
+      "path": "pages/example/dialog/index"
+    },
+    {
+      "path": "pages/example/page/index"
     }
   ],
   "globalStyle": {
