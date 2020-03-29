@@ -50,10 +50,6 @@ export default [
       {
         path: '/search-bar',
         title: 'Search Bar 搜索'
-      },
-      {
-        path: '/picker',
-        title: 'Picker 选择器'
       }
     ]
   },
