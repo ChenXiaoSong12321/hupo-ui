@@ -23,6 +23,10 @@ export default [
         title: 'Page 页面框架'
       },
       {
+        path: '/scroll',
+        title: 'Scroll 滚动区域'
+      },
+      {
         path: '/transition',
         title: 'Transition 动画'
       }

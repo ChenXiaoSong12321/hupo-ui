@@ -71,6 +71,9 @@
     },
     {
       "path": "pages/example/form/index"
+    },
+    {
+      "path": "pages/example/scroll/index"
     }
   ],
   "globalStyle": {
