@@ -107,7 +107,6 @@ export default [
   },
   {
     groupName: '导航组件',
-    icon: 'https://img.yzcdn.cn/vant/nav-0401.svg',
     list: [
       {
         path: '/navbar',
