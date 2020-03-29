@@ -74,6 +74,9 @@
     },
     {
       "path": "pages/example/scroll/index"
+    },
+    {
+      "path": "pages/example/pagination/index"
     }
   ],
   "globalStyle": {

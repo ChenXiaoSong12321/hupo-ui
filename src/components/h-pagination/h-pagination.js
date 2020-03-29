@@ -3,10 +3,6 @@ export default {
   name: 'h-pagination',
   mixins: [scrollMixin],
   props: {
-    start: {
-      type: String,
-      default: '1'
-    },
     step: {
       type: [String, Number],
       default: 1
@@ -37,7 +33,6 @@ export default {
       if (!this.loading && this.pageIndex <= this.pages) {
         this.$emit('pullup', {
           step: this.step,
-          start: this.start,
           pageIndex: this.pageIndex
         })
         this.pageIndex += 1

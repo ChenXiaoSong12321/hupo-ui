@@ -27,6 +27,10 @@ export default [
         title: 'Scroll 滚动区域'
       },
       {
+        path: '/pagination',
+        title: 'Pagination 分页'
+      },
+      {
         path: '/transition',
         title: 'Transition 动画'
       }

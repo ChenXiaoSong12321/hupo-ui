@@ -1,8 +1,8 @@
 <template>
-  <h-page title="Scroll 滚动区域" :loading="loading">
+  <h-page title="Scroll 滚动区域">
     <h-scroll @pullup="pullup">
       <demo-block title="滚动区域自适应" padding></demo-block>
-      <view class="h-demo-scroll-cell" v-for="(item, index) in list" :key="index">文本</view>
+      <view class="h-demo-scroll-cell" v-for="(item, index) in list" :key="index">文本 {{index}}</view>
     </h-scroll>
   </h-page>
 </template>
