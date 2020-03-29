@@ -76,11 +76,6 @@
     "backgroundColor": "#FAFAFA",
     "onReachBottomDistance": 200,
     "navigationStyle": "custom",
-    "enablePullDownRefresh": false,
-    "mp-weixin": {
-      "usingComponents": {
-        "txv-video": "plugin://tencentvideo/video"
-      }
-    }
+    "enablePullDownRefresh": false
   }
 }
