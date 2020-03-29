@@ -29,54 +29,14 @@
 </template>
 
 <script>
-/**
- * 电话号码
- * @param {string} phone
- * @returns {Boolean}
- */
-function validPhone(phone) {
-  var phoneReg = /^[1][3-9][0-9]{9}$/
-  return phoneReg.test(phone)
-}
-
-/**
- * 身份证校验
- * @param {number} idcard 身份证号
- * @returns {Boolean}
- */
-function validIDCard(idcard) {
-  var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
-  return reg.test(idcard)
-}
 export default {
   data() {
     return {
-      form: {
-        username1: '',
-        username2: '',
-        password2: '',
-        search: '',
-        code: ''
-      }
-    }
-  },
-  methods: {
-    IDCard(rule, value, callback) {
-      if (value && !validIDCard(value)) {
-        callback(new Error('请填写正确的身份证号'))
-      } else {
-        callback()
-      }
-    },
-    phone(rule, value, callback) {
-      if (value && !validPhone(value)) {
-        callback(new Error('请填写正确的手机号'))
-      } else {
-        callback()
-      }
-    },
-    submit() {
-      this.$refs.form.validate()
+      username1: '',
+      username2: '',
+      password2: '',
+      search: '',
+      code: ''
     }
   }
 }

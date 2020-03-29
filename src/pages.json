@@ -68,6 +68,9 @@
     },
     {
       "path": "pages/example/page/index"
+    },
+    {
+      "path": "pages/example/form/index"
     }
   ],
   "globalStyle": {

@@ -52,8 +52,8 @@ export default [
         title: 'Search Bar 搜索'
       },
       {
-        path: '/picker',
-        title: 'Picker 选择器'
+        path: '/form',
+        title: 'Form 表单'
       }
     ]
   },
