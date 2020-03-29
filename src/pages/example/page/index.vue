@@ -4,6 +4,16 @@
       title="h-page 组件自带 h-dialog h-toast h-load-more h-navbar 组件，并兼容刘海屏、IphoneX底部"
       padding
     ></demo-block>
+    <demo-block title="加载状态" padding>
+      <demo-row>
+        <h-button
+          type="primary"
+          class="h-demo-page-btnitem"
+          size="mediumsmall"
+          @onclick="loadingToggle()"
+        >页面加载</h-button>
+      </demo-row>
+    </demo-block>
     <demo-block title="跳转链接" padding>
       <demo-row>
         <h-button
@@ -45,9 +55,7 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => {
-      this.loading = false
-    }, 1500)
+    this.loadingToggle()
   },
   methods: {
     dialog() {
@@ -69,13 +77,19 @@ export default {
       uni.navigateTo({
         url: `/pages/example/navbar/index`
       })
+    },
+    loadingToggle() {
+      this.loading = true
+      setTimeout(() => {
+        this.loading = false
+      }, 1500)
     }
   }
 
 }
 </script>
 <style lang="scss">
-@import '~@hupo/core-sass-bem';
+@import "~@hupo/core-sass-bem";
 @include b(demo-page) {
   @include e(btnitem) {
     margin: 0 15px 15px 0;
