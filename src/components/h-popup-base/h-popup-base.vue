@@ -85,6 +85,11 @@ export default {
     this.caculateTop = this._calcTop(0)
     this.caculateBottom = this._calcBottom(0)
   },
+  beforeDestroy() {
+    // #ifdef H5
+    this.$el.parentNode.removeChild(this.$el)
+    // #endif
+  },
   methods: {
     toggle(val) {
       val && this.showPopup()

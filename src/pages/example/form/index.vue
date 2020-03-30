@@ -27,7 +27,7 @@
             </h-form-item>
           </h-field-group>
           <view class="h-demo-form-content-button">
-            <h-button @tap="submit('form2')">提交</h-button>
+            <h-button @onclick="submit('form2')">提交</h-button>
           </view>
         </h-form>
       </view>
@@ -44,7 +44,7 @@
             </h-form-item>
           </h-field-group>
           <view class="h-demo-form-content-button">
-            <h-button @tap="submit('form3')">提交</h-button>
+            <h-button @onclick="submit('form3')">提交</h-button>
           </view>
         </h-form>
       </view>
@@ -61,7 +61,7 @@
             </h-form-item>
           </h-field-group>
           <view class="h-demo-form-content-button">
-            <h-button @tap="submit('form4')">提交</h-button>
+            <h-button @onclick="submit('form4')">提交</h-button>
           </view>
         </h-form>
       </view>

@@ -23,5 +23,8 @@
   },
   "mp-qq": {
     "usingComponents": true
+  },
+  "h5": {
+    "template": "template.h5.html"
   }
 }
