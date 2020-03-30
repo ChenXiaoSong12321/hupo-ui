@@ -94,7 +94,7 @@ export default {
       this.$emit('change', value)
       // 避免闪烁，优先处理show，后面再循环处理hide
       const currentItem = this.items.find(item => item.name === value)
-      if (currentItem.setCurrentName) {
+      if (currentItem && currentItem.setCurrentName) {
         currentItem.setCurrentName(value)
         currentItem.$nextTick(() => {
           this.items.forEach(item => {
@@ -112,7 +112,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "~@hupo/core-sass-bem";
+@import '~@hupo/core-sass-bem';
 @include b(tab) {
   @include e(label) {
     width: 100%;
