@@ -24,17 +24,17 @@ export default {
   },
   watch: {
     label() {
-      this.$parent.$emit('update', this)
+      this._dispatch('h-tab', 'update', this)
     },
     name(newName, oldName) {
-      this.$parent.$emit('updateName', newName, oldName)
+      this._dispatch('h-tab', 'updateName', newName, oldName)
     }
   },
   created() {
-    this.$parent.$emit('add', this)
+    this._dispatch('h-tab', 'add', this)
   },
   beforeDestroy() {
-    this.$parent.$emit('remove', this)
+    this._dispatch('h-tab', 'remove', this)
   },
   methods: {
     setCurrentName(currentName) {
@@ -48,7 +48,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "~@hupo/core-sass-bem";
+@import '~@hupo/core-sass-bem';
 @include b(tab-pane) {
   display: none;
   @include when(active) {
