@@ -67,6 +67,7 @@ export default {
       this.tabs.push(tab)
       if (!this.currentName) this.setCurrentName(item.name)
     })
+
     this.$on('update', item => {
       const currentItemIndex = this.tabs.findIndex(v => v.name === item.name)
       this.tabs[currentItemIndex].label = item.label
