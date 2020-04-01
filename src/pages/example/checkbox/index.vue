@@ -1,11 +1,11 @@
 <template>
   <demo-page title="Checkbox 复选框">
     <demo-block title="基本用法" padding>
-      <h-checkbox v-model="checkbox1">复选框</h-checkbox>
+      <h-checkbox v-model="checkbox1" label=" ">复选框</h-checkbox>
     </demo-block>
     <demo-block title="禁用状态" padding>
-      <h-checkbox disabled>复选框</h-checkbox>
-      <h-checkbox disabled v-model="disabled">复选框</h-checkbox>
+      <h-checkbox disabled label=" ">复选框</h-checkbox>
+      <h-checkbox disabled v-model="disabled" label=" ">复选框</h-checkbox>
     </demo-block>
     <demo-block title="复选框组" padding>
       <h-checkbox-group v-model="list">

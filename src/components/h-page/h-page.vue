@@ -4,6 +4,7 @@
       <h-dialog></h-dialog>
       <h-toast></h-toast>
     </view>
+    <!-- #ifndef MP-ALIPAY -->
     <h-navbar
       :type="type"
       :loading="navbarLoading"
@@ -11,6 +12,7 @@
       :showHomeIcon="showHomeIcon"
       :fixed="fixed"
     ></h-navbar>
+    <!-- #endif -->
     <view class="h-page-loading" v-if="loading || !loaded">
       <h-load-more loading></h-load-more>
     </view>
@@ -34,5 +36,5 @@ export default HPage
 </script>
 
 <style lang="scss">
-@import "./h-page.scss";
+@import './h-page.scss';
 </style>

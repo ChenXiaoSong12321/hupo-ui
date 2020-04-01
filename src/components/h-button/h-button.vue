@@ -1,6 +1,6 @@
 <template>
   <block>
-    <!--  #ifdef MP-WEIXIN -->
+    <!--  #ifndef H5 -->
     <button
       type="keng"
       class="h-button"
@@ -17,6 +17,7 @@
       <slot></slot>
     </button>
     <!--  #endif -->
+
     <!--  #ifdef H5 -->
     <view class="h-button" :class="stateClass" :style="customStyle" @tap="handleTap">
       <slot></slot>
@@ -56,5 +57,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./h-button.scss";
+@import './h-button.scss';
 </style>

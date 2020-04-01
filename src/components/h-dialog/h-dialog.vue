@@ -13,6 +13,7 @@
         </view>
       </view>
       <view class="h-dialog-footer">
+        <!-- #ifndef MP-ALIPAY -->
         <h-button
           v-for="(item, index) in buttons"
           :key="index"
@@ -33,6 +34,30 @@
             :class="item.type==='confirm'?'is-confirm':'is-cancel'"
           >{{ item.text }}</view>
         </h-button>
+        <!-- #endif -->
+        <!-- #ifdef MP-ALIPAY -->
+        <view class="h-dialog-footer-button-no-type">
+          <h-button
+            v-for="(item, index) in buttons"
+            :key="index"
+            size="medium"
+            type="none"
+            :class="{'is-cancel':item.type!=='confirm'}"
+            :data-open-type="item.openType"
+            :data-type="item.type"
+            :open-type="item.openType"
+            @onclick="handleButtclick(item)"
+            @getuserinfo="handleUserInfoResponse"
+            @getphonenumber="handlePhoneResponse"
+            @opensetting="handleOpenSettingResponse"
+          >
+            <view
+              class="button-text"
+              :class="item.type==='confirm'?'is-confirm':'is-cancel'"
+            >{{ item.text }}</view>
+          </h-button>
+        </view>
+        <!-- #endif -->
       </view>
     </view>
   </h-popup-base>

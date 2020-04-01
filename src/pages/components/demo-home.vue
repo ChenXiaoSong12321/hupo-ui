@@ -1,7 +1,9 @@
 <template>
   <view class="h-demo-home">
     <view class="h-demo-home-title">
-      <h-image mode="widthFix" class="h-demo-home-image" :src="logo" />
+      <view class="h-demo-home-image">
+        <h-image mode="widthFix" :src="logo" />
+      </view>
       <view class="h-demo-home-text">Hupo UI 组件库</view>
     </view>
     <view class="h-demo-home-desc">基于uni-app开发，轻量、可靠的小程序 UI 组件库</view>
@@ -28,7 +30,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@hupo/core-sass-bem";
+@import '~@hupo/core-sass-bem';
 @include b(demo-home) {
   box-sizing: border-box;
   width: 100%;

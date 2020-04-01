@@ -78,10 +78,10 @@
     </demo-block>
     <demo-block title="图标颜色" padding>
       <demo-row>
-        <view class="h-demo-icon-item">
+        <view class="h-demo-icon-item" style="color: #43C678">
           <h-icon class="h-demo-icon-item-icon" style="color: #43C678" name="success"></h-icon>
         </view>
-        <view class="h-demo-icon-item">
+        <view class="h-demo-icon-item" style="color: red">
           <h-icon class="h-demo-icon-item-icon" style="color: red" name="close"></h-icon>
         </view>
         <view class="h-demo-icon-item"></view>
@@ -89,17 +89,17 @@
     </demo-block>
     <demo-block title="图标大小" padding>
       <demo-row>
-        <view class="h-demo-icon-item">
+        <view class="h-demo-icon-item" style="color: #43C678; font-size: 100rpx;">
           <h-icon
             class="h-demo-icon-item-icon"
             style="color: #43C678; font-size: 100rpx;"
             name="success"
           ></h-icon>
         </view>
-        <view class="h-demo-icon-item">
+        <view class="h-demo-icon-item" style="color: red; font-size: 80rpx;">
           <h-icon class="h-demo-icon-item-icon" style="color: red; font-size: 80rpx;" name="close"></h-icon>
         </view>
-        <view class="h-demo-icon-item">
+        <view class="h-demo-icon-item" style="color: #FFBD3B; font-size: 60rpx;">
           <h-icon
             class="h-demo-icon-item-icon"
             style="color: #FFBD3B; font-size: 60rpx;"
@@ -117,7 +117,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "~@hupo/core-sass-bem";
+@import '~@hupo/core-sass-bem';
 @include b(demo-icon) {
   @include e(item) {
     width: 33.33%;
@@ -127,6 +127,7 @@ export default {
     flex-direction: column;
     height: 160rpx;
     color: #666;
+    font-size: 50rpx;
   }
   @include e(item-icon) {
     display: block;

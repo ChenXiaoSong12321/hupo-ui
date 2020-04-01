@@ -2,51 +2,33 @@
   <demo-page title="Transition 动画">
     <demo-block title="基本用法" padding>
       <demo-row space-between>
-        <h-button
-          class="h-demo-transition-button"
-          size="mediumsmall"
-          @onclick="trigger('fade')"
-        >fade</h-button>
-        <h-button
-          class="h-demo-transition-button"
-          size="mediumsmall"
-          @onclick="trigger('fade-top')"
-        >fade-top</h-button>
-        <h-button
-          class="h-demo-transition-button"
-          size="mediumsmall"
-          @onclick="trigger('fade-bottom')"
-        >fade-bottom</h-button>
-        <h-button
-          class="h-demo-transition-button"
-          size="mediumsmall"
-          @onclick="trigger('fade-right')"
-        >fade-right</h-button>
-        <h-button
-          class="h-demo-transition-button"
-          size="mediumsmall"
-          @onclick="trigger('fade-left')"
-        >fade-left</h-button>
-        <h-button
-          class="h-demo-transition-button"
-          size="mediumsmall"
-          @onclick="trigger('slide-top')"
-        >slide-top</h-button>
-        <h-button
-          class="h-demo-transition-button"
-          size="mediumsmall"
-          @onclick="trigger('slide-bottom')"
-        >slide-bottom</h-button>
-        <h-button
-          class="h-demo-transition-button"
-          size="mediumsmall"
-          @onclick="trigger('slide-right')"
-        >slide-right</h-button>
-        <h-button
-          class="h-demo-transition-button"
-          size="mediumsmall"
-          @onclick="trigger('slide-left')"
-        >slide-left</h-button>
+        <view class="h-demo-transition-button">
+          <h-button size="mediumsmall" @onclick="trigger('fade')">fade</h-button>
+        </view>
+        <view class="h-demo-transition-button">
+          <h-button size="mediumsmall" @onclick="trigger('fade-top')">fade-top</h-button>
+        </view>
+        <view class="h-demo-transition-button">
+          <h-button size="mediumsmall" @onclick="trigger('fade-bottom')">fade-bottom</h-button>
+        </view>
+        <view class="h-demo-transition-button">
+          <h-button size="mediumsmall" @onclick="trigger('fade-right')">fade-right</h-button>
+        </view>
+        <view class="h-demo-transition-button">
+          <h-button size="mediumsmall" @onclick="trigger('fade-left')">fade-left</h-button>
+        </view>
+        <view class="h-demo-transition-button">
+          <h-button size="mediumsmall" @onclick="trigger('slide-top')">slide-top</h-button>
+        </view>
+        <view class="h-demo-transition-button">
+          <h-button size="mediumsmall" @onclick="trigger('slide-bottom')">slide-bottom</h-button>
+        </view>
+        <view class="h-demo-transition-button">
+          <h-button size="mediumsmall" @onclick="trigger('slide-right')">slide-right</h-button>
+        </view>
+        <view class="h-demo-transition-button">
+          <h-button size="mediumsmall" @onclick="trigger('slide-left')">slide-left</h-button>
+        </view>
       </demo-row>
     </demo-block>
     <view class="h-demo-transition">
@@ -78,7 +60,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "~@hupo/core-sass-bem";
+@import '~@hupo/core-sass-bem';
 @include b(demo-transition) {
   position: fixed;
   top: 50%;

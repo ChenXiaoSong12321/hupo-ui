@@ -108,10 +108,12 @@ export default [
   {
     groupName: '导航组件',
     list: [
+      //  #ifndef MP-ALIPAY
       {
         path: '/navbar',
         title: 'NavBar 导航栏'
       },
+      // #endif
       {
         path: '/tab',
         title: 'Tab 标签页'

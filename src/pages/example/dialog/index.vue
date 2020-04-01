@@ -2,51 +2,48 @@
   <demo-page title="Dialog 弹出框">
     <demo-block title="文字提示" padding>
       <demo-row>
-        <h-button
-          type="primary"
-          class="h-demo-dialog-btnitem"
-          size="mediumsmall"
-          @onclick="alert()"
-        >提示弹窗</h-button>
-        <h-button
-          type="primary"
-          :styles="{width:'230rpx'}"
-          class="h-demo-dialog-btnitem"
-          size="mediumsmall"
-          @onclick="alertNoTitle()"
-        >提示弹窗(无标题)</h-button>
+        <view class="h-demo-dialog-btnitem">
+          <h-button type="primary" size="mediumsmall" @onclick="alert()">提示弹窗</h-button>
+        </view>
+        <view class="h-demo-dialog-btnitem">
+          <h-button
+            type="primary"
+            :styles="{width:'230rpx'}"
+            size="mediumsmall"
+            @onclick="alertNoTitle()"
+          >提示弹窗(无标题)</h-button>
+        </view>
       </demo-row>
     </demo-block>
     <demo-block title="文字提示" padding>
       <demo-row>
-        <h-button
-          type="primary"
-          class="h-demo-dialog-btnitem"
-          size="mediumsmall"
-          @onclick="confirm()"
-        >确认弹窗</h-button>
+        <view class="h-demo-dialog-btnitem">
+          <h-button type="primary" size="mediumsmall" @onclick="confirm()">确认弹窗</h-button>
+        </view>
       </demo-row>
     </demo-block>
     <demo-block title="rich-text 支持" padding>
       <demo-row>
-        <h-button
-          type="primary"
-          :styles="{width:'230rpx'}"
-          class="h-demo-dialog-btnitem"
-          size="mediumsmall"
-          @onclick="confirmRichText()"
-        >rich-text内容</h-button>
+        <view class="h-demo-dialog-btnitem">
+          <h-button
+            type="primary"
+            :styles="{width:'230rpx'}"
+            size="mediumsmall"
+            @onclick="confirmRichText()"
+          >rich-text内容</h-button>
+        </view>
       </demo-row>
     </demo-block>
     <demo-block title="open-type 确认" padding>
       <demo-row>
-        <h-button
-          type="primary"
-          :styles="{width:'230rpx'}"
-          class="h-demo-dialog-btnitem"
-          size="mediumsmall"
-          @onclick="confirmOpenType()"
-        >open-type 确认</h-button>
+        <view class="h-demo-dialog-btnitem">
+          <h-button
+            type="primary"
+            :styles="{width:'230rpx'}"
+            size="mediumsmall"
+            @onclick="confirmOpenType()"
+          >open-type 确认</h-button>
+        </view>
       </demo-row>
     </demo-block>
   </demo-page>

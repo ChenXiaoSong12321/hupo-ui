@@ -2,41 +2,75 @@
   <demo-page title="Button 按钮">
     <demo-block title="按钮类型" padding>
       <demo-row>
-        <h-button type="primary" class="h-demo-button-item" size="mediumsmall">主要按钮</h-button>
-        <h-button type="secondary" class="h-demo-button-item" size="mediumsmall">二级按钮</h-button>
-        <h-button type="preheat" class="h-demo-button-item" size="mediumsmall">成功按钮</h-button>
-        <h-button type="forbidden" class="h-demo-button-item" size="mediumsmall">禁用按钮</h-button>
-        <h-button type="member" class="h-demo-button-item" size="mediumsmall">会员按钮</h-button>
-        <h-button type="specialmember" class="h-demo-button-item" size="mediumsmall">黑金会员</h-button>
+        <view class="h-demo-button-item">
+          <h-button type="primary" size="mediumsmall">主要按钮</h-button>
+        </view>
+        <view class="h-demo-button-item">
+          <h-button type="secondary" size="mediumsmall">二级按钮</h-button>
+        </view>
+        <view class="h-demo-button-item">
+          <h-button type="preheat" size="mediumsmall">成功按钮</h-button>
+        </view>
+        <view class="h-demo-button-item">
+          <h-button type="forbidden" size="mediumsmall">禁用按钮</h-button>
+        </view>
+        <view class="h-demo-button-item">
+          <h-button type="member" size="mediumsmall">会员按钮</h-button>
+        </view>
+        <view class="h-demo-button-item">
+          <h-button type="specialmember" size="mediumsmall">黑金会员</h-button>
+        </view>
       </demo-row>
     </demo-block>
     <demo-block title="朴素按钮" padding>
       <demo-row>
-        <h-button type="primary" class="h-demo-button-item" size="mediumsmall" plain>主要按钮</h-button>
-        <h-button type="secondary" class="h-demo-button-item" size="mediumsmall" plain>二级按钮</h-button>
-        <h-button type="preheat" class="h-demo-button-item" size="mediumsmall" plain>成功按钮</h-button>
-        <h-button type="forbidden" class="h-demo-button-item" size="mediumsmall" plain>禁用按钮</h-button>
+        <view class="h-demo-button-item">
+          <h-button type="primary" size="mediumsmall" plain>主要按钮</h-button>
+        </view>
+        <view class="h-demo-button-item">
+          <h-button type="secondary" size="mediumsmall" plain>二级按钮</h-button>
+        </view>
+        <view class="h-demo-button-item">
+          <h-button type="preheat" size="mediumsmall" plain>成功按钮</h-button>
+        </view>
+        <view class="h-demo-button-item">
+          <h-button type="forbidden" size="mediumsmall" plain>禁用按钮</h-button>
+        </view>
       </demo-row>
     </demo-block>
     <demo-block title="按钮尺寸" padding>
       <demo-row>
-        <h-button type="primary" size="max" class="h-demo-button-item">大号按钮</h-button>
-        <h-button type="primary" size="medium" class="h-demo-button-item">普通按钮</h-button>
-        <h-button type="primary" size="mediumsmall" class="h-demo-button-item">小型按钮</h-button>
-        <h-button type="primary" size="mini" class="h-demo-button-item">迷你按钮</h-button>
+        <view class="h-demo-button-item">
+          <h-button type="primary" size="max">大号按钮</h-button>
+        </view>
+        <view class="h-demo-button-item">
+          <h-button type="primary" size="medium">普通按钮</h-button>
+        </view>
+        <view class="h-demo-button-item">
+          <h-button type="primary" size="mediumsmall">小型按钮</h-button>
+        </view>
+        <view class="h-demo-button-item">
+          <h-button type="primary" size="mini">迷你按钮</h-button>
+        </view>
       </demo-row>
     </demo-block>
     <demo-block title="圆角按钮" padding>
       <demo-row>
-        <h-button type="secondary" size="medium" class="h-demo-button-item" :radius="false">方形按钮</h-button>
-        <h-button type="secondary" size="medium" class="h-demo-button-item">圆角按钮</h-button>
+        <view class="h-demo-button-item">
+          <h-button type="secondary" size="medium" :radius="false">方形按钮</h-button>
+        </view>
+        <view class="h-demo-button-item">
+          <h-button type="secondary" size="medium">圆角按钮</h-button>
+        </view>
       </demo-row>
     </demo-block>
     <demo-block title="图标按钮" padding>
       <demo-row>
-        <h-button type="secondary" size="medium" class="h-demo-button-item" :radius="false">
-          <h-icon name="success-l" style="margin-right: 10rpx; font-size: 24rpx"></h-icon>确认
-        </h-button>
+        <view class="h-demo-button-item">
+          <h-button type="secondary" size="medium" :radius="false">
+            <h-icon name="success-l" style="margin-right: 10rpx; font-size: 24rpx"></h-icon>确认
+          </h-button>
+        </view>
       </demo-row>
     </demo-block>
   </demo-page>
@@ -68,7 +102,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "~@hupo/core-sass-bem";
+@import '~@hupo/core-sass-bem';
 @include b(demo-button) {
   @include e(item) {
     margin: 0 15px 15px 0;

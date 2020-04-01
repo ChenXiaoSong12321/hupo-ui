@@ -1,7 +1,14 @@
 <template>
   <view>
     <block v-if="nodes.node == 'text'">
+      <!-- #ifndef MP-ALIPAY -->
       <h-rich-text-parse-text class="wxParse-inline" :nodes="nodes"></h-rich-text-parse-text>
+      <!-- #endif -->
+      <!-- #ifndef MP-ALIPAY -->
+      <view class="wxParse-inline">
+        <h-rich-text-parse-text :nodes="nodes"></h-rich-text-parse-text>
+      </view>
+      <!-- #endif -->
     </block>
     <block
       v-else-if="['video','embed','img','br','button','li','a','table'].indexOf(nodes.tag) > -1"
@@ -18,7 +25,14 @@
       <h-rich-text-parse-block :nodes="nodes"></h-rich-text-parse-block>
     </block>
     <block v-else>
+      <!-- #ifndef MP-ALIPAY -->
       <h-rich-text-parse-inline class="wxParse-inline" :nodes="nodes"></h-rich-text-parse-inline>
+      <!-- #endif -->
+      <!-- #ifndef MP-ALIPAY -->
+      <view class="wxParse-inline">
+        <h-rich-text-parse-inline :nodes="nodes"></h-rich-text-parse-inline>
+      </view>
+      <!-- #endif -->
     </block>
   </view>
 </template>
@@ -58,5 +72,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../common.scss";
+@import '../common.scss';
 </style>

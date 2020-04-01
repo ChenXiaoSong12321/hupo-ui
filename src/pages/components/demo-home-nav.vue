@@ -9,7 +9,9 @@
         @tap="onClick('/pages/example' + item.path + '/index')"
       >
         {{ item.title }}
-        <h-icon name="arrow-right" class="h-demo-home-nav-icon" />
+        <view class="h-demo-home-nav-icon">
+          <h-icon name="arrow-right" />
+        </view>
       </view>
     </view>
   </view>
@@ -34,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@hupo/core-sass-bem";
+@import '~@hupo/core-sass-bem';
 @include b(demo-home-nav) {
   @include e(title) {
     margin: 24px 0 8px 16px;

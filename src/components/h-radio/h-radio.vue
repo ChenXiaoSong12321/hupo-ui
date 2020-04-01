@@ -2,10 +2,7 @@
   <view class="h-radio">
     <view class="h-radio-wrap" :class="radioClass" @tap="changeSelect">
       <view class="h-radio-select">
-        <h-icon
-          class="h-radio-select-icon"
-          :name=" innerChecked ? 'success' : disabled ? 'radio-disabled' :'radio-l'"
-        ></h-icon>
+        <h-icon :name=" innerChecked ? 'success' : disabled ? 'radio-disabled' :'radio-l'"></h-icon>
       </view>
       <text class="h-radio-label" v-if="$slots.default || label">
         <slot></slot>
@@ -73,5 +70,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./h-radio.scss";
+@import './h-radio.scss';
 </style>

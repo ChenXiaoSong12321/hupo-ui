@@ -16,11 +16,18 @@
       :class="[iconMap[type] ? 'h-toast-content--square' : 'h-toast-content--other']"
     >
       <view v-if="type==='loading'" class="h-toast-icon h-toast-icon--loading"></view>
+      <!-- #ifndef MP-ALIPAY -->
       <h-icon
         v-else-if="type==='success'||type==='warn'"
         :name="iconMap[type]"
         class="h-toast-icon"
       ></h-icon>
+      <!-- #endif -->
+      <!-- #ifndef MP-ALIPAY -->
+      <view class="h-toast-icon" v-else-if="type==='success'||type==='warn'">
+        <h-icon :name="iconMap[type]" class="h-toast-icon"></h-icon>
+      </view>
+      <!-- #endif -->
       <view class="h-toast-text">{{message}}</view>
     </view>
   </h-transition>
@@ -52,7 +59,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "~@hupo/core-sass-bem";
+@import '~@hupo/core-sass-bem';
 @include b(toast) {
   @keyframes loading-rotate {
     from {

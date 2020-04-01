@@ -80,11 +80,13 @@
     }
   ],
   "globalStyle": {
-    "navigationBarBackgroundColor": "#FAFAFA",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#FAFAFA",
     "onReachBottomDistance": 200,
     "navigationStyle": "custom",
-    "enablePullDownRefresh": false
+    "enablePullDownRefresh": false,
+    "mp-weixin": {
+      "navigationBarBackgroundColor": "#FAFAFA"
+    }
   }
 }

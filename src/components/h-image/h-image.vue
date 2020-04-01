@@ -11,10 +11,10 @@
           <slot name="error"></slot>
         </block>
         <block v-else-if="status == 'load-refresh'">
-          <h-icon name="refresh" class="h-image-load-fail-icon"></h-icon>
+          <h-icon name="refresh" :styles="{'fontSize':'40rpx'}"></h-icon>
         </block>
         <block v-else>
-          <h-icon name="img-load-error" class="h-image-load-fail-icon"></h-icon>
+          <h-icon name="img-load-error" :styles="{'fontSize':'40rpx'}"></h-icon>
         </block>
       </view>
     </block>
@@ -28,6 +28,7 @@
         </block>
       </view>
       <!-- 隐藏的image，用于隐士加载 -->
+      <!-- #ifndef MP-ALIPAY -->
       <image
         class="h-image-hidden"
         :lazy-load="lazyLoad"
@@ -36,6 +37,16 @@
         @load="__imageOnLoad"
         @error="__imageOnLoadError"
       ></image>
+      <!-- #endif -->
+      <!-- #ifdef MP-ALIPAY -->
+      <image
+        class="h-image-hidden"
+        :src="url"
+        :mode="mode"
+        @load="__imageOnLoad"
+        @error="__imageOnLoadError"
+      ></image>
+      <!-- #endif -->
     </block>
   </view>
 </template>

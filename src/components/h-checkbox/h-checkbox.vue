@@ -2,10 +2,7 @@
   <view class="h-checkbox">
     <view class="h-checkbox-wrap" :class="checkClass" @tap="changeCheck">
       <view class="h-checkbox-select">
-        <h-icon
-          class="h-checkbox-select-icon"
-          :name=" innerChecked ? 'success' : disabled ? 'radio-disabled' :'radio-l'"
-        ></h-icon>
+        <h-icon :name=" innerChecked ? 'success' : disabled ? 'radio-disabled' :'radio-l'"></h-icon>
       </view>
       <text class="h-checkbox-label" v-if="$slots.default || label">
         <slot></slot>
@@ -73,5 +70,5 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "./h-checkbox.scss";
+@import './h-checkbox.scss';
 </style>
