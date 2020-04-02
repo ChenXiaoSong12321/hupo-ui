@@ -36,10 +36,8 @@
         </h-button>
         <!-- #endif -->
         <!-- #ifdef MP-ALIPAY -->
-        <view class="h-dialog-footer-button-no-type">
+        <view class="h-dialog-footer-button-no-type" v-for="(item, index) in buttons" :key="index">
           <h-button
-            v-for="(item, index) in buttons"
-            :key="index"
             size="medium"
             type="none"
             :class="{'is-cancel':item.type!=='confirm'}"
