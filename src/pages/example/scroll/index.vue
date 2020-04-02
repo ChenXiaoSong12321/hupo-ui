@@ -12,7 +12,7 @@
 export default {
   data() {
     return {
-      list: Array(100)
+      list: Array.from({ length: 100 }, () => '')
     }
   },
   methods: {

@@ -14,16 +14,13 @@
     </h-button>
     <!-- #endif -->
     <!-- #ifdef MP-ALIPAY -->
-    <view class="h-stepper-subtract">
-      <h-button
-        :throttle="0"
-        class="h-stepper-subtract"
-        :class="{
+    <view
+      class="h-stepper-subtract"
+      :class="{
         'is-disabled': disabled || (stepValue == min)
       }"
-        type="none"
-        @onclick="onChange('subtract')"
-      >
+    >
+      <h-button :throttle="0" type="none" @onclick="onChange('subtract')">
         <view class="text">-</view>
       </h-button>
     </view>
@@ -48,16 +45,13 @@
     </h-button>
     <!-- #endif -->
     <!-- #ifdef MP-ALIPAY -->
-    <view class="h-stepper-add">
-      <h-button
-        :throttle="0"
-        class="h-stepper-add"
-        :class="{
+    <view
+      class="h-stepper-add"
+      :class="{
         'is-disabled': disabled || (stepValue == max)
       }"
-        type="none"
-        @onclick="onChange('add')"
-      >
+    >
+      <h-button :throttle="0" type="none" @onclick="onChange('add')">
         <view class="text">+</view>
       </h-button>
     </view>
@@ -140,5 +134,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import './h-stepper.scss';
+@import "./h-stepper.scss";
 </style>

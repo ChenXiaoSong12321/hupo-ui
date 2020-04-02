@@ -21,7 +21,7 @@ export default {
       this.loading = true
       this._loadingToast(`正在加载${options.pageIndex}页`)
       setTimeout(() => {
-        this.list = this.list.concat(Array(40))
+        this.list = this.list.concat(Array.from({ length: 40 }, () => ''))
         this._clearToast()
         this.loading = false
       }, 2000)
