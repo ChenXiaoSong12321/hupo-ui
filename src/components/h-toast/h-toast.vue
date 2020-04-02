@@ -25,7 +25,7 @@
       <!-- #endif -->
       <!-- #ifndef MP-ALIPAY -->
       <view class="h-toast-icon" v-else-if="type==='success'||type==='warn'">
-        <h-icon :name="iconMap[type]" class="h-toast-icon"></h-icon>
+        <h-icon :name="iconMap[type]"></h-icon>
       </view>
       <!-- #endif -->
       <view class="h-toast-text">{{message}}</view>
