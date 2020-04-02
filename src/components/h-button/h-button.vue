@@ -1,6 +1,25 @@
 <template>
   <block>
-    <!--  #ifndef H5 -->
+    <!-- #ifdef MP-ALIPAY -->
+    <button
+      type="keng"
+      class="h-button"
+      v-if="stateClass"
+      :class="stateClass"
+      :open-type="openType"
+      :style="customStyle"
+      @tap="handleTap"
+      @contact="contact"
+      @getuserinfo="getuserinfo"
+      @getphonenumber="getphonenumber"
+      @error="error"
+      @opensetting="opensetting"
+    >
+      <slot></slot>
+    </button>
+    <!-- #endif -->
+
+    <!--  #ifndef (H5 || MP-ALIPAY) -->
     <button
       type="keng"
       class="h-button"
