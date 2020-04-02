@@ -16,7 +16,6 @@ export default {
   },
   watch: {
     label(newValue, oldValue) {
-      console.log(newValue, oldValue)
       this._dispatch('h-tab', 'update', this)
     },
     name(newName, oldName) {
@@ -24,13 +23,6 @@ export default {
     }
   },
   created() {
-    // #ifdef MP-ALIPAY
-    setTimeout(() => {
-      console.log(this, this.name)
-      this._dispatch('h-tab', 'update', this)
-      this._dispatch('h-tab', 'updateName', this.name, '')
-    }, 100)
-    //  #endif
     this._dispatch('h-tab', 'add', this)
   },
   beforeDestroy() {

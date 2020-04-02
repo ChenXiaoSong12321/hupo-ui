@@ -67,6 +67,7 @@ export default {
   },
   computed: {
     cpSize() {
+      console.log(viewport.rpx2px(this.size))
       return viewport.rpx2px(this.size)
     }
   },
@@ -134,7 +135,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "~@hupo/core-sass-bem";
+@import '~@hupo/core-sass-bem';
 @include b(qrcode) {
   position: relative;
   @include e(canvas) {

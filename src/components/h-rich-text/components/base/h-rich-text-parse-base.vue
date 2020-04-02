@@ -4,7 +4,7 @@
       <!-- #ifndef MP-ALIPAY -->
       <h-rich-text-parse-text class="wxParse-inline" :nodes="nodes"></h-rich-text-parse-text>
       <!-- #endif -->
-      <!-- #ifndef MP-ALIPAY -->
+      <!-- #ifdef MP-ALIPAY -->
       <view class="wxParse-inline">
         <h-rich-text-parse-text :nodes="nodes"></h-rich-text-parse-text>
       </view>
@@ -28,7 +28,7 @@
       <!-- #ifndef MP-ALIPAY -->
       <h-rich-text-parse-inline class="wxParse-inline" :nodes="nodes"></h-rich-text-parse-inline>
       <!-- #endif -->
-      <!-- #ifndef MP-ALIPAY -->
+      <!-- #ifdef MP-ALIPAY -->
       <view class="wxParse-inline">
         <h-rich-text-parse-inline :nodes="nodes"></h-rich-text-parse-inline>
       </view>

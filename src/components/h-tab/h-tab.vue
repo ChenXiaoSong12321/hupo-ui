@@ -70,11 +70,11 @@ export default {
 
     this.$on('update', item => {
       const currentItemIndex = this.tabs.findIndex(v => v.name === item.name)
-      this.tabs[currentItemIndex].label = item.label
+      if (this.tabs[currentItemIndex]) this.tabs[currentItemIndex].label = item.label
     })
     this.$on('updateName', (newName, oldName) => {
       const currentItemIndex = this.tabs.findIndex(v => v.name === oldName)
-      this.tabs[currentItemIndex].name = newName
+      if (this.tabs[currentItemIndex]) this.tabs[currentItemIndex].name = newName
     })
     this.$on('remove', item => {
       this.items.splice(this.items.indexOf(item), 1)
