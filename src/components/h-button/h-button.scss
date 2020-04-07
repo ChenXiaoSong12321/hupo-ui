@@ -39,7 +39,11 @@
   @include pseudo(active) {
     opacity: 0.9;
   }
-
+  /* #ifdef MP-ALIPAY */
+  @include m(active) {
+    opacity: 0.9;
+  }
+  /* #endif */
   @include when(group) {
     width: auto
   }

@@ -5,6 +5,7 @@
       type="keng"
       class="h-button"
       v-if="stateClass"
+      hover-class="h-button--active"
       :class="stateClass"
       :open-type="openType"
       :style="customStyle"
