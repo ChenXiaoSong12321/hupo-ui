@@ -65,11 +65,16 @@ export default {
         message: '我是一个无标题的 alert 弹窗'
       })
     },
-    confirm() {
-      this._confirm({
-        title: '标题',
-        message: '我是一个的 confirm 弹窗'
-      })
+    async confirm() {
+      try {
+        await this._confirm({
+          title: '标题',
+          message: '我是一个的 confirm 弹窗'
+        })
+        this._toast('你点击了确认')
+      } catch (error) {
+        this._toast('你点击了取消')
+      }
     },
     confirmRichText() {
       this._confirm({
