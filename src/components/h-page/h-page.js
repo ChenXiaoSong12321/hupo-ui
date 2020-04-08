@@ -39,9 +39,11 @@ export default {
   },
   watch: {
     title(val) {
+      // #ifndef MP_TOUTIAO
       uni.setNavigationBarTitle({
         title: val
       })
+      // #endif
     },
     type() {
       this.initNavigation()
@@ -56,9 +58,12 @@ export default {
     }
   },
   mounted() {
+    // #ifndef MP_TOUTIAO
     uni.setNavigationBarTitle({
       title: this.title
     })
+    // #endif
+
     this.initNavigation()
     promise.delay(100).then(() => {
       this.loaded = true

@@ -19,8 +19,25 @@
       <slot></slot>
     </button>
     <!-- #endif -->
-
-    <!--  #ifndef (H5 || MP-ALIPAY) -->
+    <!-- #ifdef MP-TOUTIAO -->
+    <button
+      type="keng"
+      class="h-button"
+      v-if="stateClass"
+      :class="stateClass"
+      :open-type="openType"
+      :style="customStyle"
+      @tap="handleTap"
+      @contact="contact"
+      @getuserinfo="getuserinfo"
+      @getphonenumber="getphonenumber"
+      @error="error"
+      @opensetting="opensetting"
+    >
+      <slot></slot>
+    </button>
+    <!-- #endif -->
+    <!--  #ifndef (H5 || MP-ALIPAY || MP-TOUTIAO) -->
     <button
       type="keng"
       class="h-button"
