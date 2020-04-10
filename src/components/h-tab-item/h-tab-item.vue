@@ -4,6 +4,7 @@
 <script>
 export default {
   name: 'h-tab-item',
+  inject: ['hTab'],
   props: {
     label: {
       type: String,
@@ -16,17 +17,17 @@ export default {
   },
   watch: {
     label(newValue, oldValue) {
-      this._dispatch('h-tab', 'update', this)
+      this.hTab && this.hTab.update(this)
     },
     name(newName, oldName) {
-      this._dispatch('h-tab', 'updateName', newName, oldName)
+      this.hTab && this.hTab.updateName(newName, oldName)
     }
   },
   created() {
-    this._dispatch('h-tab', 'add', this)
+    this.hTab && this.hTab.add(this)
   },
   beforeDestroy() {
-    this._dispatch('h-tab', 'remove', this)
+    this.hTab && this.hTab.remove(this)
   }
 }
 </script>

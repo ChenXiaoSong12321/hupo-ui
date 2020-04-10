@@ -14,6 +14,11 @@
 <script>
 export default {
   name: 'h-radio',
+  inject: {
+    hRadioGroup: {
+      default: null
+    }
+  },
   props: {
     label: {
       type: String
@@ -51,19 +56,19 @@ export default {
     }
   },
   created() {
-    this._dispatch('h-radio-group', 'ui.radio.add', this)
+    this.hRadioGroup && this.hRadioGroup.add(this)
   },
   mounted() {
     this.model = this.value
   },
   beforeDestroy() {
-    this._dispatch('h-radio-group', 'ui.radio.remove', this)
+    this.hRadioGroup && this.hRadioGroup.remove(this)
   },
   methods: {
     changeSelect() {
       if (this.disabled || this.innerChecked) return
       this.innerChecked = !this.innerChecked
-      this._dispatch('h-radio-group', 'ui.radio.change', this.label)
+      this.hRadioGroup && this.hRadioGroup.change(this.label)
     }
   }
 }

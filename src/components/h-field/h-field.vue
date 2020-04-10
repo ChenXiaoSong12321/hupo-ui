@@ -37,6 +37,11 @@
 import inputMixin from '../../core/mixins/input.mixin'
 export default {
   name: 'h-field',
+  inject: {
+    hFieldGroup: {
+      default: null
+    }
+  },
   mixins: [inputMixin],
   props: {
     label: {
@@ -51,15 +56,15 @@ export default {
     }
   },
   mounted() {
-    this._dispatch('h-field-group', 'add', this)
+    this.hFieldGroup && this.hFieldGroup.add(this)
   },
   beforeDestroy() {
-    this._dispatch('h-field-group', 'remove', this)
+    this.hFieldGroup && this.hFieldGroup.remove(this)
   }
 }
 
 </script>
 
 <style lang="scss">
-@import "./h-field.scss";
+@import './h-field.scss';
 </style>

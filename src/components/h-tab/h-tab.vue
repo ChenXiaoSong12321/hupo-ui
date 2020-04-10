@@ -20,6 +20,11 @@
 <script>
 export default {
   name: 'h-tab',
+  provide() {
+    return {
+      hTab: this
+    }
+  },
   props: {
     value: {
       type: String,
@@ -58,7 +63,16 @@ export default {
   },
   created() {
     this.items = []
-    this.$on('add', item => {
+  },
+  mounted() {
+    if (this.value) {
+      this._setTimeout(() => {
+        this.setCurrentName(this.value)
+      }, 200)
+    }
+  },
+  methods: {
+    add(item) {
       this.items.push(item)
       const tab = {
         name: item.name,
@@ -66,29 +80,19 @@ export default {
       }
       this.tabs.push(tab)
       if (!this.currentName) this.setCurrentName(item.name)
-    })
-
-    this.$on('update', item => {
+    },
+    update(item) {
       const currentItemIndex = this.tabs.findIndex(v => v.name === item.name)
       if (this.tabs[currentItemIndex]) this.tabs[currentItemIndex].label = item.label
-    })
-    this.$on('updateName', (newName, oldName) => {
+    },
+    updateName(newName, oldName) {
       const currentItemIndex = this.tabs.findIndex(v => v.name === oldName)
       if (this.tabs[currentItemIndex]) this.tabs[currentItemIndex].name = newName
-    })
-    this.$on('remove', item => {
+    },
+    remove(item) {
       this.items.splice(this.items.indexOf(item), 1)
       this.tabs.splice(this.tabs.findIndex(v => v.name === item.name), 1)
-    })
-  },
-  mounted() {
-    if (this.value) {
-      this.$nextTick(() => {
-        this.setCurrentName(this.value)
-      })
-    }
-  },
-  methods: {
+    },
     setCurrentName(value) {
       this.currentName = value
       this.$emit('input', value)

@@ -17,6 +17,7 @@
 <script>
 export default {
   name: 'h-checkbox',
+  inject: ['hCheckboxGroup'],
   props: {
     label: {
       type: String,
@@ -73,5 +74,5 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "./h-checkbox.scss";
+@import './h-checkbox.scss';
 </style>

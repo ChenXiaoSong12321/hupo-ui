@@ -14,6 +14,11 @@
 <script>
 export default {
   name: 'h-checkbox',
+  inject: {
+    hCheckboxGroup: {
+      default: null
+    }
+  },
   props: {
     label: {
       type: String,
@@ -52,19 +57,19 @@ export default {
     }
   },
   created() {
-    this._dispatch('h-checkbox-group', 'ui.checkbox.add', this)
+    this.hCheckboxGroup && this.hCheckboxGroup.add(this)
   },
   mounted() {
     this.model = this.value
   },
   beforeDestroy() {
-    this._dispatch('h-checkbox-group', 'ui.checkbox.remove', this)
+    this.hCheckboxGroup && this.hCheckboxGroup.remove(this)
   },
   methods: {
     changeCheck() {
       if (this.disabled) return
       this.innerChecked = !this.innerChecked
-      this._dispatch('h-checkbox-group', 'ui.checkbox.change')
+      this.hCheckboxGroup && this.hCheckboxGroup.change()
     }
   }
 }

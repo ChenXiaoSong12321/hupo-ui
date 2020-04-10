@@ -7,18 +7,21 @@
 <script>
 export default {
   name: 'h-form',
+  provide() {
+    return {
+      hForm: this
+    }
+  },
   created() {
     this.formItems = []
-    this.$on('addFormItems', (formItem) => {
-      if (formItem) {
-        this.formItems.push(formItem)
-      }
-    })
-    this.$on('removeFormItems', (formItem) => {
-      this.formItems.splice(this.formItems.indexOf(formItem), 1)
-    })
   },
   methods: {
+    add(formItem) {
+      this.formItems.push(formItem)
+    },
+    remove(formItem) {
+      this.formItems.splice(this.formItems.indexOf(formItem), 1)
+    },
     async validate() {
       const promises = []
       this.formItems.map(item => {
@@ -34,7 +37,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "~@hupo/core-sass-bem";
+@import '~@hupo/core-sass-bem';
 @include b(form) {
   width: 100%;
 }

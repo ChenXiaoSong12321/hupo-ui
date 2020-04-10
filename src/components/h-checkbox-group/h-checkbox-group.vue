@@ -6,6 +6,11 @@
 <script>
 export default {
   name: 'h-checkbox-group',
+  provide() {
+    return {
+      hCheckboxGroup: this
+    }
+  },
   props: {
     value: {
       type: Array,
@@ -19,13 +24,22 @@ export default {
   },
   created() {
     this.checkboxs = []
-    this.$on('ui.checkbox.add', checkbox => {
+  },
+  mounted() {
+    if (this.value.length) {
+      this._setTimeout(() => {
+        this.setChecked()
+      }, 200)
+    }
+  },
+  methods: {
+    add(checkbox) {
       this.checkboxs.push(checkbox)
-    })
-    this.$on('ui.checkbox.remove', checkbox => {
+    },
+    remove(checkbox) {
       this.checkboxs.splice(this.checkboxs.indexOf(checkbox), 1)
-    })
-    this.$on('ui.checkbox.change', () => {
+    },
+    change() {
       const values = []
       this.checkboxs.forEach(checkbox => {
         if (checkbox.innerChecked) {
@@ -34,16 +48,7 @@ export default {
       })
       this.$emit('change', values)
       this.$emit('input', values)
-    })
-  },
-  mounted() {
-    if (this.value.length) {
-      this.$nextTick(() => {
-        this.setChecked()
-      })
-    }
-  },
-  methods: {
+    },
     setChecked() {
       this.checkboxs.forEach(checkbox => {
         if (this.value.indexOf(checkbox.label) > -1) {
@@ -55,5 +60,5 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "./h-checkbox-group.scss";
+@import './h-checkbox-group.scss';
 </style>

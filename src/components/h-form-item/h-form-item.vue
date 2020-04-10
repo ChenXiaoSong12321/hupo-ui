@@ -9,6 +9,11 @@
 import AsyncValidator from 'async-validator'
 export default {
   name: 'h-form-item',
+  inject: {
+    hForm: {
+      default: null
+    }
+  },
   props: {
     required: {
       type: [String, Boolean],
@@ -30,11 +35,11 @@ export default {
       errMsg: ''
     }
   },
-  mounted() {
-    this._dispatch('h-form', 'addFormItems', this)
+  created() {
+    this.hForm && this.hForm.add(this)
   },
   beforeDestroy() {
-    this._dispatch('h-form', 'removeFormItems', this)
+    this.hForm && this.hForm.remove(this)
   },
   computed: {
     computedRule() {
@@ -80,7 +85,7 @@ export default {
 
 </script>
 <style lang="scss">
-@import "~@hupo/core-sass-bem";
+@import '~@hupo/core-sass-bem';
 @include b(form-item) {
   width: 100%;
   @include e(error) {
