@@ -1,8 +1,8 @@
 <template>
   <view class="h-field">
-    <view class="h-field-box" :class="{'h-field-box--border': isGroup && !isLast}">
-      <view class="h-field-icon" v-if="$slots.icon">
-        <slot name="icon"></slot>
+    <view class="h-field-box" :class="{'h-field-box--border': isGroup && !isFirst}">
+      <view class="h-field-prepend" v-if="$slots.prepend">
+        <slot name="prepend"></slot>
       </view>
       <view class="h-field-label" v-if="label">{{label}}</view>
       <input
@@ -37,6 +37,11 @@
 import inputMixin from '../../core/mixins/input.mixin'
 export default {
   name: 'h-field',
+  inject: {
+    hFieldGroup: {
+      default: null
+    }
+  },
   mixins: [inputMixin],
   props: {
     label: {
@@ -47,19 +52,19 @@ export default {
   data() {
     return {
       isGroup: false,
-      isLast: false
+      isFirst: false
     }
   },
   mounted() {
-    this._dispatch('h-field-group', 'add', this)
+    this.hFieldGroup && this.hFieldGroup.add(this)
   },
   beforeDestroy() {
-    this._dispatch('h-field-group', 'remove', this)
+    this.hFieldGroup && this.hFieldGroup.remove(this)
   }
 }
 
 </script>
 
 <style lang="scss">
-@import "./h-field.scss";
+@import './h-field.scss';
 </style>

@@ -6,8 +6,6 @@
 
 <script>
 import style from '@hupo/core-sass-bem'
-console.log(style)
-
 export default {
   name: 'h-tag',
   props: {
@@ -57,5 +55,5 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "./h-tag.scss";
+@import './h-tag.scss';
 </style>

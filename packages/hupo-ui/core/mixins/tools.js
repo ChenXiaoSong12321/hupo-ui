@@ -14,6 +14,9 @@ export default {
       return this.$root._broadcast('h-page', 'toggle', { navbarLoading: false })
     },
     _calcTop(top) {
+      // #ifdef MP-ALIPAY
+      return 0
+      // #endif
       if (!viewport.headerHeight) return top
       else return viewport.headerHeight + top
     },

@@ -1,28 +1,61 @@
 <template>
   <view class="h-stepper">
+    <!-- #ifndef MP-ALIPAY -->
     <h-button
-      :throttle="false"
+      :throttle="0"
       class="h-stepper-subtract"
       :class="{
-        'is-disabled': disabled || (stepValue === min)
+        'is-disabled': disabled || (stepValue == min)
       }"
       type="none"
       @onclick="onChange('subtract')"
     >
       <view class="text">-</view>
     </h-button>
-    <view class="h-stepper-input-wrap">{{stepValue}}</view>
+    <!-- #endif -->
+    <!-- #ifdef MP-ALIPAY -->
+    <view
+      class="h-stepper-subtract"
+      :class="{
+        'is-disabled': disabled || (stepValue == min)
+      }"
+    >
+      <h-button :throttle="0" type="none" @onclick="onChange('subtract')">
+        <view class="text">-</view>
+      </h-button>
+    </view>
+    <!-- #endif -->
+    <view
+      class="h-stepper-input-wrap"
+      :class="{
+        'is-disabled': disabled
+      }"
+    >{{stepValue}}</view>
+    <!-- #ifndef MP-ALIPAY -->
     <h-button
-      :throttle="false"
+      :throttle="0"
       class="h-stepper-add"
       :class="{
-        'is-disabled': disabled || (stepValue === max)
+        'is-disabled': disabled || (stepValue == max)
       }"
       type="none"
       @onclick="onChange('add')"
     >
       <view class="text">+</view>
     </h-button>
+    <!-- #endif -->
+    <!-- #ifdef MP-ALIPAY -->
+    <view
+      class="h-stepper-add"
+      :class="{
+        'is-disabled': disabled || (stepValue == max)
+      }"
+    >
+      <h-button :throttle="0" type="none" @onclick="onChange('add')">
+        <view class="text">+</view>
+      </h-button>
+    </view>
+    <!-- #endif -->
   </view>
 </template>
 
@@ -32,7 +65,6 @@ const MAX = 2147483647
 export default {
   name: 'h-stepper',
   props: {
-    integer: Boolean,
     disabled: Boolean,
     value: {
       type: Number,
@@ -89,6 +121,9 @@ export default {
       this.stepValue = val
     },
     onChange(type) {
+      console.log('111')
+
+      if (this.disabled) return
       const diff = type === 'subtract' ? -this.step : +this.step
       const stepValue = Math.round((Number(this.stepValue) + diff) * 100) / 100
       this.setValue(stepValue)

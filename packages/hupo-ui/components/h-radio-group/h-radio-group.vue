@@ -6,6 +6,11 @@
 <script>
 export default {
   name: 'h-radio-group',
+  provide() {
+    return {
+      hRadioGroup: this
+    }
+  },
   props: {
     value: {
       type: [String, Number, Boolean],
@@ -14,23 +19,12 @@ export default {
   },
   created() {
     this.radios = []
-    this.$on('ui.radio.add', radio => {
-      this.radios.push(radio)
-    })
-    this.$on('ui.radio.remove', radio => {
-      this.radios.splice(this.radios.indexOf(radio), 1)
-    })
-
-    this.$on('ui.radio.change', (label) => {
-      this.$emit('change', label)
-      this.$emit('input', label)
-    })
   },
   mounted() {
     if (this.value) {
-      this.$nextTick(() => {
+      this._setTimeout(() => {
         this.setRadioActive()
-      })
+      }, 200)
     }
   },
   watch: {
@@ -45,10 +39,20 @@ export default {
           radio.innerChecked = false
         }
       })
+    },
+    add(radio) {
+      this.radios.push(radio)
+    },
+    remove(radio) {
+      this.radios.splice(this.radios.indexOf(radio), 1)
+    },
+    change(label) {
+      this.$emit('change', label)
+      this.$emit('input', label)
     }
   }
 }
 </script>
 <style lang="scss">
-@import "./h-radio-group.scss";
+@import './h-radio-group.scss';
 </style>

@@ -8,7 +8,7 @@
     margin-left: 30rpx;
     padding-right: 30rpx;
     @include m(border){
-      border-bottom: 1rpx solid $--splitline-color-FgxC1;
+      border-top: 1rpx solid $--splitline-color-FgxC1;
     }
   }
   @include e(icon) {
@@ -24,5 +24,10 @@
     font-size: 28rpx;
     color: $--font-color-FC1;
     height: 88rpx;
+    border: 0;
+    background: none;
+    margin: 0;
+    padding: 0;
+    outline: none;
   }
 }

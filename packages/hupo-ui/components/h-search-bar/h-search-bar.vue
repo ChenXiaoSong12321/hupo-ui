@@ -2,7 +2,7 @@
   <view class="h-search-bar">
     <view class="h-search-bar-box">
       <view class="h-search-bar-icon">
-        <h-icon name="iconsousuocopybeifen"></h-icon>
+        <h-icon name="search"></h-icon>
       </view>
       <input
         v-if="showInput"
@@ -19,9 +19,9 @@
       <view
         v-if="showInput && clearButton === 'auto' && searchVal !== ''"
         class="h-search-bar-clear"
-        @click="clear"
+        @tap="clear"
       >
-        <h-icon name="icondianjibeifen"></h-icon>
+        <h-icon name="close"></h-icon>
       </view>
     </view>
   </view>
@@ -82,6 +82,7 @@ export default {
   methods: {
     clear() {
       this.searchVal = ''
+      this.$emit('clear')
     },
     confirm() {
       uni.hideKeyboard()

@@ -1,22 +1,40 @@
 <template>
-  <block v-if="nodes.node == 'text'">
-    <h-rich-text-parse-text class="wxParse-inline" :nodes="nodes"></h-rich-text-parse-text>
-  </block>
-  <block v-else-if="['video','embed','img','br','button','li','a','table'].indexOf(nodes.tag) > -1">
-    <h-rich-text-parse-video v-if="nodes.tag == 'video' || nodes.tag == 'embed'" :nodes="nodes"></h-rich-text-parse-video>
-    <h-rich-text-parse-img v-if="nodes.tag == 'img'" :nodes="nodes"></h-rich-text-parse-img>
-    <h-rich-text-parse-br v-if="nodes.tag == 'br'" :nodes="nodes"></h-rich-text-parse-br>
-    <h-rich-text-parse-button v-if="nodes.tag == 'button'" :nodes="nodes"></h-rich-text-parse-button>
-    <h-rich-text-parse-li v-if="nodes.tag == 'li'" :nodes="nodes"></h-rich-text-parse-li>
-    <h-rich-text-parse-a v-if="nodes.tag == 'a'" :nodes="nodes"></h-rich-text-parse-a>
-    <h-rich-text-parse-table v-if="nodes.tag == 'table'" :nodes="nodes"></h-rich-text-parse-table>
-  </block>
-  <block v-else-if="nodes.tagType == 'block'">
-    <h-rich-text-parse-block :nodes="nodes"></h-rich-text-parse-block>
-  </block>
-  <block v-else>
-    <h-rich-text-parse-inline class="wxParse-inline" :nodes="nodes"></h-rich-text-parse-inline>
-  </block>
+  <view>
+    <block v-if="nodes.node == 'text'">
+      <!-- #ifndef MP-ALIPAY -->
+      <h-rich-text-parse-text class="wxParse-inline" :nodes="nodes"></h-rich-text-parse-text>
+      <!-- #endif -->
+      <!-- #ifdef MP-ALIPAY -->
+      <view class="wxParse-inline">
+        <h-rich-text-parse-text :nodes="nodes"></h-rich-text-parse-text>
+      </view>
+      <!-- #endif -->
+    </block>
+    <block
+      v-else-if="['video','embed','img','br','button','li','a','table'].indexOf(nodes.tag) > -1"
+    >
+      <h-rich-text-parse-video v-if="nodes.tag == 'video' || nodes.tag == 'embed'" :nodes="nodes"></h-rich-text-parse-video>
+      <h-rich-text-parse-img v-if="nodes.tag == 'img'" :nodes="nodes"></h-rich-text-parse-img>
+      <h-rich-text-parse-br v-if="nodes.tag == 'br'" :nodes="nodes"></h-rich-text-parse-br>
+      <h-rich-text-parse-button v-if="nodes.tag == 'button'" :nodes="nodes"></h-rich-text-parse-button>
+      <h-rich-text-parse-li v-if="nodes.tag == 'li'" :nodes="nodes"></h-rich-text-parse-li>
+      <h-rich-text-parse-a v-if="nodes.tag == 'a'" :nodes="nodes"></h-rich-text-parse-a>
+      <h-rich-text-parse-table v-if="nodes.tag == 'table'" :nodes="nodes"></h-rich-text-parse-table>
+    </block>
+    <block v-else-if="nodes.tagType == 'block'">
+      <h-rich-text-parse-block :nodes="nodes"></h-rich-text-parse-block>
+    </block>
+    <block v-else>
+      <!-- #ifndef MP-ALIPAY -->
+      <h-rich-text-parse-inline class="wxParse-inline" :nodes="nodes"></h-rich-text-parse-inline>
+      <!-- #endif -->
+      <!-- #ifdef MP-ALIPAY -->
+      <view class="wxParse-inline">
+        <h-rich-text-parse-inline :nodes="nodes"></h-rich-text-parse-inline>
+      </view>
+      <!-- #endif -->
+    </block>
+  </view>
 </template>
 <script>
 import hRichTextParseA from '../a/h-rich-text-parse-a'
@@ -54,5 +72,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../common.scss";
+@import '../common.scss';
 </style>

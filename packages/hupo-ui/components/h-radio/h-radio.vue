@@ -1,16 +1,10 @@
 <template>
   <view class="h-radio">
     <view class="h-radio-wrap" :class="radioClass" @tap="changeSelect">
-      <block v-if="disabled">
-        <h-icon class="h-radio-select" name="iconbukegouxuanbeifen"></h-icon>
-      </block>
-      <block v-else-if="innerChecked">
-        <h-icon class="h-radio-select" name="iconyigouxuanbeifen"></h-icon>
-      </block>
-      <block v-else>
-        <h-icon class="h-radio-select" name="iconbukegouxuanbeifen1"></h-icon>
-      </block>
-       <text class="h-radio-label" v-if="$slots.default || label">
+      <view class="h-radio-select">
+        <h-icon :name=" innerChecked ? 'success' : disabled ? 'radio-disabled' :'radio-l'"></h-icon>
+      </view>
+      <text class="h-radio-label" v-if="$slots.default || label">
         <slot></slot>
         <block v-if="!$slots.default">{{label}}</block>
       </text>
@@ -20,6 +14,11 @@
 <script>
 export default {
   name: 'h-radio',
+  inject: {
+    hRadioGroup: {
+      default: null
+    }
+  },
   props: {
     label: {
       type: String
@@ -57,24 +56,24 @@ export default {
     }
   },
   created() {
-    this._dispatch('h-radio-group', 'ui.radio.add', this)
+    this.hRadioGroup && this.hRadioGroup.add(this)
   },
   mounted() {
     this.model = this.value
   },
   beforeDestroy() {
-    this._dispatch('h-radio-group', 'ui.radio.remove', this)
+    this.hRadioGroup && this.hRadioGroup.remove(this)
   },
   methods: {
     changeSelect() {
       if (this.disabled || this.innerChecked) return
       this.innerChecked = !this.innerChecked
-      this._dispatch('h-radio-group', 'ui.radio.change', this.label)
+      this.hRadioGroup && this.hRadioGroup.change(this.label)
     }
   }
 }
 </script>
 
 <style lang="scss">
-@import "./h-radio.scss";
+@import './h-radio.scss';
 </style>

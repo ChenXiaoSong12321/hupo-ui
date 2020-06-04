@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'uniTransition',
+  name: 'h-transition',
   props: {
     show: {
       type: Boolean,
@@ -24,7 +24,7 @@ export default {
     },
     duration: {
       type: Number,
-      default: 300
+      default: 800
     },
     styles: {
       type: Object,
@@ -90,10 +90,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@hupo/core-sass-bem";
+@import '~@hupo/core-sass-bem';
 @include b(transition) {
   transition-timing-function: ease;
-  transition-duration: 0.3s;
+  transition-duration: 0.8s;
   transition-property: transform, opacity;
   @include m(fade) {
     opacity: 0;
@@ -123,6 +123,63 @@ export default {
     transform: translateX(-100%);
     @include when(active) {
       transform: translateX(0);
+    }
+  }
+  @include m(fade-top) {
+    transform: translateY(-100%);
+    opacity: 0;
+    @include when(active) {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @include m(fade-bottom) {
+    transform: translateY(100%);
+    opacity: 0;
+    @include when(active) {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @include m(fade-right) {
+    transform: translateX(100%);
+    opacity: 0;
+    @include when(active) {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @include m(fade-left) {
+    transform: translateX(-100%);
+    opacity: 0;
+    @include when(active) {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @include m(flip) {
+    transform: rotate3d(0, 1, 0, 0);
+    opacity: 0;
+    @include when(active) {
+      transform: rotate3d(0, 1, 0, -360deg);
+      opacity: 1;
+    }
+  }
+  @include m(zoom) {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+    @include when(active) {
+      opacity: 1;
+      transform: scale3d(1, 1, 1);
+    }
+  }
+
+  @include m(fade-left-flip) {
+    transform: rotate3d(0, 1, 0, 0) translateX(-100%);
+    opacity: 0;
+    @include when(active) {
+      transform: rotate3d(0, 1, 0, -360deg) translateX(0);
+      opacity: 1;
     }
   }
 }

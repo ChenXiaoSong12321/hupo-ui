@@ -67,6 +67,7 @@ export default {
   },
   computed: {
     cpSize() {
+      console.log(viewport.rpx2px(this.size))
       return viewport.rpx2px(this.size)
     }
   },
@@ -113,7 +114,12 @@ export default {
           foreground: this.foreground, // 前景色
           pdground: this.pdground, // 定位角点颜色
           correctLevel: this.lv, // 容错级别
+          // #ifdef H5
+          image: '', // 二维码图标
+          // #endif
+          // #ifndef H5
           image: this.icon ? `/${image.path}` : '', // 二维码图标
+          // #endif
           imageSize: this.iconSize, // 二维码图标大小
           cbResult: (res) => { // 生成二维码的回调
             this._result(res)
@@ -129,7 +135,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "~@hupo/core-sass-bem";
+@import '~@hupo/core-sass-bem';
 @include b(qrcode) {
   position: relative;
   @include e(canvas) {

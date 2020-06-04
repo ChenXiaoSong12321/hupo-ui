@@ -36,10 +36,10 @@ export default {
       this.$root._broadcast('h-toast', 'toggle', { show: false })
     },
     _failToast(options = {}) {
-      return handleToastBroadcast.call(this, options, { needIcon: true, type: 'warn' })
+      return handleToastBroadcast.call(this, options, { message: '失败提示', needIcon: true, type: 'warn' })
     },
     _successToast(options = {}) {
-      return handleToastBroadcast.call(this, options, { needIcon: true, type: 'success' })
+      return handleToastBroadcast.call(this, options, { message: '成功提示', needIcon: true, type: 'success' })
     }
   }
 }

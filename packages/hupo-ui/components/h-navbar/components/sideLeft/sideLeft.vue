@@ -9,7 +9,7 @@
     >
       <view class="h-navbar-left-button-slot">
         <h-icon
-          name="iconfanhuicopybeifen"
+          name="arrow-left"
           class="h-navbar-left-button-icon"
           :class="[`h-navbar-left-button-icon--${type}`]"
         ></h-icon>
@@ -24,7 +24,7 @@
     >
       <view class="h-navbar-left-button-slot">
         <h-icon
-          name="iconshouyecopybeifen"
+          name="home"
           class="h-navbar-left-button-icon"
           :class="[`h-navbar-left-button-icon--${type}`]"
         ></h-icon>

@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./iconfont.scss";
+@import './iconfont.scss';
 .h-icon {
   @include icon();
 }

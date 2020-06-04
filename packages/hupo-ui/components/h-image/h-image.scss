@@ -31,17 +31,22 @@
   @include e(loaded-image){
     width: 100%;
     height: 100%;
+    vertical-align: top;
   }
 
   @include e(load-fail) {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: $--white;
+    background: $--background-color-BgC2;
     width: 100%;
     height: 100%;
-    font-size: 40rpx;
+    font-size: 28rpx;
     color: $--primary-font-grey-3;
+  }
+
+  @include e(load-fail-icon) {
+    font-size: 40rpx;
   }
 
   @include e(hidden) {

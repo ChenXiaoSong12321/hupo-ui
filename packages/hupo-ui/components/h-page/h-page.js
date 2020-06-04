@@ -1,5 +1,6 @@
 import { viewport, promise } from '@hupo/core'
 import debounce from 'lodash.debounce'
+import style from '@hupo/core-sass-bem'
 export default {
   props: {
     loading: {
@@ -32,15 +33,17 @@ export default {
     }
   },
   computed: {
-    heightStyle() {
-      return `${this.fixed ? 'min-' : ''}height: 100vh;`
+    pageStyle() {
+      return `background: ${style['backgroundColor' + this.background]};`
     }
   },
   watch: {
     title(val) {
+      // #ifndef MP_TOUTIAO
       uni.setNavigationBarTitle({
         title: val
       })
+      // #endif
     },
     type() {
       this.initNavigation()
@@ -55,9 +58,12 @@ export default {
     }
   },
   mounted() {
+    // #ifndef MP_TOUTIAO
     uni.setNavigationBarTitle({
       title: this.title
     })
+    // #endif
+
     this.initNavigation()
     promise.delay(100).then(() => {
       this.loaded = true

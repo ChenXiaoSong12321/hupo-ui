@@ -1,6 +1,43 @@
 <template>
   <block>
-    <!--  #ifdef MP-WEIXIN -->
+    <!-- #ifdef MP-ALIPAY -->
+    <button
+      type="keng"
+      class="h-button"
+      v-if="stateClass"
+      hover-class="h-button--active"
+      :class="stateClass"
+      :open-type="openType"
+      :style="customStyle"
+      @tap="handleTap"
+      @contact="contact"
+      @getuserinfo="getuserinfo"
+      @getphonenumber="getphonenumber"
+      @error="error"
+      @opensetting="opensetting"
+    >
+      <slot></slot>
+    </button>
+    <!-- #endif -->
+    <!-- #ifdef MP-TOUTIAO -->
+    <button
+      type="keng"
+      class="h-button"
+      v-if="stateClass"
+      :class="stateClass"
+      :open-type="openType"
+      :style="customStyle"
+      @tap="handleTap"
+      @contact="contact"
+      @getuserinfo="getuserinfo"
+      @getphonenumber="getphonenumber"
+      @error="error"
+      @opensetting="opensetting"
+    >
+      <slot></slot>
+    </button>
+    <!-- #endif -->
+    <!--  #ifndef (H5 || MP-ALIPAY || MP-TOUTIAO) -->
     <button
       type="keng"
       class="h-button"
@@ -17,6 +54,7 @@
       <slot></slot>
     </button>
     <!--  #endif -->
+
     <!--  #ifdef H5 -->
     <view class="h-button" :class="stateClass" :style="customStyle" @tap="handleTap">
       <slot></slot>
@@ -56,5 +94,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./h-button.scss";
+@import './h-button.scss';
 </style>

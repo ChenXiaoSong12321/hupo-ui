@@ -6,6 +6,7 @@
 <script>
 export default {
   name: 'h-tab-pane',
+  inject: ['hTab'],
   props: {
     label: {
       type: String,
@@ -24,17 +25,17 @@ export default {
   },
   watch: {
     label() {
-      this.$parent.$emit('update', this)
+      this.hTab && this.hTab.update(this)
     },
     name(newName, oldName) {
-      this.$parent.$emit('updateName', newName, oldName)
+      this.hTab && this.hTab.updateName(newName, oldName)
     }
   },
   created() {
-    this.$parent.$emit('add', this)
+    this.hTab && this.hTab.add(this)
   },
   beforeDestroy() {
-    this.$parent.$emit('remove', this)
+    this.hTab && this.hTab.remove(this)
   },
   methods: {
     setCurrentName(currentName) {
@@ -48,7 +49,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "~@hupo/core-sass-bem";
+@import '~@hupo/core-sass-bem';
 @include b(tab-pane) {
   display: none;
   @include when(active) {

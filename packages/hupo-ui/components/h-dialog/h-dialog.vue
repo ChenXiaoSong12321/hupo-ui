@@ -13,6 +13,7 @@
         </view>
       </view>
       <view class="h-dialog-footer">
+        <!-- #ifndef MP-ALIPAY -->
         <h-button
           v-for="(item, index) in buttons"
           :key="index"
@@ -33,6 +34,28 @@
             :class="item.type==='confirm'?'is-confirm':'is-cancel'"
           >{{ item.text }}</view>
         </h-button>
+        <!-- #endif -->
+        <!-- #ifdef MP-ALIPAY -->
+        <view class="h-dialog-footer-button-no-type" v-for="(item, index) in buttons" :key="index">
+          <h-button
+            size="medium"
+            type="none"
+            :class="{'is-cancel':item.type!=='confirm'}"
+            :data-open-type="item.openType"
+            :data-type="item.type"
+            :open-type="item.openType"
+            @onclick="handleButtclick(item)"
+            @getuserinfo="handleUserInfoResponse"
+            @getphonenumber="handlePhoneResponse"
+            @opensetting="handleOpenSettingResponse"
+          >
+            <view
+              class="button-text"
+              :class="item.type==='confirm'?'is-confirm':'is-cancel'"
+            >{{ item.text }}</view>
+          </h-button>
+        </view>
+        <!-- #endif -->
       </view>
     </view>
   </h-popup-base>
@@ -121,7 +144,7 @@ export default {
 
     // 以下为处理微信按钮开放能力的逻辑
     handleUserInfoResponse(event) {
-      const detail = event.detail
+      const detail = event
       const type = filterType(detail, 'getUserInfo')
       this.__handleOpenDataResponse({
         type,
@@ -155,5 +178,5 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "./h-dialog.scss";
+@import './h-dialog.scss';
 </style>

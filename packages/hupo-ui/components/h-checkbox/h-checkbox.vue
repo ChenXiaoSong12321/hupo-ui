@@ -1,12 +1,9 @@
 <template>
   <view class="h-checkbox">
     <view class="h-checkbox-wrap" :class="checkClass" @tap="changeCheck">
-      <block v-if="disabled || innerChecked">
-        <h-icon class="h-checkbox-select" name="iconyigouxuanbeifen"></h-icon>
-      </block>
-      <block v-else>
-        <h-icon class="h-checkbox-select" name="iconbukegouxuanbeifen1"></h-icon>
-      </block>
+      <view class="h-checkbox-select">
+        <h-icon :name=" innerChecked ? 'success' : disabled ? 'radio-disabled' :'radio-l'"></h-icon>
+      </view>
       <text class="h-checkbox-label" v-if="$slots.default || label">
         <slot></slot>
         <block v-if="!$slots.default">{{label}}</block>
@@ -17,7 +14,11 @@
 <script>
 export default {
   name: 'h-checkbox',
-  inject: ['hCheckboxGroup'],
+  inject: {
+    hCheckboxGroup: {
+      default: null
+    }
+  },
   props: {
     label: {
       type: String,
@@ -56,19 +57,19 @@ export default {
     }
   },
   created() {
-    this._dispatch('h-checkbox-group', 'ui.checkbox.add', this)
+    this.hCheckboxGroup && this.hCheckboxGroup.add(this)
   },
   mounted() {
     this.model = this.value
   },
   beforeDestroy() {
-    this._dispatch('h-checkbox-group', 'ui.checkbox.remove', this)
+    this.hCheckboxGroup && this.hCheckboxGroup.remove(this)
   },
   methods: {
     changeCheck() {
       if (this.disabled) return
       this.innerChecked = !this.innerChecked
-      this._dispatch('h-checkbox-group', 'ui.checkbox.change')
+      this.hCheckboxGroup && this.hCheckboxGroup.change()
     }
   }
 }

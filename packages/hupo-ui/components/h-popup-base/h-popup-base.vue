@@ -8,12 +8,11 @@
       bottom: `${caculateBottom}rpx`
     }"
   >
-    <view v-if="overlay" class="h-popup-base-overlay"></view>
     <h-transition v-if="mask" name="fade" :duration="duration" :show="show">
       <view class="h-popup-base-mask" @tap.stop="onclose" @touchmove.stop="empty"></view>
     </h-transition>
     <h-transition
-      :name="position === 'center' ? 'fade' : 'slide-' + position"
+      :name="position === 'center' ? 'fade' : 'fade-' + position"
       :duration="duration"
       :styles="computedStyles"
       :show="show"
@@ -85,6 +84,11 @@ export default {
   mounted() {
     this.caculateTop = this._calcTop(0)
     this.caculateBottom = this._calcBottom(0)
+  },
+  beforeDestroy() {
+    // #ifdef H5
+    this.$el.parentNode.removeChild(this.$el)
+    // #endif
   },
   methods: {
     toggle(val) {
