@@ -5,6 +5,6 @@
   "main": "/components",
   "author": "hupo",
   "dependencies": {
-    "@hupo/core": "2.0.0-uni-app.4"
+    "@hupo/core": "2.0.0-uni-app.9"
   }
 }

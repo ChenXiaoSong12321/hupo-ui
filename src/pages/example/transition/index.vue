@@ -18,22 +18,19 @@
           <h-button size="mediumsmall" @onclick="trigger('fade-left')">fade-left</h-button>
         </view>
         <view class="h-demo-transition-button">
-          <h-button size="mediumsmall" @onclick="trigger('slide-top')">slide-top</h-button>
+          <h-button size="mediumsmall" @onclick="trigger('flip')">flip</h-button>
         </view>
         <view class="h-demo-transition-button">
-          <h-button size="mediumsmall" @onclick="trigger('slide-bottom')">slide-bottom</h-button>
+          <h-button size="mediumsmall" @onclick="trigger('zoom')">zoom</h-button>
         </view>
         <view class="h-demo-transition-button">
-          <h-button size="mediumsmall" @onclick="trigger('slide-right')">slide-right</h-button>
-        </view>
-        <view class="h-demo-transition-button">
-          <h-button size="mediumsmall" @onclick="trigger('slide-left')">slide-left</h-button>
+          <h-button size="mediumsmall" @onclick="trigger('fade-left-flip')">组合动画</h-button>
         </view>
       </demo-row>
     </demo-block>
     <view class="h-demo-transition">
-      <h-transition :show="show" :name="name">
-        <view class="h-demo-transition-item" style="width: 200px; height: 200px;"></view>
+      <h-transition :show="show" :name="name" :duration="1200">
+        <view class="h-demo-transition-item" style="width: 50px; height: 50px;"></view>
       </h-transition>
     </view>
   </demo-page>
@@ -53,7 +50,7 @@ export default {
       this.show = true
       setTimeout(() => {
         this.show = false
-      }, 500)
+      }, 2000)
     }
 
   }

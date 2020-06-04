@@ -56,15 +56,15 @@
     <demo-block title="动画时间" padding>
       <demo-row>
         <view class="h-demo-popup-item">
-          <h-button size="mediumsmall" @onclick="showDuration">默认300ms</h-button>
-          <h-popup-base :show="show.duration" @onclose="hideDuration">
-            <view class="h-demo-popup-content" style="width: 200px; height: 200px;">默认300ms</view>
+          <h-button size="mediumsmall" @onclick="showDuration">慢速动画</h-button>
+          <h-popup-base :show="show.duration" :duration="2000" @onclose="hideDuration">
+            <view class="h-demo-popup-content" style="width: 200px; height: 200px;">慢速动画</view>
           </h-popup-base>
         </view>
         <view class="h-demo-popup-item">
-          <h-button size="mediumsmall" @onclick="showShortDuration">100ms</h-button>
-          <h-popup-base :show="show.shortDuration" :duration="100" @onclose="hideShortDuration">
-            <view class="h-demo-popup-content" style="width: 200px; height: 200px;">100ms</view>
+          <h-button size="mediumsmall" @onclick="showShortDuration">快速动画</h-button>
+          <h-popup-base :show="show.shortDuration" :duration="200" @onclose="hideShortDuration">
+            <view class="h-demo-popup-content" style="width: 200px; height: 200px;">快速动画</view>
           </h-popup-base>
         </view>
       </demo-row>
@@ -168,7 +168,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "~@hupo/core-sass-bem";
+@import '~@hupo/core-sass-bem';
 @include b(demo-popup) {
   @include e(item) {
     margin: 0 20rpx 20rpx 0;
