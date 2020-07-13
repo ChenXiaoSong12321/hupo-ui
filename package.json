@@ -81,7 +81,7 @@
     "node-sass": "^4.13.0",
     "postcss-comment": "^2.0.0",
     "sass-loader": "^8.0.0",
-    "standard-version": "^7.0.1",
+    "standard-version": "^8.0.1",
     "vue-template-compiler": "2.6.10"
   },
   "config": {
